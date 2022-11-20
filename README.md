@@ -1,1 +1,1 @@
-# docs.tez.capital_content
+# content for docs.tez.capital
