@@ -22,23 +22,30 @@ summary:
 		min-width: 40px;
 		width: 20vw
 	}
+	.grid .link {
+		transition: 0.2s
+	}
+
+	.grid .link:hover {
+		transform: scale(1.1)
+	}
 </style>
 
 <div class="grid" align="center" >
   <a href="tezbake/" >
-	<div style="display: inline-block">
+	<div class="link" style="display: inline-block">
 		<img src="/bakebuddy.png" alt="BakeBuddy"/>
 		<div>tezbake</div>
 	</div>
   </a>
   <a href="tezpay/" >
-	<div style="display: inline-block">
+	<div class="link" style="display: inline-block">
 		<img src="/paybuddy.png" alt="PayBuddy"/>
 		<div>tezpay</div>
 	</div>
   </a>
   <a href="tezgov/" >
-	<div style="display: inline-block">
+	<div class="link" style="display: inline-block">
 		<img src="/govbuddy.png" alt="GovBuddy"/>
 		<div >tezgov</div>
 	</div>
