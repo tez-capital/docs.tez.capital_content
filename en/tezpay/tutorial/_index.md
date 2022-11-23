@@ -5,6 +5,7 @@ type: docs
 summary: tezpay tutorial
 ---
 #**TezPay**
+---
 *A payment distribution tool
 developed by YourBakeBuddy for Bakers on the Tezos Blockchain*
 
@@ -416,6 +417,9 @@ At this point you have successfully ran the TezPay application and paid out your
 delegates. Be sure to check the confirmations and any errors that may
 have been broadcasted in the terminal (ie, the example above did not
 send notifications because that was not set up).
+    
+For access to future releases via Linux CLI:
+    `wget -q https://raw.githubusercontent.com/alis-is/tezpay/main/install.sh -O /tmp/install.sh && sh /tmp/install.sh`
 
 ---
     
