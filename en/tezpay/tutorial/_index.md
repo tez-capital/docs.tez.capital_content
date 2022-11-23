@@ -43,7 +43,7 @@ Create a new folder on the desktop or in a location that you want
 to store the necessary files for Tezpay.
 
 
-| ![<Newly created TezPay directory, will contain all files for Tezpay Application>](/tezpay/tutorial/tezpayImage1.png) |
+| ![<Newly created TezPay directory, will contain all files for Tezpay Application.>](/tezpay/tutorial/tezpayImage1.png) |
 |-|
 
 
@@ -63,20 +63,26 @@ file - it is not recommended to use an existing wallet that may house
 important assets (including NFT's or crypto tokens) but to create a new
 wallet that contains only enough Tezos to pay out delegates.***
 
+---
+
 ### Preparation: Step 2 *Download Files*
 
 Download the software from Github using the link:
 <https://github.com/alis-is/tezpay/releases>. In this repository,
 select the correct operating system and system architecture (arm64 or
 amd64). For this example we will be using *arm64*
-\\{\\{:screenshot\_2022-11-17\_at\_2.10.30\_pm.png?600|\\}\\} 
+
+| ![<Download options based on operating system for TezPay application.>](/tezpay/tutorial/tezpayImage2.png) |
+|-|
 
 Note: If you do not know the system architecture you can find out by
 opening a Terminal and executing the command `uname -m`, and this will
 return the system architecture`arm64` or `amd64`. 
 
 The example below displays *arm64*
-\\{\\{:screenshot\_2022-11-17\_at\_2.11.47\_pm.png?200|\\}\\} 
+
+| ![<Command to determine system architecture.>](/tezpay/tutorial/tezpayImage3.png) |
+|-|
 
 If you would rather utilize CLI to download the application you will need
 to change directory (cd) to the TezPay directory created in step 1 in
@@ -84,7 +90,10 @@ the terminal, **then** use command `wget -q
 https://raw.githubusercontent.com/alis-is/tezpay/main/install.sh -O
 /tmp/install.sh && sh /tmp/install.sh` 
 
-See example code below (*note: input begins after last '%' character*): {\\{:screenshot\_2022-11-18\_at\_7.39.13\_pm.png?direct&600|\\}\\}
+See example code below (*note: input begins after last '%' character*): 
+    
+| ![<Command to dl TezPay application using CLI for Linux.>](/tezpay/tutorial/tezpayImage4.png) |
+|-|
 
 **The above example is an alternative to downloading from the GitHub
 repository**
@@ -101,9 +110,10 @@ you can open file in GitHub and copy text to a text editor*.
 2.  Full Config: config.sample.hjson (advanced arguements to run
     Tezpay)
 
-{\\{:screenshot\_2022-11-17\_at\_2.17.21\_pm.png?800|\\}\\}
+| ![<Repository with configuration Files.>](/tezpay/tutorial/tezpayImage5.png) |
+|-|
 
-
+---
 
 ### Preparation: Step 3 - Payout Wallet (optional)
 
@@ -115,34 +125,41 @@ payout wallet, or know how, skip this section.
   - **First**, open **Temple Wallet** and select the icon in upper right
     
 
-\\ \\{\\{:wallet\_0.jpg?direct&200|\\}\\}\\ 
+| ![<Access Temple Wallet menu.>](/tezpay/tutorial/tezpayImage6.jpg) |
+|-|
 
   - **Next**, select 'new account', and input a new (ie Tezpay1)
 
-\\ \\{\\{:wallet\_new.jpg?direct&200|\\}\\}\\ 
+| ![<Name and confirm the new payout wallet.>](/tezpay/tutorial/tezpayImage7.jpg) |
+|-|
 
     **Then**, click the icon in the upper right again
 
-\\ \\{\\{:new\_wallet\_1.jpg?direct&200|\\}\\} 
+| ![<Access Temple Wallet menu, again.>](/tezpay/tutorial/tezpayImage8.png) |
+|-| 
 
     **Then**, go to **Settings**
 
-\\ \\{\\{:wallet\_2.jpg?direct&200|\\}\\}\\ \\
+| ![<Select settings in Temple Wallet menu.>](/tezpay/tutorial/tezpayImage9.jpg) |
+|-|
 
     **Then**, go to **Reveal Private Key**
 
-\\ \\{\\{:wallet\_3.jpg?direct&200|\\}\\}\\ \\
+| ![<Scroll to Reveal Private Key.>](/tezpay/tutorial/tezpayImage10.jpg) |
+|-|
 
     **Then**, you will be prompt to input your password for the account
 
-\\ \\
-\\{\\{:screenshot\_2022-11-17\_at\_4.18.47\_pm.png?direct&200|\\}\\}\\
+| ![<Input password for the account.>](/tezpay/tutorial/tezpayImage11.png) |
+|-|
 
 Your *private key* will be displayed here:
 
-\\{\\{:screenshot\_2022-11-17\_at\_4.20.31\_pm.png?direct&200|\\}\\}\\
+| ![<Copy the private key of the payout wallet.>](/tezpay/tutorial/tezpayImage12.png) |
+|-|
 
-
+---
+---
 
 ## Set Up
 
@@ -154,7 +171,7 @@ we will review:
 2.  Configuration File (advanced)
 3.  Private-Key File
 
-
+---
 
 ### Set Up: Step 1a: Configuration File (simple)
 
@@ -162,7 +179,10 @@ This section will review how to setup the configuration file
 (simple-version) to be used by the TezPay application. 
 
 *Note: must have file name **config.hjson**, case-sensative*
-\\{\\{:screenshot\_2022-11-17\_at\_5.42.43\_pm.png?direct&600|\\}\\}\\
+    
+| ![<Simple Configuration file for TezPay.>](/tezpay/tutorial/tezpayImage13.png) |
+|-|
+    
 *Yellow is areas you will input data/edit fields*  
 *Blue are comments about Configuration File objects*
 
@@ -185,6 +205,8 @@ application. The next section will review the advanced configuration
 file, giving more options and customization to the TezPay application. A
 user may splice sections from the advanced file to the simple to build a
 custom file as well - but should be done by experienced users.
+    
+---    
 
 ### Set Up: Step 1b: Configuration File (advanced)
 
@@ -192,7 +214,9 @@ This section will review how to setup the configuration file
 (advanced-version) to be used by the TezPay application. 
 
 *Note: must have file name **config.hjson**, case-sensative*
-\\{\\{:screenshot\_2022-11-18\_at\_1.36.42\_pm.png?direct&600|\\}\\}
+    
+| ![<Advanced Configuration file for TezPay.>](/tezpay/tutorial/tezpayImage14.png) |
+|-|
 
 *Yellow is areas you will input data/edit fields* 
 *Blue are comments about Configuration File objects*\\ \\
@@ -239,7 +263,7 @@ This section will review how to setup the configuration file
     in a separate section** 
     *see appendix X* and platforms supported are ***Twitter, Discord, and E-mail***\\
 
-
+---
 
 ### Set Up: Step 2: Private-Key File
 
@@ -258,15 +282,20 @@ Wallet.
     *payout\_wallet\_private.key* - note: the .key is required in this
     instance (see below)
 
-\\ \\{\\{:private-key\_file.jpg?direct&200|\\}\\}\\
+| ![<format for naming private key file - must be exactly the same.>](/tezpay/tutorial/tezpayImage15.jpg) |
+|-|
 
+---    
+    
 ### Set Up: Summary
 
 At this point there should be 3 files in the directory *tezpay*.
 These three files will be used to run the application and payouts. The
 next section will show the commands to run the TezPay software.
 
-
+---
+---
+    
 ## Using TezPay
 
 
@@ -292,15 +321,18 @@ commands (*see code and examples below*):
 
     mv tezpay-linux-amd64 tezpay
 
-\\
+
 
     chmod +x tezpay
 
-\\ \\
-\\{\\{:screenshot\_2022-11-19\_at\_2.11.34\_pm.png?direct&600|\\}\\}\\
-\\
-\\{\\{:screenshot\_2022-11-19\_at\_2.12.51\_pm.png?direct&600|\\}\\}\\
-\\ \\ \\ \\
+| ![<Command to move TezPay application in order to run.>](/tezpay/tutorial/tezpayImage16.png) |
+|-|
+
+    
+| ![<Command to change permissions for TezPay application in order to run.>](/tezpay/tutorial/tezpayImage17.png) |
+|-|
+    
+---    
 
 #### Using TezPay: Step 1 - Generating a payout Table
 
@@ -316,7 +348,8 @@ The command to generate a payout table is as follows (always remember to be in t
 
 This will generate a payout table, as exampled below: 
 
-\\{\\{:screenshot\_2022-11-19\_at\_1.59.10\_pm.png?direct&600|\\}\\}\\
+| ![<Description of output for ./tezpay generate-payout command.>](/tezpay/tutorial/tezpayImage18.png) |
+|-|
 
 ***Note: the Delegator & Recipient columns have been hidden***
 
@@ -369,8 +402,8 @@ table, similar to the table(s) from step 1.
 
 Once the table is displayed, the prompt will ask you to confirm the payout, and you need to confirm *y* or *n* (see below):
 
-\\{\\{:screenshot\_2022-11-19\_at\_2.35.00\_pm.png?direct&600|\\}\\}\\
-\\
+| ![<Output and subseqant request for confirmation while running TezPay.>](/tezpay/tutorial/tezpayImage19.png) |
+|-|
 
 1.  You will be asked to confirm, type '***y***' for yes or '***n***'
     for no
@@ -385,6 +418,8 @@ delegates. Be sure to check the confirmations and any errors that may
 have been broadcasted in the terminal (ie, the example above did not
 send notifications because that was not set up).
 
+---
+    
 ## Summary: TezPay
 
 TezPay is an application that allows for easy payouts for public
@@ -392,6 +427,9 @@ bakers on the Tezos Blockchain. This allows for significant
 customizations and flexibility with respect to the payout system and
 empowers bakers to further take control of their Bakery and aid in
 decentralizing the Tezos Blockchain. 
+
+---
+---
 
 Any questions/comments/concerns please contact the YourBakeBuddy team on
 [Discord](https://discord.gg/vykxNSnvQY),
