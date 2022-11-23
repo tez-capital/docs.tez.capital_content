@@ -58,8 +58,8 @@ TezPay, the *Configuration File* will essentially tell the application
 file how to run and will be edited by the baker (we will cover this
 later), and the *Private-Key File* will contain the private key for a
 wallet you have designated to pay your delegators (we will explain an
-easy way to get this later as well).***A note on the Private-key
-file - it is not recommended to use an existing wallet that may house
+easy way to get this later as well). 
+***A note on the Private-key file - it is not recommended to use an existing wallet that may house
 important assets (including NFT's or crypto tokens) but to create a new
 wallet that contains only enough Tezos to pay out delegates.***
 
@@ -133,22 +133,22 @@ payout wallet, or know how, skip this section.
 | ![<Name and confirm the new payout wallet.>](/tezpay/tutorial/tezpayImage7.jpg) |
 |-|
 
-    **Then**, click the icon in the upper right again
+  - **Then**, click the icon in the upper right again
 
 | ![<Access Temple Wallet menu, again.>](/tezpay/tutorial/tezpayImage8.png) |
 |-| 
 
-    **Then**, go to **Settings**
+  - **Then**, go to **Settings**
 
 | ![<Select settings in Temple Wallet menu.>](/tezpay/tutorial/tezpayImage9.jpg) |
 |-|
 
-    **Then**, go to **Reveal Private Key**
+  - **Then**, go to **Reveal Private Key**
 
 | ![<Scroll to Reveal Private Key.>](/tezpay/tutorial/tezpayImage10.jpg) |
 |-|
 
-    **Then**, you will be prompt to input your password for the account
+  - **Then**, you will be prompt to input your password for the account
 
 | ![<Input password for the account.>](/tezpay/tutorial/tezpayImage11.png) |
 |-|
@@ -219,9 +219,9 @@ This section will review how to setup the configuration file
 |-|
 
 *Yellow is areas you will input data/edit fields* 
-*Blue are comments about Configuration File objects*\\ \\
+*Blue are comments about Configuration File objects*
 
-1.  Paste your\\'a0**Baker**\\'a0wallet in between the quotes
+1.  Paste your **Baker** wallet in between the quotes
 2.  Set your Baker fee (ie 5% = 0.05)
 3.  Input minimum payout for delegators (ie. 1 = 1 XTZ)
 4.  Input minimum staking balance for delegators
@@ -237,7 +237,7 @@ This section will review how to setup the configuration file
         above
     4.  Input minimum balance override for specified wallet\\
     5.  If you wish to add multiple wallets for over rides, add another
-        wallet following same format keeping the \\{\\} to contain the
+        wallet following same format keeping the `{ }` to contain the
         wallet attribute as shown.
 7.  This section allows you to split payments for baking (Bonds), input
     wallet address and percentage to allocate (see example above for
@@ -261,7 +261,7 @@ This section will review how to setup the configuration file
     to specific platforms in order to broadcast messages (ie *'Bakery
     has paid 100XTZ in rewards for latest cycle'* **We will cover this
     in a separate section** 
-    *see appendix X* and platforms supported are ***Twitter, Discord, and E-mail***\\
+    *see appendix X* and platforms supported are ***Twitter, Discord, and E-mail***
 
 ---
 
@@ -319,15 +319,14 @@ allow you to call the application via commands and set permissions
 While in the TezPay directory in the terminal, run the following
 commands (*see code and examples below*):
 
-    mv tezpay-linux-amd64 tezpay
+    `mv tezpay-linux-amd64 tezpay`
 
-
-
-    chmod +x tezpay
+   
 
 | ![<Command to move TezPay application in order to run.>](/tezpay/tutorial/tezpayImage16.png) |
 |-|
 
+     `chmod +x tezpay`
     
 | ![<Command to change permissions for TezPay application in order to run.>](/tezpay/tutorial/tezpayImage17.png) |
 |-|
@@ -344,7 +343,7 @@ delegator from their stake, and other data (see below).
 The command to generate a payout table is as follows (always remember to be in the
 *tezpay* directory: 
 
-    ./tezpay generate-payouts
+    `./tezpay generate-payouts`
 
 This will generate a payout table, as exampled below: 
 
@@ -383,7 +382,7 @@ successful.
 while in the *tezpay* directory, use the command: 
 
 
-    ./tezpay test-notify
+   ` ./tezpay test-notify`
 
 
 
@@ -440,6 +439,6 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
 
 
 
-1.  Notification setup in Configuration File (*coming soon*)}
+1.  Notification setup in Configuration File (*coming soon*)
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
