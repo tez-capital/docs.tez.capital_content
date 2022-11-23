@@ -38,7 +38,8 @@ a baker see *YourBakeBuddy - Setting up a public Baker*.
 Create a new folder on the desktop or in a location that you want
 to store the necessary files for Tezpay.
 
-![<Newly created TezPay directory, will contain all files for Tezpay Application>](/tezpay/tutorial/tezpayImage1.png)
+| ![<Newly created TezPay directory, will contain all files for Tezpay Application>](/tezpay/tutorial/tezpayImage1.png) |
+|-| 
 
 This folder will eventually contain 3 files: \\
 
