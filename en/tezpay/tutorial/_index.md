@@ -17,8 +17,8 @@ if you do not have experience in CLI this tutorial will include screen
 captures as well as examples and explanations of the steps. This
 tutorial is meant to cover all skill levels from novice to expert. 
 
-|-
-|-
+|
+
 
 ## Preparation
 
@@ -42,8 +42,9 @@ a baker see *YourBakeBuddy - Setting up a public Baker*.
 Create a new folder on the desktop or in a location that you want
 to store the necessary files for Tezpay.
 
+|-|
 | ![<Newly created TezPay directory, will contain all files for Tezpay Application>](/tezpay/tutorial/tezpayImage1.png) |
-- 
+|-|
 
 This folder will eventually contain 3 files: \\
 
