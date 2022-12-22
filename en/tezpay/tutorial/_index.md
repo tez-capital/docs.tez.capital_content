@@ -30,11 +30,11 @@ a baker see *YourBakeBuddy - Setting up a public Baker*.
 **Preparation Summary**
 
 1.  Create a directory (folder) on your desktop (or appropriate
-    location) to store the application files and required config files\
+    location) to store the application files and required config files
 2.  Download the Tezpay software, sample configuration, and payout
-    wallet files from github\
+    wallet files from github
 3.  Create a 'pay-out' wallet and store the private key (not baker or
-    hot wallet)\
+    hot wallet)
 
 ---
 
@@ -48,7 +48,7 @@ to store the necessary files for Tezpay.
 |-|
 
 
-This folder will eventually contain 3 files: \
+This folder will eventually contain 3 files:
 
 1.  TezPay Application File
 2.  Configuration File
