@@ -4,7 +4,7 @@ weight: 1
 type: docs
 summary: tezpay tutorial
 ---
-#**TezPay**
+**TezPay**
 ---
 *A payment distribution tool
 developed by YourBakeBuddy for Bakers on the Tezos Blockchain*
