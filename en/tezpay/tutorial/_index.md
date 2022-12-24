@@ -488,12 +488,12 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     
     7. You will now be in your Twitter Development Dashboard and see the App you created (for this example TezPayNotifs). Click the 'gear' icon to continue set-up. 
     
-    | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage6.png) |
+    | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.>](/tezpay/tutorial/twitterNotificationimage6.png) |
 |-|
     
     8. Navigate to 'User Authentication Settings' section and click 'Set-up' to continue.
                
-        | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage7.png) |
+        | ![<Navigate to User authentication setting and click 'Set up'>](/tezpay/tutorial/twitterNotificationimage7.png) |
 |-|
     
     9. We will fill out the required items for the form under User Authentication settings as follows:
@@ -504,19 +504,19 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
             b. Website URL: this can be anything but for this example we will use 'https://www.TezPayisthebest.com/'
         iv. Click 'save' when finished. 
     
-    | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage8.png) |
+    | ![<Select the outlined toggles under App Permissions & Type of App, then fill in a website for App Info>](/tezpay/tutorial/twitterNotificationimage8.png) |
 |-|
                
     10. You will then get your Client ID and Client Secret - copy and save both of these with your other Keys attained earlier. Click 'Done'
             
-               | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage9.png) |
+               | ![<Copy the Cliend ID and Client Secret>](/tezpay/tutorial/twitterNotificationimage9.png) |
 |-|   
       
     11. This will bring you back to the main screen of the App - navigate to the 'Keys and Tokens' toggle at the top of the page. Now, 'Generate' an Access Token and secret - write these down and then once you have confirmed you will be ready to edit the config.json in TezPay. Note - be sure the Access Token and Secret has 'read and write' permission (see image below). For the Next step - setting up the config.json - you will need four items:
         a. API Key and Secret (also known as Consumer Key/Secret)
         b. Access Token and Secret
     
-    | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage10.png) |
+    | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
 |-|   
                
  #####TezPay Config Setup#####
@@ -534,7 +534,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     }
     ]</code>
     
-                   | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.](/tezpay/tutorial/twitterNotificationimage11.png) |
+                   | ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png) |
 |-|   
                               
      2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command: 
