@@ -523,7 +523,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
                
      1. You will add the following code block at the base of the config.json file to enable the notifications for TezPay. Note that the message_template can be anything and you can use the <Cyle>, <Delegators>, <DistributedRewards> terms to automatically fill in these terms for each cycle. 
-               <code> notifications: [
+               ` notifications: [
     {
       access_token: Your_Acces_Token
       access_token_secret: Your_Access_Token_Secret
@@ -532,7 +532,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
       message_template: Rewards for <Cycle> have been paid to <Delegators> delegates in amount of <DistributedRewards> using #TezPay.👀 XTZ baked with bakebuddy.xyz! We donate to wallet tz1R2GnBudU97Lra8Q3VDG7cUooNvUQ9ghCs to fund future development in Tezos. #cerberusbakery #tezos.
       type: twitter
     }
-    ]</code>
+    ]`
     
                    | ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png) |
 |-|   
