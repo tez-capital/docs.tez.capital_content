@@ -447,13 +447,15 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     ###Summary###
     Notifications can be automatically sent out when payouts are generated using TezPay. The text are configured in the config.json file, however there are preliminary steps needed inorder to be able to utilize these features. This section will review the necessary steps and information needed from platforms that allow for auto-notifications sent via TezPay. **This tutorial is meant for individuals that have zero experience with interacting with these systems - feel free to skip sections if you are an advanced user.**
     
-    ####Twitter####
+    ####Twitter
+    
     A Baker can use TezPay to automatically send notifications that payments have been made. This allows for ease of communications for the public baker to the delegates and we will walk through steps to allow for this here. There will be two sections:
     
     1. Twitter Setup
     2. TezPay config.json file setup
     
-    #####Twitter Setup#####
+    #####Twitter Setup
+    
     In order to setup twitter, be sure you are signed in on a browser window to your twitter account. 
     
     1. While being signed into Twitter in a seperate browser, navigate to https://developer.twitter.com/ and select 'Developer Portal' in the top menu- the developer portal site where you will set up your development account and get the required information for the config.json file and set up permissions.
@@ -519,7 +521,8 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
 |-|   
                
- #####TezPay Config Setup#####
+ #####TezPay Config Setup
+    
     We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
                
      1. You will add the following code block at the base of the config.json file to enable the notifications for TezPay. Note that the message_template can be anything and you can use the <Cyle>, <Delegators>, <DistributedRewards> terms to automatically fill in these terms for each cycle. 
