@@ -443,18 +443,18 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
 
 
 
-1.  Notification setup in Configuration File (*coming soon*)
+1.  Notification setup in Configuration File
     ###Summary###
     Notifications can be automatically sent out when payouts are generated using TezPay. The text are configured in the config.json file, however there are preliminary steps needed inorder to be able to utilize these features. This section will review the necessary steps and information needed from platforms that allow for auto-notifications sent via TezPay. **This tutorial is meant for individuals that have zero experience with interacting with these systems - feel free to skip sections if you are an advanced user.**
     
-    ####Twitter
+    ## Twitter
     
     A Baker can use TezPay to automatically send notifications that payments have been made. This allows for ease of communications for the public baker to the delegates and we will walk through steps to allow for this here. There will be two sections:
     
     1. Twitter Setup
     2. TezPay config.json file setup
     
-    #####Twitter Setup
+    ## Twitter Setup
     
     In order to setup twitter, be sure you are signed in on a browser window to your twitter account. 
     
@@ -521,7 +521,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
 |-|   
                
- #####TezPay Config Setup
+ ## TezPay Config Setup
     
     We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
                
