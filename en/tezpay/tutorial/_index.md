@@ -509,12 +509,12 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     | ![<Select the outlined toggles under App Permissions & Type of App, then fill in a website for App Info>](/tezpay/tutorial/twitterNotificationimage8.png) |
 |-|
                
-   10. You will then get your Client ID and Client Secret - copy and save both of these with your other Keys attained earlier. Click 'Done'
+    10. You will then get your Client ID and Client Secret - copy and save both of these with your other Keys attained earlier. Click 'Done'
             
                | ![<Copy the Cliend ID and Client Secret>](/tezpay/tutorial/twitterNotificationimage9.png) |
 |-|   
       
-   11. This will bring you back to the main screen of the App - navigate to the 'Keys and Tokens' toggle at the top of the page. Now, 'Generate' an Access Token and secret - write these down and then once you have confirmed you will be ready to edit the config.json in TezPay. Note - be sure the Access Token and Secret has 'read and write' permission (see image below). For the Next step - setting up the config.json - you will need four items:<br>
+    11. This will bring you back to the main screen of the App - navigate to the 'Keys and Tokens' toggle at the top of the page. Now, 'Generate' an Access Token and secret - write these down and then once you have confirmed you will be ready to edit the config.json in TezPay. Note - be sure the Access Token and Secret has 'read and write' permission (see image below). For the Next step - setting up the config.json - you will need four items:<br>
         a. API Key and Secret (also known as Consumer Key/Secret)<br>
         b. Access Token and Secret
     
