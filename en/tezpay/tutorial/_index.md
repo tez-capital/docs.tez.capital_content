@@ -444,10 +444,14 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
 
 
 ## Notification setup in Configuration File
+|-|    
 <br>
+    
 ## Summary
     
     Notifications can be automatically sent out when payouts are generated using TezPay. The text are configured in the config.json file, however there are preliminary steps needed inorder to be able to utilize these features. This section will review the necessary steps and information needed from platforms that allow for auto-notifications sent via TezPay. **This tutorial is meant for individuals that have zero experience with interacting with these systems - feel free to skip sections if you are an advanced user.**
+    
+|-|
     
 ## Twitter
     
