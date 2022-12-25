@@ -498,13 +498,13 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
         | ![<Navigate to User authentication setting and click 'Set up'>](/tezpay/tutorial/twitterNotificationimage7.png) |
 |-|
     
-    9. We will fill out the required items for the form under User Authentication settings as follows:
-        i. App Permissions: Select 'Read and write'
-        ii. Type of App: Select 'Web App, Automated App or Bot'
-        iii. App Info: 
-            a. Callback URI/Redirect URL: this can be anything but for this example we will use 'https://www.TezPayisthebest.com/'
-            b. Website URL: this can be anything but for this example we will use 'https://www.TezPayisthebest.com/'
-        iv. Click 'save' when finished. 
+    9. We will fill out the required items for the form under User Authentication settings as follows: <br>
+        i. App Permissions: Select 'Read and write' <br>
+        ii. Type of App: Select 'Web App, Automated App or Bot'<br>
+        iii. App Info: <br>
+            a. Callback URI/Redirect URL: this can be anything but for this example we will use 'https://www.TezPayisthebest.com/'<br>
+            b. Website URL: this can be anything but for this example we will use 'https://www.TezPayisthebest.com/'<br>
+        iv. Click 'save' when finished. <br>
     
     | ![<Select the outlined toggles under App Permissions & Type of App, then fill in a website for App Info>](/tezpay/tutorial/twitterNotificationimage8.png) |
 |-|
