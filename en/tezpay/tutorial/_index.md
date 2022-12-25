@@ -461,42 +461,42 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     
  1. While being signed into Twitter in a seperate browser, navigate to https://developer.twitter.com/ and select 'Developer Portal' in the top menu- the developer portal site where you will set up your development account and get the required information for the config.json file and set up permissions.
     
-    | ![<Navigate to the Twitter Development Portal website>](/tezpay/tutorial/twitterNotificationimage0.png) |
+| ![<Navigate to the Twitter Development Portal website>](/tezpay/tutorial/twitterNotificationimage0.png) |
 |-|
     
  2. You will then need to fill in some basic information in order to enable the Development Portal profile to be active. be sure that all of the information is correct (if you use multiple twitter accounts be sure the one you want to enable for notifications is the correct one). 
     
-    | ![<Fill in Basic information to set up a Developer Account for Twitter>](/tezpay/tutorial/twitterNotificationimage1.png) |
+| ![<Fill in Basic information to set up a Developer Account for Twitter>](/tezpay/tutorial/twitterNotificationimage1.png) |
 |-|
     
  3. Once you submit the information for your development profile - you will need to accept the Terms and Conditions.
     
-    | ![<Accept Terms and Conditions to Proceed>](/tezpay/tutorial/twitterNotificationimage2.png) |
+| ![<Accept Terms and Conditions to Proceed>](/tezpay/tutorial/twitterNotificationimage2.png) |
 |-|
     
  4. After accepting Terms and Conditions - you will need to verify your e-mail address that you provided by clicking the link in the e-mail sent from Twitter. 
     
-    | ![<Verify the e-mail used for your twitter account - you may need to set this up in Twitter before hand if not done>](/tezpay/tutorial/twitterNotificationimage3.png) |
+| ![<Verify the e-mail used for your twitter account - you may need to set this up in Twitter before hand if not done>](/tezpay/tutorial/twitterNotificationimage3.png) |
 |-|
     
  5. Once you verify your email - this will automatically link you back to your Developer Portal Site and prompt you for an 'App Name' (see TezPay Notif in screen capture). 
     
-    | ![<Name your APP on Twitter Development Portal website>](/tezpay/tutorial/twitterNotificationimage4.png) |
+| ![<Name your APP on Twitter Development Portal website>](/tezpay/tutorial/twitterNotificationimage4.png) |
 |-|
     
  6. Once you name your App - you will be given 3 seperate Keys. These will be used to inorder to call the Twitter profile that you are looking to send Notifcations to - and sign for the permissions. Be sure to have these saved in a secure place - they will be used later. Once you have the keys secured, click 'Dashboard' button in lower right. 
     
-     | ![<Save the Keys for your Twitter Development Profile and App>](/tezpay/tutorial/twitterNotificationimage5.png) |
+| ![<Save the Keys for your Twitter Development Profile and App>](/tezpay/tutorial/twitterNotificationimage5.png) |
 |-|
     
  7. You will now be in your Twitter Development Dashboard and see the App you created (for this example TezPayNotifs). Click the 'gear' icon to continue set-up. 
     
-    | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.>](/tezpay/tutorial/twitterNotificationimage6.png) |
+| ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.>](/tezpay/tutorial/twitterNotificationimage6.png) |
 |-|
     
  8. Navigate to 'User Authentication Settings' section and click 'Set-up' to continue.
                
-        | ![<Navigate to User authentication setting and click 'Set up'>](/tezpay/tutorial/twitterNotificationimage7.png) |
+| ![<Navigate to User authentication setting and click 'Set up'>](/tezpay/tutorial/twitterNotificationimage7.png) |
 |-|
     
  9. We will fill out the required items for the form under User Authentication settings as follows: <br>
@@ -508,19 +508,19 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
         iv. Click 'save' when finished. <br>
     
     | ![<Select the outlined toggles under App Permissions & Type of App, then fill in a website for App Info>](/tezpay/tutorial/twitterNotificationimage8.png) |
-|-|
+ |-|
                
   10. You will then get your Client ID and Client Secret - copy and save both of these with your other Keys attained earlier. Click 'Done'
             
-               | ![<Copy the Cliend ID and Client Secret>](/tezpay/tutorial/twitterNotificationimage9.png) |
-|-|   
+ | ![<Copy the Cliend ID and Client Secret>](/tezpay/tutorial/twitterNotificationimage9.png) |
+ |-|   
       
   11. This will bring you back to the main screen of the App - navigate to the 'Keys and Tokens' toggle at the top of the page. Now, 'Generate' an Access Token and secret - write these down and then once you have confirmed you will be ready to edit the config.json in TezPay. Note - be sure the Access Token and Secret has 'read and write' permission (see image below). For the Next step - setting up the config.json - you will need four items:<br>
         a. API Key and Secret (also known as Consumer Key/Secret)<br>
         b. Access Token and Secret
     
-    | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
-|-|   
+ | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
+ |-|   
                
  ## TezPay Config Setup
     
@@ -538,7 +538,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     }
     ]`
     
-                   | ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png) |
+| ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png) |
 |-|   
                               
      2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command: 
