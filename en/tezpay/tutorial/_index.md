@@ -522,11 +522,11 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
  | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
  |-|   
                
- ## TezPay Config Setup
+## TezPay config.json Setup for Twitter Notifications
     
-    We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
+We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
                
-     1. You will add the following code block at the base of the config.json file to enable the notifications for TezPay. Note that the message_template can be anything and you can use the <Cyle>, <Delegators>, <DistributedRewards> terms to automatically fill in these terms for each cycle. 
+1. You will add the following code block at the base of the config.json file to enable the notifications for TezPay. Note that the message_template can be anything and you can use the <Cyle>, <Delegators>, <DistributedRewards> terms to automatically fill in these terms for each cycle. 
                ` notifications: [
     {
       access_token: Your_Acces_Token
@@ -541,7 +541,7 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
 | ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png) |
 |-|   
                               
-     2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command: 
-                              a. <code> tezpay test-notify</code>
+2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command: 
+                              a. `tezpay test-notify`
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
