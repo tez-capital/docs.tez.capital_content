@@ -493,12 +493,12 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     | ![<Click the gear icon on the app you created for twitter notifications for TezPay and continue to setup your app.>](/tezpay/tutorial/twitterNotificationimage6.png) |
 |-|
     
-  8. Navigate to 'User Authentication Settings' section and click 'Set-up' to continue.
+ 8. Navigate to 'User Authentication Settings' section and click 'Set-up' to continue.
                
         | ![<Navigate to User authentication setting and click 'Set up'>](/tezpay/tutorial/twitterNotificationimage7.png) |
 |-|
     
-  9. We will fill out the required items for the form under User Authentication settings as follows: <br>
+ 9. We will fill out the required items for the form under User Authentication settings as follows: <br>
         i. App Permissions: Select 'Read and write' <br>
         ii. Type of App: Select 'Web App, Automated App or Bot'<br>
         iii. App Info: <br>
