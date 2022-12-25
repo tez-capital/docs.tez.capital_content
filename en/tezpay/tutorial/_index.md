@@ -526,7 +526,8 @@ Any questions/comments/concerns please contact the YourBakeBuddy team on
     
  | ![<Generate your Acces Token and Access Token Secret - and then verify the information.>](/tezpay/tutorial/twitterNotificationimage10.png) |
  |-|   
-               
+
+---
 ## TezPay config.json Setup for Twitter Notifications
     
 We will use the API Key and Secret as well as the Access Token and Secret to edit the Config file to allow for permissions and calls to push notifcations upon each successful payout.
@@ -548,5 +549,6 @@ We will use the API Key and Secret as well as the Access Token and Secret to edi
                               
 2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command: <br>
       a. `tezpay test-notify`
+---
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
