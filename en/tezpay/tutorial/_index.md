@@ -320,14 +320,14 @@ allow you to call the application via commands and set permissions
 While in the TezPay directory in the terminal, run the following
 commands (*see code and examples below*):
 
-    `mv tezpay-linux-amd64 tezpay`
+   `mv tezpay-linux-amd64 tezpay`
 
    
 
 | ![<Command to move TezPay application in order to run.>](/tezpay/tutorial/tezpayImage16.png) |
 |-|
 
-     `chmod +x tezpay`
+   `chmod +x tezpay`
     
 | ![<Command to change permissions for TezPay application in order to run.>](/tezpay/tutorial/tezpayImage17.png) |
 |-|
@@ -344,7 +344,7 @@ delegator from their stake, and other data (see below).
 The command to generate a payout table is as follows (always remember to be in the
 *tezpay* directory: 
 
-    `./tezpay generate-payouts`
+   `./tezpay generate-payouts`
 
 This will generate a payout table, as exampled below: 
 
@@ -383,7 +383,7 @@ successful.
 while in the *tezpay* directory, use the command: 
 
 
-   ` ./tezpay test-notify`
+   `./tezpay test-notify`
 
 
 
