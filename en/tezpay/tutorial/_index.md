@@ -299,9 +299,7 @@ next section will show the commands to run the TezPay software.
     
 ## Using TezPay
 
-
-
-#### Summary of Using Tezpay
+### Summary of Using Tezpay
 
 Using the TezPay application is through CLI for now and will be
 carried out through a few commands. 
@@ -313,6 +311,8 @@ This section will review:
     **Twitter**/**Discord**/**E-mail** notifications from the advanced
     configuration file*)
 3.  Generating an actual payout
+4.  Running a continuous payout
+5.  Keeping TezPay up-to-date
 
 Before using a command in TezPay, you will need to run
 ***two additional commands</span>*** that will
@@ -334,7 +334,7 @@ commands (*see code and examples below*):
     
 ---    
 
-#### Using TezPay: Step 1 - Generating a payout Table
+### Using TezPay: Step 1 - Generating a payout Table
 
 Generating a payout table is a took that is useful for Public
 Bakers because it allows the baker to see the incoming rewards from
@@ -373,7 +373,7 @@ This will generate a payout table, as exampled below:
 
 
 
-#### Using TezPay: Step 2 - Testing Notifications
+### Using TezPay: Step 2 - Testing Notifications
 
 This step will be used to test the notification system for your
 TezPay application. This step will NOT need to be completed every
@@ -387,7 +387,7 @@ while in the *tezpay* directory, use the command:
 
 
 
-#### Using TezPay: Step 3 - Initiating a Payout
+### Using TezPay: Step 3 - Initiating a Payout
 
 To use the TezPay application to send a payment will require 1
 line of code and one additional confirmation while it runs.  
@@ -418,8 +418,23 @@ delegates. Be sure to check the confirmations and any errors that may
 have been broadcasted in the terminal (ie, the example above did not
 send notifications because that was not set up).
     
-For access to future releases via Linux CLI:
-    `wget -q https://raw.githubusercontent.com/alis-is/tezpay/main/install.sh -O /tmp/install.sh && sh /tmp/install.sh`
+### Using TezPay: Step 4 - Running a Continuous Payout
+
+To use the TezPay application to send a payment will require 1
+line of code and one additional confirmation while it runs.  
+
+To run TezPay in continuous mode, run the command: 
+
+   `./tezpay continuous`
+   | ![<Run TezPay in continuous mode>](/tezpay/tutorial/tezpayImage20Continual.png) |
+   |-|
+ 
+    
+### Using TezPay: Step 5 - Keeping TezPay Up-to-Date
+    
+For access to future releases via Linux CLI, run the following command from within the folder where tezpay is located:
+    
+   `wget -q https://raw.githubusercontent.com/alis-is/tezpay/main/install.sh -O /tmp/install.sh && sh /tmp/install.sh`
 
 ---
     
@@ -431,7 +446,6 @@ customizations and flexibility with respect to the payout system and
 empowers bakers to further take control of their Bakery and aid in
 decentralizing the Tezos Blockchain. 
 
----
 ---
 
 Any questions/comments/concerns please contact the YourBakeBuddy team on
