@@ -311,7 +311,7 @@ This section will review:
     **Twitter**/**Discord**/**E-mail** notifications from the advanced
     configuration file*)
 3.  Generating an actual payout
-4.  Running a continuous payout
+4.  Running a continual payout
 5.  Keeping TezPay up-to-date
 
 Before using a command in TezPay, you will need to run
@@ -321,8 +321,6 @@ While in the TezPay directory in the terminal, run the following
 commands (*see code and examples below*):
 
    `mv tezpay-linux-amd64 tezpay`
-
-   
 
 | ![<Command to move TezPay application in order to run.>](/tezpay/tutorial/tezpayImage16.png) |
 |-|
@@ -418,16 +416,20 @@ delegates. Be sure to check the confirmations and any errors that may
 have been broadcasted in the terminal (ie, the example above did not
 send notifications because that was not set up).
     
-### Using TezPay: Step 4 - Running a Continuous Payout
+### Using TezPay: Step 4 - Running a Continual Payout
 
 To use the TezPay application to send a payment will require 1
 line of code and one additional confirmation while it runs.  
 
-To run TezPay in continuous mode, run the command: 
+To run TezPay in continual mode, run the command: 
 
-   `./tezpay continuous`
+   `./tezpay continual`
    | ![<Run TezPay in continuous mode>](/tezpay/tutorial/tezpayImage20Continual.png) |
    |-|
+    
+Running in continual mode will start its first payment a little bit after the current cycle (one during which you launched it) finishes and the next one begins (usually around 30-60 minutes after the beginning of the new cycle).
+    
+If you would like to start in continual mode but still need to pay your delegators for last cycle, run the command from Step 3. first and then launch TezPay in continual mode.
  
     
 ### Using TezPay: Step 5 - Keeping TezPay Up-to-Date
