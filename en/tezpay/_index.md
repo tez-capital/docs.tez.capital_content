@@ -1,7 +1,7 @@
 ---
-title: "tezpay"
+title: "TezPay"
 weight: 1
 type: docs
-summary: tezpay documentation
+summary: TezPay Documentation
 ---
 
