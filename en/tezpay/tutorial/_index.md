@@ -6,19 +6,15 @@ summary: tezpay tutorial
 ---
 **TezPay**
 ---
-*A payment distribution tool
-developed by YourBakeBuddy for Bakers on the Tezos Blockchain*
+*A payment distribution tool that's easy to setup and automate*
 
-TezPay is a tool developed by the development team behind YourBakeBuddy,
-a simplified workflow to set up and execute a Baker (Validator) on the
-Tezos blockchain. The goal of this document is to instruct a baker on
+The goal of this document is to instruct a baker on
 how to set up TezPay and how to pay-out the bakers delegates. The
 workflow will accomplish these tasks from Command-line-interface(CLI) -
 if you do not have experience in CLI this tutorial will include screen
 captures as well as examples and explanations of the steps. This
 tutorial is meant to cover all skill levels from novice to expert. 
 
----
 ---
 
 ## Preparation
