@@ -48,7 +48,7 @@ If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
 ### Setup Tezos node, signer and install bb-cli dependencies
 
    ```
-   bb-cli setup -a
+   bb-cli setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
    # you may be prompted for sudo password
    ```
 
