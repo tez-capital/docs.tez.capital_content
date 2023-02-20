@@ -1,9 +1,17 @@
 ---
-title: "> How to Bake"
+title: "How to Bake on Ghostnet"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial
+summary: Using TezBake to bake on the Ghostnet Tezos perpetual testnet
 ---
+
+## Ghostnet
+
+Ghostnet is Tezos' perpetual testnet. In the context of TezBake, Ghostnet is
+intended to provide a no-consequences testing environment where you can 
+learn how to properly bake and pay using TezBake and TezPay. It's highly
+recommended for all serious bakers to have a Ghostnet setup running, to
+help test protocol migrations.
 
 ## Preparation
 
