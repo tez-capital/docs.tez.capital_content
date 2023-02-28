@@ -35,19 +35,19 @@ summary:
   <a href="tezbake/" >
 	<div class="link" style="display: inline-block">
 		<img src="/bakebuddy.png" alt="BakeBuddy"/>
-		<div><h2><b>TezBake</b></h2></div>
+		<div><h3><b>TezBake</b></h3></div>
 	</div>
   </a>
   <a href="tezpay/" >
 	<div class="link" style="display: inline-block">
 		<img src="/paybuddy.png" alt="PayBuddy"/>
-		<div><h2><b>TezPay</b></h2></div>
+		<div><h3><b>TezPay</b></h3></div>
 	</div>
   </a>
   <a href="tezgov/" >
 	<div class="link" style="display: inline-block">
 		<img src="/govbuddy.png" alt="GovBuddy"/>
-		<div><h2><b>TezGov</b></h2></div>
+		<div><h3><b>TezGov</b></h3></div>
 	</div>
   </a>
 </div>
