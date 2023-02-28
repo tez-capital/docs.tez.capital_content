@@ -2,7 +2,7 @@
 title: "Tutorials"
 weight: 1
 type: docs
-summary: TezBake Tutorial
+summary: TezBake Tutorials
 ---
 **TezBake**
 ---
