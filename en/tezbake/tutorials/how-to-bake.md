@@ -105,3 +105,8 @@ For this step your node level must be synced with the latest block on the blockc
    ```
 
    Registering is not necessary if this is already an active baker ledger which is being setup on some kind of failover machine or in a situation where it has not been over 2 weeks of actively baking.
+
+---
+
+Any questions/comments/concerns please contact the Tez.Capital team on
+[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
