@@ -27,7 +27,17 @@ TezGov allows you to participate in Tezos proposal voting with your Ledger hardw
 ---
 
 ## TezGov Web Portal
-...
+Log into the TezGov portal by using the most secure method available to you. We highly recommend using the direct Ledger login at the top. This method allows you to see the specific details of your vote on your Ledger screen. Use the Remote (signer) method if you have a signer somewhere on your LAN or local computer. This is an option for advanced users. Use the Beacon method if you are using a Beacon enabled wallet like Temple or Kukai. In this case you will not see the exact details of your vote on your Ledger screen and you will instead be asked to sign an arbitrary blob message. This method also works fine but it is inherently less secure than the direct Ledger method and the Remote (signer) method.
+
+![<TezGov login home screen>](/tezgov/tutorial/tezgovHome.png) 
+
+Once logged in you'll see the TezGov home screen. You can see the current cycle, the current proposal, the current voting period, and the current voting period progress. You can also see the current proposal status and the current proposal details.
+
+### Cooldown Period
+During the cooldown period you will period name in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
+
+![<TezGov Cooldown period](/tezgov/tutorial/tezgovCooldown.png) 
+
 
 ---
 
