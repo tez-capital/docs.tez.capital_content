@@ -24,6 +24,8 @@ TezGov allows you to participate in Tezos proposal voting with your Ledger hardw
 * You can also briefly unplug your primary Ledger baking device and use it on a different computer just for voting purposes (use the wallet app to vote), then immediately plugging it back into the primary device, opening the baking app and resuming baking only.
 * If your baking computer itself has a graphical interface, you can briefly switch to the wallet app on your Ledger device and vote, then switch back to the baking app and resume baking only.
 
+**In order to vote using your Ledger device, you must have the Tezos wallet app installed and open on your Ledger device. If you have the baking app open, you will not be able to vote**
+
 ---
 
 ## TezGov Web Portal
@@ -33,8 +35,25 @@ Log into the TezGov portal by using the most secure method available to you. We 
 
 Once logged in you'll see the TezGov home screen. You can see the current cycle, the current proposal, the current voting period, and the current voting period progress. You can also see the current proposal status and the current proposal details.
 
+### Exploration and Promotion Periods
+During the exploration and promotion periods you will see the period name `Exploration` or `Promotion` in the middle of the page. You can vote for the current proposal by clicking the `NAY`, `PASS` or `YAY` buttons.
+
+![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotion.png)
+
+ You will be asked to confirm the vote on your Ledger device. 
+
+![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotionConfirm.png)
+
+Once confirmed, the page will refresh within 30 seconds.
+
+![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotionConfirm2.png)
+
+After finished, you'll be able to click on the confirmation link for your vote.
+
+![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotionConfirm3.png)
+
 ### Cooldown Period
-During the cooldown period you will period name in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
+During the cooldown period you will period name `Cooldown` in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
 
 ![<TezGov Cooldown period](/tezgov/tutorial/tezgovCooldown.png) 
 
