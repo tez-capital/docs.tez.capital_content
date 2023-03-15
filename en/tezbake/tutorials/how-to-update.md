@@ -71,6 +71,17 @@ Then update the rest of the TezBake software stack:
 ## What should I do after updating?
 After all updates and changes to your Tezos node, always ensure your baking process continues successfully by monitoring its performance on https://TzStats.com and https://TzKT.io.
 
+Check your TezBake stack versions to ensure they are up to date:
+
+   ```
+   bb-cli version --all
+   ```
+
+You should see the expected Octez version along with the release date of the binaries.
+
+![<bb-cli version, Octez versions>](/tezbake/tutorial/tezbakeVersionAll.png)
+
+
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
