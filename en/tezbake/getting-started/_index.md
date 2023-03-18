@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Tezos Baking"
+title: "Getting Started"
 weight: 1
 type: docs
 summary: Getting started with Tezos baking

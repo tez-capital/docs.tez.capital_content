@@ -1,5 +1,5 @@
 ---
-title: "Tezos Baking Best Practices"
+title: "Baking Best Practices"
 weight: 1
 type: docs
 summary: Tezos Baking Best Practices
