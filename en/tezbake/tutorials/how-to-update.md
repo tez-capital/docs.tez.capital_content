@@ -35,7 +35,7 @@ Using the third upgrade method is recommended for all the same reasons listes so
 ### Which TezBake upgrade method should I use?
 
 We will sometimes specify which upgrade method to use by referencing its number.  If a number is not specified, use the guidelines below to determine which method to use:
-* If you'd like to be as thorouh as possible and ensure you have the latest of everything, use the #3 method.  Using this method is not necessary if there has not been a new bb-cli version.
+* If you'd like to be as thorough as possible and ensure you have the latest of everything, use the #3 method.  Using this method is not necessary if there has not been a new bb-cli version.
 * If you want to get most improvements and fixes from the TezBake side as well as from the Tezos core dev side, use the #2 method.  This is the recommended option for most circumstances.
 * If you just want to keep baking on Tezos or get the latest Octez improvements without modifying any other components, use the #1 method
 
