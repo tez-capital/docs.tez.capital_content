@@ -56,7 +56,7 @@ If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
 At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best. With the import method shown below, bootstrapping could take as little as 5 minutes.
   
    ```
-   bb-cli bootstrap-node --tarball
+   bb-cli bootstrap-node --tarball https://ghostnet.xtz-shots.io/rolling-tarball
    ```
 
 ### Start Tezos node
