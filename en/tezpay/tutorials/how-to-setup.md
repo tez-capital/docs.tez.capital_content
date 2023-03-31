@@ -163,7 +163,7 @@ we will review:
 This section will review how to setup the configuration file
 (simple-version) to be used by the TezPay application. 
 
-*Note: must have file name **config.hjson**, case-sensative*
+*Note: must have file name **config.hjson**, case-sensitive *
     
 | ![<Simple Configuration file for TezPay.>](/tezpay/tutorial/tezpayImage13.png) |
 |-|
@@ -198,7 +198,7 @@ custom file as well - but should be done by experienced users.
 This section will review how to setup the configuration file
 (advanced-version) to be used by the TezPay application. 
 
-*Note: must have file name **config.hjson**, case-sensative*
+*Note: must have file name **config.hjson**, case-sensitive *
     
 | ![<Advanced Configuration file for TezPay.>](/tezpay/tutorial/tezpayImage14.png) |
 |-|
