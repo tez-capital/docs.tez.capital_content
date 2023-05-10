@@ -1,11 +1,11 @@
 ---
-title: "How to Set Deposits Limit"
+title: "How to Inject Proposals"
 weight: 1
 type: docs
-summary: TezGov Portal Set Deposits Limit Tutorial
+summary: TezGov Portal Proposal Injection Tutorial
 ---
 
-## TezGov Portal Set Deposits Limit Tutorial
+## TezGov Portal Proposal Injection Tutorial
 TezGov Web Portal: [https://gov.tez.capital](https://gov.tez.capital "TezGov Web Portal")
 
 Log into the TezGov portal by using the most secure method available to you. 
@@ -16,21 +16,12 @@ Log into the TezGov portal by using the most secure method available to you.
 
 ![<TezGov login home screen>](/tezgov/tutorial/tezgovHome.png) 
 
-Expand the `Tools` pane and select `Set Deposits Limit`
+Click New Proposal
 
-![<Set deposits limit button>](/tezgov/tutorial/tezgovSetDepositsLimit.png) 
+![<TezGov login home screen>](/tezgov/tutorial/tezgovNewProposal.png) 
 
-Fill in the amount, in tez, you want to set as your deposits limit and submit
 
-![<Set deposits limit button>](/tezgov/tutorial/tezgovSetDepositsLimit2.png) 
 
- You will be asked to confirm the deposits limit on your Ledger device. 
-
-![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotionConfirm.png)
-
-Once confirmed, the page will refresh within 30 seconds.
-
-![<TezGov login home screen>](/tezgov/tutorial/tezgovPromotionConfirm2.png)
 
 ---
 
