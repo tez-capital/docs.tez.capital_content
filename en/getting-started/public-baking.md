@@ -1,5 +1,5 @@
 ---
-title: "Public Baking"
+title: "Tezos Public Baking"
 weight: 1
 type: docs
 summary: How to Setup a Public Baker on Tezos
@@ -12,7 +12,9 @@ On Tezos, bakers (a.k.a. delegates) are paid directly by the blockchain for them
 
 A public baker has to contact two entities within the Tezos ecosystem to be added to the list of public bakers within each of their ecosystems. The entities in question all have their own methods to determine your public baker details, such as your fee and payment policies, via self-reporting. You will be asked to self-report your details to each of the following entities:
 * https://tzstats.com (BlockWatch)
+  * The best place to contact them is: tzstats@blockwatch.cc
 * https://tzkt.io / https://baking-bad.org (Baking Bad)
+  * The best place to contact them is: https://t.me/baking_bad_chat 
 
 Most wallets and services on Tezos pull their baker information from one of these sources.
 
