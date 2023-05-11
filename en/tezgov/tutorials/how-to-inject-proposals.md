@@ -30,13 +30,13 @@ The true names of the proposals crafted by the collective Tezos core developer t
 
 ### (2) You can submit a message to the Tezos bakers and community in the form of a Tezos proposal hash
 
-Vanity names are names crafted for the sole purpose to sent a message to all ecosystem participatings. They are not meant to be voted on. They are meant to be used as a way to communicate with the Tezos community. In the example given, the baker is submitting the signal that on-chain funding is something desirable.
+Vanity names are names crafted for the sole purpose to send a message to all ecosystem participants. They are not meant to be passed during the exploration or adoption phases. Vanity proposals are meant to be used as a way to communicate with the whole Tezos community as a delegate (i.e. baker) on Tezos. In the example given, the baker is submitting a signal that on-chain funding is something desirable.
 
-Vanity proposals can be used for other reasons as well but they are never meant to be pursued all the way through. The scope of vanity proposals does not extend past the proposal round. It does not extend past the proposal stage.
+Vanity proposals can be used for other reasons as well but they are never meant to be pursued all the way through. The scope of vanity proposals does not extend past the proposal round. All bakers must take great care not to vote on these proposals once the governance process enters the exploration phase.
 
 ![<TezGov new core proposal>](/tezgov/tutorial/tezgovNewProposalVanity.png)
 
-We encourage all bakers to use this system only for serious ecosystem governance issues
+We encourage all bakers to use this system only for serious ecosystem governance issues. The governance portal functionality is a two way street. The ability to speak does not absolve a baker from the consequences of the baker's speech.
 
 ---
 

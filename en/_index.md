@@ -1,5 +1,5 @@
 ---
-title: "Documentation"
+title: "Tez Capital Documentation Portal"
 weight: 1
 type: docs
 summary:
