@@ -34,5 +34,5 @@ Once confirmed, the page will refresh within 30 seconds.
 
 ---
 
-Any questions/comments/concerns please contact the Tez.Capital team on
+Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

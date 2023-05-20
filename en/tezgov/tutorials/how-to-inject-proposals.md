@@ -40,5 +40,5 @@ We encourage all bakers to use this system only for serious ecosystem governance
 
 ---
 
-Any questions/comments/concerns please contact the Tez.Capital team on
+Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

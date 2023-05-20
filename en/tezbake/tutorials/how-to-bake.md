@@ -108,5 +108,5 @@ For this step your node level must be synced with the latest block on the blockc
 
 ---
 
-Any questions/comments/concerns please contact the Tez.Capital team on
+Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

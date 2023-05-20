@@ -59,5 +59,5 @@ The TezBake Discord and Telegram bots are designed to monitor your baker's statu
 
 ---
 
-Any questions/comments/concerns please contact the Tez.Capital team on
+Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

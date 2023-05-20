@@ -16,5 +16,5 @@ For access to future releases via Linux CLI, run the following command from with
 
 ---
 
-Any questions/comments/concerns please contact the Tez.Capital team on
+Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
