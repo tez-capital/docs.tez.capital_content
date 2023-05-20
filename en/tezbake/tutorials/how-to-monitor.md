@@ -72,4 +72,4 @@ Using the command below shows everything your Ledger is signing or trying to sig
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
-[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

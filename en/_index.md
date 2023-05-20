@@ -51,3 +51,20 @@ summary:
 	</div>
   </a>
 </div>
+
+## Important Links
+### Source Code
+* [https://github.com/tez-capital/](https://github.com/tez-capital/)
+* [https://gitlab.com/groktech/](https://gitlab.com/groktech/)
+### Chat/Support
+* [Discord](https://discord.gg/cVGMA4MaNM)
+* [Telegram](https://t.me/tezcapital)
+### Social Media
+* [Twitter: Tez Capital](https://twitter.com/tezcapital)
+* [Twitter: TezBake](https://twitter.com/YourBakeBuddy)
+* [Twitter: TezPay](https://twitter.com/YourPayBuddy)
+* [Twitter: TezGov](https://twitter.com/YourGovBuddy)
+* [Twitter: alis-is (Berry Studio)](https://twitter.com/alisis_official)
+* [Twitter: GrokTech](https://twitter.com/GrokYourTech)
+### Other
+* [Medium](https://bakebuddy.medium.com/)

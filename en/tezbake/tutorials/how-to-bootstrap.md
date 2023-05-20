@@ -41,4 +41,4 @@ Simply search for the block number in the search field and verify the hash of th
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
-[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

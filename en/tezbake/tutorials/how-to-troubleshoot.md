@@ -49,4 +49,4 @@ You may see an error like the one below, which indicates your node needs to be b
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
-[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

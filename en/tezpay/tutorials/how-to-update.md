@@ -17,4 +17,4 @@ For access to future releases via Linux CLI, run the following command from with
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
-[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 

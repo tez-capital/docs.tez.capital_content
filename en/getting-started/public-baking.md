@@ -24,4 +24,4 @@ You also have the option of contacting the folks at Ledger directly in order to 
 ---
 
 Any questions/comments/concerns please contact the Tez.Capital team on
-[Discord](https://discord.gg/vykxNSnvQY) or [Telegram](https://t.me/bakebuddy) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
