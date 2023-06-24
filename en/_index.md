@@ -55,9 +55,10 @@ summary:
 ## Important Links
 ### Source Code
 * [https://github.com/tez-capital/](https://github.com/tez-capital/)
+* [https://gitlab.com/alis-is/](https://github.com/alis-is/)
 * [https://gitlab.com/groktech/](https://gitlab.com/groktech/)
 ### Chat/Support
-* [Discord](https://discord.gg/cVGMA4MaNM)
+* [Discord](https://discord.gg/cVGMA4MaNM) (primary)
 * [Telegram](https://t.me/tezcapital)
 ### Social Media
 * [Twitter: Tez Capital](https://twitter.com/tezcapital)
