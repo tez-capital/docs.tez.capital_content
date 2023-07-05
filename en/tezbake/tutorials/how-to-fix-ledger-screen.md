@@ -1,8 +1,8 @@
 ---
-title: "How to Fix Ledger Screen (WIP)"
+title: "How to Fix Ledger Screen"
 weight: 1
 type: docs
-summary: Ledger Screen Blanking Fix for Nano S Plus and Nano X
+summary: Ledger Screen Blanking Fix for Nano S Plus
 ---
 
 ## Ledger Screen Blanking Issue
