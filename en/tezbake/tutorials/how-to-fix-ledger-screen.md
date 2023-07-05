@@ -32,6 +32,11 @@ You'll need to manually delete your old Tezos Baking app using Ledger Live, befo
 
 Reboot after this step.
 
+**To use the patched app, you will need to update your Ledger Nano S Plus to Ledger firmware version 1.1.0+**
+[https://support.ledger.com/hc/en-us/articles/4445777839901-Update-Ledger-Nano-S-Plus-firmware](https://support.ledger.com/hc/en-us/articles/4445777839901-Update-Ledger-Nano-S-Plus-firmware)
+
+After finishing this step, ensure you do not have Ledger Live running when trying to perform the rest of the steps or while trying to bake.
+
 ### Install Patched App (version 2.3.3) on Ledger Nano Plus
 
 Side loading the patch is a simple process, but it does require a few steps. Please follow the instructions below carefully.
