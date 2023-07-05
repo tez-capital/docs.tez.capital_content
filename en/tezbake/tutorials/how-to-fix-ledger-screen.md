@@ -6,6 +6,7 @@ summary: Ledger Screen Blanking Fix for Nano S Plus and Nano X
 ---
 
 ## Ledger Screen Blanking Issue
+What is the Ledger screen blanking issue?
 * When baking with a Ledger Nano S, the device's screen is blanked out to preserve it, upon the first attestation (i.e. endorsement) of a block.
 * When baking with a Ledger Nano S Plus or Nano X, the device's screen is never blanked out, which can cause the screen to burn out or burn in over time.
 
