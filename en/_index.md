@@ -68,4 +68,4 @@ summary:
 * [Twitter: alis-is (Berry Studio)](https://twitter.com/alisis_official)
 * [Twitter: GrokTech](https://twitter.com/GrokYourTech)
 ### Other
-* [Medium](https://bakebuddy.medium.com/)
+* [Medium](https://tezcapital.medium.com/)
