@@ -53,6 +53,8 @@ summary:
 </div>
 
 ## Important Links
+### Blog
+* [Medium](https://tezcapital.medium.com/)
 ### Source Code
 * [https://github.com/tez-capital/](https://github.com/tez-capital/)
 * [https://gitlab.com/alis-is/](https://github.com/alis-is/)
@@ -67,5 +69,3 @@ summary:
 * [Twitter: TezGov](https://twitter.com/YourGovBuddy)
 * [Twitter: alis-is (Berry Studio)](https://twitter.com/alisis_official)
 * [Twitter: GrokTech](https://twitter.com/GrokYourTech)
-### Other
-* [Medium](https://tezcapital.medium.com/)
