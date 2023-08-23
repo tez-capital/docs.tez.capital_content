@@ -29,7 +29,7 @@ The patch has been reviewed by several highly skilled engineers and has been use
 You'll need to manually delete your old Tezos Baking app using Ledger Live, before you can side load the patched app. You'll also need to install docker and add your current user to the docker group.
 
    ```
-   sudo apt update && sudo install docker.io -y
+   sudo apt update && sudo apt install docker.io -y
    sudo usermod -aG docker $USER
    ```
 
