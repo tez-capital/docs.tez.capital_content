@@ -15,7 +15,7 @@ To remedy this situation and to never risk forfitting your endorsement rights fo
 ### Bootstrap using a tarball (fast)
 
    ```
-   bb-cli bootstrap-node --tarball
+   tezbake bootstrap-node --tarball
    ```
 
 The `--tarball` method uses the latest snapshot from https://xtz-shots.io/mainnet/ and downloads it to your node. This is the fastest method, but it's not as secure as the snapshot method below.
@@ -23,9 +23,9 @@ The `--tarball` method uses the latest snapshot from https://xtz-shots.io/mainne
 ### Bootstrap using a snapshot (slow, but more rebust and secure)
 
    ```
-   bb-cli bootstrap-node <url> <block_hash>
+   tezbake bootstrap-node <url> <block_hash>
    # example:
-   bb-cli bootstrap-node https://mainnet-v15.xtz-shots.io/mainnet-3185135.rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   tezbake bootstrap-node https://mainnet-v15.xtz-shots.io/mainnet-3185135.rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
    
 You can get snapshots in the following places:

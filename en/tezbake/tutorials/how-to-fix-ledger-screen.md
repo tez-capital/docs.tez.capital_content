@@ -64,7 +64,7 @@ After uninstallin the old app and installing the new one (2.3.3), you will need 
 Plug in Ledger, input pin, open patched Tezos Baking app, and then run the following command:
 
    ```
-   bb-cli setup-ledger --main-hwm 3826854
+   tezbake setup-ledger --main-hwm 3826854
    ```
 
 Replace `3826854` with the latest current head block height. You can find this information on [tzstats.com](https://tzstats.com/).

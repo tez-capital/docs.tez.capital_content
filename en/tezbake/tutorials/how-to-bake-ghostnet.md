@@ -15,7 +15,7 @@ help test protocol migrations.
 
 ## Preparation
 
-Installing BakeBuddy CLI (bb-cli) and using it to setup your Tezos baker is very simple. You will need the following tools:
+Installing TezBake CLI and using it to setup your Tezos baker is very simple. You will need the following tools:
 
 
 1. Spare computer or existing computer with Linux installed. We recommend Ubuntu Linux.
@@ -27,28 +27,28 @@ Installing BakeBuddy CLI (bb-cli) and using it to setup your Tezos baker is very
 
 ## Installation
 
-### Download and copy bb-cli
-To begin, download the latest bb-cli version for your Linux desktop and copy it to a universally available location so you can execute BB-CLI command from any location. Using the commands below, typed or pasted one-by-one is the intended order of operations.
+### Download and copy tezbake
+To begin, download the latest tezbake version for your Linux desktop and copy it to a universally available location so you can execute tezbake command from any location. Using the commands below, typed or pasted one-by-one is the intended order of operations.
 If you have a regular Intel or AMD computer that's not "ARM" based.
 
    ```
-   cd /tmp && wget https://gitlab.com/groktech/bakebuddy-cli/-/raw/main/bb-cli-linux-amd64 && chmod +x bb-cli-linux-amd64
-   sudo mv bb-cli-linux-amd64 /usr/sbin/bb-cli
+   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-amd64 && chmod +x tezbake-linux-amd64
+   sudo mv tezbake-linux-amd64 /usr/sbin/tezbake
    # you may be prompted for sudo password; execute 1 line at a time
    ```
    
 If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
 
    ```
-   cd /tmp && wget https://gitlab.com/groktech/bakebuddy-cli/-/raw/main/bb-cli-linux-arm64 && chmod +x bb-cli-linux-arm64
-   sudo mv bb-cli-linux-arm64 /usr/sbin/bb-cli
+   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-arm64 && chmod +x tezbake-linux-arm64
+   sudo mv tezbake-linux-arm64 /usr/sbin/tezbake
    # you may be prompted for sudo password; execute 1 line at a time
    ```
 
-### Setup Tezos node, signer and install bb-cli dependencies
+### Setup Tezos node, signer and install tezbake dependencies
 
    ```
-   bb-cli setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
+   tezbake setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
    # you may be prompted for sudo password
    ```
 
@@ -56,20 +56,20 @@ If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
 At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best. With the import method shown below, bootstrapping could take as little as 5 minutes.
   
    ```
-   bb-cli bootstrap-node --tarball https://ghostnet.xtz-shots.io/rolling-tarball
+   tezbake bootstrap-node --tarball https://ghostnet.xtz-shots.io/rolling-tarball
    ```
 
 ### Start Tezos node
 After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
 
    ```
-   bb-cli start
+   tezbake start
    ```
 
 After starting the node, run the following command over and over every few minutes and monitor the "level" displayed.
    
    ```
-   bb-cli info
+   tezbake info
    ```
 
 Level refers to the latest block number on mainnet. Navigate to https://tzkt.io or https://tzstats.com and observe the latest block. Once the level in your command matches the latest block on your blockchain explorer, your node is in full sync and you can keep following the steps below.
@@ -78,7 +78,7 @@ Level refers to the latest block number on mainnet. Navigate to https://tzkt.io 
 Now that your node is in full sync, you can import your Ledger key. You will need to connect your Ledger and enter your Ledger PIN. Then open the Tezos Baking app.
 
    ```
-   bb-cli import-key --derivation-path="ed25519/0h/0h"
+   tezbake import-key --derivation-path="ed25519/0h/0h"
    # If you have a custom derivation path, you can change ed to bip as shown (--derivation-path="bip25519/3h/6h/9h")
    ```
 
@@ -93,7 +93,7 @@ Putting the baker on a non-default derivation path provides an additional layer 
 Having imported your Ledger key to your signer, it's time to authorize your Ledger to bake for this key.
 
    ```
-   bb-cli setup-ledger --main-hwm 1
+   tezbake setup-ledger --main-hwm 1
    # Pay careful attention to the value of --main-hwm
 
    ```
@@ -109,7 +109,7 @@ Always make sure you're not accidentally going to double bake by using your prod
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker. For all other operations, you must use the Tezos Baking app.
 
    ```
-   bb-cli register-key
+   tezbake register-key
    ```
 
    Registering is not necessary if this is already an active baker ledger which is being setup on some kind of failover machine or in a situation where it has not been over 2 weeks of actively baking.

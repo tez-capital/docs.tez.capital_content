@@ -8,8 +8,7 @@ summary: How to setup TezPay
 ## Preparation
 
 There is minimal preparation needed to utilize TezPay, assuming that
-you have a functioning public baker running. To get help with setting up
-a baker see *YourBakeBuddy - Setting up a public Baker*. 
+you have a functioning public baker running.
 
 **Preparation Summary**
 

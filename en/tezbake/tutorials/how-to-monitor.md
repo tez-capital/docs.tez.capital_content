@@ -11,10 +11,10 @@ TezBake gives you the option to monitor all Tezos node and baking services. TezB
 ---
 
 ## Monitor overall TezBake status
-Run this command to get the status of your baker in a snapshot. After first setting up and starting the baker, you may need to give it a minute or 2 before the status display stops changing and missing some information. If you notice there is an error status on any of the fields after around 3-5 minutes of starting the services, seek out help in the BakeBuddy community as there is something that probably needs tweaking.
+Run this command to get the status of your baker in a snapshot. After first setting up and starting the baker, you may need to give it a minute or 2 before the status display stops changing and missing some information. If you notice there is an error status on any of the fields after around 3-5 minutes of starting the services, seek out help in the Tez Capital community as there is something that probably needs tweaking.
 
    ```
-   bb-cli info
+   tezbake info
    ```
 
 ![<Info screen showing status of node services and Ledger>](/tezbake/tutorial/tezbakeInfo.png) 
@@ -25,7 +25,7 @@ Run this command to get the status of your baker in a snapshot. After first sett
 Using the command below shows everything your baker is doing on a second-by-second basis. If there is a problem to be discovered, it will be mentioned here.
 
    ```
-   bb-cli node log -f
+   tezbake node log -f
    ```
 
 ![<TezBake node log with all blocks synchronized and all attempted baking and endorsing work>](/tezbake/tutorial/tezbakeNodeLogF.png)
@@ -34,9 +34,9 @@ Using the command below shows everything your baker is doing on a second-by-seco
 Using these commands you can focus on just the node, just the baking/endorsing process or just the accusation (of double baking) processes
 
    ```
-   bb-cli node log node -f
-   bb-cli node log baker -f
-   bb-cli node log accuser -f
+   tezbake node log node -f
+   tezbake node log baker -f
+   tezbake node log accuser -f
    ```
 
 Monitoring just the `node` process shows blocks being synchronized in real time by your node.
@@ -51,8 +51,8 @@ During times when Tezos protocol are being switched out you will notice that the
 ![<TezBake -next protocol services>](/tezbake/tutorial/tezbakeNext.png)
 
    ```
-   bb-cli node log baker-next -f
-   bb-cli node log accuser-next -f
+   tezbake node log baker-next -f
+   tezbake node log accuser-next -f
    ```
 
 The `baker-next` process will show one of two things.
@@ -64,7 +64,7 @@ The `baker-next` process will show one of two things.
 Using the command below shows everything your Ledger is signing or trying to sign. If there is a hardware wallet issue, this log will confirm it.
 
    ```
-   bb-cli signer log -f
+   tezbake signer log -f
    ```
 
 ![<TezBake signer log with all work that node is attempting to have signed by the Ledger>](/tezbake/tutorial/tezbakeSignerLogF.png) 

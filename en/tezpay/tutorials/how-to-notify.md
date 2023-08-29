@@ -100,7 +100,7 @@ We will use the API Key and Secret as well as the Access Token and Secret to edi
       `access_token_secret: Your_Access_Token_Secret`<br>
       `consumer_key: Your_Consumer_Key`<br>
       `consumer_secret: Your_Consumer_Key_Secret`<br>
-      `message_template: Rewards for <Cycle> have been paid to <Delegators> delegates in amount of <DistributedRewards> using #TezPay.👀 XTZ baked with bakebuddy.xyz! We donate to wallet tz1R2GnBudU97Lra8Q3VDG7cUooNvUQ9ghCs to fund future development in Tezos. #cerberusbakery #tezos.`<br>
+      `message_template: Rewards for <Cycle> have been paid to <Delegators> delegates in amount of <DistributedRewards> using #TezPay.👀 XTZ baked with #TezBake! We donate to wallet tz1R2GnBudU97Lra8Q3VDG7cUooNvUQ9ghCs to fund future development in Tezos. #cerberusbakery #tezos.`<br>
       `type: twitter`<br>
     `}`<br>
     `]`
