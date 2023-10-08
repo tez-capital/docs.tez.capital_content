@@ -25,11 +25,11 @@ The setup is done using slash commands, which means just type the "/" character 
 |-|
 
 Here are the descriptions of all the key variables you will need to configure:
-
-| Variable | Available Options | Description |
-| `source` | `staking` or `chain` | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression |
-| `event` | `attested-block`, `baked-block`, `missed-block`, `missed-attestation`, `new-block` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
-| `conditions` | `tz1X,tz1Y,tz1Z` | This is a comma-separated list of Tezos addresses that you want to be notified for |
+| Variable    | Available Options                          | Description                                                                                                                                                   |
+|-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `source`    | `staking` or `chain`                       | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
+| `event`     | `attested-block`, `baked-block`, `missed-block`, `missed-attestation`, `new-block` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
+| `conditions`| `tz1X,tz1Y,tz1Z`                           | This is a comma-separated list of Tezos addresses that you want to be notified for                                                                            |
 
 > Please note that some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 
