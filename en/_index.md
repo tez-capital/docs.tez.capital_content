@@ -9,7 +9,7 @@ summary:
 	.grid {
 		display: grid;
 		grid-template-columns: auto auto auto;
-		grid-column-gap: 20px
+		grid-column-gap: 7px
 	}
 
 	.grid a {
@@ -18,7 +18,7 @@ summary:
 	}
 
 	.grid img {
-		max-width: 110px;
+		max-width: 120px;
 		min-width: 40px;
 		width: 20vw
 	}
