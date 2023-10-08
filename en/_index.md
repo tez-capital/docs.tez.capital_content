@@ -8,8 +8,8 @@ summary:
 <style>
 	.grid {
 		display: grid;
-		grid-template-columns: auto auto auto;
-		grid-column-gap: 7px
+		grid-template-columns: repeat(4, auto);
+		grid-column-gap: 4px
 	}
 
 	.grid a {
@@ -18,7 +18,7 @@ summary:
 	}
 
 	.grid img {
-		max-width: 120px;
+		max-width: 100px;
 		min-width: 40px;
 		width: 20vw
 	}
