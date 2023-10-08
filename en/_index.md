@@ -18,7 +18,7 @@ summary:
 	}
 
 	.grid img {
-		max-width: 150px;
+		max-width: 110px;
 		min-width: 40px;
 		width: 20vw
 	}
