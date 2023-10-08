@@ -50,6 +50,12 @@ summary:
 		<div><h3><b>TezGov</b></h3></div>
 	</div>
   </a>
+  <a href="tezwatch/" >
+	<div class="link" style="display: inline-block">
+		<img src="/watchbuddy.png" alt="WatchBuddy"/>
+		<div><h3><b>TezWatch</b></h3></div>
+	</div>
+  </a>
 </div>
 
 ## Important Links
