@@ -1,5 +1,5 @@
 ---
-title: "Tez Capital Documentation Portal"
+title: "Tez Capital Docs"
 weight: 1
 type: docs
 summary:
@@ -14,7 +14,7 @@ summary:
 
 	.grid a {
 		color: black;
-		text-align: center;
+		text-align: left;
 	}
 
 	.grid img {
@@ -31,43 +31,23 @@ summary:
 	}
 </style>
 
-<div class="grid" align="center" >
-  <a href="tezbake/" >
+<div class="grid" align="center">
+  <a href="https://tez.capital" target="_blank">
 	<div class="link" style="display: inline-block">
-		<img src="/bakebuddy.png" alt="BakeBuddy"/>
-		<div><h3><b>TezBake</b></h3></div>
-	</div>
-  </a>
-  <a href="tezpay/" >
-	<div class="link" style="display: inline-block">
-		<img src="/paybuddy.png" alt="PayBuddy"/>
-		<div><h3><b>TezPay</b></h3></div>
-	</div>
-  </a>
-  <a href="tezgov/" >
-	<div class="link" style="display: inline-block">
-		<img src="/govbuddy.png" alt="GovBuddy"/>
-		<div><h3><b>TezGov</b></h3></div>
-	</div>
-  </a>
-  <a href="tezwatch/" >
-	<div class="link" style="display: inline-block">
-		<img src="/watchbuddy.png" alt="WatchBuddy"/>
-		<div><h3><b>TezWatch</b></h3></div>
+		<img src="/tzc.png" alt="TzC Logo"/>
 	</div>
   </a>
 </div>
 
-## Important Links
+### Chat/Support
+* [Discord](https://dsc.gg/tzc) (primary)
+* [Telegram](https://t.me/tezcapital)
 ### Blog
 * [Medium](https://tezcapital.medium.com/)
 ### Source Code
 * [https://github.com/tez-capital/](https://github.com/tez-capital/)
 * [https://gitlab.com/alis-is/](https://github.com/alis-is/)
 * [https://gitlab.com/groktech/](https://gitlab.com/groktech/)
-### Chat/Support
-* [Discord](https://discord.gg/cVGMA4MaNM) (primary)
-* [Telegram](https://t.me/tezcapital)
 ### Social Media
 * [Twitter: Tez Capital](https://twitter.com/tezcapital)
 * [Twitter: TezBake](https://twitter.com/YourBakeBuddy)
