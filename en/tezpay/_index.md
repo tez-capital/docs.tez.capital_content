@@ -35,7 +35,7 @@ summary: TezPay Documentation
   <a href="tutorials/" >
 	<div class="link" style="display: inline-block">
 		<img src="/paybuddy.png" alt="PayBuddy"/>
-		<div><h3><b>TezPay</b></h3></div>
+		<div><p><i>Hi 👋 I'm your pay buddy!</i></p></div>
 	</div>
   </a>
 </div>

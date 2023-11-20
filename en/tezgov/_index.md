@@ -35,7 +35,7 @@ summary: TezGov Tutorials
   <a href="tutorials/" >
 	<div class="link" style="display: inline-block">
 		<img src="/govbuddy.png" alt="GovBuddy"/>
-		<div><h3><b>TezGov</b></h3></div>
+		<div><p><i>Hi 👋 I'm your gov buddy!</i></p></div>
 	</div>
   </a>
 </div>

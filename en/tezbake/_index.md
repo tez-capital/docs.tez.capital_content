@@ -35,7 +35,7 @@ summary: TezBake Tutorials
   <a href="tutorials/" >
 	<div class="link" style="display: inline-block">
 		<img src="/bakebuddy.png" alt="BakeBuddy"/>
-		<div><h3><b>TezBake</b></h3></div>
+		<div><p><i>Hi 👋 I'm your bake buddy!</i></p></div>
 	</div>
   </a>
 </div>

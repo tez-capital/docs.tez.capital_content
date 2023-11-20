@@ -35,7 +35,7 @@ summary: TezWatch Tutorials
   <a href="tutorials/" >
 	<div class="link" style="display: inline-block">
 		<img src="/watchbuddy.png" alt="WatchBuddy"/>
-		<div><h3><b>TezWatch</b></h3></div>
+		<div><p><i>Hi 👋 I'm your watch buddy!</i></p></div>
 	</div>
   </a>
 </div>
