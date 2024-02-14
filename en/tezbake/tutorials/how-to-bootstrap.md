@@ -10,33 +10,45 @@ To bootstrap your TezBake node means to download someone else's snapshot of the 
 
 **Please be aware that bootstrapping your node could result in your nonce revelation to fail and for you to forfit your endorsement rights for the cycle.** This is because by default we're using rolling snapshots which don't export full blocks for past cycles by default. If your node baked a special kind of block during the lack cycle, it may be asked to provide its nonce to the network. To do so, it needs to have the `.tezos-client` data intact from the last cycle and it needs to have the full blocks for the last cycle.
 
-To remedy this situation and to never risk forfitting your endorsement rights for a whole cycle, you can simply always use a snapshot that's at least 4 days (from today) old, when bootstrapping a node. This way you'll always have at least 1 cycle+ of full blocks in your node's database from the very beginning. The downside of this method is that it will slow down your bootstrap process by the amount of time it takes to download the full blocks for the past 1 cycle+, which can be up to 2 hours on some slow home networks.
+To remedy this situation and to never risk forfitting your endorsement rights for a whole cycle, you have to use a snapshot that's at least 5-6 days old (from today), when bootstrapping a node. You also have to not wipe out or to move your `.tezos-client` directory. This way you'll always have at least 1 cycle+ of full blocks in your node's database as well as the nonce file on disk. The downside of this method is that it will slow down your bootstrap process by the amount of time it takes to download the full blocks for the past 1 cycle+, which can be up to 2 hours on some slow home networks.
 
-### Bootstrap using a tarball (fast)
-
-   ```
-   tezbake bootstrap-node --tarball
-   ```
-
-The `--tarball` method uses the latest snapshot from https://xtz-shots.io/mainnet/ and downloads it to your node. This is the fastest method, but it's not as secure as the snapshot method below.
-
-### Bootstrap using a snapshot (slow, but more rebust and secure)
-
-   ```
-   tezbake bootstrap-node <url> <block_hash>
-   # example:
-   tezbake bootstrap-node https://mainnet-v15.xtz-shots.io/mainnet-3185135.rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
-   ```
-   
-You can get snapshots in the following places:
-* https://xtz-shots.io/mainnet/
+### Bootstrap using a snapshot
+You can get Tezos node snapshots in the following places run by the Tezos Foundation and Marigold respectively:
+* https://snapshots.tzinit.org/
 * https://snapshot-api.tezos.marigold.dev/mainnet
 
-Verify the hash or checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for the snapshot block on the Tezos blockchain explorers such as:
-https://tzkt.io/
+*Before bootstrapping your node, made sure to stop your node as shown below.*
+
+Using the first bootstrap method below ensures that the snapshot is checked for consistency both programmatically and by your checking the blockchain explorer(s) to confirm the block hash. This is the most reliable and robust method but it it also the slowest.
+
+   ```
+   tezbake stop
+   tezbake bootstrap-node <url> <block_hash>
+   tezbake start
+   # example:
+   tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   ```
+
+> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
+
+> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+
+Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
+https://tzkt.io/blocks
 https://tzstats.com/
 
 Simply search for the block number in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
+
+Using the second bootstrap method below is faster but it assumes you trust the source of the snapshot. Sometimes one doesn't have a choice and must make such trade-offs when time is of the essence.
+
+   ```
+   tezbake stop
+   tezbake bootstrap-node --no-check <url>
+   tezbake start
+   # example:
+   tezbake bootstrap-node --no-check https://snapshots.eu.tzinit.org/mainnet/rolling
+   ```
+> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
 ---
 
