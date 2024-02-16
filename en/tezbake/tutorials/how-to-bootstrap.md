@@ -6,7 +6,7 @@ summary: TezBake Bootstrapping Tutorial
 ---
 
 ## TezBake Bootstrapping
-To bootstrap your TezBake node means to download someone else's snapshot of the blockchain and import it into your node. This is much faster than synchronizing the blockchain from scratch. There are two ways to bootstrap your node: using a tarball or using a snapshot. The tarball method is faster, but the snapshot method is more reliable and robust.
+To bootstrap your TezBake node means to download someone else's snapshot of the blockchain and import it into your node. This is much faster than synchronizing the blockchain from scratch. There is a way to quickly bootstrap your node using a snapshot and a way to bootstrap your node using a snapshot and a block hash. The latter is the most reliable and robust method but it is also the slowest. The former is faster but it assumes you trust the source of the snapshot.
 
 **Please be aware that bootstrapping your node could result in your nonce revelation to fail and for you to forfit your endorsement rights for the cycle.** This is because by default we're using rolling snapshots which don't export full blocks for past cycles by default. If your node baked a special kind of block during the lack cycle, it may be asked to provide its nonce to the network. To do so, it needs to have the `.tezos-client` data intact from the last cycle and it needs to have the full blocks for the last cycle.
 
