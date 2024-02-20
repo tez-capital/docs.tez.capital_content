@@ -33,7 +33,7 @@ Open the `config.hjson` file with your favorite text editor.
 
 Here's an example of a `config.hjson` file:
 
-    ```hjson
+    ```
     {
 	    id: BakingBenjamins
 	    listen: "0.0.0.0:8733"
@@ -48,7 +48,7 @@ This configuration file names the baker "BakingBenjamins", listens to anyone try
 
 You can also make TezPeak GUI only available on the local computer if you have an all-in-one setup (i.e. the baker and the GUI are on the same computer which has a graphical user interface):
 
-    ```hjson
+    ```
     {
 	    id: BakingBenjamins
 	    listen: "127.0.0.1:8733"
@@ -60,7 +60,7 @@ You can also make TezPeak GUI only available on the local computer if you have a
 
 Here's the TezPeak minimal configuration, showing you can also have multiple bakers:
 
-    ```hjson
+    ```
     {
         listen: "0.0.0.0:8733"
         bakers: [
@@ -72,7 +72,7 @@ Here's the TezPeak minimal configuration, showing you can also have multiple bak
 
 Here's the TezPeak configuration with all available options:
 
-    ```hjson
+    ```
     {
         # Id to show in the header
         id: ""
