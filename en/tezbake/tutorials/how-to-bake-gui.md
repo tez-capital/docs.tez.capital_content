@@ -31,6 +31,8 @@ The TezPeak GUI is a graphical user interface for TezBake, which is a command-li
 
 Open the `config.hjson` file with your favorite text editor. 
 
+#### Sample TezPeak configuration with 1 baker
+
 Here's an example of a `config.hjson` file:
 
     ```
@@ -58,6 +60,8 @@ You can also make TezPeak GUI only available on the local computer if you have a
     }
     ```
 
+#### Minimal TezPeak configuration example
+
 Here's the TezPeak minimal configuration, showing you can also have multiple bakers:
 
     ```
@@ -69,6 +73,8 @@ Here's the TezPeak minimal configuration, showing you can also have multiple bak
         ]
     }
     ```
+
+#### Full TezPeak configuration examples
 
 Here's the TezPeak configuration with all available options:
 
