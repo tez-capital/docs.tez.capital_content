@@ -126,7 +126,7 @@ If you're connecting from the same computer, you can use `http://127.0.0.1:8733`
 
 ## TezPeak example screenshot
 
-![<TezPeak example screenshot>](/tezbake/tutorial/tezpeak.png) 
+![<TezPeak example screenshot>](/tezbake/tutorial/tezpeakexample.png) 
 
 ---
 
