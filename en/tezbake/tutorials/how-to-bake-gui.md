@@ -23,7 +23,7 @@ The TezPeak GUI is a graphical user interface for TezBake, which is a command-li
    tezbake setup --peak
    ```
 
-### Setup Peak Configuration
+### Setup TezPeak configuration
 
     ```
     cd /bake-buddy/peak/ && touch config.hjson
@@ -108,7 +108,7 @@ Here's the TezPeak configuration with all available options:
     }
     ```
 
-### Start Peak and connect to it
+## Start TezPeak and connect to it
 
     ```
     tezbake start --peak
