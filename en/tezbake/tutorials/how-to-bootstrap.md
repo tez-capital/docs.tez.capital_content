@@ -31,13 +31,16 @@ Using the first bootstrap method below ensures that the snapshot is checked for 
 
 > You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
+Get the block hash and block level from the snapshot provider's website:
+https://snapshots.eu.tzinit.org/mainnet/rolling.html
+
 > The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 https://tzkt.io/blocks
 https://tzstats.com/
 
-Simply search for the block number in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
+Simply search for the block level in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
 
 Using the second bootstrap method below is faster but it assumes you trust the source of the snapshot. Sometimes one doesn't have a choice and must make such trade-offs when time is of the essence.
 

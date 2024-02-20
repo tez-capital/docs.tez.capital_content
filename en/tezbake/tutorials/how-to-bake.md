@@ -45,11 +45,26 @@ If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
    ```
 
 ### Bootstrap Tezos node
-At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best. With the import method shown below, bootstrapping could take as little as 5 minutes.
+At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best.
   
    ```
-   tezbake bootstrap-node --tarball
+   tezbake bootstrap-node <url> <block_hash>
+   # example:
+   tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
+
+> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
+
+Get the block hash and block level from the snapshot provider's website:
+https://snapshots.eu.tzinit.org/mainnet/rolling.html
+
+> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+
+Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
+https://tzkt.io/blocks
+https://tzstats.com/
+
+Simply search for the block level in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
 
 ### Start Tezos node
 After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
