@@ -1,5 +1,5 @@
 ---
-title: "> How to Bake with Peak GUI"
+title: "How to Bake with Peak GUI"
 weight: 1
 type: docs
 summary: TezBake Baking Tutorial for GUI Users
