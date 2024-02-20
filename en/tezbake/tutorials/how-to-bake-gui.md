@@ -108,7 +108,17 @@ Here's the TezPeak configuration with all available options:
     }
     ```
 
-    ---
+### Start Peak and connect to it
+
+    ```
+    tezbake start --peak
+    ```
+
+If you're connecting to the TezPeak GUI from a different computer, you'll need to open a web browser and navigate to `http://<your-baker-ip>:8733`. 
+
+If you're connecting from the same computer, you can use `http://127.0.0.1:8733` or `http://localhost:8733`.
+
+---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
