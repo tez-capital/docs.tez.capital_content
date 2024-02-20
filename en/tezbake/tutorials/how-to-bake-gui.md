@@ -124,6 +124,10 @@ If you're connecting to the TezPeak GUI from a different computer, you'll need t
 
 If you're connecting from the same computer, you can use `http://127.0.0.1:8733` or `http://localhost:8733`.
 
+## TezPeak example screenshot
+
+![<TezPeak example screenshot>](/tezbake/tutorial/tezpeak.png) 
+
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
