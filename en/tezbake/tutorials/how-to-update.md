@@ -42,16 +42,10 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 First update your tezbake binary to the latest version, depending on your computer architecture:
 
    ```
-   # If you have a regular Intel or AMD computer that's not "ARM" based:
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-amd64 && chmod +x tezbake-linux-amd64
-   sudo mv tezbake-linux-amd64 /usr/sbin/tezbake
-   # you may be prompted for sudo password
-
-   # If you have an ARM based computer such as a Raspberry Pi:
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-arm64 && chmod +x tezbake-linux-arm64
-   sudo mv tezbake-linux-arm64 /usr/sbin/tezbake
+   tezbake setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
    # you may be prompted for sudo password
    ```
+
 Then update the rest of the TezBake software stack:
 
    ```
@@ -64,14 +58,7 @@ Then update the rest of the TezBake software stack:
 Update your tezbake binary to the latest version, depending on your computer architecture:
 
    ```
-   # If you have a regular Intel or AMD computer that's not "ARM" based:
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-amd64 && chmod +x tezbake-linux-amd64
-   sudo mv tezbake-linux-amd64 /usr/sbin/tezbake
-   # you may be prompted for sudo password
-
-   # If you have an ARM based computer such as a Raspberry Pi:
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-arm64 && chmod +x tezbake-linux-arm64
-   sudo mv tezbake-linux-arm64 /usr/sbin/tezbake
+   tezbake setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
    # you may be prompted for sudo password
    ```
 
