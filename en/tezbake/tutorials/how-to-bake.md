@@ -20,21 +20,11 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
 ## Installation
 
 ### Download and copy tezbake
-To begin, download the latest tezbake version for your Linux desktop and copy it to a universally available location so you can execute tezbake command from any location. Using the commands below, typed or pasted one-by-one is the intended order of operations.
-If you have a regular Intel or AMD computer that's not "ARM" based.
+To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
    ```
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-amd64 && chmod +x tezbake-linux-amd64
-   sudo mv tezbake-linux-amd64 /usr/sbin/tezbake
-   # you may be prompted for sudo password; execute 1 line at a time
-   ```
-   
-If you have a Raspberry Pi or you're running Linux on macOS M1 architecture:
-
-   ```
-   cd /tmp && wget https://github.com/tez-capital/tezbake-releases/raw/main/tezbake-linux-arm64 && chmod +x tezbake-linux-arm64
-   sudo mv tezbake-linux-arm64 /usr/sbin/tezbake
-   # you may be prompted for sudo password; execute 1 line at a time
+   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+   # you may be prompted for sudo password
    ```
 
 ### Setup Tezos node, signer and install tezbake dependencies
