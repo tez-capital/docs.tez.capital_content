@@ -42,7 +42,7 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 First update your tezbake binary to the latest version, depending on your computer architecture:
 
    ```
-   tezbake setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
+   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
    # you may be prompted for sudo password
    ```
 
@@ -58,7 +58,7 @@ Then update the rest of the TezBake software stack:
 Update your tezbake binary to the latest version, depending on your computer architecture:
 
    ```
-   tezbake setup -a --node-configuration=https://gitlab.com/groktech/xtz.configs/-/raw/main/ghostnet.json
+   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
    # you may be prompted for sudo password
    ```
 
