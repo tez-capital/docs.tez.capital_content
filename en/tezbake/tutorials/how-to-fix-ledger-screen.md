@@ -50,6 +50,8 @@ Side loading the patch is a simple process, but it does require a few steps. Ple
    cd app-tezos
    git checkout baking-burn-in-protection
    docker run --privileged --rm -ti -v "$(realpath .):/app" ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder-lite:latest
+   cd tools
+   ./gen-delegates.sh
    BOLOS_SDK=/opt/nanosplus-secure-sdk APP=tezos_baking TARGET_NAME=nanos2 make load
    ```
 
