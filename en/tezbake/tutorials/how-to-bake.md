@@ -87,7 +87,7 @@ Now that your node is in full sync, you can proceed with the most important part
 
 > The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to https://kukai.app and login with ledger, accepting the default derivation path.
 
-> bip is supposed to be more strong and flexible in the long term than ed25519, which is the default one. 
+> BLS (i.e. bip) signatures are designed to offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm. 
 
 > Putting the baker on a non-default derivation path provides an additional layer of security for your baker at the cost of extra complexity for you. Make sure your setup is clearly documented for your own records.
 
