@@ -1,77 +1,45 @@
 ---
-title: "> How to Bake"
+title: "How to Bake with Docker"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial
+summary: TezBake Baking Tutorial for Docker Users
 ---
 
 ## Preparation
 
-Installing TezBake CLI and using it to setup your Tezos baker is very simple. You will need the following tools:
-
-
-1. Spare computer or existing computer with Linux installed. We recommend Ubuntu Linux.
-   (note: you must have an SSD drive or better & at least 8GB RAM)
-2. Ledger Nano S hardware wallet with Tezos Wallet & Baker apps installed.
-   (note: it's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter you must enable developer mode in Ledger Live settings)
+For this tutorial, you'll need to have already have installed Docker as shown here: https://docs.docker.com/engine/install
 
 ---
 
-## Installation
+## Pull and Execute the TezBake Docker Image
 
-### Download and copy tezbake
-To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
-
-   ```
-   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
-   # you may be prompted for sudo password
-   ```
-
-### Setup Tezos node, signer and install tezbake dependencies
+### Pull the TezBake Docker Image
 
    ```
-   tezbake setup -a
-   # you may be prompted for sudo password
+   sudo docker pull ghcr.io/tez-capital/tezbake:latest-alpinetezbake setup --peak
    ```
 
-### Bootstrap Tezos node
-At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best.
-  
-   ```
-   tezbake bootstrap-node <url> <block_hash>
-   # example:
-   tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
-   ```
-
-> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
-
-Get the block hash and block level from the snapshot provider's website:
-https://snapshots.eu.tzinit.org/mainnet/rolling.html
-
-> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
-
-Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
-https://tzkt.io/blocks
-https://tzstats.com/
-
-Simply search for the block level in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
-
-### Start Tezos node
-After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
+### Setup TezBake Container
 
    ```
-   tezbake start
+   sudo docker run --name tezbake-container --privileged -d ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
-After starting the node, run the following command over and over every few minutes and monitor the "level" displayed.
-   
+> After this step, you will need to wait a while for the container to start up and bootstrap the Tezos node.
+
+You can monitor the progress of the Tezos node bootstrapping by running the following command:
+
    ```
-   tezbake info
+   sudo docker logs -f tezbake-container
    ```
 
-> Level refers to the latest block number on mainnet. Navigate to https://tzkt.io or https://tzstats.com and observe the latest block. Once the level in your command matches the latest block on your blockchain explorer, your node is in full sync and you can keep following the steps below.
+Once the Tezos node has finished bootstrapping, you can connect into the container and either import your Ledger wallet or create a new soft wallet.
 
-> Both https://tzkt.io or https://tzstats.com provide Ghostnet and Testnet block explorers as well. Make sure you're looking at the right explorer.
+### Connect to TezBake Container
+
+   ```
+   sudo docker exec -it tezbake-container /bin/sh
+   ```
 
 ### Import Ledger key or soft key and register as baker
 Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) submit your baker registration on the blockchain.
@@ -135,7 +103,14 @@ Import the hashed key to the TezBake node:
 
 > Change the tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF to the hashed key you got from the previous command.
 
-#### Register Ledger key as baker on the blockchain
+Finally, change the permissions of the newly generated keys to be readable by the ascend user and group which runs the TezBake node:
+
+   ```
+   chown -R ascend:ascend /bake-buddy/
+   ```
+
+
+#### Register Ledger key as baker on the Tezos blockchain
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.
 
    ```
