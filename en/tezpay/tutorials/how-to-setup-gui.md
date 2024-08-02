@@ -1,19 +1,22 @@
 ---
-title: "How to Bake with Peak GUI"
+title: "How to Pay with Peak GUI"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial for GUI Users
+summary: How to Pay Delegators Using TezPay with the TezPeak GUI
 ---
 
 ## Preparation
 
-For this tutorial, you'll need to have already followed one of the following tutorials:
-* [How to Bake](/tezbake/tutorials/how-to-bake)
-* [How to Bake on Ghostnet](/tezbake/tutorials/how-to-bake-ghostnet)
+For this tutorial, you'll need to have already followed the following tutorials:
+* [Generate payout soft wallet](/tezpay/tutorials/how-to-setup/#preparation-step-3---payout-wallet-optional)
+* [Create TezPay configuration file](https://docs.tez.capital/tezpay/tutorials/how-to-setup/#setup-step-1a-configuration-file-simple)
+  + [Default configuration](https://docs.tez.capital/tezpay/configuration/examples/default/)
+  + [Starter/Minimal configuration](https://docs.tez.capital/tezpay/configuration/examples/starter/)
+  + [All configuration options](https://docs.tez.capital/tezpay/configuration/examples/sample/)
+* [Download TezBake](/tezbake/tutorials/how-to-bake/#download-and-copy-tezbake) _(note: Installing node/baking services not necessary for this tutorial)_
+* [Install ami-tezpay service](https://github.com/tez-capital/ami-tezpay)
 
-The TezPeak GUI is a graphical user interface for TezBake, which is a command-line tool for baking and endorsing Tezos blocks. It's a great way to get started with baking and endorsing without having to use the command line on a day-to-day basis.
-
-> Please note that tezbake version 0.13.0-beta minimum is required to use TezPeak.
+Following the guides above will ensure you have the necessary tools and configurations to proceed with this tutorial.
 
 ---
 
@@ -27,6 +30,8 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
    tezbake setup --peak
    ```
 
+> You don't need to install the TezBake node or baker services to use TezPay.
+
 ### Setup TezPeak configuration
 
    ```
@@ -35,35 +40,17 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
 
 Open the `config.hjson` file with your favorite text editor. 
 
-##### Sample TezPeak configuration with 1 baker
+##### Sample TezPeak configuration
 
-Here's an example of a `config.hjson` file with minimal TezBake configuration for one baker:
+Here's an example of a minimal TezPeak `config.hjson` file with just TezPay configured:
 
    ```
 {
     listen: 0.0.0.0:8733
     app_root: /bake-buddy
     modules: {
-        tezbake: {
-            bakers: [
-                tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
-            ]
-        }
-    }
-}
-   ```
-
-You can also make TezPeak GUI only available on the local computer if you have an all-in-one setup (i.e. the baker and the GUI are on the same computer which has a graphical user interface):
-
-   ```
-{
-    listen: 127.0.0.1:8733
-    app_root: /bake-buddy
-    modules: {
-        tezbake: {
-            bakers: [
-                tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
-            ]
+        tezpay: {
+            payout_wallet: tz1X7U9XxVz6NDxL4DSZhijME61PW45bYUJE
         }
     }
 }
@@ -71,7 +58,7 @@ You can also make TezPeak GUI only available on the local computer if you have a
 
 ##### Full TezPeak configuration examples
 
-Here's the TezPeak configuration with all TezBake available options:
+Here's the TezPeak configuration with all available TezPay options:
 
    ```
 {
@@ -81,14 +68,22 @@ Here's the TezPeak configuration with all TezBake available options:
     listen: 127.0.0.1:8733
     app_root: /bake-buddy
     modules: {
-        tezbake: {
-			# uncomment bellow to disable tezbake package monitoring
-            # applications: null
-            bakers: [
-				# list of bakers to monitor for balances and rights
-                tz1P6WKJu2rcbxKiKRZHKQKmKrpC9TfW1AwM
-            ]
+        tezpay: {
+			# can be null to disable tezpay package monitoring
+            applications: {
+				# path to tezpay ami package, either absolute or relative to parent directory peak
+                tezpay: tezpay
+            }
+            payout_wallet: tz1X7U9XxVz6NDxL4DSZhijME61PW45bYUJE
+            payout_wallet_preferences: {
+                balance_warning_threshold: 100
+                balance_error_threshold: 50
+            }
+			# forces all operations to be dry run
+            force_dry_run: true
         }
+    }
+	
 	# List of reference nodes to connect to
 	# The reference nodes are used to get the rights and blocks if the baker's node is not available
     nodes: {

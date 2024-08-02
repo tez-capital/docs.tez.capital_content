@@ -81,10 +81,14 @@ After starting the node, run the following command over and over every few minut
 
 > Both https://tzkt.io or https://tzstats.com provide Ghostnet and Testnet block explorers as well. Make sure you're looking at the right explorer.
 
-### Import Ledger key and register as baker
-Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) your baker registration on the blockchain.
+### Import Ledger key or soft key and register as baker
+Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) submit your baker registration on the blockchain.
 
-#### Import Ledger key to signer locally
+You have the option to use the secure Ledger hardware wallet or simply use a local, unencrypted software key (a.k.a. soft key). The secure Ledger hardware wallet is the recommended option for mainnet baking.
+
+You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
+
+#### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
    ```
    tezbake setup-ledger --platform --import-key --authorize --hwm 1
 
@@ -93,9 +97,11 @@ Now that your node is in full sync, you can proceed with the most important part
    # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
    ```
 
+> Once imported, you can see your baker address by running `tezbake info`
+
 > The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to https://kukai.app and login with ledger, accepting the default derivation path.
 
-> BLS (i.e. bip) signatures are designed to offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
+> BLS (i.e. bip) signatures are designed to offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm. 
 
 > Putting the baker on a non-default derivation path provides an additional layer of security for your baker at the cost of extra complexity for you. Make sure your setup is clearly documented for your own records.
 
@@ -107,6 +113,35 @@ If you used to bake on mainnet with the same ledger as you're trying to use now 
 > Always make sure you're not accidentally going to double bake by using your production ledger and/or setup to bake on a testnet. It's really easy to make this mistake and the only thing preventing it are your personal standard operating procedures, the documentation you keep, and the care you take when setting up your baker.
 
 > To double bake or attest due to baker setup error means having 2 different bakers with the same key on the same network. This is a serious offense and can lead to loss of bond and other penalties. Always double-check your setup and make sure you're not accidentally double baking or attesting.
+
+#### (Option 2 - INSECURE) Import Soft key to TezBake signer
+First, generate the baker key for TezBake signer:
+
+   ```
+   tezbake signer - gen keys baker
+   ```
+
+Make sure to backup your key in a secure location. You can get the key by running the following command:
+
+   ```
+   cat /bake-buddy/signer/data/.tezos-signer/secret_keys
+   ```
+
+Then, import the baker public key hash to TezBake node:
+
+Get the tz1-tz3 address which is the hashed public key of the baker key:
+
+   ```
+   cat /bake-buddy/signer/data/.tezos-signer/public_key_hashs
+   ```
+
+Import the hashed key to the TezBake node:
+
+   ```
+   tezbake node client import secret key baker http://127.0.0.1:20090/tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF
+   ```
+
+> Change the tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF to the hashed key you got from the previous command.
 
 #### Register Ledger key as baker on the blockchain
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.

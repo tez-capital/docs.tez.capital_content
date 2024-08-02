@@ -1,8 +1,8 @@
 ---
-title: "How to Pay Stakers"
+title: "How to Pay Delegators"
 weight: 1
 type: docs
-summary: How to pay delegators/stakers using TezPay
+summary: How to Pay Delegators Using TezPay
 ---
 
 ## Using TezPay
