@@ -1,8 +1,8 @@
 ---
-title: "How to Pay with Peak GUI"
+title: "How to Setup with Peak GUI"
 weight: 1
 type: docs
-summary: How to Pay Delegators Using TezPay with the TezPeak GUI
+summary: How to Setup Using TezPay with the TezPeak GUI
 ---
 
 ## Preparation
