@@ -14,7 +14,7 @@ You can get an idea of what kind of computer needs to be dedicated to Tezos baki
 
 ## Recommended Hardware Setup
 * Two computers (see link above) with equal or equivalent hardware specs *(one optional)*
-* Two Ledger Nano S or Nano S Plus hardware wallets *(one optional)*
+* Two Ledger Nano S Plus or Nano X hardware wallets *(one optional)*. The Ledger Nano S works as well but is no longer recommended because it takes up to an extra second (compared to the other ones) for it to sign a block or endorsement. This can cause you to miss a block or endorsement
 * One UPS battery backup *(optional)*
 
 ### Two computers
