@@ -24,6 +24,8 @@ Following the guides above will ensure you have the necessary tools and configur
 
 TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. To run them at the same time simply combine both configurations in the same file as shown here: [https://github.com/tez-capital/tezpeak](https://github.com/tez-capital/tezpeak)
 
+> Scroll down to the bottom of the page for the full configuration example.
+
 ### Download and install TezPeak via TezBake
 
    ```

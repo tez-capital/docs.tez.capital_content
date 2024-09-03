@@ -166,6 +166,8 @@ This section will review how to setup the configuration file
     
 | ![<Simple Configuration file for TezPay.>](/tezpay/tutorial/tezpayImage13.png) |
 |-|
+
+> If you've used json before but now hjson, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/)
     
 *Yellow is areas you will input data/edit fields*  
 *Blue are comments about Configuration File objects*
@@ -204,6 +206,8 @@ This section will review how to setup the configuration file
 
 *Yellow is areas you will input data/edit fields* 
 *Blue are comments about Configuration File objects*
+
+> The example below is a more advanced configuration file that showcases several of the features that can be used to customize the TezPay application. To get a simple configuration file, you can remove the sections that are not needed. Here is a sample configuration that will work for 90% of bakers: (TezPay Starter Configuration)[https://docs.tez.capital/tezpay/configuration/examples/starter/]
 
 1.  Paste your **Baker** wallet in between the quotes
 2.  Set your Baker fee (ie 5% = 0.05)

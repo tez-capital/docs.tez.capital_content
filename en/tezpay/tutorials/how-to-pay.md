@@ -42,7 +42,7 @@ commands (*see code and examples below*):
 
 ### Using TezPay: Step 1 - Generating a payout Table
 
-Generating a payout table is a took that is useful for Public
+Generating a payout table is a tool that is useful for Public
 Bakers because it allows the baker to see the incoming rewards from
 baking (both block rewards & fees from delegates), review payout per
 delegator from their stake, and other data (see below).
