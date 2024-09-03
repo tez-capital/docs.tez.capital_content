@@ -10,10 +10,13 @@ summary: TezBake Baking Tutorial
 Installing TezBake CLI and using it to setup your Tezos baker is very simple. You will need the following tools:
 
 
-1. Spare computer or existing computer with Linux installed. We recommend Ubuntu Linux.
-   (note: you must have an SSD drive or better & at least 8GB RAM)
-2. Ledger Nano S hardware wallet with Tezos Wallet & Baker apps installed.
-   (note: it's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter you must enable developer mode in Ledger Live settings)
+1. Spare computer or existing computer with Linux installed. The recommended requirements are provided by [Nomadic Labs](https://research-development.nomadic-labs.com/paris-announcement.html#10s-block-times-bring-lower-latency-and-faster-finality)
+    * 3 CPU cores (arm64 or amd64/x86-64 architectures) – 2 are needed by the Octez node and 1 is needed by the Octez baker;
+    * 8GB RAM + 8GB swap (or 16GB RAM);
+    * 100GB SSD storage (or similar I/O performance);
+    * a low-latency, reliable broadband internet connection.
+2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet & Baker apps installed.
+   (note: it's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter, enable developer mode in Ledger Live settings)
 
 ---
 

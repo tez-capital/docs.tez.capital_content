@@ -33,7 +33,9 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
    cd /bake-buddy/peak/ && touch config.hjson
    ```
 
-Open the `config.hjson` file with your favorite text editor. 
+Open the `config.hjson` file with your favorite text editor.
+
+> If you've used json before but now hjson, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/)
 
 ##### Sample TezPeak configuration with 1 baker
 

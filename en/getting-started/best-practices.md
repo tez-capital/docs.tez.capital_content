@@ -20,8 +20,8 @@ You can get an idea of what kind of computer needs to be dedicated to Tezos baki
 ### Two computers
 You will need two computers and both computers will be running TezBake. One computer will be used for baking and the other computer will be used as a backup. A manual failover of the Ledger hardware will be necessary to start baking on the second computer if the first computer fails. The second computer is optional, but it is highly recommended. If you only have one computer, you will need to have a backup plan in place in case the computer fails.
 
-### Two Ledger Nano S or Nano S Plus
-While having two computers is somewhat optional, especially for a smaller baker, having two Ledger Nano S or Nano S Plus hardware wallets is very highly recommended. You will need to have two hardware wallets for the following reasons:
+### Two Ledger Nano S Plus or Nano X
+While having two computers is somewhat optional, especially for a smaller baker, having two Ledger Nano S Plus or Nano X hardware wallets is very highly recommended. You will need to have two hardware wallets for the following reasons:
 * In the event of Ledger hardware failure
 * To transfer tez to your payment wallet or elsewhere, without interrupting baking
 * To vote on Tezos governance proposals, without interrupting baking
@@ -51,7 +51,7 @@ Wi-Fi is not as realiable as a wired connection and can cause strange and random
 ### Using DHCP
 DHCP automatically assigns IP addresses to your computer. This can cause issues with your baking computer in the event where DHCP is unable to automatically renew its lease. It is highly recommended that you use a static IP address for your baking computer.
 
-### Using your daily use computer or laptop
+### Using your daily computer or laptop
 If you use your daily computer for baking, it's much more likely to have issues because of accidentally affecting either your baker's connection to the internet or your Ledger's connection to your baker.
 
 ### Not using TezBake Discord or Telegram monitoring bots

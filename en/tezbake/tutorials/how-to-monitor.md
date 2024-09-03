@@ -58,7 +58,7 @@ During times when Tezos protocol are being switched out you will notice that the
 The `baker-next` process will show one of two things.
 
 1. Protocol is waiting to start. This means everyone is waiting for the new proposal to be activated on mainnet. Nothing needs to be done until the new protocol is activated
-2. The baker process is running like normally. This means the new proposal has already activated and the TezBake needs to be updated to reflect it. There is no penalty for not updating unless you do not update in time for the next proposal. In other words, updating is only necessary when a proposal switch is about to happen. We still recomment that all Tezos bakers update their TezBake to the latest production version as soon as possible to get the latest Octez improvements.
+2. The baker process is running like normally. This means the new proposal has already activated and the TezBake needs to be updated to reflect it. There is no penalty for not updating unless you do not update in time for the next proposal. In other words, updating is only necessary when a proposal switch is about to happen. We still recommend that all Tezos bakers update their TezBake to the latest production version as soon as possible to get the latest Octez improvements.
 
 ### Monitor full TezBake signer logs in real time
 Using the command below shows everything your Ledger is signing or trying to sign. If there is a hardware wallet issue, this log will confirm it.
@@ -67,7 +67,19 @@ Using the command below shows everything your Ledger is signing or trying to sig
    tezbake signer log -f
    ```
 
-![<TezBake signer log with all work that node is attempting to have signed by the Ledger>](/tezbake/tutorial/tezbakeSignerLogF.png) 
+![<TezBake signer log with all work that node is attempting to have signed by the Ledger>](/tezbake/tutorial/tezbakeSignerLogF.png)
+
+## General Linux monitoring
+
+All TezBake logs are stored in the `/var/log/syslog` file. You can view the logs by running the commands below. You can also use tezbake itself to view the logs in real time.
+
+   ```
+   cat /var/log/syslog | grep tezbake
+   ```
+   
+   ```
+   tail -f /var/log/syslog | grep tezbake
+   ```
 
 ---
 
