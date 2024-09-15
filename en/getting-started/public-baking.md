@@ -17,13 +17,11 @@ With the recent introduction of [Adaptive Issuance](https://research-development
 
 A public baker has to contact two entities within the Tezos ecosystem to be added to the list of public bakers within each of their ecosystems. The entities in question all have their own methods to determine your public baker details, such as your fee and payment policies, via self-reporting. You will be asked to self-report your details to each of the following entities:
 * https://tzstats.com (BlockWatch)
-  * The best place to contact them is: tzstats@blockwatch.cc
+  * The best place to contact them is: tzstats@trili.tech
 * https://tzkt.io / https://baking-bad.org (Baking Bad)
   * The best place to contact them is: https://t.me/baking_bad_chat 
 
 Most wallets and services on Tezos pull their baker information from one of these sources.
-
-You also have the option of contacting the folks at Ledger directly in order to be listed as a baker on their Ledger Live wallet. You can contact them via the following link: https://support.ledger.com/hc/en-us/requests/new
 
 
 ---
