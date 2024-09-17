@@ -16,7 +16,7 @@ With the recent introduction of [Adaptive Issuance](https://research-development
 * Stakers are paid directly by the protocol without any need for the baker to pay them, unlike with delegators
 
 A public baker has to contact two entities within the Tezos ecosystem to be added to the list of public bakers within each of their ecosystems. The entities in question all have their own methods to determine your public baker details, such as your fee and payment policies, via self-reporting. You will be asked to self-report your details to each of the following entities:
-* https://tzstats.com (BlockWatch)
+* https://tzstats.com (Trilitech)
   * The best place to contact them is: tzstats@trili.tech
 * https://tzkt.io / https://baking-bad.org (Baking Bad)
   * The best place to contact them is: https://t.me/baking_bad_chat 
