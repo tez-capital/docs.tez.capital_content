@@ -19,9 +19,9 @@ A public baker has to contact two entities within the Tezos ecosystem to be adde
 * https://tzstats.com (Trilitech)
   * The best place to contact them is: tzstats@trili.tech
 * https://tzkt.io / https://baking-bad.org (Baking Bad)
-  * The best place to contact them is: https://t.me/baking_bad_chat 
+  * The best places to contact them are: https://t.me/baking_bad_chat and https://discord.gg/aG8XKuwsQd
 
-Most wallets and services on Tezos pull their baker information from one of these sources.
+Most wallets and services on Tezos pull their baker information from one of these sources, mostly from TzKT. If you are not listed on TzKT, you will not be listed on most wallets and services on Tezos.
 
 
 ---
