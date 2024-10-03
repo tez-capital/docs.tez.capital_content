@@ -26,8 +26,9 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 (updates components: #1, #2, #4)
 
    ```
-   tezbake upgrade -a
+   tezbake upgrade -a -s
    ```
+> The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
 ## (B) Update Octez binaries only 
 (updates components: #4)
@@ -49,8 +50,9 @@ First update your tezbake binary to the latest version, depending on your comput
 Then update the rest of the TezBake software stack:
 
    ```
-   tezbake upgrade -a
+   tezbake upgrade -a -s
    ```
+> The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
 ## (D) Update tezbake only 
 (updates components: #3)
