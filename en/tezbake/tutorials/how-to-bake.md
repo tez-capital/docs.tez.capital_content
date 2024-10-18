@@ -16,7 +16,10 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
     * 100GB SSD storage (or similar I/O performance);
     * a low-latency, reliable broadband internet connection.
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet & Baker apps installed.
-   (note: it's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter, enable developer mode in Ledger Live settings)
+   > It's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter you must enable developer mode in Ledger Live settings
+   > Absolutely ensure you have properly configured the Ledger device settings so the device doesn't lock 10 minutes after inactivity. This is a common issue that can cause your baker to stop baking.
+   ![<Ledger locking settings](/tezbake/tutorial/tezbakeLedgerLock.png)
+   > Remove the Ledger wallet app from your baking device after you've finished setting up your baker. This is a security measure to prevent unauthorized access to your baker. You can always reinstall the app when you need to use the Ledger for baking or other purposes.
 
 ---
 
