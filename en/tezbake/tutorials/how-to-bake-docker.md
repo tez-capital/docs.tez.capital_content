@@ -16,7 +16,7 @@ For this tutorial, you'll need to have already have installed Docker as shown he
 ### Pull the TezBake Docker Image
 
    ```
-   sudo docker pull ghcr.io/tez-capital/tezbake:latest-alpinetezbake setup --peak
+   sudo docker pull ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
 ### Setup TezBake Container

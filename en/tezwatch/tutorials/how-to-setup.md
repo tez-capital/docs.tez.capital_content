@@ -34,7 +34,7 @@ To get all "sources" and "events" use the `/events` command
 Here are the descriptions of all the key variables you will need to configure to monitor baker performance:
 | Variable    | Available Options                          | Description                                                                                                                                                   |
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `source`    | `staking` or `chain`  | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
+| `source`    | `baking` or `chain`  | The general area of interest. `baking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
 | `event`     | `attested-block`, `baked-block`, `missed-block`, `missed-attestation`, `new-block` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
 | `conditions`| `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv,tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur` | This is a comma-separated list of Tezos addresses that you want to be notified for                                                                            |
 
