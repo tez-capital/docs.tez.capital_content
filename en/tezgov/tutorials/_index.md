@@ -4,7 +4,7 @@ weight: 1
 type: docs
 summary: TezGov Tutorials
 ---
-**TezBake**
+**TezGov**
 ---
 *A proposal governance took as well as a delegator swiss army knife*
 

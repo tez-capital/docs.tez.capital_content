@@ -4,7 +4,7 @@ weight: 1
 type: docs
 summary: TezWatch Tutorials
 ---
-**TezPay**
+**TezWatch**
 ---
 *A bot-based Tezos baker monitoring tool for your peace of mind*
 
