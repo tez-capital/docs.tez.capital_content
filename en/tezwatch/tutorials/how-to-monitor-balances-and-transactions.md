@@ -1,5 +1,5 @@
 ---
-title: "How to Monitor Tezos Balances and Transactions with TezWatch"
+title: "Monitoring Transactions"
 weight: 1
 type: docs
 summary: TezWatch Balances & Transactions Tutorial

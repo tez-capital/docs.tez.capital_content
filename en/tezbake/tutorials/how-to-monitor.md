@@ -1,5 +1,5 @@
 ---
-title: "How to Monitor with TezBake"
+title: "Monitoring Logs and Status"
 weight: 1
 type: docs
 summary: TezBake Monitoring Tutorial

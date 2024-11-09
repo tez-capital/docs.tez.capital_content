@@ -1,5 +1,5 @@
 ---
-title: "> How to Vote with TezGov"
+title: "> Voting on Proposals"
 weight: 1
 type: docs
 summary: TezGov Proposal Voting Tutorial

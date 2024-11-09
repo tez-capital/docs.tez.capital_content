@@ -1,5 +1,5 @@
 ---
-title: "How to Bake on Ghostnet"
+title: "Baking on Ghostnet"
 weight: 1
 type: docs
 summary: Using TezBake to bake on the Ghostnet Tezos perpetual testnet

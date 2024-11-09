@@ -1,5 +1,5 @@
 ---
-title: "How to Pay Delegators with TezPay"
+title: "Paying Delegators"
 weight: 1
 type: docs
 summary: How to Pay Delegators Using TezPay

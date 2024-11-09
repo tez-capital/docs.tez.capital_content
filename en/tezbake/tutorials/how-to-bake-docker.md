@@ -1,5 +1,5 @@
 ---
-title: "How to Bake with Docker"
+title: "Baking with Docker"
 weight: 1
 type: docs
 summary: TezBake Baking Tutorial for Docker Users

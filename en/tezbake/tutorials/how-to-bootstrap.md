@@ -1,5 +1,5 @@
 ---
-title: "How to Bootstrap with TezBake"
+title: "Bootstrap Node"
 weight: 1
 type: docs
 summary: TezBake Bootstrapping Tutorial

@@ -1,5 +1,5 @@
 ---
-title: "How to Configure TezBox"
+title: "Configuration"
 weight: 1
 type: docs
 summary: TezBox Configuration Tutorial

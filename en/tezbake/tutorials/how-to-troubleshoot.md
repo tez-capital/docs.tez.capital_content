@@ -1,5 +1,5 @@
 ---
-title: "How to Troubleshoot with TezBake"
+title: "Troubleshooting"
 weight: 1
 type: docs
 summary: TezBake Troubleshooting Tutorial

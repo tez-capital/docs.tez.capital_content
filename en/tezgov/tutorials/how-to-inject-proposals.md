@@ -1,5 +1,5 @@
 ---
-title: "How to Inject Proposals with TezGov"
+title: "Injecting Proposals"
 weight: 1
 type: docs
 summary: TezGov Portal Proposal Injection Tutorial

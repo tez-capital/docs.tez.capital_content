@@ -1,5 +1,5 @@
 ---
-title: "> How to Setup TezBox"
+title: "> Setup"
 weight: 1
 type: docs
 summary: TezBox Setup Tutorial

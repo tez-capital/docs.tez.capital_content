@@ -1,5 +1,5 @@
 ---
-title: "> How to Bake with TezBake"
+title: "> Baking on Mainnet"
 weight: 1
 type: docs
 summary: TezBake Baking Tutorial
