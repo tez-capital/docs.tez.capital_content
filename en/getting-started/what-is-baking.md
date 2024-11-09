@@ -1,5 +1,5 @@
 ---
-title: "What is Tezos Baking"
+title: "> What is Tezos Baking"
 weight: 1
 type: docs
 summary: What is Tezos Baking?
