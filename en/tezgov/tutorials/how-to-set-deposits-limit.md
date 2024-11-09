@@ -1,5 +1,5 @@
 ---
-title: "How to Set Deposits Limit"
+title: "How to Set Deposits Limit with TezGov"
 weight: 1
 type: docs
 summary: TezGov Portal Set Deposits Limit Tutorial

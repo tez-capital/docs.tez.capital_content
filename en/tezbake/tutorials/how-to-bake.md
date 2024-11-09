@@ -1,5 +1,5 @@
 ---
-title: "> How to Bake"
+title: "> How to Bake with TezBake"
 weight: 1
 type: docs
 summary: TezBake Baking Tutorial

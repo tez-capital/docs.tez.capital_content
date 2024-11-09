@@ -1,5 +1,5 @@
 ---
-title: "Tutorials"
+title: "TezBake Tutorials"
 weight: 1
 type: docs
 summary: TezBake Tutorials

@@ -1,5 +1,5 @@
 ---
-title: "Tutorials"
+title: "TezPay Tutorials"
 weight: 1
 type: docs
 summary: TezPay Tutorials

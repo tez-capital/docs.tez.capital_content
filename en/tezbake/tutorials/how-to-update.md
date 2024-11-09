@@ -1,5 +1,5 @@
 ---
-title: "How to Update"
+title: "How to Update TezBake"
 weight: 1
 type: docs
 summary: TezBake Updating Tutorial

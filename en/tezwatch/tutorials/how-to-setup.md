@@ -1,5 +1,5 @@
 ---
-title: "> How to Setup"
+title: "> How to Setup TezWatch"
 weight: 1
 type: docs
 summary: TezWatch Setup Tutorial

@@ -1,5 +1,5 @@
 ---
-title: "> How to Setup"
+title: "> How to Setup TezPay"
 weight: 1
 type: docs
 summary: How to setup TezPay

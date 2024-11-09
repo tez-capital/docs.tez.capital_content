@@ -1,5 +1,5 @@
 ---
-title: "Tutorials"
+title: "TezGov Tutorials"
 weight: 1
 type: docs
 summary: TezGov Tutorials

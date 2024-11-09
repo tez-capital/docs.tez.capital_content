@@ -1,5 +1,5 @@
 ---
-title: "How to Update"
+title: "How to Update TezPay"
 weight: 1
 type: docs
 summary: How to update TezPay

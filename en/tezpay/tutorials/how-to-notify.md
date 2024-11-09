@@ -1,5 +1,5 @@
 ---
-title: "How to Setup Notifications"
+title: "How to Setup Notifications with TezPay"
 weight: 1
 type: docs
 summary: How to setup notifications using TezPay
