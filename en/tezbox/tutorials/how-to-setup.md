@@ -18,7 +18,7 @@ To get started with Podman, you can follow the instructions on the [official Pod
 To run the TezBox container with the Paris protocol
 
    ```
-   docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 > You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
@@ -26,13 +26,19 @@ To run the TezBox container with the Paris protocol
 You can also run the process in the background by adding the `-d` flag
 
    ```
-   docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   ```
+
+To verify that the container is running successfully, you can use `octez-client` to query the node
+
+   ```
+   octez-client -E http://127.0.0.1:8732 rpc get /chains/main/blocks/head/header
    ```
 
 To view all available protocols available in the TezBox container, you can run the following command
 
    ```
-   docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 list-protocols
+   sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 list-protocols
    ```
 
 ## Setup TezBox to test Release Candidate (RC) protocols
@@ -42,7 +48,7 @@ To view all available protocols available in the TezBox container, you can run t
 To run the TezBox container with the Qena42 protocol
 
    ```
-   docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
+   sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
    ```
 
 > You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
@@ -50,13 +56,13 @@ To run the TezBox container with the Qena42 protocol
 You can also run the process in the background by adding the `-d` flag
 
    ```
-   docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
+   sudo docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
    ```
 
 To view all available protocols available in the TezBox container, you can run the following command
 
    ```
-   docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 list-protocols
+   sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 list-protocols
    ```
 
 ## TezBox Configuration Options
@@ -107,9 +113,9 @@ For example if you want to adjust block times, you can create `sandbox-override-
 Run the container with the following command:
 
    ```
-   # docker run -it -v <path-to-your-file>:/tezbox/overrides/protocols/<case sensitive protocol id>/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   # sudo docker run -it -v <path-to-your-file>:/tezbox/overrides/protocols/<case sensitive protocol id>/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    
-   docker run -it -v $(pwd)/sandbox-override-parameters.hjson:/tezbox/overrides/protocols/Proxford/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -it -v $(pwd)/sandbox-override-parameters.hjson:/tezbox/overrides/protocols/Proxford/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 You can determine path based on folder structure in https://github.com/tez-capital/tezbox/tree/main/configuration
@@ -117,7 +123,7 @@ You can determine path based on folder structure in https://github.com/tez-capit
 Optionally you can mount entire overrides/configuration directory to `/tezbox/overrides` or `/tezbox/configuration` to replace the whole configuration.
 
    ```
-   docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 > Do not edit or mount configuration files in the `/tezbox/context` directory. They are generated automatically and should not be modified manually.
@@ -160,7 +166,7 @@ For example to disable baker service you would crease `baker.hjson` file:
 Mount it into overrides directory:
 
    ```
-   docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 ### Chain Context
@@ -168,7 +174,7 @@ Mount it into overrides directory:
 Chain and protocol is automatically initialized only once during the first run. The chain and all runtime data are stored in `/tezbox/context/data` directory. If you want to persist your sandbox state just run it with mounted volume to `/tezbox/context/data` directory.
 
    ```
-   docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+   sudo docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 > To reset the state you can remove the `/tezbox/context/data/tezbox-initialized` file. After its removal all chain and client data will be removed and the chain will be reinitialized on the next run.
@@ -189,7 +195,7 @@ Unlike Flextesa, TezBox won't expose configuration through command line argument
 3. build lua sources (you can get eli from https://github.com/alis-is/eli/releases)
    `eli build/build.lua`
 4. build the image
-   `docker build --build-arg="PROTOCOLS=PsParisC" --build-arg="IMAGE_TAG=octez-v20.3" -t tezbox . -f containers/tezos/Containerfile --no-cache`
+   `sudo docker build --build-arg="PROTOCOLS=PsParisC" --build-arg="IMAGE_TAG=octez-v20.3" -t tezbox . -f containers/tezos/Containerfile --no-cache`
 
 ---
 
