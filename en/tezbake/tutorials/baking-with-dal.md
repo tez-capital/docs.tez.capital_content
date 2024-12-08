@@ -85,7 +85,7 @@ Add the following 3 lines to the `app.json` file, under the `configuration` sect
         },
         "user": "bb"
     }
-    ```
+   ```
 
 > Note that the rest of the config above has been provided for reference. You should only add the 3 lines under `BAKER_STARTUP_ARGS`. This config in question is for a TezBake node running on Ghostnet.
 
@@ -116,11 +116,11 @@ Make sure to download the correct version of the DAL binary for your system, whe
 
 For example:   
 
-    ```
-    wget https://gitlab.com/tezos/tezos/-/package_files/159438046/download -O octez-dal-node
-    chmod +x octez-dal-node
-    sudo cp octez-dal-node /usr/sbin/octez-dal-node
-    ```
+   ```
+   wget https://gitlab.com/tezos/tezos/-/package_files/159438046/download -O octez-dal-node
+   chmod +x octez-dal-node
+   sudo cp octez-dal-node /usr/sbin/octez-dal-node
+   ```
 
 ### Initialize the DAL configuration
 
@@ -160,6 +160,7 @@ Create a new service file:
    ```
    sudo nano /etc/systemd/system/octez-dal-node.service
    ```
+
 Add the following content to the file:
 
    ```
@@ -213,9 +214,9 @@ If you've chosen to run the DAL as a systemd service, you can check the logs wit
 
  After confirming that the DAL process is able to observe the baker's level, confirm that TezBake's baker process is properly configured and not complaining about the DAL process.
 
-    ```
-    cat /etc/systemd/system/bb-default-node-xtz-baker.service
-    ```
+   ```
+   cat /etc/systemd/system/bb-default-node-xtz-baker.service
+   ```
 
 Verify that `--dal-node` is in the configuration file on the `ExecStart` line.
 
