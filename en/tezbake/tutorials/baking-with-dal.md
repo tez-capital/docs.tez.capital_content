@@ -200,7 +200,7 @@ Start the service:
    sudo systemctl start octez-dal-node
    ```
 
-### Verify the DAL process is operational
+## Verify the DAL process is operational
 
 Once running the DAL process should indicate that it's communicating with the baker process by displaying the level of the last block it received.
 
