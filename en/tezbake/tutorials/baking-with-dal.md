@@ -222,9 +222,10 @@ Verify that `--dal-node` is in the configuration file on the `ExecStart` line.
 
 Check that the TezBake baker process logs do not complain about the DAL process.
 
-    ```
-    tebake node log baker -f
-    ```
+   ```
+   tebake node log baker -f
+   ```
+
 The Nomadic Labs team has provided a [DAL tutorial](https://tezos.gitlab.io/shell/dal_overview.html) that explains how to further check the DAL process and its logs.
 
 ---
