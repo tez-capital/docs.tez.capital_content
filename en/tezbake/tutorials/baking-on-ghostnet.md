@@ -96,12 +96,11 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 #### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
    ```
-   tezbake setup-ledger --platform --import-key --authorize --hwm 1
+   tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm 1
 
-   # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; change ed to bip as needed for your individual needs; the default is ed25519/0h/0h which works just fine)
+   # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as secp256k1.
    # `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
    # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
-   ```
 
 > Once imported, you can see your baker address by running `tezbake info`
 
@@ -135,8 +134,10 @@ You can get the secret/private key by running the following command:
    tezbake signer client show address baker --show-secret
    ```
 
-#### Register as baker on the Tezos blockchain Ghostnet
+### Register as baker on the Tezos blockchain Ghostnet
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.
+
+To secure your XTZ security deposit on Ghostnet you can use the faucet to get some free XTZ. You can find the faucet at https://faucet.ghostnet.teztnets.com/
 
    ```
    tezbake register-key
@@ -145,6 +146,18 @@ For this step your node level must be synced with the latest block on the blockc
 > Registering is not necessary if this is already an active baker ledger which is being setup on some kind of failover machine or in a situation where it has not been over 2 weeks of baking inactivity.
 
 > Registering applies to new bakers and to inactive bakers. If you're setting up a new baker, you must register it. If you're setting up a baker that's been inactive for over 2 weeks, you must register it. If you're setting up a baker that's been inactive for less than 2 weeks, you don't need to register it. The best way to find out if you need to register your baker again is to look into your baking rights schedule and see if they stopped coming in. If they did, you need to register your baker again.
+
+### Stake your baking XTZ security deposit
+To bake on the Tezos network, you need to stake your XTZ security deposit. This is a slashable security deposit that you will get back when you stop baking. The minimum bond to get baking rights is currently set at 6000 XTZ. 
+
+You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
+
+   ```
+   tezbake signer client stake 6000 for baker 
+   ```
+
+> Change 6000 to the amount you want to stake. The minimum is 6000 XTZ. You may start baking with as little as 1000 XTZ but you will need to set your baking over staking multiplier to 5X and secure 5000 XTZ that will stake to your baker to cover the security deposit requirement. You can also secure delegators' XTZ to your baker to cover the security deposit requirement. Each XTZ delegated to your baker will be counted 0.5 towards the security deposit requirement. For example you can start baking with 1000 XTZ + 5000 XTZ secured from stakers, or you can start baking with 1000 XTZ + 10000 XTZ secured from delegators. You can also start baking with 1000 XTZ + 2000 XTZ secured from stakers + 6000 XTZ secured from delegators.
+
 
 ---
 
