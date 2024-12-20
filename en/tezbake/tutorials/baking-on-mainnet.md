@@ -91,19 +91,25 @@ You have the option to use the secure Ledger hardware wallet or simply use a loc
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
 #### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
+Using a Ledger hardware wallet is a secure and cost effective way to bake on the Tezos network. The Ledger device is a secure element that stores your private key and signs transactions on the device itself. This means your private key never leaves the device and is never exposed to the internet.
+
+In order to get the most out of your Ledger, it's now recommended to use the P-256 curve (tz3) for baking. This curve is faster than the default ed25519 curve (tz1). If you're setting up a baker that already exists on the network, you can use the same curve as before. If you're setting up a new baker, it's recommended to use the P-256 curve.
+
+You can import your Ledger key by running the following command:
+
    ```
    tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
-
-   # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as P-256 or secp256k1.
-   # `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
-   # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
    ```
+
+> If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as P-256 or secp256k1.
+
+> `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
+
+> If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
 
 > Once imported, you can see your baker address by running `tezbake info`
 
-> The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to https://kukai.app and login with ledger, accepting the default derivation path.
-
-> BLS (i.e. bip) signatures are designed to offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm. 
+> The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to https://gov.tez.capital and login with ledger, accepting the default derivation path.
 
 > Putting the baker on a non-default derivation path provides an additional layer of security for your baker at the cost of extra complexity for you. Make sure your setup is clearly documented for your own records.
 

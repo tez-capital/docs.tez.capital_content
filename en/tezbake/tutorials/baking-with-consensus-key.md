@@ -56,7 +56,7 @@ Open the TezBake node configuration file:
 Inside the `"configuration"` object, add the following key-value pair:
 
    ```
-   "consensus_key_alias": [ "consensus" ]
+   "additional_key_aliases": [ "consensus" ]
    ```
 
 Here an example of a file with the consensus key alias added:
