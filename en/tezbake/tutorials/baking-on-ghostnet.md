@@ -97,9 +97,9 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 #### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
    ```
-   tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm 1
+   tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
 
-   # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as secp256k1.
+   # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as P-256 or secp256k1.
    # `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
    # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
 
