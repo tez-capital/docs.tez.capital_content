@@ -15,7 +15,7 @@ A Tezos consensus key is a cryptographic key specifically used for signing block
 
 This separation of roles is useful for reducing the exposure of the primary baker key (which holds funds and has broader permissions) by isolating consensus-related tasks to a different key. If compromised, only the consensus operations are affected, not the funds held by the baker's main account.
 
-If an attacker gains control of the consensus key, they can only sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker fund that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
+If an attacker gains control of the consensus key, they can sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker funds that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
 
 ---
 
@@ -40,6 +40,8 @@ Run the following command to import the consensus key:
    ```
 
 > Replace the `--ledger-id` value with the 4 word ID of the Ledger you want to use for the consensus key.
+
+> We are using the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and most portable option with both on premise and cloud hardware security modules (HSMs). The consensus key is only used for signing blocks and endorsements, so it doesn't need to be the same curve as the baker key. In fact, many bakers move from a tz1 key to a tz3 key for the consensus key to improve performance.
 
 This will import your consensus key Ledger device and authorize it for baking. Leave the baking app running on the Ledger device.
 
@@ -163,4 +165,4 @@ To view your baker logs, run the following command:
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)i 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)
