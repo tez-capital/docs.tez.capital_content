@@ -115,19 +115,19 @@ Here an example of a file with the consensus key alias added:
 
 Re-run the TezBake setup and merge your configuration when asked:
 
-    ```
-    tezbake stop
-    tezbake setup -a
-    tezbake start
-    ```
+   ```
+   tezbake stop
+   tezbake setup -a
+   tezbake start
+   ```
 
 ### Register the consensus key
 
 Get your consensus key public key hash:
 
-    ```
-    cat /bake-buddy/node/data/.tezos-client/public_keys
-    ```
+   ```
+   cat /bake-buddy/node/data/.tezos-client/public_keys
+   ```
 
 The public key is the one in the `key` field.
 
@@ -135,9 +135,9 @@ The public key is the one in the `key` field.
 
 To register the consensus key, run the following command:
 
-    ```
-    tezbake signer client set consensus key for baker to consensus
-    ```
+   ```
+   tezbake signer client set consensus key for baker to consensus
+   ```
 
 You can also set your consensus key on TezGov via https://gov.tez.capital.
 
