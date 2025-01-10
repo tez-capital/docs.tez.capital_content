@@ -15,9 +15,9 @@ The Tezos Data Availability Layer (DAL) enhances the network's scalability by pr
 
 Read more about the DAL [https://tezos.gitlab.io/shell/dal_overview.html](https://tezos.gitlab.io/shell/dal_overview.html).
 
-> Setting up TezBake natively with the DAL is being worked on and will be available soon. For now, this guide explains how to run an all-in-one TezBake setup with the DAL process running separately from the TezBake processes, on the same machine or on a different machine within your network.
+> Setting up TezBake natively with the DAL is being worked on and will be available soon. For now, this guide explains how to run an all-in-one TezBake setup with the DAL process running separately from the TezBake processes, on the same machine or on a different machine, on your local network or in the cloud.
 
-> Please be advised that running the DAL on the same machine as your baker may reveal your baker's IP address to the public. If you're concerned about this, you can run the DAL on a separate machine.
+> Please be advised that running the DAL on the same machine as your baker may possibly reveal your baker's IP address to the public. If you're concerned about this, you can run the DAL on a separate machine.
 
 > If you're running your baker behind a NAT or have a restrictive firewall, you may need to open the necessary ports for the DAL to communicate with other nodes on the network. You will need to open and/or map port tcp/11732 to the machine running the DAL.
 
@@ -41,43 +41,8 @@ Add the following 3 lines to the `app.json` file, under the `configuration` sect
             "BAKER_STARTUP_ARGS": [
                 "--dal-node",
                 "http://127.0.0.1:10732/"
-            ],
-            "CONFIG_FILE": {
-                "p2p": {
-                    "bootstrap-peers": [
-                        "boot.tzbeta.net"
-                    ],
-                    "limits": {
-                        "connection-timeout": 10,
-                        "expected-connections": 40,
-                        "max-connections": 50,
-                        "max_known_peer_ids": [
-                            320,
-                            240
-                        ],
-                        "max_known_points": [
-                            320,
-                            240
-                        ],
-                        "min-connections": 20
-                    },
-                    "listen-addr": "[::]:9732"
-                },
-                "shell": {
-                    "chain_validator": {
-                        "synchronisation_threshold": 6
-                    }
-                }
-            },
-            "NODE_TYPE": "baker",
-            "VOTE_FILE": {
-                "adaptive_issuance_vote": "on",
-                "liquidity_baking_toggle_vote": "on"
-            },
-            "additional_key_aliases": [
-                "consensus"
             ]
-        },
+         },
         "id": "bb-default-node",
         "type": {
             "id": "xtz.node",
@@ -87,7 +52,9 @@ Add the following 3 lines to the `app.json` file, under the `configuration` sect
     }
    ```
 
-> Note that the rest of the config above has been provided for reference. You should only add the 3 lines under `BAKER_STARTUP_ARGS`. This config in question is for a TezBake node running on Ghostnet.
+You can change `http://127.0.0.1:10732/` to the IP address of the machine running the DAL process if it's running on a different machine. For example `http://39.63.25.22:10732/`.
+
+> Note that the rest of the config above has been provided for reference. You should only add the 3 lines under `BAKER_STARTUP_ARGS`.
 
 ### Run TezBake setup to modify the configuration
 
@@ -104,7 +71,9 @@ When asked by the setup process, choose to merge your current configuration with
 
    ```
    wget https://gitlab.com/tezos/tezos/-/raw/master/scripts/install_dal_trusted_setup.sh
-   chmod +x install_dal_trusted_setup.sh
+   wget https://gitlab.com/tezos/tezos/-/raw/master/scripts/version.sh
+   chmod +x install_dal_trusted_setup.sh version..sh
+   ./version.sh
    ./install_dal_trusted_setup.sh
    ```
 
@@ -127,7 +96,10 @@ For example:
    ```
    octez-dal-node config init --endpoint http://127.0.0.1:8732 --attester-profiles="tz1xxxxxxxxxxxxxxxxxxxxxx"
    ```
-> Replace `tz1xxxxxxxxxxxxxxxxxxxxxx` with your baker's address.
+
+Replace `tz1xxxxxxxxxxxxxxxxxxxxxx` with your baker's address.
+
+Replace `--endpoint http://127.0.0.1:8732` with the endpoint of your baker's node if it's running on a different machine. For example `--endpoint http://11.30.28.11:8732`.
 
 > There are several other options you can set in the DAL configuration. You can find more information about them by running visiting the DAL documentation [https://tezos.gitlab.io/shell/dal_overview.html](https://tezos.gitlab.io/shell/dal_overview.html).
 
