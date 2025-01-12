@@ -36,20 +36,20 @@ Before downloading the DAL binary, you need to slightly modify the TezBake confi
 Add the following 3 lines to the `app.json` file, under the `configuration` section within the `BAKER:
 
    ```
-    {
-        "configuration": {
-            "BAKER_STARTUP_ARGS": [
-                "--dal-node",
-                "http://127.0.0.1:10732/"
-            ]
-         },
-        "id": "bb-default-node",
-        "type": {
-            "id": "xtz.node",
-            "version": "latest"
-        },
-        "user": "bb"
-    }
+   {
+      "configuration": {
+         "BAKER_STARTUP_ARGS": [
+               "--dal-node",
+               "http://127.0.0.1:10732/"
+         ]
+      },
+      "id": "bb-default-node",
+      "type": {
+         "id": "xtz.node",
+         "version": "latest"
+      },
+      "user": "bb"
+   }
    ```
 
 You can change `http://127.0.0.1:10732/` to the IP address of the machine running the DAL process if it's running on a different machine. For example `http://39.63.25.22:10732/`.
@@ -68,6 +68,19 @@ You have to run a TezBake setup operation on top of the existing setup to includ
 When asked by the setup process, choose to merge your current configuration with the new one.
 
 ### Download and execute the DAL prerequisite script
+
+The scripts below need to be run on the machine where the DAL process will be running.
+
+If you're running the DAL on a separate machine, you need to run an additional script to install the zcash parameters.
+
+   ```
+   wget https://raw.githubusercontent.com/zcash/zcash/master/zcutil/fetch-params.sh
+   chmod +x fetch-params.sh
+   ./fetch-params.sh
+
+   ```
+
+All setups require the following scripts to install the DAL trusted setup:
 
    ```
    wget https://gitlab.com/tezos/tezos/-/raw/master/scripts/install_dal_trusted_setup.sh
