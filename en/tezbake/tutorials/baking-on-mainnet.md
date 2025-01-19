@@ -58,7 +58,7 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 Get the block hash and block level from the snapshot provider's website:
 https://snapshots.eu.tzinit.org/mainnet/rolling.html
 
-> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+> The `<block_hash>` argument is optional but encouraged. If you don't want to bother with this protection, use the second method below which will also be faster.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 https://tzkt.io/blocks
