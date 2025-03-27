@@ -27,6 +27,10 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
 
 ---
 
+> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network. After completing the instructions here, head over to [Baking with DAL](/tezbake/tutorials/baking-with-dal) to complete the setup. The DAL will be integrated directly into TezBake setup and upgrade processes soon.
+
+> What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
+
 ## Installation
 
 ### Download and copy tezbake
@@ -50,15 +54,13 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
    ```
    tezbake bootstrap-node <url> <block_hash>
    # example:
-   tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
-
-> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
 Get the block hash and block level from the snapshot provider's website:
 https://snapshots.eu.tzinit.org/mainnet/rolling.html
 
-> The `<block_hash>` argument is optional but encouraged. If you don't want to bother with this protection, use the second method below which will also be faster.
+> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 https://tzkt.io/blocks

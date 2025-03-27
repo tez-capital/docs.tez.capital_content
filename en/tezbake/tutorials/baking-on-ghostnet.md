@@ -20,7 +20,7 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
 
 1. Spare computer or existing computer with Linux installed. We recommend Ubuntu Linux.
    > You must have an SSD drive or better & at least 8GB RAM
-2. Ledger Nano S hardware wallet with Tezos Wallet & Baker apps installed.
+2. Ledger Nano S Plus or Ledger Nano X hardware wallet with Tezos Wallet & Baker apps installed.
 
    > It's necessary to use Ledger Live to install the Tezos Wallet & Baking applications; to install the latter you must enable developer mode in Ledger Live settings
 
@@ -31,6 +31,11 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
    > Remove the Ledger wallet app from your baking device after you've finished setting up your baker. This is a security measure to prevent unauthorized access to your baker. You can always reinstall the app when you need to use the Ledger for baking or other purposes. 
 
 ---
+
+> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network. After completing the instructions here, head over to [Baking with DAL](/tezbake/tutorials/baking-with-dal) to complete the setup. The DAL will be integrated directly into TezBake setup and upgrade processes soon.
+
+> What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
+
 
 ## Installation
 
@@ -55,10 +60,8 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
    ```
    tezbake bootstrap-node <url> <block_hash>
    # example:
-   tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   tezbake bootstrap-node https://snapshots.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
-
-> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
 Get the block hash and block level from the snapshot provider's website:
 https://snapshots.eu.tzinit.org/ghostnet/rolling.html
