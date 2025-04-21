@@ -8,8 +8,8 @@ summary: TezBake Baking Tutorial for using a Consensus Key
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
-* [How to Bake](/tezbake/tutorials/how-to-bake)
-* [How to Bake on Ghostnet](/tezbake/tutorials/how-to-bake-ghostnet)
+* [How to Bake](/tezbake/tutorials/baking-on-mainnet)
+* [How to Bake on Ghostnet](/tezbake/tutorials/baking-on-ghostnet)
 
 A Tezos consensus key is a cryptographic key specifically used for signing blocks and consensus operations (endorsing blocks) in the Tezos blockchain. Introduced to improve security and operational flexibility, it allows bakers (validators) to delegate block-signing responsibilities to a different key than the one associated with their primary baking account.
 
