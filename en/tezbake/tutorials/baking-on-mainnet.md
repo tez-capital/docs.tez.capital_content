@@ -44,7 +44,7 @@ To begin, run the script below, which will download the latest version of TezBak
 ### Setup Tezos node, signer and install tezbake dependencies
 
    ```
-   tezbake setup -a
+   tezbake setup
    # you may be prompted for sudo password
    ```
 

@@ -12,7 +12,7 @@ Troubleshooting TezBake mostly comes in during the installation phase, when an e
 If you encounter an installation issue, run the setup command again with the `--log-level=trace` option, for example:
 
    ```
-   tezbake setup -a --log-level=trace
+   tezbake setup --log-level=trace
    ```
 
 You can add `--log-level=trace` regardless of the setup type that's being attempted, whether it's on Ghostnet or some other testnet.

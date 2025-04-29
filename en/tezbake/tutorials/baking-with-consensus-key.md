@@ -117,7 +117,7 @@ Re-run the TezBake setup and merge your configuration when asked:
 
    ```
    tezbake stop
-   tezbake setup -a
+   tezbake setup
    tezbake start
    ```
 

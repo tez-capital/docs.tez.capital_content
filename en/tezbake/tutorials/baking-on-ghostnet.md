@@ -50,7 +50,7 @@ To begin, run the script below, which will download the latest version of TezBak
 ### Setup Tezos node, signer and install tezbake dependencies
 
    ```
-   tezbake setup -a --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
+   tezbake setup --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
    # you may be prompted for sudo password
    ```
 
