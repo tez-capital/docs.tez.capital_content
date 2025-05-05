@@ -140,7 +140,9 @@ Continual payouts are initially disabled.
 
 ---
 
-## Starting & Stopping TezPay
+## Starting & Stopping TezPay (continual service)
+
+> **Note:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
 
 - **Start TezPay:**
   - direct: `tezbake pay start`
@@ -152,7 +154,7 @@ Continual payouts are initially disabled.
 
 ---
 
-## TezPay Information
+## TezPay Information (continual service)
 
 View detailed information:
 
