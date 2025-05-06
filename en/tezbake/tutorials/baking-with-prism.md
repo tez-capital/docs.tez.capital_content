@@ -196,6 +196,8 @@ Make sure UDP port `20080` (or your configured Prism port) is open on the public
 
 To ensure encrypted and authenticated communication between components, generate a Prism CA and keys on a secure machine — usually the controller/signer host.
 
+> **Note:** Only applications with a `PRISM` configuration in their `app.json` file can generate keys.
+
 ```bash
 mkdir -p /bake-buddy/<app>/prism/keys/
 ```
