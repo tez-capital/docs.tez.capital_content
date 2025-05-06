@@ -11,7 +11,7 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 | ------------------------------|----------------------------------------------------------------------------|
 | Install Node on Remote        | `tezbake setup --node --node-remote <user>@<ip>:<port> ...`               |
 | Install DAL on Remote         | `tezbake setup --dal --dal-remote <user>@<ip>:<port> ...`                 |
-| Remove Local Node/DAL         | `tezbake remove --node`, `tezbake remove --dal`                           |
+| Remove Local Node/DAL         | `tezbake remove --node --all`, `tezbake remove --dal --all`               |
 | Generate CA                   | `tezbake <app> prism generate-ca --output=/bake-buddy/<app>/prism/keys/ca`|
 | Generate Key                  | `tezbake <app> prism generate-key --ca=... --name=... --output=...`       |
 | View Key Info                 | `tezbake <app> prism key-info --path=<key>.prism`                         |
@@ -83,8 +83,8 @@ tezbake setup --node \
 > **Tip:** You can combine both in a single command.  
 > If you've previously installed node or dal locally, remove it first:
 ```bash
-tezbake remove --node
-tezbake remove --dal
+tezbake remove --node --all
+tezbake remove --dal --all
 ```
 
 > **Note:** During remote setup, TezBake injects its own SSH keys into the remote machine for secure automation (setup, upgrade, info, etc.).
