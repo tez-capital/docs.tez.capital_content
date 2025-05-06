@@ -96,39 +96,48 @@ tezbake remove --dal
 ### If Node is Public Prism Endpoint
 
 **Node's `app.json`:**
-```json
+```yaml
 {
   "configuration": {
+    # ...
     "PRISM": {
       "listen": "0.0.0.0:20080",
       "dal": true,
       "signer": true
     }
+    # ...
   }
+  # ...
 }
 ```
 
 **DAL's `app.json`:**
-```json
+```yaml
 {
   "configuration": {
+    # ...
     "PRISM": {
       "remote": "<node-ip>:20080",
       "node": true
     }
+    # ...
   }
+  # ...
 }
 ```
 
 **Signer's `app.json`:**
-```json
+```yaml
 {
   "configuration": {
+    # ...
     "PRISM": {
       "remote": "<node-ip>:20080",
       "node": true
     }
+    # ...
   }
+  # ...
 }
 ```
 
@@ -137,26 +146,32 @@ tezbake remove --dal
 ### If DAL is Public Prism Endpoint
 
 **DAL's `app.json`:**
-```json
+```yaml
 {
   "configuration": {
+    # ...
     "PRISM": {
       "listen": "0.0.0.0:20080",
       "node": true
     }
+    # ...
   }
+  # ...
 }
 ```
 
 **Node's `app.json`:**
-```json
+```yaml
 {
   "configuration": {
+    # ...
     "PRISM": {
       "dal_remote": "<dal-ip>:20080",
       "node": true
     }
+    # ...
   }
+  # ...
 }
 ```
 
