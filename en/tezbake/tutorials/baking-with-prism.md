@@ -167,7 +167,7 @@ tezbake remove --dal --all
     # ...
     "PRISM": {
       "dal_remote": "<dal-ip>:20080",
-      "node": true
+      "dal": true
     }
     # ...
   }
@@ -230,6 +230,14 @@ tezbake <app> prism generate-key \
 ```bash
 tezbake <app> prism key-info --path=<key>.prism
 ```
+You should see output similar to the following:
+```
+Common Name: tezos-<app>
+DNS Names: [tezos-<app>]
+Extended Key Usage:
+  - Server Authentication
+  - Client Authentication
+```
 
 ---
 
@@ -245,6 +253,23 @@ Manually copy the generated `.prism` keys to the correct app directories:
 
 > ⚠️ **Do not copy or expose the CA file.**  
 > If compromised, regenerate all keys with a new CA.
+
+After distributing the keys to their respective locations, you can verify each application's key information using the following commands:
+
+For the Node key:
+```bash
+tezbake node prism key-info --path=/bake-buddy/node/prism/keys/node.prism
+```
+
+For the DAL key:
+```bash
+tezbake dal prism key-info --path=/bake-buddy/node/prism/keys/dal.prism
+```
+
+If the Node is the public Prism endpoint, use this command for the Signer key:
+```bash
+tezbake signer prism key-info --path=/bake-buddy/node/prism/keys/signer.prism
+```
 
 ---
 
