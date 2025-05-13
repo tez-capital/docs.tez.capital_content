@@ -52,7 +52,7 @@ wallet that contains only enough Tezos to pay out delegates.***
 ### Preparation: Step 2 *Download Files*
 
 Download the software from Github using the link:
-<https://github.com/alis-is/tezpay/releases>. In this repository,
+<https://github.com/tez-capital/tezpay/releases>. In this repository,
 select the correct operating system and system architecture (arm64 or
 amd64). For this example we will be using *arm64*
 
@@ -71,7 +71,7 @@ The example below displays *arm64*
 If you would rather utilize CLI to download the application you will need
 to change directory (cd) to the TezPay directory created in step 1 in
 the terminal, **then** use command `wget -q
-https://raw.githubusercontent.com/alis-is/tezpay/main/install.sh -O
+https://raw.githubusercontent.com/tez-capital/tezpay/main/install.sh -O
 /tmp/install.sh && sh /tmp/install.sh` 
 
 See example code below (*note: input begins after last '%' character*): 
@@ -84,7 +84,7 @@ repository**
 
 **Next**, you will download the sample configuration
 file & *payout\_wallet\_private.sample.key* file from :
-<https://github.com/alis-is/tezpay/blob/main/docs/configuration/> - *or
+<https://github.com/tez-capital/tezpay/blob/main/docs/configuration/> - *or
 you can open file in GitHub and copy text to a text editor*.
 
 *Note, there are two choices for the configuration files*:
