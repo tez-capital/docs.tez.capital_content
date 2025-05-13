@@ -290,6 +290,15 @@ TezBake will initialize all services and Prism tunnels. You should now have a se
 
 ---
 
+## Troubleshooting
+
+- Use `tezbake info` and `tezbake <app> log -f prism` to diagnose issues. These commands provide valuable insights into the system's state.
+- If Prism cannot establish a connection, verify that the firewall is not blocking the required port. Ensure that the UDP port (`20080` in this guide) is open on the `public endpoint` — the machine configured with the `listen` directive under the `PRISM` section in `app.json`.
+- If you see the log message `failed to verify certificate`, it indicates that the certificates are not from the same CA. Use the `key-info` commands mentioned in the **Key Distribution** section to verify the keys and ensure they share the same `CA` field.
+- If everything appears to be working but baking is still not happening, review the certificate's CN field. Ensure it matches the respective `tezos-<app>`. For example, for the signer, the CN field should display `tezos-signer`.
+
+---
+
 ## Need Help?
 
 - [Discord](https://discord.gg/cVGMA4MaNM)  
