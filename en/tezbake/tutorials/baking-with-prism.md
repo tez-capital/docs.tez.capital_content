@@ -18,6 +18,9 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 | Activate Configuration        | `tezbake upgrade`                                                         |
 | Start All                     | `tezbake start`                                                           |
 
+> **Important Note:**
+> All `tezbake` commands should be executed on the controller machine (usually the machine hosting the signer). Configuration edits (`app.json`) should be performed on their respective machines (Node, DAL, or Signer).
+
 ---
 
 ## Overview
