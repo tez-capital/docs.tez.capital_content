@@ -13,6 +13,14 @@ For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/
 
 > **Note:** This feature is experimental and not extensively tested yet. Remote/distributed setups will be available before the Rio activation.
 
+> ⚠️ **Warning**
+>
+> The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html). Since a baker’s bandwidth in the DAL is proportional to their stake, it may be relatively straightforward to identify the IP address of a DAL node—especially for bakers with substantial stakes.
+>
+> To mitigate this risk, the core team advises running your DAL node on a different IP address than your L1 node. This separation helps prevent unintentional exposure of your node’s identity.
+>
+> If you wish to run TezBake with DAL on a separate machine, consider using [TezBake Prism Tunneling](https://docs.tez.capital/tezbake/tutorials/baking-with-prism/), which is designed for setups across multiple hosts.
+
 ---
 
 ## If You Previously Installed DAL Manually
