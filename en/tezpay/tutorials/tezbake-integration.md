@@ -12,9 +12,9 @@ summary: Integrating TezPay with TezBake
 | Install TezPay Module          | `tezbake setup --pay`                 |
 | Verify Installation            | `tezbake apps`                        |
 | Generate Payouts               | `tezbake pay generate-payouts`        |
-| Check Continual Payout Status  | `tezbake pay continual --status`      |
-| Enable Continual Payouts       | `tezbake pay continual --enable`      |
-| Disable Continual Payouts      | `tezbake pay continual --disable`     |
+| Check Continual Payout Status  | `tezbake pay continual status`      |
+| Enable Continual Payouts       | `tezbake pay continual enable`      |
+| Disable Continual Payouts      | `tezbake pay continual disable`     |
 | Start TezPay                   | `tezbake pay start` or `tezbake start --pay` |
 | Stop TezPay                    | `tezbake pay stop` or `tezbake stop --pay` |
 | TezPay Information             | `tezbake info --pay`                  |
@@ -130,13 +130,13 @@ Reports are stored in:
 Continual payouts are initially disabled.
 
 - **Check current status:**  
-  `tezbake pay continual --status`
+  `tezbake pay continual status`
 
 - **Enable continual payouts:**  
-  `tezbake pay continual --enable`
+  `tezbake pay continual enable`
 
 - **Disable continual payouts:**  
-  `tezbake pay continual --disable`
+  `tezbake pay continual disable`
 
 ---
 
