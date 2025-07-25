@@ -11,8 +11,6 @@ The Tezos Data Availability Layer (DAL) enhances network scalability by efficien
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
 
-> **Note:** This feature is experimental and not extensively tested yet. Remote/distributed setups will be available before the Rio activation.
-
 > ⚠️ **Warning**
 >
 > The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html). Since a baker’s bandwidth in the DAL is proportional to their stake, it may be relatively straightforward to identify the IP address of a DAL node—especially for bakers with substantial stakes.
@@ -21,81 +19,33 @@ For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/
 >
 > If you wish to run TezBake with DAL on a separate machine, consider using [TezBake Prism Tunneling](https://docs.tez.capital/tezbake/tutorials/baking-with-prism/), which is designed for setups across multiple hosts.
 
----
-
-## If You Previously Installed DAL Manually
-
-If you previously set up DAL manually using the older method, first remove it by running:
-
-```bash
-sudo systemctl stop octez-dal-node
-export DAL_USER="$(grep -i '^User=' /etc/systemd/system/octez-dal-node.service | cut -d= -f2)"
-sudo rm -r "/home/$DAL_USER/.zcash-params"
-sudo rm -r "/home/$DAL_USER/.tezos-dal-node"
-sudo rm /usr/sbin/octez-dal-node
-sudo rm /etc/systemd/system/octez-dal-node.service
-sudo systemctl daemon-reload
-```
-
-Additionally, remove any DAL configurations manually added to your `app.json`, particularly the `BAKER_STARTUP_ARGS` referencing DAL.
-
----
-
 ## New TezBake Setup with DAL
 
-Follow these steps if you're setting up a new TezBake baker with DAL:
+You can set up TezBake with DAL integration from scratch. Follow these steps:
 
-1. **Install latest TezBake prerelease:**
-
-```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh --prerelease
-```
-
-2. **Run setup with DAL integration:**
+1. **Run setup with DAL integration:**
 
 ```bash
 tezbake setup --with-dal
 ```
 
-3. Proceed with your usual setup steps (ledger integration, baker registration, etc.).
+2. Proceed with your usual setup steps (ledger integration, baker registration, etc.).
 
-4. Continue to the [After Setup](#after-setup) section.
+3. Continue to the [After Setup](#after-setup) section.
 
 ---
 
 ## Existing TezBake Setup
 
-If you already have TezBake running without DAL or if you've previously added DAL manually, follow these steps:
+If you already have TezBake running without DAL, follow these steps:
 
-1. **Ensure no manual DAL references exist in your `app.json`** (remove if present):
-
-- Specifically, remove any `BAKER_STARTUP_ARGS` referencing DAL.
-
-2. **Install latest TezBake prerelease:**
-
-```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh --prerelease
-```
-
-3. **Upgrade TezBake components:**
-
-```bash
-tezbake upgrade
-```
-
-> **Important (rare case):** If your node runs on a non-default RPC address, ensure your `RPC_ADDR` includes the full address (e.g., `http://`).
-
-4. **Install DAL:**
+1. **Install DAL:**
 
 ```bash
 tezbake setup --dal
 ```
 
-5. Continue to [After Setup](#after-setup).
-
----
-
-## After Setup
+## After DAL Setup
 
 1. **Inject attester profiles:**
 
@@ -117,8 +67,6 @@ tezbake update-dal-profiles <your-baker-key>
 tezbake stop && tezbake start
 ```
 
----
-
 ## Quick Troubleshooting
 
 If you encounter issues or require immediate help, execute these commands to revert changes and reinstall:
@@ -128,8 +76,6 @@ tezbake remove --dal
 tezbake setup --node  # choose 'yes' to merge config when prompted
 tezbake stop && tezbake start
 ```
-
----
 
 ## Verify DAL Operation
 

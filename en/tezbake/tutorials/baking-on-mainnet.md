@@ -27,7 +27,7 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
 
 ---
 
-> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network. After completing the instructions here, head over to [Baking with DAL](/tezbake/tutorials/baking-with-dal) to complete the setup. The DAL will be integrated directly into TezBake setup and upgrade processes soon.
+> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network. After completing the instructions here, head over to [Baking with DAL](/tezbake/tutorials/baking-with-dal) to complete the setup.
 
 > What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
 
