@@ -5,6 +5,9 @@ type: docs
 summary: How to setup TezPay
 ---
 
+Follow along on Youtube!
+{{< youtube 1SUPwKBWgTU >}}
+
 ## Preparation
 
 There is minimal preparation needed to utilize TezPay, assuming that
