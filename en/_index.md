@@ -42,12 +42,13 @@ summary:
 ### Chat/Support
 * [Discord](https://dsc.gg/tzc) (primary)
 * [Telegram](https://t.me/tezcapital)
+### YouTube
+* https://tezcapital.medium.com
 ### Blog
-* [Medium](https://tezcapital.medium.com/)
+* https://tezcapital.medium.com
 ### Source Code
 * [https://github.com/tez-capital/](https://github.com/tez-capital/)
 * [https://gitlab.com/alis-is/](https://github.com/alis-is/)
-* [https://gitlab.com/groktech/](https://gitlab.com/groktech/)
 ### Social Media
 * [Twitter: Tez Capital](https://twitter.com/tezcapital)
 * [Twitter: TezBake](https://twitter.com/YourBakeBuddy)

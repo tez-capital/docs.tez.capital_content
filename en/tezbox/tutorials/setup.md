@@ -5,6 +5,8 @@ type: docs
 summary: TezBox Setup Tutorial
 ---
 
+{{< youtube v-X90E4JFTY >}}
+
 ## Preparation
 
 To use TezBox, you need to have an OCI compatible container runtime installed on your machine (e.g. Docker, Podman, etc.)

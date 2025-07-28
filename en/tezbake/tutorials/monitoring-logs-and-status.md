@@ -5,6 +5,9 @@ type: docs
 summary: TezBake Monitoring Tutorial
 ---
 
+Follow along on Youtube!
+{{< youtube tqqLNBo1OeE >}}
+
 ## Monitoring
 TezBake gives you the option to monitor all Tezos node and baking services. TezBake utilizes the journalctl utility included in most Linux distribution to store and manage its logging.  You can extract all logs for a node easily to diagnose any issues. This tutorial will walk you through the process of monitoring your TezBake node.
 

@@ -5,6 +5,9 @@ type: docs
 summary: TezBake Baking Tutorial for DAL
 ---
 
+Follow along on Youtube!
+{{< youtube 0EEgEHFl40Y >}}
+
 ## Introduction
 
 The Tezos Data Availability Layer (DAL) enhances network scalability by efficiently handling large volumes of data off-chain, providing essential support for rollups and other layer-2 solutions. This guide explains how to set up DAL locally alongside your TezBake baker.

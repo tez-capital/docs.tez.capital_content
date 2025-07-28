@@ -5,6 +5,9 @@ type: docs
 summary: TezGov Proposal Voting Tutorial
 ---
 
+Follow along on Youtube!
+{{< youtube l2VSQ-HCeFw >}}
+
 ## Tezos proposal voting
 
 The Tezos proposal process consists of 5 stages, each of which lasts for 14 cycles (~14 days). Briefly, the proposal process is as follows:

@@ -5,6 +5,8 @@ type: docs
 summary: TezBake Baking Tutorial
 ---
 
+{{< youtube t85LjgpRtvc >}}
+
 ## Preparation
 
 Installing TezBake CLI and using it to setup your Tezos baker is very simple. You will need the following tools:
