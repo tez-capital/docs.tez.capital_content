@@ -43,7 +43,7 @@ summary:
 * [Discord](https://dsc.gg/tzc) (primary)
 * [Telegram](https://t.me/tezcapital)
 ### YouTube
-* https://tezcapital.medium.com
+* https://www.youtube.com/@tezcap
 ### Blog
 * https://tezcapital.medium.com
 ### Source Code
