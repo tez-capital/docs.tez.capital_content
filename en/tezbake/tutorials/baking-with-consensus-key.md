@@ -5,6 +5,9 @@ type: docs
 summary: TezBake Baking Tutorial for using a Consensus Key
 ---
 
+Follow along on Youtube!
+{{< youtube 5m_GKFRIflk >}}
+
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
