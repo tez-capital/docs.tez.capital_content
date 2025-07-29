@@ -18,9 +18,8 @@ A Tezos consensus key is a cryptographic key specifically used for signing block
 
 This separation of roles is useful for reducing the exposure of the primary baker key (which holds funds and has broader permissions) by isolating consensus-related tasks to a different key. If compromised, only the consensus operations are affected, not the funds held by the baker's main account.
 
-{{% warning %}}
-If an attacker gains control of the consensus key, they can sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker funds that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
-{{% /warning %}}
+> If an attacker gains control of the consensus key, they can sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker funds that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
+{.danger}
 
 ---
 
