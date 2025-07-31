@@ -5,6 +5,9 @@ type: docs
 summary: TezBake Baking Tutorial for GUI Users
 ---
 
+Follow along on Youtube!
+{{< youtube e8WUjMxEU8U >}}
+
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
@@ -13,7 +16,7 @@ For this tutorial, you'll need to have already followed one of the following tut
 
 The TezPeak GUI is a graphical user interface for TezBake, which is a command-line tool for baking and endorsing Tezos blocks. It's a great way to get started with baking and endorsing without having to use the command line on a day-to-day basis.
 
-> Please note that tezbake version 0.13.0-beta minimum is required to use TezPeak.
+> Please note that tezbake version 0.18.0-beta minimum is required to use TezPeak.
 
 ---
 
