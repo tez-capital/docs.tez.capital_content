@@ -30,7 +30,7 @@ Plug in your consensus key Ledger device and open the Tezos Baking app.
 
 Run the following command to list the available Ledgers:
 
-   ```
+   ```bash
    tezbake list-ledgers
    ```
 
@@ -38,7 +38,7 @@ Note the 4 word ID of the Ledger you want to use for the consensus key.
 
 Run the following command to import the consensus key:
 
-   ```
+   ```bash
    tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --ledger-id "apple-banana-coconut-date" --hwm 1 --key-alias=consensus
    ```
 
@@ -52,13 +52,13 @@ This will import your consensus key Ledger device and authorize it for baking. L
 
 Open the TezBake node configuration file:
 
-   ```
+   ```bash
    nano /bake-buddy/node/app.json
    ``` 
 
 Inside the `"configuration"` object, add the following key-value pair:
 
-   ```
+   ```bash
    "additional_key_aliases": [ "consensus" ]
    ```
 
@@ -118,7 +118,7 @@ Here an example of a file with the consensus key alias added:
 
 Re-run the TezBake setup and merge your configuration when asked:
 
-   ```
+   ```bash
    tezbake stop
    tezbake setup
    tezbake start
@@ -128,7 +128,7 @@ Re-run the TezBake setup and merge your configuration when asked:
 
 Get your consensus key public key hash:
 
-   ```
+   ```bash
    cat /bake-buddy/node/data/.tezos-client/public_keys
    ```
 
@@ -138,7 +138,7 @@ The public key is the one in the `key` field.
 
 To register the consensus key, run the following command:
 
-   ```
+   ```bash
    tezbake signer client set consensus key for baker to consensus
    ```
 
@@ -152,7 +152,7 @@ Once the consensus Ledger becomes effective, you can unplug your original Ledger
 
 Once the consensus key becomes effective, you will see a change in the baking logs by showing the consensus key operating on blocks and endorsements on behalf of the baker key.
 
-   ```
+   ```bash
    Dec 18 05:14:26 bb baker[2428547]: Dec 18 05:14:26.449: injected attestation op5RtCGypnrri9FyYHy91haPWB6CpouxNABcgM7BSUmr81p27G4 for
    Dec 18 05:14:26 bb baker[2428547]: Dec 18 05:14:26.449:   consensus (tz3P9WvzULMuss5iDk4tjNQYWkwSrLAjUuh7)
    Dec 18 05:14:26 bb baker[2428547]: Dec 18 05:14:26.449:   on behalf of tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur for level 7403648, round
@@ -161,7 +161,7 @@ Once the consensus key becomes effective, you will see a change in the baking lo
 
 To view your baker logs, run the following command:
 
-   ```
+   ```bash
    tezbake node log baker -f
    ```
 

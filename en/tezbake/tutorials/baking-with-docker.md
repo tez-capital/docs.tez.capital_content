@@ -15,13 +15,13 @@ For this tutorial, you'll need to have already have installed Docker as shown he
 
 ### Pull the TezBake Docker Image
 
-   ```
+   ```bash
    sudo docker pull ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
 ### Setup TezBake Container
 
-   ```
+   ```bash
    sudo docker run --name tezbake-container --privileged -d ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
@@ -29,7 +29,7 @@ For this tutorial, you'll need to have already have installed Docker as shown he
 
 You can monitor the progress of the Tezos node bootstrapping by running the following command:
 
-   ```
+   ```bash
    sudo docker logs -f tezbake-container
    ```
 
@@ -37,7 +37,7 @@ Once the Tezos node has finished bootstrapping, you can connect into the contain
 
 ### Connect to TezBake Container
 
-   ```
+   ```bash
    sudo docker exec -it tezbake-container /bin/sh
    ```
 
@@ -49,7 +49,7 @@ You have the option to use the secure Ledger hardware wallet or simply use a loc
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
 #### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
-   ```
+   ```bash
    tezbake setup-ledger --platform --import-key --authorize --hwm 1
 
    # If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; change ed to bip as needed for your individual needs; the default is ed25519/0h/0h which works just fine)
@@ -77,13 +77,13 @@ If you used to bake on mainnet with the same ledger as you're trying to use now 
 #### (Option 2 - INSECURE) Import Soft key to TezBake signer
 First, generate the baker key for TezBake signer:
 
-   ```
+   ```bash
    tezbake signer - gen keys baker
    ```
 
 Make sure to backup your key in a secure location. You can get the key by running the following command:
 
-   ```
+   ```bash
    cat /bake-buddy/signer/data/.tezos-signer/secret_keys
    ```
 
@@ -91,13 +91,13 @@ Then, import the baker public key hash to TezBake node:
 
 Get the tz1-tz3 address which is the hashed public key of the baker key:
 
-   ```
+   ```bash
    cat /bake-buddy/signer/data/.tezos-signer/public_key_hashs
    ```
 
 Import the hashed key to the TezBake node:
 
-   ```
+   ```bash
    tezbake node client import secret key baker http://127.0.0.1:20090/tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF
    ```
 
@@ -105,7 +105,7 @@ Import the hashed key to the TezBake node:
 
 Finally, change the permissions of the newly generated keys to be readable by the ascend user and group which runs the TezBake node:
 
-   ```
+   ```bash
    chown -R ascend:ascend /bake-buddy/
    ```
 
@@ -113,7 +113,7 @@ Finally, change the permissions of the newly generated keys to be readable by th
 #### Register Ledger key as baker on the Tezos blockchain
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.
 
-   ```
+   ```bash
    tezbake register-key
    ```
 

@@ -6,6 +6,7 @@ summary: What is Tezos Baking?
 ---
 
 ## What is Tezos Baking?
+
 Fundamentally speaking, "Baking" on Tezos involves 2 things:
 
 1. The creation of blocks every 10 seconds as well as the attestation of the soundness of blocks produced by other bakers. Bakers put their tez at stake in order to be able to bake blocks and attest other bakers' blocks. The tez put at stake by the bakers is used as deterrent against bakers acting maliciously. If a baker acts maliciously, they will lose their tez at stake. If a baker acts honestly, they will be rewarded with tez from the protocol. To act maliciously, a baker would have to create a block that is invalid or attest to a block that is invalid.

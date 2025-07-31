@@ -38,14 +38,14 @@ Installing TezBake CLI and using it to setup your Tezos baker is very simple. Yo
 ### Download and copy tezbake
 To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
-   ```
+   ```bash
    wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
    # you may be prompted for sudo password
    ```
 
 ### Setup Tezos node, signer and install tezbake dependencies
 
-   ```
+   ```bash
    tezbake setup
    # you may be prompted for sudo password
    ```
@@ -53,7 +53,7 @@ To begin, run the script below, which will download the latest version of TezBak
 ### Bootstrap Tezos node
 At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best.
   
-   ```
+   ```bash
    tezbake bootstrap-node <url> <block_hash>
    # example:
    tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
@@ -73,13 +73,13 @@ Simply search for the block level in the search field and verify the hash of the
 ### Start Tezos node
 After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
 
-   ```
+   ```bash
    tezbake start
    ```
 
 After starting the node, run the following command over and over every few minutes and monitor the "level" displayed.
    
-   ```
+   ```bash
    tezbake info
    ```
 
@@ -101,7 +101,7 @@ In order to get the most out of your Ledger, it's now recommended to use the P-2
 
 You can import your Ledger key by running the following command:
 
-   ```
+   ```bash
    tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
    ```
 
@@ -129,7 +129,7 @@ If you used to bake on mainnet with the same ledger as you're trying to use now 
 #### (Option 2 - INSECURE) Import Soft key to TezBake signer
 First, generate the baker key for TezBake signer:
 
-   ```
+   ```bash
    tezbake setup-soft-wallet
    ```
 
@@ -137,14 +137,14 @@ First, generate the baker key for TezBake signer:
 
 You can get the secret/private key by running the following command:
 
-   ```
+   ```bash
    tezbake signer client show address baker --show-secret
    ```
 
 ### Register as baker on the Tezos blockchain Mainnet
 For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.
 
-   ```
+   ```bash
    tezbake register-key
    ```
 
@@ -157,7 +157,7 @@ To bake on the Tezos network, you need to stake your XTZ security deposit. This 
 
 You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
 
-   ```
+   ```bash
    tezbake signer client stake 6000 for baker 
    ```
 

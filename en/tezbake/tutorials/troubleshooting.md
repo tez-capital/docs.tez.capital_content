@@ -11,7 +11,7 @@ Troubleshooting TezBake mostly comes in during the installation phase, when an e
 ### Installation errors
 If you encounter an installation issue, run the setup command again with the `--log-level=trace` option, for example:
 
-   ```
+   ```bash
    tezbake setup --log-level=trace
    ```
 
@@ -20,12 +20,12 @@ You can add `--log-level=trace` regardless of the setup type that's being attemp
 ### Blockchain errors
 Sometimes, you will notice that `tezbake info` never seems to show that you are able to fully synchronize your node. Upon looking at it you may find that your node is stuck on a certain block. This is usually due to a problem with the Tezos node itself. The Tezos node is a separate process from the TezBake process. If you are having issues with the Tezos node, you can try to restart it with the following command:
 
-   ```
+   ```bash
    tezbake restart
    ```
 You may see an error like the one below, which indicates your node needs to be bootstrapped with a fresh copy of the Tezos blockchain.
 
-   ```
+   ```bash
    baker@baker-VirtualBox:~$ tezbake node log node -f
    -- Logs begin at Wed 2022-05-18 14:16:28 CEST. --
    mai 20 08:51:31 baker-VirtualBox systemd[1]: Stopped bb-default-node node service.

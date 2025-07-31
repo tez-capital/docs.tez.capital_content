@@ -23,7 +23,7 @@ You can get Tezos node snapshots in the following place run by the Tezos Foundat
 
 Using the first bootstrap method below ensures that the snapshot is checked for consistency both programmatically and by your checking the blockchain explorer(s) to confirm the block hash. This is the most reliable and robust method but it it also the slowest.
 
-   ```
+   ```bash
    tezbake stop
    tezbake bootstrap-node <url> <block_hash>
    tezbake start
@@ -46,7 +46,7 @@ Simply search for the block level in the search field and verify the hash of the
 
 Using the second bootstrap method below is faster but it assumes you trust the source of the snapshot. Sometimes one doesn't have a choice and must make such trade-offs when time is of the essence.
 
-   ```
+   ```bash
    tezbake stop
    tezbake bootstrap-node --no-check <url>
    tezbake start

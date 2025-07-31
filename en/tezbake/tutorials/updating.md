@@ -25,7 +25,7 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 ## (A) Update ami & eli and Octez binaries 
 (updates components: #1, #2, #4)
 
-   ```
+   ```bash
    tezbake upgrade -s
    ```
 > The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
@@ -33,7 +33,7 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 ## (B) Update Octez binaries only 
 (updates components: #4)
 
-   ```
+   ```bash
    tezbake upgrade
    ```
 
@@ -42,14 +42,14 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 
 First update your tezbake binary to the latest version, depending on your computer architecture:
 
-   ```
+   ```bash
    wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
    # you may be prompted for sudo password
    ```
 
 Then update the rest of the TezBake software stack:
 
-   ```
+   ```bash
    tezbake upgrade -s
    ```
 > The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
@@ -59,7 +59,7 @@ Then update the rest of the TezBake software stack:
 
 Update your tezbake binary to the latest version, depending on your computer architecture:
 
-   ```
+   ```bash
    wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
    # you may be prompted for sudo password
    ```
@@ -69,7 +69,7 @@ After all updates and changes to your Tezos node, always ensure your baking proc
 
 Check your TezBake stack versions to ensure they are up to date:
 
-   ```
+   ```bash
    tezbake version --all
    ```
 

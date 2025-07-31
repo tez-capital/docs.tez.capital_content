@@ -51,7 +51,7 @@ Download the latest binary for your platform from the [Releases](https://github.
 
 Rename it to `tezpay` and make it executable (on linux):
 
-```
+```bash
 chmod +x ./tezpay
 ```
 For Windows, the binary will be named `tezpay.exe`. To make it executable, no additional steps are required on Windows.
@@ -70,7 +70,7 @@ You have **two options**:
 1. Copy your `trd.yaml` into the instance folder.
 2. Run:
 
-```
+```bash
 ./tezpay import-configuration trd ./trd.yaml
 ```
 
@@ -93,7 +93,7 @@ This creates `config.hjson` based on your TRD settings.
 
 Run a dry run of the payouts:
 
-```
+```bash
 ./tezpay generate-payouts
 ```
 
@@ -108,13 +108,13 @@ Run a dry run of the payouts:
 
 - Default (last completed cycle):
 
-```
+```bash
 ./tezpay pay
 ```
 
 - Specific cycle:
 
-```
+```bash
 ./tezpay pay -c <cycle number>
 ```
 
@@ -122,7 +122,7 @@ Run a dry run of the payouts:
 
 To run payouts continuously:
 
-```
+```bash
 ./tezpay continual
 ```
 

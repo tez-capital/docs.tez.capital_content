@@ -25,7 +25,7 @@ To get started with Podman, you can follow the instructions on the [official Pod
 
 To run the TezBox container with the Paris protocol
 
-   ```
+   ```bash
    sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
@@ -33,19 +33,19 @@ To run the TezBox container with the Paris protocol
 
 You can also run the process in the background by adding the `-d` flag
 
-   ```
+   ```bash
    sudo docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
 To verify that the container is running successfully, you can use `octez-client` to query the node
 
-   ```
+   ```bash
    octez-client -E http://127.0.0.1:8732 rpc get /chains/main/blocks/head/header
    ```
 
 To view all available protocols available in the TezBox container, you can run the following command
 
-   ```
+   ```bash
    sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 list-protocols
    ```
 
@@ -55,7 +55,7 @@ To view all available protocols available in the TezBox container, you can run t
 
 To run the TezBox container with the Qena42 protocol
 
-   ```
+   ```bash
    sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
    ```
 
@@ -63,13 +63,13 @@ To run the TezBox container with the Qena42 protocol
 
 You can also run the process in the background by adding the `-d` flag
 
-   ```
+   ```bash
    sudo docker run -d -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
    ```
 
 To view all available protocols available in the TezBox container, you can run the following command
 
-   ```
+   ```bash
    sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 list-protocols
    ```
 

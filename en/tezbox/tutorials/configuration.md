@@ -22,12 +22,12 @@ To mount the `/ascend/logs` directory from inside the container to your host sys
 
 Here’s the command format:
 
-   ```
+   ```bash
    docker run -it -v /path/on/host:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 For example:
 
-   ```
+   ```bash
    docker run -it -v /home/tezos/logs:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
@@ -45,7 +45,7 @@ For example if you want to adjust block times, you can create `sandbox-override-
 
 Run the container with the following command:
 
-   ```
+   ```bash
    # sudo docker run -it -v <path-to-your-file>:/tezbox/overrides/protocols/<case sensitive protocol id>/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    
    sudo docker run -it -v $(pwd)/sandbox-override-parameters.hjson:/tezbox/overrides/protocols/Proxford/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
@@ -55,7 +55,7 @@ You can determine path based on folder structure in https://github.com/tez-capit
 
 Optionally you can mount entire overrides/configuration directory to `/tezbox/overrides` or `/tezbox/configuration` to replace the whole configuration.
 
-   ```
+   ```bash
    sudo docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
@@ -65,7 +65,7 @@ Optionally you can mount entire overrides/configuration directory to `/tezbox/ov
 
 By default tezbox comes with these accounts:
 
-   ```
+   ```json
     {
         alice: {
             pkh: tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb
@@ -92,13 +92,13 @@ If you want to disable a service, you can create override with `autostart: false
 
 For example to disable baker service you would crease `baker.hjson` file:
 
-   ```
+   ```bash
    autostart: false
    ```
 
 Mount it into overrides directory:
 
-   ```
+   ```bash
    sudo docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 
@@ -106,7 +106,7 @@ Mount it into overrides directory:
 
 Chain and protocol is automatically initialized only once during the first run. The chain and all runtime data are stored in `/tezbox/context/data` directory. If you want to persist your sandbox state just run it with mounted volume to `/tezbox/context/data` directory.
 
-   ```
+   ```bash
    sudo docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
    ```
 

@@ -28,7 +28,7 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
 
 ### Download and install TezPeak via TezBake
 
-   ```
+   ```bash
    tezbake setup --peak
    ```
 
@@ -36,7 +36,7 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
 
 ### Setup TezPeak configuration
 
-   ```
+   ```bash
    cd /bake-buddy/peak/ && touch config.hjson
    ```
 
@@ -46,7 +46,7 @@ Open the `config.hjson` file with your favorite text editor.
 
 Here's an example of a minimal TezPeak `config.hjson` file with just TezPay configured:
 
-   ```
+   ```json
 {
     listen: 0.0.0.0:8733
     app_root: /bake-buddy
@@ -62,7 +62,7 @@ Here's an example of a minimal TezPeak `config.hjson` file with just TezPay conf
 
 Here's the TezPeak configuration with all available TezPay options:
 
-   ```
+   ```json
 {
 	# Id to show in the header
     id: ""
@@ -112,7 +112,7 @@ Here's the TezPeak configuration with all available TezPay options:
 
 ## Start TezPeak and connect to it
 
-   ```
+   ```bash
    tezbake start --peak
    ```
 

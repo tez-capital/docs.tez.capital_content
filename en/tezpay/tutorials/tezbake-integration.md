@@ -119,7 +119,7 @@ Pay:
 
 Reports are stored in:
 
-```
+```bash
 /bake-buddy/pay/reports
 ```
 
