@@ -46,7 +46,7 @@ Open the `config.hjson` file with your favorite text editor.
 
 Here's an example of a minimal TezPeak `config.hjson` file with just TezPay configured:
 
-   ```json
+```yaml
 {
     listen: 0.0.0.0:8733
     app_root: /bake-buddy
@@ -62,7 +62,7 @@ Here's an example of a minimal TezPeak `config.hjson` file with just TezPay conf
 
 Here's the TezPeak configuration with all available TezPay options:
 
-   ```json
+```yaml
 {
 	# Id to show in the header
     id: ""
@@ -74,7 +74,8 @@ Here's the TezPeak configuration with all available TezPay options:
 			# can be null to disable tezpay package monitoring
             applications: {
 				# path to tezpay ami package, either absolute or relative to parent directory peak
-                tezpay: tezpay
+                # `pay` is the correct value to use when both tezpay and tezpeak are installed as modules within tezbake instance.
+                tezpay: pay
             }
             payout_wallet: tz1X7U9XxVz6NDxL4DSZhijME61PW45bYUJE
             payout_wallet_preferences: {
