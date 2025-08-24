@@ -65,7 +65,7 @@ Optionally you can mount entire overrides/configuration directory to `/tezbox/ov
 
 By default tezbox comes with these accounts:
 
-   ```json
+   ```yaml
     {
         alice: {
             pkh: tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb
