@@ -1,17 +1,15 @@
 ---
-title: "Baking on Ghostnet"
+title: "Baking on Testnets"
 weight: 1
 type: docs
-summary: Using TezBake to bake on the Ghostnet Tezos perpetual testnet
+summary: Using TezBake to bake on the Tezos testnets
 ---
 
-## Ghostnet
+## Tezos Testnets
 
-Ghostnet is Tezos' perpetual testnet. In the context of TezBake, Ghostnet is
-intended to provide a no-consequences testing environment where you can 
-learn how to properly bake and pay using TezBake and TezPay. It's highly
-recommended for all serious bakers to have a Ghostnet setup running, to
-help test protocol migrations.
+* Seoulnet is a simple and fast testnet with 20 minute cycles. It's a great way to quickly test your baker setup and get familiar with the Tezos baking process. Seoulnet will be removed once the Tallinn upgrade is activated on mainnet. Each protocol upgrade on mainnet usually comes with a new testnet that has the same features and really fast cycles.
+* Ghostnet is the original Tezos testnet. It is a public testnet that is used by developers and users to test new features and applications before they are deployed on the mainnet. Ghostnet is a great way to get familiar with the Tezos ecosystem and to test your applications in a safe environment where the chain conditions are similar to mainnet.
+* Shadownet is similar to Ghostnet but it is a private testnet that is used by developers to test new features and applications before they are deployed on the mainnet. Shadownet is not open to the public and is only accessible to developers who are working on Tezos projects. Shadownet bakers are centrally selected by the core Tezos development team. Setting up a testnet bakery here is possible but not encouraged.
 
 ## Preparation
 
@@ -50,6 +48,9 @@ To begin, run the script below, which will download the latest version of TezBak
 ### Setup Tezos node, signer and install tezbake dependencies
 
    ```bash
+   # Seoulnet setup:
+   tezbake setup --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/seoulnet.json
+   # Ghostnet setup:
    tezbake setup --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
    # you may be prompted for sudo password
    ```
@@ -59,8 +60,10 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 
    ```bash
    tezbake bootstrap-node <url> <block_hash>
-   # example:
-   tezbake bootstrap-node https://snapshots.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   # Seoulnet example:
+   tezbake bootstrap-node https://snapshots.tzinit.org/seoulnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+   # Ghostnet example:
+   tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
 
 Get the block hash and block level from the snapshot provider's website:
