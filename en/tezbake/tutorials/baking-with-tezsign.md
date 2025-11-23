@@ -25,7 +25,7 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 This guide covers how to configure **TezSign** (hardware signer) to work seamlessly with **Tezbake**.
 
 - **Security First:** TezSign ensures your baking keys remain secure on hardware and never leave the device.
-- **Prerequisites:** You must have a supported TezSign device ready..
+- **Prerequisites:** You must have a supported TezSign device ready.
 
 > ⚠️ **Disclaimer**: TezSign is provided without any guarantee; use it at your own risk.
 
@@ -49,7 +49,7 @@ Initialize the signer configuration. This creates the `/bake-buddy/signer/tezsig
 tezbake setup-tezsign --init --platform
 ```
 
-> **Configuration Note** You generally do not need to edit the generated config file unless you require auto-unlocking functionality or manage multiple devices.
+> **Configuration Note:** You typically do not need to modify the generated configuration file unless you are managing multiple devices or have specific advanced requirements.
 
 ## Phase 2: Device Preparation
 
@@ -158,6 +158,29 @@ tezbake upgrade
 4. Restart the service.
 
     **To Revert:**: Remove the `BACKEND` line from `app.json`, upgrade, and restart.
+
+## Advanced: Automatic Unlock for TezSign
+
+You can configure TezSign to unlock automatically by securely storing the device password.
+
+### Steps to Enable Automatic Unlock
+
+1. Run the following command to set and store the password:
+```bash
+tezbake setup-tezsign --password
+```
+This will prompt you to enter the password for your TezSign device.
+
+*To unset the automatic unlock, simply set an empty password when prompted.*
+
+2. Apply the changes by upgrading the configuration:
+```bash
+tezbake upgrade
+```
+3. Restart if Required
+```bash
+tezbake stop && tezbake start
+```
 
 ## Support & Questions
 
