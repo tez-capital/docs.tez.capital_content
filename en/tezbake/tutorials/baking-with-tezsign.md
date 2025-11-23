@@ -153,7 +153,7 @@ This setup offers faster execution and lower latency by directly utilizing TezSi
 ```
 3. Apply the changes:
 ```bash
-tezbake upgrade
+tezbake upgrade --signer
 ```
 4. Restart the service.
 
@@ -175,7 +175,7 @@ This will prompt you to enter the password for your TezSign device.
 
 2. Apply the changes by upgrading the configuration:
 ```bash
-tezbake upgrade
+tezbake upgrade --signer
 ```
 3. Restart if Required
 ```bash
