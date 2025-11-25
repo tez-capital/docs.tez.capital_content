@@ -123,8 +123,32 @@ At this point you have successfully ran the TezPay application and paid out your
 delegates. Be sure to check the confirmations and any errors that may
 have been broadcasted in the terminal (ie, the example above did not
 send notifications because that was not set up).
-    
-### Using TezPay: Step 4 - Running a Continual Payout
+
+### Using TezPay: Paying multiple cycles at a time
+
+TezPay provides bakers a way to aggregate multiple cycles and pay delegators in a lumpsum fashion. 
+
+Using the `--interval` argument you can specify how many cycles you want to include in each payment. Let's say you want to use an interval of 7 days. The start of every interval is cycle 1. This means that if it's currently cycle 65, you can pay for cycles 56-62 by default.
+
+If it's currently cycle 65 and you would like to pay for cycles 58-64 and the continue paying for cycles 65-71, 72-78, 79-85 etc. you can use the `--interval-trigger-offset` argument with the value of 2. This shifts the interval start to cycles 65, 72 and 79 instead the original blocks 1, 
+
+Here's a sample for an aggregated payment every 7 cycles with offset 2:
+
+`./tezpay pay --interval 7 --interval-trigger-offset 2`
+
+Instead of using the `--interval-trigger-offset` argument, you can also simply just specify your payment cycle manually and the inteval will be counted from there.
+
+Again, it's cycle 65 and you'd like ot pay cycles 56-62.
+
+`./tezpay pay --interval 7 --cycle 63`
+
+If you're worried about failed or partially successful payments, you can utilize the `--include-previous-cycles` argument. This checks X cycle in the past, before the first cycle of your interval, for any failed payments and includes them in the current payment batch.
+
+`./tezpay pay --interval 7 --include-previous-cycles 7`
+
+Let's say it's currently cycle 63. In the example above, you will pay cycles 56-62 and check cycles 49-55 for any missed payments.
+
+### Using TezPay: Running a Continual Payout
 
 To use the TezPay application to send a payment will require 1
 line of code and one additional confirmation while it runs.  
@@ -138,7 +162,6 @@ To run TezPay in continual mode, run the command:
 Running in continual mode will start its first payment a little bit after the current cycle (one during which you launched it) finishes and the next one begins (usually around 30-60 minutes after the beginning of the new cycle).
     
 If you would like to start in continual mode but still need to pay your delegators for last cycle, run the command from Step 3. first and then launch TezPay in continual mode.
- 
 
 
 ---
