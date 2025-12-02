@@ -35,7 +35,7 @@ summary: How to update TezSign firmware and application
     Execute the updater tool. It will automatically scan for viable SD cards, check partition layouts, and verify the existence of TezSign files.
 
     ```bash
-    ./tezsign_updater
+    sudo ./tezsign_updater
     ```
     > **Note:** You can run `./tezsign_updater -h` to see all available options.
 
