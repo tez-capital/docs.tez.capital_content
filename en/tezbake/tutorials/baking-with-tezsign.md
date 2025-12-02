@@ -3,6 +3,7 @@ title: "Baking with TezSign"
 weight: 3
 type: docs
 summary: Integrating the TezSign hardware signer with your TezBake setup.
+---
 
 ## Overview
 
