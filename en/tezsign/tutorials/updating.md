@@ -28,7 +28,7 @@ summary: How to update TezSign firmware and application
     
     *Example command to download and make executable:*
     ```bash
-    wget [https://github.com/tez-capital/tezsign/releases/download/release-202512022128/tezsign_updater_linux_amd64](https://github.com/tez-capital/tezsign/releases/download/release-202512022128/tezsign_updater_linux_amd64) -O tezsign_updater && chmod +x tezsign_updater
+    wget [https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64](https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64) -O tezsign_updater && chmod +x tezsign_updater
     ```
 
 5.  **Run the Updater:**
