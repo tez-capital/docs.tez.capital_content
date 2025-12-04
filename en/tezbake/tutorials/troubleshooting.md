@@ -6,9 +6,11 @@ summary: TezBake Troubleshooting Tutorial
 ---
 
 ## Troubleshooting
+
 Troubleshooting TezBake mostly comes in during the installation phase, when an error is encountered during the setup process.
 
 ### Installation errors
+
 If you encounter an installation issue, run the setup command again with the `--log-level=trace` option, for example:
 
    ```bash
@@ -18,11 +20,13 @@ If you encounter an installation issue, run the setup command again with the `--
 You can add `--log-level=trace` regardless of the setup type that's being attempted, whether it's on Ghostnet or some other testnet.
 
 ### Blockchain errors
+
 Sometimes, you will notice that `tezbake info` never seems to show that you are able to fully synchronize your node. Upon looking at it you may find that your node is stuck on a certain block. This is usually due to a problem with the Tezos node itself. The Tezos node is a separate process from the TezBake process. If you are having issues with the Tezos node, you can try to restart it with the following command:
 
    ```bash
    tezbake restart
    ```
+
 You may see an error like the one below, which indicates your node needs to be bootstrapped with a fresh copy of the Tezos blockchain.
 
    ```bash
@@ -45,8 +49,7 @@ You may see an error like the one below, which indicates your node needs to be b
    mai 20 08:51:43 baker-VirtualBox node[5868]: May 20 08:51:43.267 - node.store: attempting to restore the store's consistency...
    ```
 
-
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

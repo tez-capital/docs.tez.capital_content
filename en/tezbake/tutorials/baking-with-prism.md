@@ -1,5 +1,5 @@
 ---
-title: "> TezBake Prism Tunneling Setup"
+title: "> TezBake with Prism Tunneling"
 weight: 2
 type: docs
 summary: Secure, low-latency tunneling between TezBake components using Prism.
@@ -28,6 +28,7 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 Prism is Tez Capital's in-house tunneling system for TezBake. Built on QUIC, Prism provides low-latency, resilient connections with seamless client IP migration.
 
 **Key Benefits:**
+
 - Lightweight and built for baking performance
 - Supports node ↔ signer ↔ DAL topologies
 - Easy to manage with `tezbake` CLI
@@ -69,6 +70,7 @@ In every configuration, you need one "public" Prism endpoint — an app that lis
 Use the `tezbake setup` command with `--remote` flags to install apps directly to remote machines.
 
 Example for DAL:
+
 ```bash
 tezbake setup --dal \
   --dal-remote user@192.168.1.50:22 \
@@ -77,6 +79,7 @@ tezbake setup --dal \
 ```
 
 Example for Node:
+
 ```bash
 tezbake setup --node \
   --node-remote user@192.168.1.60:22 \
@@ -85,6 +88,7 @@ tezbake setup --node \
 
 > **Tip:** You can combine both in a single command.  
 > If you've previously installed node or dal locally, remove it first:
+
 ```bash
 tezbake remove --node --all
 tezbake remove --dal --all
@@ -99,6 +103,7 @@ tezbake remove --dal --all
 ### If Node is Public Prism Endpoint
 
 **Node's `app.json`:**
+
 ```yaml
 {
   "configuration": {
@@ -115,6 +120,7 @@ tezbake remove --dal --all
 ```
 
 **DAL's `app.json`:**
+
 ```yaml
 {
   "configuration": {
@@ -130,6 +136,7 @@ tezbake remove --dal --all
 ```
 
 **Signer's `app.json`:**
+
 ```yaml
 {
   "configuration": {
@@ -149,6 +156,7 @@ tezbake remove --dal --all
 ### If DAL is Public Prism Endpoint
 
 **DAL's `app.json`:**
+
 ```yaml
 {
   "configuration": {
@@ -164,6 +172,7 @@ tezbake remove --dal --all
 ```
 
 **Node's `app.json`:**
+
 ```yaml
 {
   "configuration": {
@@ -185,6 +194,7 @@ tezbake remove --dal --all
 ## Step 4: Activate Configurations
 
 Run:
+
 ```bash
 tezbake upgrade
 ```
@@ -200,7 +210,6 @@ Make sure UDP port `20080` (or your configured Prism port) is open on the public
 To ensure encrypted and authenticated communication between components, generate a Prism CA and keys on a secure machine — usually the controller/signer host.
 
 > **Note:** Only applications with a `PRISM` configuration in their `app.json` file can generate keys.
-
 > **Note:** You must generate all `.prism` keys from the same `<app>` to ensure compatibility and proper authentication across components. Using different `<app>` values for key generation can lead to connection failures.
 
 ```bash
@@ -208,12 +217,14 @@ mkdir -p /bake-buddy/<app>/prism/keys/
 ```
 
 Generate the Certificate Authority:
+
 ```bash
 tezbake <app> prism generate-ca \
   --output=/bake-buddy/<app>/prism/keys/ca
 ```
 
 Then generate identity keys:
+
 ```bash
 tezbake <app> prism generate-key \
   --ca=/bake-buddy/<app>/prism/keys/ca \
@@ -232,11 +243,14 @@ tezbake <app> prism generate-key \
 ```
 
 > **You can validate the keys with:**
+
 ```bash
 tezbake <app> prism key-info --path=<key>.prism
 ```
+
 You should see output similar to the following:
-```
+
+```bash
 Common Name: tezos-<app>
 DNS Names: [tezos-<app>]
 Extended Key Usage:
@@ -262,16 +276,19 @@ Manually copy the generated `.prism` keys to the correct app directories:
 After distributing the keys to their respective locations, you can verify each application's key information using the following commands:
 
 For the Node key:
+
 ```bash
 tezbake node prism key-info --path=/bake-buddy/node/prism/keys/node.prism
 ```
 
 For the DAL key:
+
 ```bash
 tezbake dal prism key-info --path=/bake-buddy/node/prism/keys/dal.prism
 ```
 
 If the Node is the public Prism endpoint, use this command for the Signer key:
+
 ```bash
 tezbake signer prism key-info --path=/bake-buddy/node/prism/keys/signer.prism
 ```

@@ -11,6 +11,7 @@ Follow along on Youtube!
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
+
 * [How to Bake](/tezbake/tutorials/how-to-bake)
 * [How to Bake on Ghostnet](/tezbake/tutorials/how-to-bake-ghostnet)
 
@@ -40,7 +41,7 @@ Open the `config.hjson` file with your favorite text editor.
 
 > If you've used json before but now hjson, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/)
 
-##### Sample TezPeak configuration with 1 baker
+#### Sample TezPeak configuration with 1 baker
 
 Here's an example of a `config.hjson` file with minimal TezBake configuration for one baker:
 
@@ -124,15 +125,15 @@ Here's the TezPeak configuration with all TezBake available options:
    tezbake start --peak
    ```
 
-If you're connecting to the TezPeak GUI from a different computer, you'll need to open a web browser and navigate to `http://<your-baker-ip>:8733`. 
+If you're connecting to the TezPeak GUI from a different computer, you'll need to open a web browser and navigate to `http://<your-baker-ip>:8733`.
 
 If you're connecting from the same computer, you can use `http://127.0.0.1:8733` or `http://localhost:8733`.
 
 ## TezPeak example screenshot
 
-![<TezPeak example screenshot>](/tezbake/tutorial/tezpeakexample.png) 
+![TezPeak example screenshot](/tezbake/tutorial/tezpeakexample.png)
 
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

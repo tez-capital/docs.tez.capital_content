@@ -10,6 +10,7 @@ summary: Occasional missing endorsements are expected in a distributed protocol 
 Sometimes, you’ll notice that an attestation (also known as an endorsement) didn’t make it into a block — even though your setup appears to be working fine. This is usually **not a problem**.
 
 **Key Points:**
+
 - Tezos is a distributed network; messages can arrive late or out of sync.
 - Block producers are not obligated to include all attestations.
 - If your attestations succeed *most of the time*, your setup is likely healthy.
@@ -52,6 +53,7 @@ Before assuming something is broken, check the following:
   Run `timedatectl status` to check your system clock's synchronization status.
 
 > **Note:** The command may vary depending on your Linux distribution. Here are some examples:
+>
 > - For systems using `timedatectl`:  
   `timedatectl status`
 > - For systems using `chronyc`:  

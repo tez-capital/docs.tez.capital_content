@@ -11,6 +11,7 @@ Follow along on Youtube!
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
+
 * [How to Bake](/tezbake/tutorials/baking-on-mainnet)
 * [How to Bake on Ghostnet](/tezbake/tutorials/baking-on-ghostnet)
 
@@ -43,7 +44,6 @@ Run the following command to import the consensus key:
    ```
 
 > Replace the `--ledger-id` value with the 4 word ID of the Ledger you want to use for the consensus key.
-
 > We are using the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and most portable option with both on premise and cloud hardware security modules (HSMs). The consensus key is only used for signing blocks and endorsements, so it doesn't need to be the same curve as the baker key. In fact, many bakers move from a tz1 key to a tz3 key for the consensus key to improve performance.
 
 This will import your consensus key Ledger device and authorize it for baking. Leave the baking app running on the Ledger device.
@@ -54,7 +54,7 @@ Open the TezBake node configuration file:
 
    ```bash
    nano /bake-buddy/node/app.json
-   ``` 
+   ```
 
 Inside the `"configuration"` object, add the following key-value pair:
 
@@ -142,7 +142,7 @@ To register the consensus key, run the following command:
    tezbake signer client set consensus key for baker to consensus
    ```
 
-You can also set your consensus key on TezGov via https://gov.tez.capital.
+You can also set your consensus key on TezGov via <https://gov.tez.capital>.
 
 The new consensus key will become effective after 3 cycles. For example if you set your consensus key in cycle 1000, it will be effective in cycle 1003.
 

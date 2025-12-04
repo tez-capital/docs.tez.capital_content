@@ -6,6 +6,7 @@ summary: TezBake Tutorials
 ---
 **TezBake**
 ---
+
 *A payment distribution tool
 developed by Tezos Capital for Bakers on the Tezos Blockchain*
 

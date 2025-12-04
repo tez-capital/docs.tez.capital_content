@@ -13,8 +13,7 @@ Fundamentally speaking, "Baking" on Tezos involves 2 things:
 
 2. Participating in the Tezos proposal governance process. A Tezos proposal is able to change anything about the Tezos protocol rules as well to fund any address with tez from the protocol.
 
-
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)
