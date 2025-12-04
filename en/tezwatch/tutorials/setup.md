@@ -7,7 +7,7 @@ summary: TezWatch Setup Tutorial
 
 ## Preparation
 
-Setting up TezWatch currently requires you to have a https://Discord.com account. If you don't have one, please create one before proceeding.
+Setting up TezWatch currently requires you to have a <https://Discord.com> account. If you don't have one, please create one before proceeding.
 
 You will also need to join our [Discord](https://discord.gg/cVGMA4MaNM). This is where you will configure TezWatch. You can also ask questions and get support from the Tez Capital team and other Tezos bakers, stakers and delegators. After you join, make sure to self-select the "TezBake" role in order to get access to the [#tezwatch](https://discord.gg/94dnM2AcRw) channel.
 
@@ -28,10 +28,11 @@ The setup is done using slash commands, which means just type the `/` character 
 
 To get all "sources" and "events" use the `/events` command
 
-| ![<Slash Events>](/tezwatch/tutorial/tezwatchSlashEvents.png) |
+| ![Slash Events](/tezwatch/tutorial/tezwatchSlashEvents.png) |
 |-|
 
 Here are the descriptions of all the key variables you will need to configure to monitor baker performance:
+
 | Variable    | Available Options                          | Description                                                                                                                                                   |
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `source`    | `baking` or `chain`  | The general area of interest. `baking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
@@ -44,10 +45,10 @@ Here are the descriptions of all the key variables you will need to configure to
 
 Here's an example command to subscribe to notifications for a missed attestation or missed block for a specific baker:
 
-| ![<Example TezWatch slash command>](/tezwatch/tutorial/tezwatchSlashCommandExample.png) |
+| ![Example TezWatch slash command](/tezwatch/tutorial/tezwatchSlashCommandExample.png) |
 |-|
 
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

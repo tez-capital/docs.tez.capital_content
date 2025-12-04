@@ -10,6 +10,7 @@ summary: TezWatch Balances & Transactions Tutorial
 Using TezWatch you can keep an eye on transactions to and from baker wallets or baker payment wallets with flexibility.
 
 You can monitor some of the following aspects:
+
 - Transfers in/out in amounts greater than X but less than Y
 - Notify when balance falls below X
 
@@ -17,10 +18,11 @@ You can monitor some of the following aspects:
 
 To get all "sources" and "events" use the `/events` command
 
-| ![<Slash Events>](/tezwatch/tutorial/tezwatchSlashEvents.png) |
+| ![Slash Events](/tezwatch/tutorial/tezwatchSlashEvents.png) |
 |-|
 
 Here are the descriptions of all the key variables you will need to configure to monitor balances and transactions:
+
 | Variable    | Available Options                          | Description                                                                                                                                                   |
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `source`    | `wallet` | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
@@ -34,27 +36,27 @@ Here are the descriptions of all the key variables you will need to configure to
 
 Here's an example of subscribing to all incoming transactions to the wallet tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv
 
-| ![<Incoming transfer>](/tezwatch/tutorial/tezwatchIncoming.png) |
+| ![Incoming transfer](/tezwatch/tutorial/tezwatchIncoming.png) |
 |-|
 
 Here's an example of subscribing to incoming transactions to the wallet tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv of over 1 tez
 
-| ![<Incoming transfer>](/tezwatch/tutorial/tezwatchIncomingMore1.png) |
+| ![Incoming transfer](/tezwatch/tutorial/tezwatchIncomingMore1.png) |
 |-|
 
 Here's an example of subscribing to incoming transactions to the wallet tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv of over 1 tez but less than 50 tez
 
-| ![<Incoming transfer>](/tezwatch/tutorial/tezwatchIncomingMore1Less50.png) |
+| ![Incoming transfer](/tezwatch/tutorial/tezwatchIncomingMore1Less50.png) |
 |-|
 
 ### Balances Example
 
 Here's an example of subscribing to the wallet tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv's balance being below 50 tez.
 
-| ![<Incoming transfer>](/tezwatch/tutorial/tezwatchBalance50.png) |
+| ![Incoming transfer](/tezwatch/tutorial/tezwatchBalance50.png) |
 |-|
 
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
-[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital) 
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

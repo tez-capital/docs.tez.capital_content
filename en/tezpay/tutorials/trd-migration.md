@@ -39,6 +39,7 @@ Choose a directory to store your TezPay instance.
 > Use one folder per baker address, e.g., `/tezos/payouts/my-baker`.
 
 This directory will contain:
+
 - `tezpay` binary  
 - `config.hjson`  
 - (optional) `reports/` directory with payout history
@@ -54,6 +55,7 @@ Rename it to `tezpay` and make it executable (on linux):
 ```bash
 chmod +x ./tezpay
 ```
+
 For Windows, the binary will be named `tezpay.exe`. To make it executable, no additional steps are required on Windows.
 
 > **Note:**  

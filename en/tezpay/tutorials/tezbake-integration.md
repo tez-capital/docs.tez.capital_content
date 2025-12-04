@@ -42,7 +42,8 @@ Verify the installation:
 `tezbake apps`
 
 Ensure the output includes:
-``` 
+
+```bash
 pay    │ true
 ```
 
@@ -54,7 +55,7 @@ Migrating from standalone TezPay is straightforward:
 
 - Copy your existing configuration (`config.hjson`), your private key (`payout_wallet_private.key`) or remote signer (`remote_signer.hjson`) files and `reports` directory into:
 
-``` 
+```bash
 /bake-buddy/pay
 ```
 
@@ -92,7 +93,7 @@ Create file named exactly `payout_wallet_private.key` inside `/bake-buddy/pay`.
 
 Insert your **unencrypted** private key:
 
-```
+```bash
 edsk...yourprivatekeyhere...
 ```
 
