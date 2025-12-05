@@ -95,9 +95,17 @@ In this example, we generate two keys named "consensus" and "companion". You can
 
 ## Phase 3: Node Configuration
 
-### 1. Import Keys to TezBake
+### 1. Import Keys to TezBake client
 
 Link the keys stored on your TezSign device to TezBake's configuration using local aliases.
+
+Depending on the context of your setup, you will determine how to name your TezSign wallet aliases within TezBake itself.
+
+When you're first switching to a new consensus key or to tz4 baking, you will already have a key called `baker`. This is the default key that always gets used in TezBake. In addition to this key, you will also import your consensus and companion keys, from TezSign. Once you are actively using your TezSign keys, you can then import the `consensus` key as the `baker` key as described below.
+
+If you're aleady baking using tz4 keys, it's recommended to alias your `consensus` key on the TezSign signer to the `baker` key.
+
+The desired end stake of your TezBake signing experience is to use `baker` for `consensus` and to use the TezSign backend directly (see below). This way there are no missing keys reported by `tezbake info`. You need to ensure the migration to this desired state is performed one step at a time, respecting the in-between states.
 
 **Syntax:**
 
@@ -105,41 +113,70 @@ Link the keys stored on your TezSign device to TezBake's configuration using loc
 tezbake setup-tezsign --import-key=<tezsign key alias> --key-alias=<octez key alias> [--force]
 ```
 
-**Example (Importing the Consensus and Companion Keys):**
+**Example (Importing the Consensus and Companion Keys) -- IF MIGRATING TO BLS/tz4:**
 
 ```bash
 tezbake setup-tezsign --import-key=consensus --key-alias=consensus
 tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-> **Caution**: Ensure your `--key-alias` does not conflict with existing keys you wish to keep. Use the --force flag only if you intend to overwrite an alias.
-
-### 2. Retrieve Public Keys & Proofs
-
-To register your keys on-chain (via [tezgov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
+**Example (Importing the Consensus and Companion Keys -- IF ALREADY ON BLS/tz4:**
 
 ```bash
-tezbake tezsign status --full
+tezbake setup-tezsign --import-key=consensus --key-alias=baker
+tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-### 3. Register Additional Keys
+> **Caution**: Ensure your `--key-alias` does not conflict with existing keys you wish to keep. Use the --force flag only if you intend to overwrite an alias.
+
+### 2. Import Keys to TezBake node and signer
 
 To bake with multiple keys (e.g., separate keys for consensus and DAL), you must register them in the node configuration.
 
 Create or edit the following file: `/bake-buddy/node/additional_key_aliases.list`.
 Add the key aliases you used in the `Import Keys to TezBake` step.
 
-As per example we used consensus and companion so our file would look as follows:
+**IF MIGRATING TO BLS/tz4:***
+As per the example we used consensus and companion so our file would look as follows:
 
 ```toml
 consensus
 companion
 ```
 
-> NOTE: Later on when your `consensus` key activates you can reimport it under `baker` alias (the default one) with `--force`. Then you can remove consensus from additional keys.
+> NOTE: Later on when your `consensus` key activates you can reimport it under `baker` alias (the default one) with `--force`. Then you can remove consensus from additional keys and run `tezbake upgrade` again.
 > NOTE: Only the import alias from `--key-alias=<THIS ALIAS>` is relevant. The internal tezsign alias can differ.
 
-### 2. Reconfigure
+**IF ALREADY ON BLS/TZ4:**
+
+```toml
+companion
+```
+
+> The consensus keys is not listed because it's the default assumed baking key by TezBake
+
+### 3. Retrieve Public Keys & Proofs & Register them on the chain
+
+To register your keys on-chain (via [TezGov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
+
+```bash
+tezbake tezsign status --full
+```
+
+The easiest way to activate your newly generated keys is by using the [TezGov](https://gov.tez.capital/) web portal. Connect with your manager Ledger or similar and within the `Baker Management` area, set your consensus and companion key details. You will need your BLpk's, first, and after filling them out, the prompt will ask you for your PoP's.
+
+Bakers must now set their new consensus and companion keys together when changing to tz4 signing at first. Later down the road, you will be able to only rotate your consensus key if so desired. The companion key is a **must** for tz4 BLS signing, to perform the DAL-related duties. When you see "companion," think "DAL." **Consensus and companion always go together.**
+
+Registering using the CLI is somewhat more challenging and no longer recommended but possible.
+
+Here's an example to fill in your own details, assuming you have your baker manager wallet imported as `baker` (this is no longer recommended, you should have your consensus key imported as `baker` and manage your baker parameters with <gov.tez.capital>):
+
+```bash
+tezbake signer client set consensus key for baker to consensus --consensus-key-pop BLsig9xyDJ29WjExJgRAvPXrD5u46aTn1uEmrhz12VKXtrUSzP34FCqgUF56L3otpzB1kLuzUCaLk2tzT2309GKLDgj209jeslkjes3mr43590jfgLKDJd09j3092jLKDFJnlksjodijF3
+tezbake signer client set companion key for baker to companion --companion-key-pop BLsig9xyDJ29WjExJgRAvPXrD5u46aTn1uEmrhz12VKXtrUSzP34FCqgUF56L3otpzB1kLuzUCaLk2tzT2309GKLDgj209jeslkjes3mr43590jfgLKDJd09j3092jLKDFJnlksjodijF3
+```
+
+### 4. Reconfigure
 
 ```bash
 tezbake upgrade
@@ -167,13 +204,16 @@ If your keys appear in the info output, you are ready to bake!
 
 ## Advanced: Direct TezSign Backend
 
-> **Caution:** Avoid switching to the TezSign backend during the transition phase. To ensure a seamless transition, continue using the default backend. Once you fully rely on tz4 TezSign keys, you can safely switch to the TezSign backend.
+> **Caution:** Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition, continue using the default backend. Once you fully rely on tz4 TezSign keys, you can safely switch to the TezSign backend.
 
 You can configure TezBake to bake directly through the TezSign backend, bypassing the standard `octez-signer`.
 
+Before: `<octez-node><octez-signer><tezsign>`
+After: `<octez-node><tezsign>`
+
 This setup offers slightly faster execution and lower latency by directly utilizing TezSign's hardware capabilities.
 
-**How to Enable**
+**How to Enable:**
 
 1. Open the signer configuration file: `/bake-buddy/signer/app.json`
 2. Add `BACKEND: tezsign` inside the `configuration` block:

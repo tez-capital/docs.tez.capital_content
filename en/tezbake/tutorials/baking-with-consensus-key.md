@@ -5,6 +5,18 @@ type: docs
 summary: TezBake Baking Tutorial for using a Consensus Key
 ---
 
+> **PLEASE NOTE**: tz4/BLS signing migration now requires us to use a Companion Key along with a Consensus Key.
+>
+> Bakers must now set their new consensus and companion keys together when changing to tz4 signing at first. Later down the road, you will be able to only rotate your consensus key if so desired. The companion key is a **must** for tz4 BLS signing, to perform the DAL-related duties. When you see "companion," think "DAL." **Consensus and companion always go together.**
+>
+> In practical terms, this means, when activating a Consensus Key, a baker must now ensure they also have a Companion Key activated. Both keys are used together for baking at the same time. 
+>
+> The steps in the KB below have been updated but the video does not include the "Companion Key" step which is now mandatory. Make sure to follow setting your consensus key with also setting (or validating/updating) your companion key.
+>
+> IF YOU ARE BAKING WITH A tz1-3 KEY, YOU DO NOT NEED TO HAVE A COMPANION KEY
+>
+> All instructions have been updated as if tz4 consensus + companion is the only way things are handled. If you're using an old tz1-3 key, simply omit the companion key steps.
+
 Follow along on Youtube!
 {{< youtube 5m_GKFRIflk >}}
 
@@ -13,19 +25,29 @@ Follow along on Youtube!
 For this tutorial, you'll need to have already followed one of the following tutorials:
 
 * [How to Bake](/tezbake/tutorials/baking-on-mainnet)
-* [How to Bake on Ghostnet](/tezbake/tutorials/baking-on-ghostnet)
+* [How to Bake on Testnets](/tezbake/tutorials/baking-on-testnets)
 
 A Tezos consensus key is a cryptographic key specifically used for signing blocks and consensus operations (endorsing blocks) in the Tezos blockchain. Introduced to improve security and operational flexibility, it allows bakers (validators) to delegate block-signing responsibilities to a different key than the one associated with their primary baking account.
+
+A Tezos companion key was not necessary to use in the tz1-tz3 address era. With the introduction of tz4 or BLS consensus signing (aggregating signatures), it is now necessary to use a separate companion key, in addition to the separate consensus key to validate blocks in the tz4 era. Both the consensus key and the companion key bake together at the same time. The consensus key works with the consensus and the companion key works with the DAL.
 
 This separation of roles is useful for reducing the exposure of the primary baker key (which holds funds and has broader permissions) by isolating consensus-related tasks to a different key. If compromised, only the consensus operations are affected, not the funds held by the baker's main account.
 
 > If an attacker gains control of the consensus key, they can sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker funds that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
+>
+> If an attacker gains control of your companion key, they can cost you 10% of your baking income due to DAL penalties.
 
 ---
 
-## Consensus key setup
+## BLS/tz4 Consensus and Companion key setup
 
-### Import the consensus key
+Simply follow the TezSign instructions to generate, verify and activate your TezSign keys.
+
+[Baking with TezSign](/en/tezbake/tutorials/baking-with-tezsign.md)
+
+## PRE-BLS (DEPRECATED) Ledger Consensus key setup
+
+### Import the consensus key from a Ledger
 
 Plug in your consensus key Ledger device and open the Tezos Baking app.
 
@@ -116,11 +138,11 @@ Here an example of a file with the consensus key alias added:
     }
    ```
 
-Re-run the TezBake setup and merge your configuration when asked:
+Re-run the TezBake upgrade and merge your configuration when asked:
 
    ```bash
    tezbake stop
-   tezbake setup
+   tezbake upgrade
    tezbake start
    ```
 
