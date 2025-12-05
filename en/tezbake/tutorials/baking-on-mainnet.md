@@ -174,6 +174,7 @@ You can stake your security deposit by running the following command, after open
 
    ```bash
    tezbake update-dal-profiles --auto
+   # If for some reason the auto method is not working, use the command below to bypass it.
    tezbake update-dal-profiles <your-baker-tz4-key> --force
    ```
 
