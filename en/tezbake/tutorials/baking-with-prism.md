@@ -1,5 +1,5 @@
 ---
-title: "TezBake with Prism Tunneling"
+title: "Baking with Prism Tunneling"
 weight: 2
 type: docs
 summary: Secure, low-latency tunneling between TezBake components using Prism.
