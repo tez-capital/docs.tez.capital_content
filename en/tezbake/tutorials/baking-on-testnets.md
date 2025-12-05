@@ -135,6 +135,12 @@ You can stake your security deposit by running the following command, after open
 
 > Change 6000 to the amount you want to stake. The minimum is 6000 XTZ. You may start baking with as little as 1000 XTZ but you will need to set your baking over staking multiplier to 5X and secure 5000 XTZ that will stake to your baker to cover the security deposit requirement. You can also secure delegators' XTZ to your baker to cover the security deposit requirement. Each XTZ delegated to your baker will be counted 0.5 towards the security deposit requirement. For example you can start baking with 1000 XTZ + 5000 XTZ secured from stakers, or you can start baking with 1000 XTZ + 10000 XTZ secured from delegators. You can also start baking with 1000 XTZ + 2000 XTZ secured from stakers + 6000 XTZ secured from delegators.
 
+### Import your DAL attester profile
+
+   ```bash
+   tezbake update-dal-profiles <your-baker-tz4-key> --force
+   ```
+
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on

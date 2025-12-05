@@ -170,6 +170,15 @@ You can stake your security deposit by running the following command, after open
    tezbake signer client stake 6000 for baker 
    ```
 
+### Import your DAL attester profile
+
+   ```bash
+   tezbake update-dal-profiles --auto
+   tezbake update-dal-profiles <your-baker-tz4-key> --force
+   ```
+
+> **Note:** The tz4 key iported above is your manager key, not your consensus key or companion key.
+
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on
