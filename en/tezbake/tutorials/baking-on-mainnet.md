@@ -122,10 +122,10 @@ If you used to bake on mainnet with the same ledger as you're trying to use now 
 
 #### (Option 3 - INSECURE) Import Soft key to TezBake node
 
-First, generate the baker key for TezBake signer:
+First, generate the baker key for TezBake:
 
    ```bash
-   tezbake setup-soft-wallet --generate bls --key-alias baker --node
+   tezbake setup-soft-wallet --generate bls --key-alias baker
    ```
 
 > Make sure to backup your key in a secure location and never share it.

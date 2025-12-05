@@ -95,10 +95,10 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 #### Import Soft key to TezBake
 
-First, generate the baker key for TezBake signer:
+First, generate the baker key for TezBake:
 
    ```bash
-   tezbake setup-soft-wallet --generate bls --key-alias baker --node
+   tezbake setup-soft-wallet --generate bls --key-alias baker
    ```
 
 > Make sure to backup your key in a secure location and never share it.
