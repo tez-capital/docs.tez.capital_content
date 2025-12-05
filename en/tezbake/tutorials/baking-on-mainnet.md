@@ -26,7 +26,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 >
 > What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
 
-## Installation
+## Installation (All-in-one)
 
 ### Download and install tezbake
 
@@ -179,6 +179,14 @@ You can stake your security deposit by running the following command, after open
    ```
 
 > **Note:** The tz4 key iported above is your manager key, not your consensus key or companion key.
+
+## Installation (Advanced)
+
+You can install different TezBake components on different systems. For example, you can have the Signer, Node and DAL on 3 different machines, all communicating together.
+
+Follow the steps in [Baking with Prism](/en/tezbake/tutorials/baking-with-prism.md)
+
+As with everything in life, complexity adds more failure points. Only separate the TezBake components if you have a compelling use case.
 
 ---
 

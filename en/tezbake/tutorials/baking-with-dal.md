@@ -70,6 +70,10 @@ If the above command fails, specify your **baker key** (not consensus key):
    tezbake stop && tezbake start
    ```
 
+## Remote DAL Setup
+
+Follow the Prism setup steps here: [Baking with Prism](/en/tezbake/tutorials/baking-with-prism.md)
+
 ## Quick Troubleshooting
 
 If you encounter issues or require immediate help, execute these commands to revert changes and reinstall:
