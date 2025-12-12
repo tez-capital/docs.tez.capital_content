@@ -86,7 +86,7 @@ tezbake tezsign init
 ```
 
 > **Critical Warning**: > You will be prompted to set a Master Password. Choose this carefully. It CANNOT be changed later.
-
+>
 > 🚨🚨🚨 Save your Master Password somewhere safe. This is the ONLY way to get access to your TezSign keys.
 
 ### 2. Generate your baking keys directly on the device
@@ -228,7 +228,7 @@ You can check the lock/unlock status of your TezSign keys
 tezbake tezsign status
 ```
 
-> 🚨🚨🚨 Ensure your TezSign device is in the unlocked status before baking with your new keys. `tezbake info` can only detect a locked TezSign device if it's running in (#advanced-direct-tezsign-backend) mode. Until then, always run `tezbake tezsign status` along with `tezbake info`
+> 🚨🚨🚨 Ensure your TezSign device is in the unlocked status before baking with your new keys. `tezbake info` can only detect a locked TezSign device if it's running in [Advanced: Direct TezSign Backend](#advanced-direct-tezsign-backend) mode. Until then, always run `tezbake tezsign status` along with `tezbake info`
 
 ## Advanced: Direct TezSign Backend
 
