@@ -87,6 +87,8 @@ tezbake tezsign init
 
 > **Critical Warning**: > You will be prompted to set a Master Password. Choose this carefully. It CANNOT be changed later.
 
+> 🚨🚨🚨 Save your Master Password somewhere safe. This is the ONLY way to get access to your TezSign keys.
+
 ### 2. Generate your baking keys directly on the device
 
 Generate your baking keys directly on the hardware. In this example, we will generate keys for Consensus and DAL (i.e., companion key).
