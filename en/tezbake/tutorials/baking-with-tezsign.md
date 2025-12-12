@@ -212,6 +212,20 @@ tezbake info
 
 If your keys appear in the info output, you are ready to bake!
 
+### 3. Unlock
+
+```bash
+tezbake tezsign unlock
+```
+
+Select both keys and input the passphrase you chose when initializing the device.
+
+You can check the lock/unlock status of your TezSign keys
+
+```bash
+tezbake tezsign status
+```
+
 ## Advanced: Direct TezSign Backend
 
 > **Caution:** Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition, continue using the default backend. Once you fully rely on tz4 TezSign keys, you can safely switch to the TezSign backend.
