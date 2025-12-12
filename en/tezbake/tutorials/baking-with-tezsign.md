@@ -228,14 +228,17 @@ You can check the lock/unlock status of your TezSign keys
 tezbake tezsign status
 ```
 
+> 🚨🚨🚨 Ensure your TezSign device is in the unlocked status before baking with your new keys. `tezbake info` can only detect a locked TezSign device if it's running in (#advanced-direct-tezsign-backend) mode. Until then, always run `tezbake tezsign status` along with `tezbake info`
+
 ## Advanced: Direct TezSign Backend
 
 > **Caution:** Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition, continue using the default backend. Once you fully rely on tz4 TezSign keys, you can safely switch to the TezSign backend.
 
 You can configure TezBake to bake directly through the TezSign backend, bypassing the standard `octez-signer`.
 
-Before: `<octez-node><octez-signer><tezsign>`
-After: `<octez-node><tezsign>`
+Before: ```<octez-node><octez-signer><tezsign>```
+
+After: ```<octez-node><tezsign>```
 
 This setup offers slightly faster execution and lower latency by directly utilizing TezSign's hardware capabilities.
 
@@ -258,9 +261,13 @@ This setup offers slightly faster execution and lower latency by directly utiliz
    tezbake upgrade --signer
    ```
 
-4. Restart the service.
+4. Restart the service:
 
-    **To Revert:**: Remove the `BACKEND` line from `app.json`, upgrade, and restart.
+   ```bash
+   tezbake stop --signer && tezbake start --signer
+   ```
+
+**To Revert:**: Remove the `BACKEND` line from `app.json`, upgrade, and restart.
 
 ## Advanced: Automatic Unlock for TezSign
 
