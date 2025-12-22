@@ -20,7 +20,7 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 
 Generally speaking, the Radxa Zero 3 (the lowest available configuration) as well as the Raspberry Pi Zero 2W are great choices for your TezSign setup. Purchase 2 devices if you worry about the possibility of downtime if your SBC fails. Also purchase multiple SD cards. It's good to have at least 3 SD cards: one for baking, one for backup of your baking SD card and one spare to replace a failed card. 8GB SD cards will do just fine. Ensure you are getting the "enterprise" or "endurance" versions if possible.
 
-Sample shopping lists
+### Sample shopping lists
 
 - Radxa Zero 3
       1. Radxa ZERO 3W RK3566 4-core CPU SBC, GPU, NPU, HDMI with 1080P Output, and WiFi 6 & BT 5.4, Single Board Computer <https://www.aliexpress.us/item/3256807428419499.html?gatewayAdapt=glo2usa4itemAdapt>
@@ -30,7 +30,7 @@ Sample shopping lists
       1. Raspberry Pi Zero 2 W (add case & heatsink) <https://www.pishop.us/product/raspberry-pi-zero-2-w/>
       2. CableCreation Short Micro USB Cable, USB to Micro USB 24 AWG Triple Shielded Fast Charger Cable, Compatible with PS5/PS4, Raspberry Pi Zero, Chromecast, Phone, 0.5FT/6 inch Black <https://www.amazon.com/CableCreation-Charger-Compatible-Chromecast-Android/dp/B013G4EAEI>
 
-### 1. Download gadget image and flash SD card
+### Download gadget image and flash SD card
 
 Navitate to the release page and download the latest image for your RPI or Radxa device: [TezSign Releases](https://github.com/tez-capital/tezsign/releases)
 
@@ -75,6 +75,15 @@ Use the companion app to complete the setup, available here: [TezSign Releases](
 Command examples are provided for using the companion app and TezBake, if you go for the ease of setup.
 
 ### 1. Initialize device
+
+Before being able to initialize the device you must enable your computer to see the device via USB. Download the udev rules and install them. Then add your user to the right group to access the device.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tez-capital/tezsign/refs/heads/main/tools/add_udev_rules.sh | sudo bash
+sudo usermod -aG plugdev $USER
+```
+
+Log out and log back in to make sure the new settings are effective.
 
 Connect your TezSign device to your workstation and run:
 
