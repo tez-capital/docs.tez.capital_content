@@ -43,7 +43,7 @@ This separation of roles is useful for reducing the exposure of the primary bake
 
 Simply follow the TezSign instructions to generate, verify and activate your TezSign keys.
 
-[Baking with TezSign](/en/tezbake/tutorials/baking-with-tezsign.md)
+[Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
 ## PRE-BLS (DEPRECATED) Ledger Consensus key setup
 
