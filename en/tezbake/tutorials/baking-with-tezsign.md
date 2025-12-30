@@ -38,7 +38,13 @@ Once downloaded, extract the image. The image will be around 1.5GB - 2GB once it
 
 Use [Balena Etcher](https://etcher.balena.io/) (or a tool you are familiar with) to flash the gadget image to your SD card.
 
-Once done, plug in the SD card into your gadget and connect it to your baking computer with just a single USB cable. A separate power source is not required. Use the data connection USB port, not the power connection USB port.
+Once done, plug in the SD card into your gadget and connect it to your baking computer with just a single USB cable. A separate power source is not required. Use the data connection USB port (OTG port), not the power connection USB port.
+
+- On the Radxa, connect to the farthest USB port
+![Radxa Zero 3W](/tezbake/tutorial/tezbaketezsignRadxaOTG.png)
+
+- On the Rasberry Pi Zero, connect to the USB port between the power USB port and the mini HDMI port.
+![Raspberry Pi Zero 2W](/tezbake/tutorial/tezbaketezsignPiZeroOTG.png)
 
 ## Phase 1: Baker Configuration
 
