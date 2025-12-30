@@ -22,13 +22,18 @@ Generally speaking, the Radxa Zero 3 (the lowest available configuration) as wel
 
 ### Sample shopping lists
 
-- Radxa Zero 3
-      1. Radxa ZERO 3W RK3566 4-core CPU SBC, GPU, NPU, HDMI with 1080P Output, and WiFi 6 & BT 5.4, Single Board Computer <https://www.aliexpress.us/item/3256807428419499.html?gatewayAdapt=glo2usa4itemAdapt>
-      2. Radxa Heatsink 5519A, Designed for Radxa ZERO 3W / 3E, Easy to Install and Remove. <https://www.aliexpress.us/item/3256806829446736.html?gatewayAdapt=glo2usa4itemAdapt>
-      3. USB A to USB C Cable10Gbps Data Transfer and 60W 3A Fast Charging Cable USBC 3.1/3.2 Cable <https://www.aliexpress.us/item/3256805660336073.html?spm=a2g0o.productlist.main.11.31ce63d3dP4ICu>
-- Raspberry Pi Zero 2W
-      1. Raspberry Pi Zero 2 W (add case & heatsink) <https://www.pishop.us/product/raspberry-pi-zero-2-w/>
-      2. CableCreation Short Micro USB Cable, USB to Micro USB 24 AWG Triple Shielded Fast Charger Cable, Compatible with PS5/PS4, Raspberry Pi Zero, Chromecast, Phone, 0.5FT/6 inch Black <https://www.amazon.com/CableCreation-Charger-Compatible-Chromecast-Android/dp/B013G4EAEI>
+Radxa Zero 3
+
+   1. Radxa ZERO 3W RK3566 4-core CPU SBC, GPU, NPU, HDMI with 1080P Output, and WiFi 6 & BT 5.4, Single Board Computer <https://www.aliexpress.us/item/3256807428419499.html?gatewayAdapt=glo2usa4itemAdapt>
+   2. Radxa Heatsink 5519A, Designed for Radxa ZERO 3W / 3E, Easy to Install and Remove. <https://www.aliexpress.us/item/3256806829446736.html?gatewayAdapt=glo2usa4itemAdapt>
+   3. USB A to USB C Cable10Gbps Data Transfer and 60W 3A Fast Charging Cable USBC 3.1/3.2 Cable <https://www.aliexpress.us/item/3256805660336073.html?spm=a2g0o.productlist.main.11.31ce63d3dP4ICu>
+   4. OPTIONAL: micro HDMI to HDMI cable <https://www.walmart.com/ip/Micro-USB-to-HDMI-Cable-Micro-USB-to-HDMI-Adapters-Black-E7Z3/10094271646> or some equivalent micro HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
+
+Raspberry Pi Zero 2W
+
+   1. Raspberry Pi Zero 2 W (add case & heatsink) <https://www.pishop.us/product/raspberry-pi-zero-2-w/>
+   2. CableCreation Short Micro USB Cable, USB to Micro USB 24 AWG Triple Shielded Fast Charger Cable, Compatible with PS5/PS4, Raspberry Pi Zero, Chromecast, Phone, 0.5FT/6 inch Black <https://www.amazon.com/CableCreation-Charger-Compatible-Chromecast-Android/dp/B013G4EAEI>
+   3. OPTIONAL: mini HDMI to HDMI cable <https://www.walmart.com/ip/4K-HDMI-2-0-Cable-6ft-High-Speed-18Gbps-Mini-HDMI-HDMI-Cable-4K-60Hz-HDR-3D-2160P-1080P-Ethernet-Braided-Cord-32AWG-Audio-Return-ARC-Compatible-MacBo/14899622631> or some equivalent mini HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
 
 ### Download gadget image and flash SD card
 
