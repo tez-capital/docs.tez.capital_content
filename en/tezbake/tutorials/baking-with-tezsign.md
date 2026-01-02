@@ -195,7 +195,7 @@ companion
 >
 > In some cases, connecting the TezSign gadget only using the OTG USB power port does not provide consistent power to the gadget and the device goes offline. Sometimes turning off USB power savings in the BIOS resolves this edge case issue. Using the dedicated power port on your gadget to provide independent power or using a powered USB hub on the sole OTG USB port usually resolves the issue.
 >
-> Here are USB settings you should check on the computer that's powering the TezSign gadget via its OTB USB port:
+> Here are USB settings you should check on the computer that's powering the TezSign gadget via its OTG USB port:
 > - USB power delivery in Soft Off state (S5): Enabled
 > - ErP Ready / EuP Ready / ErP Compliance: Disabled
 > - Deep S4/S5 / Deep Power Saving / Pseudo G3: Disabled
