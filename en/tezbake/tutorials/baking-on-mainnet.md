@@ -94,7 +94,7 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 Follow the following guide and then proceed directly to [stake your XTZ](#stake-your-baking-xtz-security-deposit):
 
-[Baking with TezSign](/en/tezbake/tutorials/baking-with-tezsign.md)
+[Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
 > **PLEASE NOTE:** Instead of using the alias `consensus`, use `baker`. For `companion`, leave `companion`. You're using the `baker` alias here because it's assumed you're managing your baker operations from a Ledger device using the <https://gov.tez.capital> interface.
 
