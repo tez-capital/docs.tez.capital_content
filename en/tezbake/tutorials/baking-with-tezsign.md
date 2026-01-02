@@ -28,12 +28,14 @@ Radxa Zero 3
    2. Radxa Heatsink 5519A, Designed for Radxa ZERO 3W / 3E, Easy to Install and Remove. <https://www.aliexpress.us/item/3256806829446736.html?gatewayAdapt=glo2usa4itemAdapt>
    3. USB A to USB C Cable10Gbps Data Transfer and 60W 3A Fast Charging Cable USBC 3.1/3.2 Cable <https://www.aliexpress.us/item/3256805660336073.html?spm=a2g0o.productlist.main.11.31ce63d3dP4ICu>
    4. OPTIONAL: micro HDMI to HDMI cable <https://www.walmart.com/ip/Micro-USB-to-HDMI-Cable-Micro-USB-to-HDMI-Adapters-Black-E7Z3/10094271646> or some equivalent micro HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
+   5. OPTIONAL: Radxa Power PD 30W <https://radxa.com/products/accessories/power-pd-30w/> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provided consistent power. A powered USB hub can also be used.*
 
 Raspberry Pi Zero 2W
 
    1. Raspberry Pi Zero 2 W (add case & heatsink) <https://www.pishop.us/product/raspberry-pi-zero-2-w/>
    2. CableCreation Short Micro USB Cable, USB to Micro USB 24 AWG Triple Shielded Fast Charger Cable, Compatible with PS5/PS4, Raspberry Pi Zero, Chromecast, Phone, 0.5FT/6 inch Black <https://www.amazon.com/CableCreation-Charger-Compatible-Chromecast-Android/dp/B013G4EAEI>
    3. OPTIONAL: mini HDMI to HDMI cable <https://www.walmart.com/ip/4K-HDMI-2-0-Cable-6ft-High-Speed-18Gbps-Mini-HDMI-HDMI-Cable-4K-60Hz-HDR-3D-2160P-1080P-Ethernet-Braided-Cord-32AWG-Audio-Return-ARC-Compatible-MacBo/14899622631> or some equivalent mini HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
+   4. OPTIONAL: Rasberry Pi power supply <https://www.canakit.com/raspberry-pi-adapter-power-supply-2-5a.html> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provided consistent power. A powered USB hub can also be used.*
 
 ### Download gadget image and flash SD card
 
@@ -188,6 +190,18 @@ companion
 > The consensus keys is not listed because it's the default assumed baking key by TezBake
 
 ### 3. Retrieve Public Keys & Proofs & Register them on the chain
+
+> Please note: It's highly recommended to setup TezSign to the point where you active it on the blockchain and wait 2-3 cycles to ensure that it is stable in your use insance.
+>
+> In some cases, connecting the TezSign gadget only using the OTG USB power port does not provide consistent power to the gadget and the device goes offline. Sometimes turning off USB power savings in the BIOS resolves this edge case issue. Using the dedicated power port on your gadget to provide independent power or using a powered USB hub on the sole OTG USB port usually resolves the issue.
+>
+> Here are USB settings you should check on the computer that's powering the TezSign gadget via its OTB USB port:
+> - USB power delivery in Soft Off state (S5): Enabled
+> - ErP Ready / EuP Ready / ErP Compliance: Disabled
+> - Deep S4/S5 / Deep Power Saving / Pseudo G3: Disabled
+> - Resume by USB Device / Power On by USB: Enabled
+>
+> These settings should ensure your USB port never attempts to go into a power savings mode and shuts down the TezSign gadget. As previously mentioned, providing independent power to your gadget is the most reliable way to not run into this issue.
 
 To register your keys on-chain (via [TezGov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
 
