@@ -30,12 +30,16 @@ While having two computers is somewhat optional, especially for a smaller baker,
 * To transfer tez to your payment wallet or elsewhere, without interrupting baking
 * To vote on Tezos governance proposals, without interrupting baking
 
-Note that you must never simultanerously use two hardware wallets to bake for the same baking address. This will result in a double baking or double endorsing offense and you will be slashed. It's very easy to avoid by:
-
-* Not authorizing the second hardware wallet to bake for the same address before it's needed
-* Not importing your baking wallet into your backup computer before it's needed
-* Before changing any Ledger connections, always ensuring that only one hardware wallet is baking for the address
-* Not installing TezBake on second computer before it's needed. If you have a fast internet connection, the entire setup process takes just a few minutes.
+> **🚨 CRITICAL WARNING: Prevent Double Baking**
+>
+> You must NEVER simultaneously use two hardware wallets to bake for the same baking address. This will result in a double baking or double endorsing offense and you will be slashed.
+>
+> **How to avoid this:**
+>
+> * Do not authorize the second hardware wallet to bake before it's needed
+> * Do not import your baking wallet into your backup computer before it's needed
+> * Before changing any Ledger connections, always ensure only one hardware wallet is baking
+> * Do not install TezBake on second computer before it's needed (setup takes just a few minutes with fast internet)
 
 If you only have one hardware wallet and it fails, you will be down until you get a second one and set it up to bake.
 
@@ -54,19 +58,27 @@ If your baking computer and your ISP are in different rooms or on different elec
 
 ### Using Wi-Fi
 
-Wi-Fi is not as realiable as a wired connection and can cause strange and random issues. It is highly recommended that you use a wired connection for your baking computer.
+> **⚠️ NOT RECOMMENDED**
+>
+> Wi-Fi is not as reliable as a wired Ethernet connection and can cause intermittent connectivity issues. Always use a wired connection for your baking computer.
 
 ### Using DHCP
 
-DHCP automatically assigns IP addresses to your computer. This can cause issues with your baking computer in the event where DHCP is unable to automatically renew its lease. It is highly recommended that you use a static IP address for your baking computer.
+> **⚠️ NOT RECOMMENDED**
+>
+> DHCP automatically assigns IP addresses to your computer. This can cause issues if DHCP fails to renew the lease automatically. Use a static IP address for your baking computer instead.
 
 ### Using your daily computer or laptop
 
-If you use your daily computer for baking, it's much more likely to have issues because of accidentally affecting either your baker's connection to the internet or your Ledger's connection to your baker.
+> **⚠️ NOT RECOMMENDED**
+>
+> Using your daily-use computer for baking increases the risk of accidentally disrupting either your baker's internet connection or your Ledger's USB connection. Use a dedicated machine for baking.
 
 ### Not using TezBake Discord or Telegram monitoring bots
 
-The TezBake Discord and Telegram bots are designed to monitor your baker's status and alert you if there are any issues. It is highly recommended that you use these bots to monitor your baker. Should your baker go offline, you will be notified immediately and can take action to fix the issue.
+> **⚠️ NOT RECOMMENDED**
+>
+> The TezBake Discord and Telegram bots monitor your baker's status and alert you immediately if issues arise. You should configure these monitoring bots to receive instant notifications when your baker goes offline.
 
 ---
 

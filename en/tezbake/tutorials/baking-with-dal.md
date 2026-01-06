@@ -14,12 +14,17 @@ The Tezos Data Availability Layer (DAL) enhances network scalability by efficien
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
 
-> ⚠️ **Warning**
+> **⚠️ SECURITY WARNING: IP Address Exposure Risk**
 >
-> The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html). Since a baker’s bandwidth in the DAL is proportional to their stake, it may be relatively straightforward to identify the IP address of a DAL node—especially for bakers with substantial stakes.
+> The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html).
 >
-> To mitigate this risk, the core team advises running your DAL node on a different IP address than your L1 node. This separation helps prevent unintentional exposure of your node’s identity.
+> **Risk:**
+> Since a baker's bandwidth in the DAL is proportional to their stake, it may be relatively straightforward to identify the IP address of a DAL node—especially for bakers with substantial stakes.
 >
+> **Mitigation:**
+> The core team advises running your DAL node on a different IP address than your L1 node. This separation helps prevent unintentional exposure of your node's identity.
+>
+> **Solution for Separate Machines:**
 > If you wish to run TezBake with DAL on a separate machine, consider using [TezBake Prism Tunneling](https://docs.tez.capital/tezbake/tutorials/baking-with-prism/), which is designed for setups across multiple hosts.
 
 ## New TezBake Setup with DAL

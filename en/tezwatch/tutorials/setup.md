@@ -13,7 +13,9 @@ You will also need to join our [Discord](https://discord.gg/cVGMA4MaNM). This is
 
 The idea here is to have the Discord mobile app on your phone and/or the Discord desktop app on your computer. You will need to be logged in to your Discord account on the device you want to receive notifications on. TezWatch will use Discord to tag you in a DM (Direct Message) based on your configuration. For example, you may not care if you miss a single attestation but you care if you miss 10 attestation in a row or a block.
 
-> If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and what with it in private.
+> **💡 TIP - Privacy Option:**
+>
+> If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and chat with it in private.
 
 ---
 
@@ -39,7 +41,9 @@ Here are the descriptions of all the key variables you will need to configure to
 | `event`     | `attested-block`, `baked-block`, `missed-block`, `missed-attestation`, `new-block` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
 | `conditions`| `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv,tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur` | This is a comma-separated list of Tezos addresses that you want to be notified for                                                                            |
 
-> Please note that some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
+> **ℹ️ NOTE - Premium Features:**
+>
+> Some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 
 ### Example
 

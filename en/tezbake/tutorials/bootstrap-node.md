@@ -34,12 +34,12 @@ Using the first bootstrap method below ensures that the snapshot is checked for 
    tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
    ```
 
-> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
+> **💡 TIP:** You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/mainnet/rolling.html>
 
-> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+> **ℹ️ INFO:** The `<block_hash>` argument is optional but encouraged for security verification. If you don't want to bother with this protection, use the second method below which will also be faster.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 <https://tzkt.io/blocks>
@@ -57,7 +57,7 @@ Using the second bootstrap method below is faster but it assumes you trust the s
    tezbake bootstrap-node --no-check https://snapshots.eu.tzinit.org/mainnet/rolling
    ```
 
-> You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
+> **💡 TIP:** You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
 
 ---
 

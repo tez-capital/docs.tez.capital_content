@@ -18,8 +18,10 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 | Activate Configuration        | `tezbake upgrade`                                                         |
 | Start All                     | `tezbake start`                                                           |
 
-> **Important Note:**
-> All `tezbake` commands should be executed on the controller machine (usually the machine hosting the signer). Configuration edits (`app.json`) should be performed on their respective machines (Node, DAL, or Signer).
+> **⚠️ IMPORTANT - Command Execution:**
+>
+> * All `tezbake` commands should be executed on the controller machine (usually the machine hosting the signer)
+> * Configuration edits (`app.json`) should be performed on their respective machines (Node, DAL, or Signer)
 
 ---
 
@@ -86,15 +88,16 @@ tezbake setup --node \
   --node-remote-auth key:/path/to/ssh/key
 ```
 
-> **Tip:** You can combine both in a single command.  
-> If you've previously installed node or dal locally, remove it first:
+> **💡 TIP:** You can combine both in a single command.
+>
+> **ℹ️ NOTE:** If you've previously installed node or dal locally, remove it first:
 
 ```bash
 tezbake remove --node --all
 tezbake remove --dal --all
 ```
 
-> **Note:** During remote setup, TezBake injects its own SSH keys into the remote machine for secure automation (setup, upgrade, info, etc.).
+> **ℹ️ NOTE:** During remote setup, TezBake injects its own SSH keys into the remote machine for secure automation (setup, upgrade, info, etc.).
 
 ---
 
@@ -187,7 +190,7 @@ tezbake remove --dal --all
 }
 ```
 
-> **Note:** Signer does not require a Prism section in this layout.
+> **ℹ️ NOTE:** Signer does not require a Prism section in this layout.
 
 ---
 
@@ -209,8 +212,11 @@ Make sure UDP port `20080` (or your configured Prism port) is open on the public
 
 To ensure encrypted and authenticated communication between components, generate a Prism CA and keys on a secure machine — usually the controller/signer host.
 
-> **Note:** Only applications with a `PRISM` configuration in their `app.json` file can generate keys.
-> **Note:** You must generate all `.prism` keys from the same `<app>` to ensure compatibility and proper authentication across components. Using different `<app>` values for key generation can lead to connection failures.
+> **ℹ️ IMPORTANT - Key Generation:**
+>
+> * Only applications with a `PRISM` configuration in their `app.json` file can generate keys
+> * You must generate ALL `.prism` keys from the same `<app>` to ensure compatibility and proper authentication across components
+> * Using different `<app>` values for key generation can lead to connection failures
 
 ```bash
 mkdir -p /bake-buddy/<app>/prism/keys/
@@ -270,8 +276,10 @@ Manually copy the generated `.prism` keys to the correct app directories:
 | `node.prism`      | `/bake-buddy/node/prism/keys/node.prism`         |
 | `dal.prism`       | `/bake-buddy/dal/prism/keys/dal.prism`          |
 
-> ⚠️ **Do not copy or expose the CA file.**  
-> If compromised, regenerate all keys with a new CA.
+> **⚠️ CRITICAL SECURITY WARNING:**
+>
+> * Do NOT copy or expose the CA file
+> * If the CA is compromised, regenerate ALL keys with a new CA immediately
 
 After distributing the keys to their respective locations, you can verify each application's key information using the following commands:
 

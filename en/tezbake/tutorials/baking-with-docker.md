@@ -25,7 +25,7 @@ For this tutorial, you'll need to have already have installed Docker as shown he
    sudo docker run --name tezbake-container --privileged -d ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
-> After this step, you will need to wait a while for the container to start up and bootstrap the Tezos node.
+> **ℹ️ NOTE:** After this step, you will need to wait a while for the container to start up and bootstrap the Tezos node.
 
 You can monitor the progress of the Tezos node bootstrapping by running the following command:
 
@@ -59,15 +59,32 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
    # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
    ```
 
-> Once imported, you can see your baker address by running `tezbake info`
-> The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to <https://kukai.app> and login with ledger, accepting the default derivation path.
-> BLS (i.e. bip) signatures are designed to offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
-> Putting the baker on a non-default derivation path provides an additional layer of security for your baker at the cost of extra complexity for you. Make sure your setup is clearly documented for your own records.
-> If your device was used to bake before it might have a "high watermark" aka HWM. If you try to use this device on a testnet, it will not work because the block height on test networks usually starts with 1 while mainnet is up to over a couple of million blocks at the time of writing.
-If you used to bake on mainnet with the same ledger as you're trying to use now but it's been a while, it's highly recommended to change the 1 above to the current block on the network that will be used for the device going forward.
-> The watermark is simply a record of the lack block number your ledger helped to bake or attest. If you're setting up a brand new device that's not been used for baking before, there is no need to alter the default command above.
-> Always make sure you're not accidentally going to double bake by using your production ledger and/or setup to bake on a testnet. It's really easy to make this mistake and the only thing preventing it are your personal standard operating procedures, the documentation you keep, and the care you take when setting up your baker.
-> To double bake or attest due to baker setup error means having 2 different bakers with the same key on the same network. This is a serious offense and can lead to loss of bond and other penalties. Always double-check your setup and make sure you're not accidentally double baking or attesting.
+> **ℹ️ Verification & Setup Notes:**
+>
+> * Once imported, you can see your baker address by running `tezbake info`
+> * The ledger will ask you twice to confirm this operation - ensure the baker address matches the one you want to use
+> * To get the default ledger address, go to <https://kukai.app> and login with ledger, accepting the default derivation path
+>
+> **ℹ️ BLS Signatures:**
+> BLS (i.e. bip) signatures offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
+>
+> **💡 TIP - Security:**
+> Putting the baker on a non-default derivation path provides an additional layer of security at the cost of extra complexity. Make sure your setup is clearly documented for your own records.
+>
+> **⚠️ High Watermark (HWM) Important Notes:**
+>
+> * If your device was used to bake before, it has a "high watermark" (HWM)
+> * If you try to use this device on a testnet, it will not work because testnet block heights usually start with 1 while mainnet is in the millions
+> * If you used to bake on mainnet with the same ledger but it's been a while, change the HWM (`1`) to the current block height on the network
+> * The watermark is a record of the last block number your ledger helped to bake or attest
+> * If setting up a brand new device not used for baking before, no need to alter the default command
+>
+> **🚨 CRITICAL WARNING: Prevent Double Baking:**
+>
+> * Always ensure you're not accidentally going to double bake by using your production ledger/setup to bake on a testnet
+> * Double baking/attesting means having 2 different bakers with the same key on the same network
+> * This is a serious offense and can lead to loss of bond and other penalties
+> * Always double-check your setup before proceeding
 
 #### (Option 2 - INSECURE) Import Soft key to TezBake signer
 
@@ -97,7 +114,7 @@ Import the hashed key to the TezBake node:
    tezbake node client import secret key baker http://127.0.0.1:20090/tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF
    ```
 
-> Change the tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF to the hashed key you got from the previous command.
+> **ℹ️ NOTE:** Change the `tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF` to the hashed key you got from the previous command.
 
 Finally, change the permissions of the newly generated keys to be readable by the ascend user and group which runs the TezBake node:
 
@@ -113,8 +130,20 @@ For this step your node level must be synced with the latest block on the blockc
    tezbake register-key
    ```
 
-> Registering is not necessary if this is already an active baker ledger which is being setup on some kind of failover machine or in a situation where it has not been over 2 weeks of baking inactivity.
-> Registering applies to new bakers and to inactive bakers. If you're setting up a new baker, you must register it. If you're setting up a baker that's been inactive for over 2 weeks, you must register it. If you're setting up a baker that's been inactive for less than 2 weeks, you don't need to register it. The best way to find out if you need to register your baker again is to look into your baking rights schedule and see if they stopped coming in. If they did, you need to register your baker again.
+> **ℹ️ When Registration is Required:**
+>
+> Registration is NOT necessary if:
+>
+> * This is already an active baker ledger being set up on a failover machine
+> * The baker has not been inactive for over 2 weeks
+>
+> You MUST register your baker if:
+>
+> * You're setting up a new baker (first time)
+> * Your baker has been inactive for over 2 weeks
+> * Your baking rights have stopped appearing in the schedule
+>
+> Check your baking rights schedule to confirm if re-registration is needed.
 
 ---
 

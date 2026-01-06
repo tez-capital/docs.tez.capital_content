@@ -97,8 +97,9 @@ Insert your **unencrypted** private key:
 edsk...yourprivatekeyhere...
 ```
 
-> **Important:**  
-> **Use a dedicated wallet with minimal funds for payouts only, never your main baker wallet.**
+> **⚠️ CRITICAL SECURITY WARNING:**
+>
+> **Use a dedicated wallet with minimal funds for payouts only. NEVER use your main baker wallet.**
 
 **Option B: Remote Signer (`remote_signer.hjson`):**
 
@@ -143,7 +144,7 @@ Continual payouts are initially disabled.
 
 ## Starting & Stopping TezPay (continual service)
 
-> **Note:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
+> **ℹ️ NOTE:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
 
 - **Start TezPay:**
   - direct: `tezbake pay start`

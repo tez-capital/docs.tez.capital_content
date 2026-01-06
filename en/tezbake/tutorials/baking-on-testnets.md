@@ -16,15 +16,18 @@ summary: Using TezBake to bake on the Tezos testnets
 Installing TezBake and using it to setup your Tezos baker is very simple. You will need the following tools:
 
 1. Spare computer or existing computer or VM with Linux installed. We recommend Ubuntu Linux.
-   > You must have an SSD drive or better & at least 8GB RAM
+   > **ℹ️ NOTE:** You must have an SSD drive (or better) and at least 8GB RAM
 
 All advanced TezBake configurations, including TezSign block signing apply here as well.
 
 ---
 
-> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network.It's not currently mandatory to run the DAL on the same node as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
+> **🚨 CRITICAL REQUIREMENT: DAL Node Mandatory**
 >
-> What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
+> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
+>
+> **What is the DAL?**
+> The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify.
 
 ## Installation (All-in-one)
 
@@ -62,7 +65,7 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/ghostnet/rolling.html>
 
-> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+> **ℹ️ INFO:** The `<block_hash>` argument is optional but encouraged for security verification. If you don't want to bother with this protection, you can skip it for a faster bootstrap.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 <https://tzkt.io/blocks>
@@ -84,8 +87,15 @@ After starting the node, run the following command over and over every few minut
    tezbake info
    ```
 
-> Level refers to the latest block number on mainnet. Navigate to <https://tzkt.io> or <https://tzstats.com> and observe the latest block. Once the level in your command matches the latest block on your blockchain explorer, your node is in full sync and you can keep following the steps below.
-> Both <https://tzkt.io> or <https://tzstats.com> provide Ghostnet and Testnet block explorers as well. Make sure you're looking at the right explorer.
+> **Understanding "Level"**
+>
+> The level is the current block height (block number) on the blockchain. To verify your node is synchronized:
+>
+> 1. Check the level shown by `tezbake info`
+> 2. Compare it to the latest block on <https://tzkt.io> or <https://tzstats.com>
+> 3. Once they match, your node is fully synced and you can proceed
+>
+> **ℹ️ NOTE:** Both blockchain explorers also provide Ghostnet and testnet views. Make sure you're looking at the correct network.
 
 ### Import baking keys and register as baker
 
@@ -101,7 +111,7 @@ First, generate the baker key for TezBake:
    tezbake setup-soft-wallet --generate bls --key-alias baker
    ```
 
-> Make sure to backup your key in a secure location and never share it.
+> **⚠️ SECURITY:** Make sure to backup your key in a secure location and never share it.
 
 You can get the secret/private key by running the following command:
 
@@ -121,7 +131,15 @@ Each Tezos testnet has a faucet over at <https://teztnets.com>
    tezbake register-key
    ```
 
-> Registering applies to new bakers and to inactive bakers. If you're setting up a new baker, you must register it. If you're setting up a baker that's been inactive for over 2 weeks, you must register it. If you're setting up a baker that's been inactive for less than 2 weeks, you don't need to register it. The best way to find out if you need to register your baker again is to look into your baking rights schedule and see if they stopped coming in. If they did, you need to register your baker again.
+> **ℹ️ When Registration is Required:**
+>
+> You must register your baker if:
+>
+> * You're setting up a new baker (first time)
+> * Your baker has been inactive for over 2 weeks
+> * Your baking rights have stopped appearing in the schedule
+>
+> You do NOT need to register if your baker has been inactive for less than 2 weeks. Check your baking rights schedule to confirm if re-registration is needed.
 
 ### Stake your baking XTZ security deposit
 
@@ -133,7 +151,16 @@ You can stake your security deposit by running the following command, after open
    tezbake signer client stake 6000 for baker
    ```
 
-> Change 6000 to the amount you want to stake. The minimum is 6000 XTZ. You may start baking with as little as 1000 XTZ but you will need to set your baking over staking multiplier to 5X and secure 5000 XTZ that will stake to your baker to cover the security deposit requirement. You can also secure delegators' XTZ to your baker to cover the security deposit requirement. Each XTZ delegated to your baker will be counted 0.5 towards the security deposit requirement. For example you can start baking with 1000 XTZ + 5000 XTZ secured from stakers, or you can start baking with 1000 XTZ + 10000 XTZ secured from delegators. You can also start baking with 1000 XTZ + 2000 XTZ secured from stakers + 6000 XTZ secured from delegators.
+> **ℹ️ Staking Options:**
+>
+> Change 6000 to the amount you want to stake. The minimum security deposit is 6000 XTZ.
+>
+> **Alternative Configurations:**
+> You may start baking with as little as 1000 XTZ if you configure additional sources:
+>
+> * Set baking over staking multiplier to 5X + secure 5000 XTZ from stakers, OR
+> * Secure 10000 XTZ from delegators (each delegated XTZ counts as 0.5 towards the security deposit), OR
+> * Combine: 1000 XTZ + 2000 XTZ from stakers + 6000 XTZ from delegators
 
 ### Import your DAL attester profile
 

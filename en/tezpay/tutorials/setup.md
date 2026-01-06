@@ -44,9 +44,9 @@ file how to run and will be edited by the baker (we will cover this
 later), and the *Private-Key File* will contain the private key for a
 wallet you have designated to pay your delegators (we will explain an
 easy way to get this later as well).
-***A note on the Private-key file - it is not recommended to use an existing wallet that may house
-important assets (including NFT's or crypto tokens) but to create a new
-wallet that contains only enough Tezos to pay out delegates.***
+> **⚠️ SECURITY WARNING: Private Key File**
+>
+> Do NOT use an existing wallet that contains important assets (NFTs, tokens, etc.). Create a new dedicated wallet that contains only enough Tezos to pay out delegates.
 
 ---
 
@@ -167,7 +167,7 @@ This section will review how to setup the configuration file
 | ![Simple Configuration file for TezPay.](/tezpay/tutorial/tezpayImage13.png) |
 |-|
 
-> If you've used json before but now hjson, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/)
+> **ℹ️ NOTE:** If you're familiar with JSON but new to HJSON (Human JSON), you can learn more at [https://hjson.github.io/](https://hjson.github.io/). HJSON is more forgiving than JSON and supports comments.
 
 *Yellow is areas you will input data/edit fields*  
 *Blue are comments about Configuration File objects*
@@ -207,7 +207,9 @@ This section will review how to setup the configuration file
 *Yellow is areas you will input data/edit fields*
 *Blue are comments about Configuration File objects*
 
-> The example below is a more advanced configuration file that showcases several of the features that can be used to customize the TezPay application. To get a simple configuration file, you can remove the sections that are not needed. Here is a sample configuration that will work for 90% of bakers: [TezPay Starter Configuration](https://docs.tez.capital/tezpay/configuration/examples/starter/)
+> **💡 TIP: Start Simple**
+>
+> The example below is a more advanced configuration file showcasing several customization features. For most bakers, a simpler configuration is recommended. See [TezPay Starter Configuration](https://docs.tez.capital/tezpay/configuration/examples/starter/) which works for 90% of bakers.
 
 1. Paste your **Baker** wallet in between the quotes
 2. Set your Baker fee (ie 5% = 0.05)

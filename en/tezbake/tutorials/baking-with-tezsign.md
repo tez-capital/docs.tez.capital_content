@@ -12,7 +12,9 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 - **Security First:** TezSign ensures your baking keys remain secure on hardware and never leave the device.
 - **Prerequisites:** You must have a supported TezSign device ready.
 
-> ⚠️ **Disclaimer**: TezSign is provided without any guarantee. Use it at your own risk.
+> **⚠️ DISCLAIMER**
+>
+> TezSign is provided without any guarantee. Use it at your own risk.
 
 ---
 
@@ -77,7 +79,7 @@ Initialize the signer configuration. This creates the `/bake-buddy/signer/tezsig
 tezbake setup-tezsign --init --platform
 ```
 
-> **Configuration Note:** You typically do not need to modify the generated configuration file unless you are managing multiple devices or have specific advanced requirements.
+> **ℹ️ NOTE:** You typically do not need to modify the generated configuration file unless you are managing multiple devices or have specific advanced requirements.
 
 ## Phase 2: Device Preparation
 
@@ -107,9 +109,16 @@ Connect your TezSign device to your workstation and run:
 tezbake tezsign init
 ```
 
-> **Critical Warning**: > You will be prompted to set a Master Password. Choose this carefully. It CANNOT be changed later.
+> **🚨 CRITICAL WARNING: Master Password**
 >
-> 🚨🚨🚨 Save your Master Password somewhere safe. This is the ONLY way to get access to your TezSign keys.
+> You will be prompted to set a Master Password. Choose this carefully.
+>
+> **IMPORTANT:**
+>
+> * The Master Password CANNOT be changed later
+> * Save your Master Password somewhere safe
+> * This is the ONLY way to access your TezSign keys
+> * Loss of this password means permanent loss of access to your keys
 
 ### 2. Generate your baking keys directly on the device
 
@@ -124,8 +133,16 @@ tezbake tezsign new consensus companion
 
 In this example, we generate two keys named "consensus" and "companion". You can create as many as you need.
 
-> **Note:**  For baking with the Data Availability Layer (DAL), distinct tz4 keys are required - the consensus and companion key.
-> **Backup:** Now that you have your keys on the TezSign device, it's a good idea to use Balena Etcher or a similar tool to clone the SD card such that you have a backup in case your original SD card fails.
+> **ℹ️ Understanding DAL Keys:**
+>
+> For baking with the Data Availability Layer (DAL), two distinct tz4 keys are required:
+>
+> * **Consensus key** - Used for block validation
+> * **Companion key** - Used for DAL operations
+>
+> **💡 TIP: Backup Your SD Card**
+>
+> Now that your keys are on the TezSign device, use Balena Etcher or similar tool to clone the SD card. This backup will allow you to quickly recover if your original SD card fails.
 
 ## Phase 3: Node Configuration
 
@@ -161,7 +178,10 @@ tezbake setup-tezsign --import-key=consensus --key-alias=baker
 tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-> **Caution**: Ensure your `--key-alias` does not conflict with existing keys you wish to keep. Use the --force flag only if you intend to overwrite an alias.
+> **⚠️ CAUTION:**
+>
+> * Ensure your `--key-alias` does not conflict with existing keys you wish to keep
+> * Use the `--force` flag only if you intend to overwrite an existing alias
 
 ### 2. Import Keys to TezBake node and signer
 
@@ -191,17 +211,26 @@ companion
 
 ### 3. Retrieve Public Keys & Proofs & Register them on the chain
 
-> Please note: It's highly recommended to setup TezSign to the point where you active it on the blockchain and wait 2-3 cycles to ensure that it is stable in your use insance.
+> **⚠️ IMPORTANT: Testing & Power Considerations**
 >
-> In some cases, connecting the TezSign gadget only using the OTG USB power port does not provide consistent power to the gadget and the device goes offline. Sometimes turning off USB power savings in the BIOS resolves this edge case issue. Using the dedicated power port on your gadget to provide independent power or using a powered USB hub on the sole OTG USB port usually resolves the issue.
+> **Testing Period:**
+> It's highly recommended to setup TezSign, activate it on the blockchain, and wait 2-3 cycles to ensure stability before relying on it for production baking.
 >
-> Here are USB settings you should check on the computer that's powering the TezSign gadget via its OTG USB port:
-> - USB power delivery in Soft Off state (S5): Enabled
-> - ErP Ready / EuP Ready / ErP Compliance: Disabled
-> - Deep S4/S5 / Deep Power Saving / Pseudo G3: Disabled
-> - Resume by USB Device / Power On by USB: Enabled
+> **Power Issues:**
+> In some cases, connecting the TezSign gadget only via the OTG USB port may not provide consistent power, causing the device to go offline. Solutions:
 >
-> These settings should ensure your USB port never attempts to go into a power savings mode and shuts down the TezSign gadget. As previously mentioned, providing independent power to your gadget is the most reliable way to not run into this issue.
+> * Use the dedicated power port on your gadget for independent power (most reliable)
+> * Use a powered USB hub on the OTG USB port
+> * Configure BIOS USB power settings (see below)
+>
+> **BIOS USB Settings to Check:**
+>
+> * USB power delivery in Soft Off state (S5): **Enabled**
+> * ErP Ready / EuP Ready / ErP Compliance: **Disabled**
+> * Deep S4/S5 / Deep Power Saving / Pseudo G3: **Disabled**
+> * Resume by USB Device / Power On by USB: **Enabled**
+>
+> These settings prevent your USB port from entering power-saving mode and shutting down the TezSign gadget.
 
 To register your keys on-chain (via [TezGov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
 
@@ -262,11 +291,24 @@ You can check the lock/unlock status of your TezSign keys
 tezbake tezsign status
 ```
 
-> 🚨🚨🚨 Ensure your TezSign device is in the unlocked status before baking with your new keys. `tezbake info` can only detect a locked TezSign device if it's running in [Advanced: Direct TezSign Backend](#advanced-direct-tezsign-backend) mode. Until then, always run `tezbake tezsign status` along with `tezbake info`
+> **🚨 CRITICAL: Unlock Before Baking**
+>
+> Ensure your TezSign device is unlocked before baking with your new keys.
+>
+> **IMPORTANT:** `tezbake info` can only detect a locked TezSign device if you're running in [Advanced: Direct TezSign Backend](#advanced-direct-tezsign-backend) mode. Until you switch to that mode, always run both commands:
+>
+> * `tezbake tezsign status` - Check lock/unlock status
+> * `tezbake info` - Check general baker status
 
 ## Advanced: Direct TezSign Backend
 
-> **Caution:** Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition, continue using the default backend. Once you fully rely on tz4 TezSign keys, you can safely switch to the TezSign backend.
+> **⚠️ CAUTION: Timing Matters**
+>
+> Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition:
+>
+> * Continue using the default backend initially
+> * Wait until you fully rely on tz4 TezSign keys
+> * Then safely switch to the TezSign backend
 
 You can configure TezBake to bake directly through the TezSign backend, bypassing the standard `octez-signer`.
 

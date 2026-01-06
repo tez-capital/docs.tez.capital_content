@@ -17,14 +17,17 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
     * 100GB SSD storage (or similar I/O performance);
     * a low-latency, reliable broadband internet connection.
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This will be used for storing your funds, voting and changing your baking parameters.
-   > It's necessary to use Ledger Live to install the Tezos Wallet app
+   > **ℹ️ NOTE:** You must use Ledger Live to install the Tezos Wallet app on your device.
 3. TezSign remote signer device. This will be used to validate blocks securely. It is no longer recommended to bake with a Ledger Nano device itself.
 
 ---
 
-> 🚨 Please note that running a DAL node is now a mandatory requirement for baking on the Tezos network.It's not currently mandatory to run the DAL on the same node as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
+> **🚨 CRITICAL REQUIREMENT: DAL Node Mandatory**
 >
-> What is the DAL anyway? The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify​.
+> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
+>
+> **What is the DAL?**
+> The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify.
 
 ## Installation (All-in-one)
 
@@ -57,7 +60,7 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/mainnet/rolling.html>
 
-> The `<block_hash>` argument is optional but encouraged. If you don't want to borther with this protection, use the second method below which will also be faster.
+> **ℹ️ INFO:** The `<block_hash>` argument is optional but encouraged for security verification. If you don't want to bother with this protection, you can skip it for a faster bootstrap.
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 <https://tzkt.io/blocks>
@@ -79,8 +82,15 @@ After starting the node, run the following command over and over every few minut
    tezbake info
    ```
 
-> Level refers to the latest block number on mainnet. Navigate to <https://tzkt.io> or <https://tzstats.com> and observe the latest block. Once the level in your command matches the latest block on your blockchain explorer, your node is in full sync and you can keep following the steps below.
-> Both <https://tzkt.io> or <https://tzstats.com> provide Ghostnet and Testnet block explorers as well. Make sure you're looking at the right explorer.
+> **Understanding "Level"**
+>
+> The level is the current block height (block number) on the blockchain. To verify your node is synchronized:
+>
+> 1. Check the level shown by `tezbake info`
+> 2. Compare it to the latest block on <https://tzkt.io> or <https://tzstats.com>
+> 3. Once they match, your node is fully synced and you can proceed
+>
+> **ℹ️ NOTE:** Both blockchain explorers also provide Ghostnet and Testnet views. Make sure you're looking at the correct network (mainnet).
 
 ### Import baking keys and register as baker
 
@@ -96,7 +106,14 @@ Follow the following guide and then proceed directly to [stake your XTZ](#stake-
 
 [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
-> **PLEASE NOTE:** Instead of using the alias `consensus`, use `baker`. For `companion`, leave `companion`. You're using the `baker` alias here because it's assumed you're managing your baker operations from a Ledger device using the <https://gov.tez.capital> interface.
+> **⚠️ IMPORTANT - Key Alias Naming:**
+>
+> When following the TezSign guide, use these alias names:
+>
+> * Use `baker` instead of `consensus` (for your consensus key)
+> * Use `companion` as-is (for your companion key)
+>
+> This naming convention is required because you're managing your baker operations from a Ledger device using the <https://gov.tez.capital> interface.
 
 #### (Option 2 - DEPRECATED) Import Ledger key to TezBake signer
 
@@ -150,7 +167,15 @@ Use the `Become a Baker` button on the <https://gov.tez.capital> portal.
    tezbake register-key
    ```
 
-> Registering applies to new bakers and to inactive bakers. If you're setting up a new baker, you must register it. If you're setting up a baker that's been inactive for over 3 days, you must register it. If you're setting up a baker that's been inactive for less than 3 days, you don't need to register it. The best way to find out if you need to register your baker again is to look into your baking rights schedule and see if they stopped coming in. If they did, you need to register your baker again.
+> **ℹ️ When Registration is Required:**
+>
+> You must register your baker if:
+>
+> * You're setting up a new baker (first time)
+> * Your baker has been inactive for over 3 days
+> * Your baking rights have stopped appearing in the schedule
+>
+> You do NOT need to register if your baker has been inactive for less than 3 days. Check your baking rights schedule to confirm if re-registration is needed.
 
 ### Stake your baking XTZ security deposit
 
@@ -178,7 +203,7 @@ You can stake your security deposit by running the following command, after open
    tezbake update-dal-profiles <your-baker-tz4-key> --force
    ```
 
-> **Note:** The tz4 key iported above is your manager key, not your consensus key or companion key.
+> **ℹ️ NOTE:** The tz4 key imported above is your manager key, not your consensus key or companion key.
 
 ## Installation (Advanced)
 

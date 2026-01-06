@@ -5,17 +5,27 @@ type: docs
 summary: TezBake Baking Tutorial for using a Consensus Key
 ---
 
-> **PLEASE NOTE**: tz4/BLS signing migration now requires us to use a Companion Key along with a Consensus Key.
+> **⚠️ IMPORTANT: tz4/BLS Signing Requirements**
 >
-> Bakers must now set their new consensus and companion keys together when changing to tz4 signing at first. Later down the road, you will be able to only rotate your consensus key if so desired. The companion key is a **must** for tz4 BLS signing, to perform the DAL-related duties. When you see "companion," think "DAL." **Consensus and companion always go together.**
+> tz4/BLS signing migration now requires both a Consensus Key AND a Companion Key.
 >
-> In practical terms, this means, when activating a Consensus Key, a baker must now ensure they also have a Companion Key activated. Both keys are used together for baking at the same time. 
+> **Key Points:**
 >
-> The steps in the KB below have been updated but the video does not include the "Companion Key" step which is now mandatory. Make sure to follow setting your consensus key with also setting (or validating/updating) your companion key.
+> * Bakers must set their new consensus and companion keys together when first changing to tz4 signing
+> * Later, you can rotate just your consensus key if desired
+> * The companion key is **mandatory** for tz4 BLS signing (handles DAL-related duties)
+> * When you see "companion," think "DAL"
+> * **Consensus and companion always go together**
 >
-> IF YOU ARE BAKING WITH A tz1-3 KEY, YOU DO NOT NEED TO HAVE A COMPANION KEY
+> **In Practice:**
 >
-> All instructions have been updated as if tz4 consensus + companion is the only way things are handled. If you're using an old tz1-3 key, simply omit the companion key steps.
+> When activating a Consensus Key, you must also have a Companion Key activated. Both keys are used together for baking simultaneously.
+>
+> **ℹ️ NOTE - Video Outdated:**
+> The steps below have been updated, but the video does not include the "Companion Key" step which is now mandatory. Follow the written instructions to set both your consensus key and companion key.
+>
+> **ℹ️ NOTE - tz1-3 Users:**
+> If you are baking with a tz1-3 key, you do NOT need a companion key. All instructions below assume tz4 consensus + companion. If using an old tz1-3 key, simply omit the companion key steps.
 
 Follow along on Youtube!
 {{< youtube 5m_GKFRIflk >}}
@@ -33,9 +43,22 @@ A Tezos companion key was not necessary to use in the tz1-tz3 address era. With 
 
 This separation of roles is useful for reducing the exposure of the primary baker key (which holds funds and has broader permissions) by isolating consensus-related tasks to a different key. If compromised, only the consensus operations are affected, not the funds held by the baker's main account.
 
-> If an attacker gains control of the consensus key, they can sign blocks and endorse operations. They can maliciously double-bake or double-attest on your behalf, slashing your funds. They can also transfer all baker funds that are not locked/staked in the security deposit by using the drain operation. To eliminate the risk of fund draining by the consensus key, it is recommended to lock/stake all baking funds in the security deposit. It's further recommended to rotate the consensus key before stopping the baking operations and unstaking the security deposit.
+> **🚨 SECURITY WARNING: Key Compromise Risks**
 >
-> If an attacker gains control of your companion key, they can cost you 10% of your baking income due to DAL penalties.
+> **If Consensus Key is Compromised:**
+>
+> * Attacker can sign blocks and endorse operations
+> * Attacker can maliciously double-bake or double-attest on your behalf, **slashing your funds**
+> * Attacker can transfer all baker funds NOT locked/staked in the security deposit using the drain operation
+>
+> **Protection Measures:**
+>
+> * Lock/stake ALL baking funds in the security deposit to eliminate drain risk
+> * Rotate the consensus key before stopping baking operations and unstaking the security deposit
+>
+> **If Companion Key is Compromised:**
+>
+> * Attacker can cost you 10% of your baking income due to DAL penalties
 
 ---
 
@@ -65,8 +88,12 @@ Run the following command to import the consensus key:
    tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --ledger-id "apple-banana-coconut-date" --hwm 1 --key-alias=consensus
    ```
 
-> Replace the `--ledger-id` value with the 4 word ID of the Ledger you want to use for the consensus key.
-> We are using the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and most portable option with both on premise and cloud hardware security modules (HSMs). The consensus key is only used for signing blocks and endorsements, so it doesn't need to be the same curve as the baker key. In fact, many bakers move from a tz1 key to a tz3 key for the consensus key to improve performance.
+> **ℹ️ Configuration Notes:**
+>
+> * Replace the `--ledger-id` value with the 4-word ID of the Ledger you want to use for the consensus key
+> * We use the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and the most portable option for both on-premise and cloud hardware security modules (HSMs)
+> * The consensus key is only used for signing blocks and endorsements, so it doesn't need to be the same curve as the baker key
+> * Many bakers move from a tz1 key to a tz3 key for the consensus key to improve performance
 
 This will import your consensus key Ledger device and authorize it for baking. Leave the baking app running on the Ledger device.
 
@@ -156,7 +183,7 @@ Get your consensus key public key hash:
 
 The public key is the one in the `key` field.
 
-> An example of a public key for a tz3 address is `p2pk66fWs9UZ6T4nVTfHfV9PtuJje4xYBh2RVo4517a8VTj6Cny7ZXY`
+> **ℹ️ Example:** A public key for a tz3 address looks like: `p2pk66fWs9UZ6T4nVTfHfV9PtuJje4xYBh2RVo4517a8VTj6Cny7ZXY`
 
 To register the consensus key, run the following command:
 
