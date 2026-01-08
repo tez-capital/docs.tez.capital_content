@@ -5,7 +5,7 @@ type: docs
 summary: TezBake Baking Tutorial for using a Consensus Key
 ---
 
-> **⚠️ IMPORTANT: tz4/BLS Signing Requirements**
+> **⚠️ WARNING: tz4/BLS Signing Requirements**
 >
 > tz4/BLS signing migration now requires both a Consensus Key AND a Companion Key.
 >
@@ -21,10 +21,10 @@ summary: TezBake Baking Tutorial for using a Consensus Key
 >
 > When activating a Consensus Key, you must also have a Companion Key activated. Both keys are used together for baking simultaneously.
 >
-> **ℹ️ NOTE - Video Outdated:**
+> **ℹ️ INFO - Video Outdated:**
 > The steps below have been updated, but the video does not include the "Companion Key" step which is now mandatory. Follow the written instructions to set both your consensus key and companion key.
 >
-> **ℹ️ NOTE - tz1-3 Users:**
+> **ℹ️ INFO - tz1-3 Users:**
 > If you are baking with a tz1-3 key, you do NOT need a companion key. All instructions below assume tz4 consensus + companion. If using an old tz1-3 key, simply omit the companion key steps.
 
 Follow along on Youtube!
@@ -43,7 +43,7 @@ A Tezos companion key was not necessary to use in the tz1-tz3 address era. With 
 
 This separation of roles is useful for reducing the exposure of the primary baker key (which holds funds and has broader permissions) by isolating consensus-related tasks to a different key. If compromised, only the consensus operations are affected, not the funds held by the baker's main account.
 
-> **🚨 SECURITY WARNING: Key Compromise Risks**
+> **🚨 CRITICAL: Key Compromise Risks**
 >
 > **If Consensus Key is Compromised:**
 >

@@ -12,7 +12,7 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 - **Security First:** TezSign ensures your baking keys remain secure on hardware and never leave the device.
 - **Prerequisites:** You must have a supported TezSign device ready.
 
-> **⚠️ DISCLAIMER**
+> **ℹ️ INFO**
 >
 > TezSign is provided without any guarantee. Use it at your own risk.
 
@@ -79,7 +79,7 @@ Initialize the signer configuration. This creates the `/bake-buddy/signer/tezsig
 tezbake setup-tezsign --init --platform
 ```
 
-> **ℹ️ NOTE:** You typically do not need to modify the generated configuration file unless you are managing multiple devices or have specific advanced requirements.
+> **ℹ️ INFO:** You typically do not need to modify the generated configuration file unless you are managing multiple devices or have specific advanced requirements.
 
 ## Phase 2: Device Preparation
 
@@ -109,7 +109,7 @@ Connect your TezSign device to your workstation and run:
 tezbake tezsign init
 ```
 
-> **🚨 CRITICAL WARNING: Master Password**
+> **🚨 CRITICAL: Master Password**
 >
 > You will be prompted to set a Master Password. Choose this carefully.
 >
@@ -178,7 +178,7 @@ tezbake setup-tezsign --import-key=consensus --key-alias=baker
 tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-> **⚠️ CAUTION:**
+> **⚠️ WARNING:**
 >
 > * Ensure your `--key-alias` does not conflict with existing keys you wish to keep
 > * Use the `--force` flag only if you intend to overwrite an existing alias
@@ -211,7 +211,7 @@ companion
 
 ### 3. Retrieve Public Keys & Proofs & Register them on the chain
 
-> **⚠️ IMPORTANT: Testing & Power Considerations**
+> **⚠️ WARNING: Testing & Power Considerations**
 >
 > **Testing Period:**
 > It's highly recommended to setup TezSign, activate it on the blockchain, and wait 2-3 cycles to ensure stability before relying on it for production baking.
@@ -302,7 +302,7 @@ tezbake tezsign status
 
 ## Advanced: Direct TezSign Backend
 
-> **⚠️ CAUTION: Timing Matters**
+> **⚠️ WARNING: Timing Matters**
 >
 > Avoid switching to the TezSign backend during the initial transition phase. To ensure a seamless transition:
 >

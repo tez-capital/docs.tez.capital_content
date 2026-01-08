@@ -17,12 +17,12 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
     * 100GB SSD storage (or similar I/O performance);
     * a low-latency, reliable broadband internet connection.
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This will be used for storing your funds, voting and changing your baking parameters.
-   > **ℹ️ NOTE:** You must use Ledger Live to install the Tezos Wallet app on your device.
+   > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
 3. TezSign remote signer device. This will be used to validate blocks securely. It is no longer recommended to bake with a Ledger Nano device itself.
 
 ---
 
-> **🚨 CRITICAL REQUIREMENT: DAL Node Mandatory**
+> **🚨 CRITICAL: DAL Node Mandatory**
 >
 > Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
 >
@@ -90,7 +90,7 @@ After starting the node, run the following command over and over every few minut
 > 2. Compare it to the latest block on <https://tzkt.io> or <https://tzstats.com>
 > 3. Once they match, your node is fully synced and you can proceed
 >
-> **ℹ️ NOTE:** Both blockchain explorers also provide Ghostnet and Testnet views. Make sure you're looking at the correct network (mainnet).
+> **ℹ️ INFO:** Both blockchain explorers also provide Ghostnet and Testnet views. Make sure you're looking at the correct network (mainnet).
 
 ### Import baking keys and register as baker
 
@@ -106,7 +106,7 @@ Follow the following guide and then proceed directly to [stake your XTZ](#stake-
 
 [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
-> **⚠️ IMPORTANT - Key Alias Naming:**
+> **⚠️ WARNING: Key Alias Naming**
 >
 > When following the TezSign guide, use these alias names:
 >
@@ -179,9 +179,30 @@ Use the `Become a Baker` button on the <https://gov.tez.capital> portal.
 
 ### Stake your baking XTZ security deposit
 
-To bake on the Tezos network, you need to stake your XTZ security deposit. This is a slashable security deposit that you will get back when you stop baking. The minimum bond to get baking rights is currently set at 6000 XTZ.
+To bake on the Tezos network, you need to stake your XTZ security deposit. This is a slashable security deposit that you will get back when you stop baking.
 
-Change 6000 to the amount you want to stake. The minimum is 6000 XTZ. You may start baking with as little as 1000 XTZ but you will need to set your baking over staking multiplier to 5X and secure 5000 XTZ that will stake to your baker to cover the security deposit requirement. You can also secure delegators' XTZ to your baker to cover the security deposit requirement. Each XTZ delegated to your baker will be counted 0.5 towards the security deposit requirement. For example you can start baking with 1000 XTZ + 5000 XTZ secured from stakers, or you can start baking with 1000 XTZ + 10000 XTZ secured from delegators. You can also start baking with 1000 XTZ + 2000 XTZ secured from stakers + 6000 XTZ secured from delegators.
+**Staking Requirements:**
+
+The minimum bond to get baking rights is **6000 XTZ**. However, you have several options to meet this requirement:
+
+| Your XTZ | From Stakers | From Delegators | Notes |
+|----------|--------------|-----------------|-------|
+| 6000+ | 0 | 0 | Simplest - full self-stake |
+| 1000 | 5000 | 0 | Requires 5X multiplier |
+| 1000 | 0 | 15,000 | Pure delegation model |
+| 1000 | 2000 | 9000 | Mixed approach |
+
+**How delegation weight works (Paris protocol):**
+
+* **Your stake + Stakers:** Each XTZ counts as **1.0** toward the requirement
+* **Delegators:** Each XTZ counts as **≈0.33** (1/3) toward the requirement
+* **Formula:** (Your XTZ + Staker XTZ) + (Delegator XTZ × 0.33) ≥ 6000
+
+**Example calculations:**
+
+* 1000 (self) + 5000 (stakers) = 6000 ✓
+* 1000 (self) + (15,000 delegators × 0.33) = 1000 + 5000 = 6000 ✓
+* 1000 (self) + 2000 (stakers) + (9000 delegators × 0.33) = 1000 + 2000 + 3000 = 6000 ✓
 
 #### Using TezGov to stake
 
@@ -203,7 +224,7 @@ You can stake your security deposit by running the following command, after open
    tezbake update-dal-profiles <your-baker-tz4-key> --force
    ```
 
-> **ℹ️ NOTE:** The tz4 key imported above is your manager key, not your consensus key or companion key.
+> **ℹ️ INFO:** The tz4 key imported above is your manager key, not your consensus key or companion key.
 
 ## Installation (Advanced)
 

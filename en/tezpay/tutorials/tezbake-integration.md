@@ -97,7 +97,7 @@ Insert your **unencrypted** private key:
 edsk...yourprivatekeyhere...
 ```
 
-> **⚠️ CRITICAL SECURITY WARNING:**
+> **🚨 CRITICAL:**
 >
 > **Use a dedicated wallet with minimal funds for payouts only. NEVER use your main baker wallet.**
 
@@ -144,7 +144,7 @@ Continual payouts are initially disabled.
 
 ## Starting & Stopping TezPay (continual service)
 
-> **ℹ️ NOTE:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
+> **ℹ️ INFO:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
 
 - **Start TezPay:**
   - direct: `tezbake pay start`

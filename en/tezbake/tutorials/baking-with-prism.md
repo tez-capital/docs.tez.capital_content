@@ -18,7 +18,7 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 | Activate Configuration        | `tezbake upgrade`                                                         |
 | Start All                     | `tezbake start`                                                           |
 
-> **⚠️ IMPORTANT - Command Execution:**
+> **⚠️ WARNING - Command Execution:**
 >
 > * All `tezbake` commands should be executed on the controller machine (usually the machine hosting the signer)
 > * Configuration edits (`app.json`) should be performed on their respective machines (Node, DAL, or Signer)
@@ -90,14 +90,14 @@ tezbake setup --node \
 
 > **💡 TIP:** You can combine both in a single command.
 >
-> **ℹ️ NOTE:** If you've previously installed node or dal locally, remove it first:
+> **ℹ️ INFO:** If you've previously installed node or dal locally, remove it first:
 
 ```bash
 tezbake remove --node --all
 tezbake remove --dal --all
 ```
 
-> **ℹ️ NOTE:** During remote setup, TezBake injects its own SSH keys into the remote machine for secure automation (setup, upgrade, info, etc.).
+> **ℹ️ INFO:** During remote setup, TezBake injects its own SSH keys into the remote machine for secure automation (setup, upgrade, info, etc.).
 
 ---
 
@@ -190,7 +190,7 @@ tezbake remove --dal --all
 }
 ```
 
-> **ℹ️ NOTE:** Signer does not require a Prism section in this layout.
+> **ℹ️ INFO:** Signer does not require a Prism section in this layout.
 
 ---
 
@@ -212,7 +212,7 @@ Make sure UDP port `20080` (or your configured Prism port) is open on the public
 
 To ensure encrypted and authenticated communication between components, generate a Prism CA and keys on a secure machine — usually the controller/signer host.
 
-> **ℹ️ IMPORTANT - Key Generation:**
+> **ℹ️ INFO: Key Generation:**
 >
 > * Only applications with a `PRISM` configuration in their `app.json` file can generate keys
 > * You must generate ALL `.prism` keys from the same `<app>` to ensure compatibility and proper authentication across components
@@ -276,7 +276,7 @@ Manually copy the generated `.prism` keys to the correct app directories:
 | `node.prism`      | `/bake-buddy/node/prism/keys/node.prism`         |
 | `dal.prism`       | `/bake-buddy/dal/prism/keys/dal.prism`          |
 
-> **⚠️ CRITICAL SECURITY WARNING:**
+> **🚨 CRITICAL:**
 >
 > * Do NOT copy or expose the CA file
 > * If the CA is compromised, regenerate ALL keys with a new CA immediately

@@ -44,7 +44,7 @@ file how to run and will be edited by the baker (we will cover this
 later), and the *Private-Key File* will contain the private key for a
 wallet you have designated to pay your delegators (we will explain an
 easy way to get this later as well).
-> **⚠️ SECURITY WARNING: Private Key File**
+> **⚠️ WARNING: Private Key File**
 >
 > Do NOT use an existing wallet that contains important assets (NFTs, tokens, etc.). Create a new dedicated wallet that contains only enough Tezos to pay out delegates.
 
@@ -167,7 +167,7 @@ This section will review how to setup the configuration file
 | ![Simple Configuration file for TezPay.](/tezpay/tutorial/tezpayImage13.png) |
 |-|
 
-> **ℹ️ NOTE:** If you're familiar with JSON but new to HJSON (Human JSON), you can learn more at [https://hjson.github.io/](https://hjson.github.io/). HJSON is more forgiving than JSON and supports comments.
+> **ℹ️ INFO:** If you're familiar with JSON but new to HJSON (Human JSON), you can learn more at [https://hjson.github.io/](https://hjson.github.io/). HJSON is more forgiving than JSON and supports comments.
 
 *Yellow is areas you will input data/edit fields*  
 *Blue are comments about Configuration File objects*

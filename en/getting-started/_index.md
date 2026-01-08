@@ -4,15 +4,23 @@ weight: 1
 type: docs
 summary: Getting started with Tezos baking
 ---
-**Getting Started with Tezos Baking**
----
 
-Baking on Tezos refers to the act of validating and producing blocks on the Tezos blockchain. Baking is suited for individuals at home as well as companies in their on-premise data centers, and cloud providers.
+Baking on Tezos refers to the act of validating and producing blocks on the Tezos blockchain. Baking is suited for individuals at home as well as companies in their on-premise data centers.
 
-At this time the TezBake software focuses on indivudals and companies baking on premise in their homes and own data centers. We do not support baking on cloud providers at this time. We support the most secure on-premise baking method which involves dedicating a small form factor computer to baking with a Ledger Nano S or Nano S Plus hardware wallet as the key storage device. This setup is inexpensive, widely available, and very secure. It does not require a very fast internet connection. It is also very easy to setup and maintain with TezBake.
+TezBake software focuses on individuals and companies baking on-premise in their homes and data centers. We support the most secure on-premise baking method which involves dedicating a small form factor computer with hardware wallet key storage. This setup is inexpensive, widely available, and very secure.
 
-There is never any stake slashing on Tezos in the event of a hardware failure. You will merely not receive rewards for the period of time that the baking computer is down.
+**Key Points:**
+- No stake slashing for hardware failures (you only miss rewards during downtime)
+- Blocks scheduled 2-3 days in advance
+- Must be operational during scheduled block times
+- Need 67% attestation success rate per cycle (every 2.8 days)
 
-All blocks that you must bake are scheduled around 5-6 days in advance. You must be operational during the exact times of your block to receive rewards. There is no punishment for missing some of your endorsements as long as you are able to successfully endorse 67% of your endorsements each cycle, every 2.8 days.
+## Learning Path
 
-## Getting Started
+New to Tezos baking? Follow this sequence:
+
+1. **[What is Baking?](what-is-baking/)** - Understand the basics of Tezos validation
+2. **[Public Baking](public-baking/)** - Learn about baker responsibilities and rewards
+3. **[Best Practices](best-practices/)** - Essential safety and reliability guidelines
+
+**Ready to start baking?** → **[Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)**

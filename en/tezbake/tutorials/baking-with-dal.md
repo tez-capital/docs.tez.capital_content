@@ -14,7 +14,7 @@ The Tezos Data Availability Layer (DAL) enhances network scalability by efficien
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
 
-> **⚠️ SECURITY WARNING: IP Address Exposure Risk**
+> **⚠️ WARNING: IP Address Exposure Risk**
 >
 > The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html).
 >

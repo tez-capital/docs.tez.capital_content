@@ -16,13 +16,13 @@ summary: Using TezBake to bake on the Tezos testnets
 Installing TezBake and using it to setup your Tezos baker is very simple. You will need the following tools:
 
 1. Spare computer or existing computer or VM with Linux installed. We recommend Ubuntu Linux.
-   > **ℹ️ NOTE:** You must have an SSD drive (or better) and at least 8GB RAM
+   > **ℹ️ INFO:** You must have an SSD drive (or better) and at least 8GB RAM
 
 All advanced TezBake configurations, including TezSign block signing apply here as well.
 
 ---
 
-> **🚨 CRITICAL REQUIREMENT: DAL Node Mandatory**
+> **🚨 CRITICAL: DAL Node Mandatory**
 >
 > Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
 >
@@ -95,7 +95,7 @@ After starting the node, run the following command over and over every few minut
 > 2. Compare it to the latest block on <https://tzkt.io> or <https://tzstats.com>
 > 3. Once they match, your node is fully synced and you can proceed
 >
-> **ℹ️ NOTE:** Both blockchain explorers also provide Ghostnet and testnet views. Make sure you're looking at the correct network.
+> **ℹ️ INFO:** Both blockchain explorers also provide Ghostnet and testnet views. Make sure you're looking at the correct network.
 
 ### Import baking keys and register as baker
 
@@ -111,7 +111,7 @@ First, generate the baker key for TezBake:
    tezbake setup-soft-wallet --generate bls --key-alias baker
    ```
 
-> **⚠️ SECURITY:** Make sure to backup your key in a secure location and never share it.
+> **⚠️ WARNING:** Make sure to backup your key in a secure location and never share it.
 
 You can get the secret/private key by running the following command:
 
@@ -159,8 +159,8 @@ You can stake your security deposit by running the following command, after open
 > You may start baking with as little as 1000 XTZ if you configure additional sources:
 >
 > * Set baking over staking multiplier to 5X + secure 5000 XTZ from stakers, OR
-> * Secure 10000 XTZ from delegators (each delegated XTZ counts as 0.5 towards the security deposit), OR
-> * Combine: 1000 XTZ + 2000 XTZ from stakers + 6000 XTZ from delegators
+> * Secure 15,000 XTZ from delegators (each delegated XTZ counts as ≈0.33 towards the security deposit per Paris protocol), OR
+> * Combine: 1000 XTZ + 2000 XTZ from stakers + 9000 XTZ from delegators
 
 ### Import your DAL attester profile
 

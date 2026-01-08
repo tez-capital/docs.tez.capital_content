@@ -25,7 +25,7 @@ For this tutorial, you'll need to have already have installed Docker as shown he
    sudo docker run --name tezbake-container --privileged -d ghcr.io/tez-capital/tezbake:latest-alpine
    ```
 
-> **ℹ️ NOTE:** After this step, you will need to wait a while for the container to start up and bootstrap the Tezos node.
+> **ℹ️ INFO:** After this step, you will need to wait a while for the container to start up and bootstrap the Tezos node.
 
 You can monitor the progress of the Tezos node bootstrapping by running the following command:
 
@@ -68,7 +68,7 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 > **ℹ️ BLS Signatures:**
 > BLS (i.e. bip) signatures offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
 >
-> **💡 TIP - Security:**
+> **💡 TIP: Security:**
 > Putting the baker on a non-default derivation path provides an additional layer of security at the cost of extra complexity. Make sure your setup is clearly documented for your own records.
 >
 > **⚠️ High Watermark (HWM) Important Notes:**
@@ -79,7 +79,7 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 > * The watermark is a record of the last block number your ledger helped to bake or attest
 > * If setting up a brand new device not used for baking before, no need to alter the default command
 >
-> **🚨 CRITICAL WARNING: Prevent Double Baking:**
+> **🚨 CRITICAL: Prevent Double Baking:**
 >
 > * Always ensure you're not accidentally going to double bake by using your production ledger/setup to bake on a testnet
 > * Double baking/attesting means having 2 different bakers with the same key on the same network
@@ -114,7 +114,7 @@ Import the hashed key to the TezBake node:
    tezbake node client import secret key baker http://127.0.0.1:20090/tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF
    ```
 
-> **ℹ️ NOTE:** Change the `tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF` to the hashed key you got from the previous command.
+> **ℹ️ INFO:** Change the `tz1bcSYEMKBoMnsACXzixn5bmzcdYjagqjZF` to the hashed key you got from the previous command.
 
 Finally, change the permissions of the newly generated keys to be readable by the ascend user and group which runs the TezBake node:
 
