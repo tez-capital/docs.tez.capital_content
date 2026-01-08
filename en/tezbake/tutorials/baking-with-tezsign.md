@@ -375,6 +375,21 @@ You can configure TezSign to unlock automatically by securely storing the device
 
 ---
 
+## Related Guides
+
+**Getting Started:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main baking setup guide
+* [Best Practices](/getting-started/best-practices/) - Hardware and operational recommendations
+
+**After Setup:**
+
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Common issues and solutions
+* [TezPay Setup](/tezpay/tutorials/setup/) - Automate reward payments
+
+---
+
 ## Command Cheatsheet
 
 | Task                               | Command Example                                                       |

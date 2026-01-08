@@ -178,5 +178,19 @@ As with everything in life, complexity adds more failure points. Only separate t
 
 ---
 
+## Related Guides
+
+**Production Baking:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Production setup guide
+* [Best Practices](/getting-started/best-practices/) - Hardware and operational recommendations
+
+**After Setup:**
+
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Common issues and solutions
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

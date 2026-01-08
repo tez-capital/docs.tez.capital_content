@@ -169,5 +169,20 @@ decentralizing the Tezos Blockchain.
 
 ---
 
+## Related Guides
+
+**Configuration & Automation:**
+
+* [TezBake Integration](/tezpay/tutorials/tezbake-integration/) - Automate payouts with your baker
+* [Notifications](/tezpay/tutorials/notifications/) - Set up payout alerts
+* [Configuration Examples](/tezpay/configuration/examples/) - Sample configs
+
+**Setup:**
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - Initial setup guide
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Set up your baker
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

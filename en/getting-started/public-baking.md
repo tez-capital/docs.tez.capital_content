@@ -9,13 +9,19 @@ summary: How to Setup a Public Baker on Tezos
 
 Public baking and private baking are the same thing from the perspective of the blockchain. The only difference is that a public baker has announced themselves to the Tezos community and is willing to accept delegations. A private baker is not willing to accept delegations from delegators. A private baker cannot stop these delegations from occuring but a private baker is not expected to pay out rewards to delegators.
 
-On Tezos, bakers (a.k.a. delegates) are paid directly by the blockchain for themselves as well as for their delegators. It's up to each and every baker to determine their own fee structure and payment policies. It's also up to each baker as to which payment software they will use to distribute rewards to delegators. There are several different payment software options available to bakers. Some bakers use their own custom software, some bakers use a third party payment software, and some bakers use a combination of both. We recommend using our TezPay payment software. TezPay allows you to fully automate the distribution of rewards to delegators.
+### What is Delegation?
 
-With the recent introduction of [Adaptive Issuance](https://research-development.nomadic-labs.com/adaptive-issuance-paris.html#the-new-staker-role) on the Tezos protocol, bakers are now able to accept stakers. Stakers are different from delegators in that:
+When you delegate your tez to a baker, your tokens never leave your wallet - you retain full ownership and control. The baker gains increased baking power from your delegated tez and shares the baking rewards with you. On Tezos, bakers are paid directly by the blockchain for themselves as well as for their delegators. Each baker determines their own fee structure and payment policies. We recommend using TezPay payment software to automate reward distribution to delegators.
 
-* Staker tez is frozen for up to 12 days.
-* Stakers are liable for any losses incurred by the baker due to double baking or double endorsing. While rare, this is a risk that stakers take on when they stake their tez with a baker.
-* Stakers are paid directly by the protocol without any need for the baker to pay them, unlike with delegators
+### What is Staking?
+
+With the [Adaptive Issuance](https://research-development.nomadic-labs.com/adaptive-issuance-paris.html#the-new-staker-role) protocol upgrade, bakers can now accept stakers in addition to delegators. Staking differs from delegation in several important ways:
+
+* **Funds are locked** - Staked tez is frozen for up to 12 days (cannot be moved during this period)
+* **Higher rewards** - Stakers earn approximately 3x the rewards of delegators due to the additional commitment and risk
+* **Slashing risk** - Stakers are liable for losses if the baker double bakes or double attests (though this is rare)
+* **Direct protocol payment** - Stakers are paid directly by the protocol without baker intervention, unlike delegators who rely on the baker to distribute rewards
+* **Greater baking power** - Staked tez counts as 1.0 toward the baker's capacity, while delegated tez counts as ≈0.33
 
 A public baker has to contact two entities within the Tezos ecosystem to be added to the list of public bakers within each of their ecosystems. The entities in question all have their own methods to determine your public baker details, such as your fee and payment policies, via self-reporting. You will be asked to self-report your details to each of the following entities:
 

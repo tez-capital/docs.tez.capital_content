@@ -18,7 +18,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
     * a low-latency, reliable broadband internet connection.
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This will be used for storing your funds, voting and changing your baking parameters.
    > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
-3. TezSign remote signer device. This will be used to validate blocks securely. It is no longer recommended to bake with a Ledger Nano device itself.
+3. **TezSign remote signer device** - A purpose-built hardware signer for Tezos baking, based on affordable single-board computers like Raspberry Pi Zero 2W (~$20-30 in hardware). Connects via USB to your baking node and is designed to do one thing perfectly: sign baking operations securely. TezSign supports tz4 signatures required by modern Tezos protocols, which Ledger devices no longer support for baking. Unlike a general-purpose Ledger wallet, TezSign can remain connected 24/7 dedicated solely to baking. [Learn more: Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
 ---
 
@@ -49,7 +49,7 @@ To begin, run the script below, which will download the latest version of TezBak
 
 ### Bootstrap Tezos node
 
-At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best.
+At this stage, it's necessary to bootstrap your node, meaning to download a snapshot (copy) of the blockchain so you don't have to synchronize block-by-block, which would take many hours or days. We use a "rolling" snapshot which contains recent blockchain history (suitable for baking) rather than the complete archive from genesis.
   
    ```bash
    tezbake bootstrap-node <url> <block_hash>
@@ -125,8 +125,9 @@ You can import your Ledger key by running the following command:
    tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
    ```
 
-> If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine but is not as fast as P-256 or secp256k1.
-> `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
+> **Derivation path:** You can specify a custom path like `--import-key="ed25519/0h/0h"` (the default). P-256 and secp256k1 curves offer faster signing than ed25519.
+>
+> **High Watermark (HWM):** `--hwm 1` sets the starting block level for safety. The HWM is a security feature that prevents double baking by tracking the highest block your device has signed. For first-time setup, use `--hwm 1`. If your device previously baked, set this to the current block height to prevent accidentally signing older blocks.
 > If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
 > Once imported, you can see your baker address by running `tezbake info`
 > The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to <https://gov.tez.capital> and login with ledger, accepting the default derivation path.
@@ -134,8 +135,14 @@ You can import your Ledger key by running the following command:
 > If your device was used to bake before it might have a "high watermark" aka HWM. If you try to use this device on a testnet, it will not work because the block height on test networks usually starts with 1 while mainnet is up to over a couple of million blocks at the time of writing.
 If you used to bake on mainnet with the same ledger as you're trying to use now but it's been a while, it's highly recommended to change the 1 above to the current block on the network that will be used for the device going forward.
 > The watermark is simply a record of the lack block number your ledger helped to bake or attest. If you're setting up a brand new device that's not been used for baking before, there is no need to alter the default command above.
-> Always make sure you're not accidentally going to double bake by using your production ledger and/or setup to bake on a testnet. It's really easy to make this mistake and the only thing preventing it are your personal standard operating procedures, the documentation you keep, and the care you take when setting up your baker.
-> To double bake or attest due to baker setup error means having 2 different bakers with the same key on the same network. This is a serious offense and can lead to loss of bond and other penalties. Always double-check your setup and make sure you're not accidentally double baking or attesting.
+> **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is considered a malicious attack on the network. The protocol detects this and slashes (confiscates) your staked tez as punishment.
+>
+> **Prevention - Critical Rules:**
+> * **Never use bakers with the same seed on any network** - even different networks (mainnet vs testnet)
+> * **Never use your TezSign backup device to bake** - backup devices are only for emergency failover
+> * **Always create testnet-specific devices** - use separate Ledger or TezSign devices dedicated to testnet
+> * **Always use different computers for different functions** - one computer for mainnet baking, a separate computer for testnet baking
+> * The HWM protection helps prevent accidental double baking, but careful operational procedures are your primary defense
 
 #### (Option 3 - INSECURE) Import Soft key to TezBake node
 
@@ -218,13 +225,15 @@ You can stake your security deposit by running the following command, after open
 
 ### Import your DAL attester profile
 
+Your baker needs to register as a DAL attester to participate in the Data Availability Layer. This tells the network which DAL node to use for your baker.
+
    ```bash
    tezbake update-dal-profiles --auto
    # If for some reason the auto method is not working, use the command below to bypass it.
    tezbake update-dal-profiles <your-baker-tz4-key> --force
    ```
 
-> **ℹ️ INFO:** The tz4 key imported above is your manager key, not your consensus key or companion key.
+> **ℹ️ INFO:** The tz4 key referenced here is your baker's public key address (starts with tz4), not your consensus key or companion key.
 
 ## Installation (Advanced)
 
@@ -233,6 +242,28 @@ You can install different TezBake components on different systems. For example, 
 Follow the steps in [Baking with Prism](/en/tezbake/tutorials/baking-with-prism.md)
 
 As with everything in life, complexity adds more failure points. Only separate the TezBake components if you have a compelling use case.
+
+---
+
+## Related Guides
+
+**Next Steps:**
+
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker's health
+* [TezPay Setup](/tezpay/tutorials/setup/) - Automate reward payments to delegators
+* [Best Practices](/getting-started/best-practices/) - Hardware and operational recommendations
+
+**Advanced Configurations:**
+
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Detailed TezSign setup guide
+* [Baking with DAL](/tezbake/tutorials/baking-with-dal/) - Advanced DAL configurations
+* [Baking with Prism](/tezbake/tutorials/baking-with-prism/) - Distributed component setup
+* [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) - Separate consensus key management
+
+**Troubleshooting:**
+
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Common issues and solutions
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Debug attestation problems
 
 ---
 

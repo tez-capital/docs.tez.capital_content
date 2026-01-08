@@ -51,5 +51,20 @@ You may see an error like the one below, which indicates your node needs to be b
 
 ---
 
+## Related Guides
+
+**Setup & Operations:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main setup guide
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Debug attestation issues
+
+**Getting Help:**
+
+* [Best Practices](/getting-started/best-practices/) - Prevent common issues
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign-specific setup
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

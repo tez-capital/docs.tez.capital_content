@@ -186,9 +186,24 @@ Detailed configuration guide: [TezPay Configuration Documentation](https://githu
 
 ---
 
+## Related Guides
+
+**TezPay:**
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - Initial TezPay setup
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Manual payout guide
+* [Notifications](/tezpay/tutorials/notifications/) - Set up payout alerts
+* [Configuration Examples](/tezpay/configuration/examples/) - Sample configs
+
+**TezBake:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Baker setup guide
+
+---
+
 ## Support & Questions
 
 Need help or have questions?
 
-- [Discord](https://discord.gg/cVGMA4MaNM)  
+- [Discord](https://discord.gg/cVGMA4MaNM)
 - [Telegram](https://t.me/tezcapital)

@@ -284,5 +284,24 @@ These three files will be used to run the application and payouts.
 
 ---
 
+## Related Guides
+
+**Next Steps:**
+
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run your first payout
+* [TezBake Integration](/tezpay/tutorials/tezbake-integration/) - Automate payouts with TezBake
+* [Notifications](/tezpay/tutorials/notifications/) - Set up Discord/Twitter/email alerts
+
+**Configuration:**
+
+* [Configuration Examples](/tezpay/configuration/examples/) - Sample configs for common scenarios
+* [Extensions](/tezpay/extensions/) - Customize TezPay behavior
+
+**Getting Started with Baking:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Set up your baker first
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

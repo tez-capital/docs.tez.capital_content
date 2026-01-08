@@ -7,11 +7,13 @@ summary: What is Tezos Baking?
 
 ## What is Tezos Baking?
 
-Fundamentally speaking, "Baking" on Tezos involves 2 things:
+"Baking" is Tezos terminology for validating transactions and creating new blocks on the blockchain. The term comes from the process of "baking" new blocks into the chain.
 
-1. The creation of blocks every 10 seconds as well as the attestation of the soundness of blocks produced by other bakers. Bakers put their tez at stake in order to be able to bake blocks and attest other bakers' blocks. The tez put at stake by the bakers is used as deterrent against bakers acting maliciously. If a baker acts maliciously, they will lose their tez at stake. If a baker acts honestly, they will be rewarded with tez from the protocol. To act maliciously, a baker would have to create a block that is invalid or attest to a block that is invalid.
+Fundamentally, baking on Tezos involves 2 responsibilities:
 
-2. Participating in the Tezos proposal governance process. A Tezos proposal is able to change anything about the Tezos protocol rules as well to fund any address with tez from the protocol.
+1. **Block Production & Attestation** - Creating new blocks every 10 seconds and attesting (validating) blocks produced by other bakers. Bakers stake their tez (Tezos tokens) as collateral to participate. This staked tez acts as a security deposit - honest bakers earn rewards, while malicious behavior (like creating or validating invalid blocks) results in losing the staked tez through slashing.
+
+2. **Governance Participation** - Voting on protocol upgrade proposals that can modify any aspect of the Tezos protocol, including technical changes and funding allocations from the protocol treasury.
 
 ---
 
