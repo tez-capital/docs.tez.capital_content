@@ -7,6 +7,23 @@ summary: TezBake Baking Tutorial
 
 {{< youtube t85LjgpRtvc >}}
 
+## Table of Contents
+
+1. [Preparation](#preparation)
+2. [Installation (All-in-one)](#installation-all-in-one)
+   * [Download and install tezbake](#download-and-install-tezbake)
+   * [Setup Tezos node, signer, DAL](#setup-tezos-node-signer-dal-and-install-tezbake-dependencies)
+   * [Bootstrap Tezos node](#bootstrap-tezos-node)
+   * [Start Tezos node](#start-tezos-node)
+   * [Import baking keys and register](#import-baking-keys-and-register-as-baker)
+   * [Register as baker](#register-as-baker-on-the-tezos-mainnet)
+   * [Stake your XTZ](#stake-your-baking-xtz-security-deposit)
+   * [Import DAL attester profile](#import-your-dal-attester-profile)
+3. [Installation (Advanced)](#installation-advanced)
+4. [Related Guides](#related-guides)
+
+---
+
 ## Preparation
 
 Installing TezBake and using it to setup your Tezos baker is very simple. You will need the following tools:
@@ -192,12 +209,12 @@ To bake on the Tezos network, you need to stake your XTZ security deposit. This 
 
 The minimum bond to get baking rights is **6000 XTZ**. However, you have several options to meet this requirement:
 
-| Your XTZ | From Stakers | From Delegators | Notes |
-|----------|--------------|-----------------|-------|
-| 6000+ | 0 | 0 | Simplest - full self-stake |
-| 1000 | 5000 | 0 | Requires 5X multiplier |
-| 1000 | 0 | 15,000 | Pure delegation model |
-| 1000 | 2000 | 9000 | Mixed approach |
+| Your XTZ | From Stakers | From Delegators | Notes                      |
+| -------- | ------------ | --------------- | -------------------------- |
+| 6000+    | 0            | 0               | Simplest - full self-stake |
+| 1000     | 5000         | 0               | Requires 5X multiplier     |
+| 1000     | 0            | 15,000          | Pure delegation model      |
+| 1000     | 2000         | 9000            | Mixed approach             |
 
 **How delegation weight works (Paris protocol):**
 
