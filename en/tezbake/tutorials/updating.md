@@ -85,7 +85,7 @@ tezbake version --all
 
 You should see the expected Octez version along with the release date of the binaries.
 
-![<tezbake version, Octez versions>](/tezbake/tutorial/tezbakeVersionAll.png)
+![TezBake version and Octez versions](/tezbake/tutorial/tezbakeVersionAll.png)
 
 ---
 

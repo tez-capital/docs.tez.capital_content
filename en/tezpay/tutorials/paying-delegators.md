@@ -53,7 +53,7 @@ The command to generate a payout table is as follows (always remember to be in t
 
 This will generate a payout table, as exampled below:
 
-| ![<Description of output for ./tezpay generate-payout command.>](/tezpay/tutorial/tezpayImage18.png) |
+| ![Description of output for ./tezpay generate-payout command.](/tezpay/tutorial/tezpayImage18.png) |
 |-|
 
 ***Note: the Delegator & Recipient columns have been hidden***

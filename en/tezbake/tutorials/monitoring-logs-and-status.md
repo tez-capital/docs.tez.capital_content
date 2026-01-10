@@ -56,7 +56,7 @@ Monitoring just the `accuser` process shows the attempts of your node to call ou
 
 During times when Tezos protocol are being switched out you will notice that there is a `baker` process as well as a `baker-next` process. The same is true about the `accuser` process. The `baker-next` process is the baker process that will be used when the next protocol is activated. The `baker` process will be used until the next protocol is activated. The `accuser-next` process is the accuser process that will be used when the next protocol is activated. The `accuser` process will be used until the next protocol is activated.
 
-![<TezBake -next protocol services>](/tezbake/tutorial/tezbakeNext.png)
+![TezBake next protocol services](/tezbake/tutorial/tezbakeNext.png)
 
 ```bash
 tezbake node log baker-next -f

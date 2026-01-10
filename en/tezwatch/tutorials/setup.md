@@ -25,7 +25,7 @@ The whole setup and configuration process currently takes very little time as th
 
 The setup is done using slash commands, which means just type the `/` character in the chat in the #tezwatch channel and you will see a list of available commands for the TezWatch bot.
 
-| ![<Nagivate to #tezwatch channel and discover all Slash commands>](/tezwatch/tutorial/tezwatchSlashCommands.png) |
+| ![Navigate to #tezwatch channel and discover all slash commands](/tezwatch/tutorial/tezwatchSlashCommands.png) |
 |-|
 
 To get all "sources" and "events" use the `/events` command

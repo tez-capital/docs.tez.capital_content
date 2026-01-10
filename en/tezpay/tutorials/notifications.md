@@ -82,7 +82,7 @@ We will use the API Key and Secret as well as the Access Token and Secret to edi
       `type: twitter`
     `}`
     `]`
-   ![<Fill in the information for the config.json file with you information!>](/tezpay/tutorial/twitterNotificationimage11.png)
+   ![Fill in the information for the config.json file with your information](/tezpay/tutorial/twitterNotificationimage11.png)
 
 2. Once you have filled in the necessary information - you have setup Notifications for Twitter! Test the notification by using command:
       a. `tezpay test-notify`

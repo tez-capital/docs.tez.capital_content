@@ -29,7 +29,7 @@ you have a functioning public baker running.
 Create a new folder on the desktop or in a location that you want
 to store the necessary files for Tezpay.
 
-| ![<Newly created TezPay directory, will contain all files for Tezpay Application.>](/tezpay/tutorial/tezpayImage1.png) |
+| ![Newly created TezPay directory, will contain all files for Tezpay Application.](/tezpay/tutorial/tezpayImage1.png) |
 |-|
 
 This folder will eventually contain 3 files:
@@ -272,7 +272,7 @@ Wallet.
     *payout\_wallet\_private.key* - note: the .key is required in this
     instance (see below)
 
-| ![<format for naming private key file - must be exactly the same.>](/tezpay/tutorial/tezpayImage15.jpg) |
+| ![Format for naming private key file - must be exactly the same.](/tezpay/tutorial/tezpayImage15.jpg) |
 |-|
 
 ---
