@@ -79,7 +79,5 @@ Occasional missed attestations are a normal and expected part of Tezos baking. U
 
 ---
 
-## Need Help?
-
-- [Discord](https://discord.gg/cVGMA4MaNM)  
-- [Telegram](https://t.me/tezcapital)
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

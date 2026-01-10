@@ -77,7 +77,7 @@ If the above command fails, specify your **baker key** (not consensus key):
 
 ## Remote DAL Setup
 
-Follow the Prism setup steps here: [Baking with Prism](/en/tezbake/tutorials/baking-with-prism.md)
+Follow the Prism setup steps here: [Baking with Prism](/tezbake/tutorials/baking-with-prism/)
 
 ## Quick Troubleshooting
 
@@ -107,4 +107,5 @@ For additional DAL checks, refer to the [Nomadic Labs DAL Tutorial](https://tezo
 
 ---
 
-Any further questions or support requests? Contact the Tez Capital team on [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital).
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

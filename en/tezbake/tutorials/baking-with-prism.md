@@ -324,7 +324,5 @@ TezBake will initialize all services and Prism tunnels. You should now have a se
 
 ---
 
-## Need Help?
-
-- [Discord](https://discord.gg/cVGMA4MaNM)  
-- [Telegram](https://t.me/tezcapital)
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

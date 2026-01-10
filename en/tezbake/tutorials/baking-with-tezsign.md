@@ -402,9 +402,5 @@ You can configure TezSign to unlock automatically by securely storing the device
 
 ---
 
-## Support & Questions
-
-Need help or have questions?
-
-- [Discord](https://discord.gg/cVGMA4MaNM)  
-- [Telegram](https://t.me/tezcapital)
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

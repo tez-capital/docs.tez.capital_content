@@ -134,11 +134,5 @@ To run payouts continuously:
 
 ---
 
-## Need Help?
-
-Reach out anytime:
-
-- [Discord](https://discord.gg/cVGMA4MaNM)
-- [Telegram](https://t.me/tezcapital)
-
----
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

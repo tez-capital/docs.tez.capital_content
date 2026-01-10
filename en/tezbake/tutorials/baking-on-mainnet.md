@@ -256,7 +256,7 @@ Your baker needs to register as a DAL attester to participate in the Data Availa
 
 You can install different TezBake components on different systems. For example, you can have the Signer, Node and DAL on 3 different machines, all communicating together.
 
-Follow the steps in [Baking with Prism](/en/tezbake/tutorials/baking-with-prism.md)
+Follow the steps in [Baking with Prism](/tezbake/tutorials/baking-with-prism/)
 
 As with everything in life, complexity adds more failure points. Only separate the TezBake components if you have a compelling use case.
 
