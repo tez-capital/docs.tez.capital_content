@@ -1,6 +1,6 @@
 ---
 title: "Baking on Testnets"
-weight: 1
+weight: 2
 type: docs
 summary: Using TezBake to bake on the Tezos testnets
 ---

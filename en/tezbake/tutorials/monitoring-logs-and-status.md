@@ -1,6 +1,6 @@
 ---
 title: "Monitoring Logs and Status"
-weight: 1
+weight: 5
 type: docs
 summary: Monitor your Tezos baker status, view logs, and diagnose issues with TezBake
 ---

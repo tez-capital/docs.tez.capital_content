@@ -1,6 +1,6 @@
 ---
 title: "Configuration"
-weight: 1
+weight: 2
 type: docs
 summary: Configure TezBox sandbox settings, accounts, and protocol options
 ---

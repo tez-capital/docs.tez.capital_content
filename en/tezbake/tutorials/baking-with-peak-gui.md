@@ -1,6 +1,6 @@
 ---
 title: "Baking with Peak GUI"
-weight: 1
+weight: 9
 type: docs
 summary: Manage your Tezos baker with TezPeak's graphical web interface
 ---

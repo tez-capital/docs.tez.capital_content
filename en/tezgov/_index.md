@@ -1,6 +1,6 @@
 ---
 title: "TezGov"
-weight: 1
+weight: 5
 type: docs
 summary: Tezos governance portal for voting on proposals and managing baker settings
 ---

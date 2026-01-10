@@ -1,6 +1,6 @@
 ---
 title: "> TezBake Pay Module Setup"
-weight: 1
+weight: 2
 type: docs
 summary: Integrating TezPay with TezBake
 ---

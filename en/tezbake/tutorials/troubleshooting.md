@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting"
-weight: 1
+weight: 6
 type: docs
 summary: Common TezBake issues and solutions for installation errors and runtime problems
 ---

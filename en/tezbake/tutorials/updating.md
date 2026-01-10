@@ -1,6 +1,6 @@
 ---
 title: "Updating"
-weight: 1
+weight: 4
 type: docs
 summary: How to update TezBake, Octez binaries, and protocol versions safely
 ---

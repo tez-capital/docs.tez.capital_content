@@ -1,6 +1,6 @@
 ---
 title: "Setup Peak GUI"
-weight: 1
+weight: 3
 type: docs
 summary: How to Setup Using TezPay with the TezPeak GUI
 ---

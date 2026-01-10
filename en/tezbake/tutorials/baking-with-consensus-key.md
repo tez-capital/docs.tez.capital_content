@@ -1,6 +1,6 @@
 ---
 title: "Baking with Consensus Key"
-weight: 1
+weight: 11
 type: docs
 summary: TezBake Baking Tutorial for using a Consensus Key
 ---

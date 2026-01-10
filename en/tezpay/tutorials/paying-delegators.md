@@ -1,6 +1,6 @@
 ---
 title: "Paying Delegators"
-weight: 1
+weight: 4
 type: docs
 summary: How to Pay Delegators Using TezPay
 ---

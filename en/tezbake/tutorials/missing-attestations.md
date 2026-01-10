@@ -1,6 +1,6 @@
 ---
 title: "Missing Attestations in Baking"
-weight: 3
+weight: 13
 type: docs
 summary: Occasional missing endorsements are expected in a distributed protocol like Tezos.
 ---

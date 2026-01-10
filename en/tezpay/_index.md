@@ -1,6 +1,6 @@
 ---
 title: "TezPay"
-weight: 1
+weight: 4
 type: docs
 summary: Automated reward distribution software for Tezos bakers and their delegators
 ---

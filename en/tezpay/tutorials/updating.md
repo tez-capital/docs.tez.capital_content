@@ -1,6 +1,6 @@
 ---
 title: "Updating"
-weight: 1
+weight: 6
 type: docs
 summary: How to update TezPay
 ---

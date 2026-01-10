@@ -1,6 +1,6 @@
 ---
 title: "Notifications"
-weight: 1
+weight: 5
 type: docs
 summary: How to setup notifications using TezPay
 ---

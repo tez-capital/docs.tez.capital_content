@@ -1,6 +1,6 @@
 ---
 title: "Injecting Proposals"
-weight: 1
+weight: 2
 type: docs
 summary: How to submit new protocol proposals to the Tezos network via TezGov
 ---

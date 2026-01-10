@@ -1,6 +1,6 @@
 ---
 title: "Baking with DAL"
-weight: 1
+weight: 8
 type: docs
 summary: TezBake Baking Tutorial for DAL
 ---

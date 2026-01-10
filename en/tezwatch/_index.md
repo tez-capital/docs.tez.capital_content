@@ -1,6 +1,6 @@
 ---
 title: "TezWatch"
-weight: 1
+weight: 6
 type: docs
 summary: Bot-based monitoring tool for Tezos bakers with Discord and Telegram alerts
 ---

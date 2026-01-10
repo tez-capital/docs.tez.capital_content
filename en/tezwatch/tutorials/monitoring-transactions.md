@@ -1,6 +1,6 @@
 ---
 title: "Monitoring Transactions"
-weight: 1
+weight: 2
 type: docs
 summary: TezWatch Balances & Transactions Tutorial
 ---

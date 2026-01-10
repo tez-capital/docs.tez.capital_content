@@ -1,6 +1,6 @@
 ---
-title: "> TRD to TezPay Migration"
-weight: 2
+title: "TRD to TezPay Migration"
+weight: 7
 type: docs
 summary: Migrating from TzKT Reward Distributor to TezPay
 ---

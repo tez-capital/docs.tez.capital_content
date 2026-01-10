@@ -1,6 +1,6 @@
 ---
 title: "TezBake"
-weight: 1
+weight: 2
 type: docs
 summary: All-in-one Tezos baking software for easy node setup, monitoring, and management
 ---
