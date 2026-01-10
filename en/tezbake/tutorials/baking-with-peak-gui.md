@@ -135,5 +135,13 @@ If you're connecting from the same computer, you can use `http://127.0.0.1:8733`
 
 ---
 
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - CLI-based setup guide
+* [TezPay Setup with Peak GUI](/tezpay/tutorials/setup-peak-gui/) - Manage payouts via GUI
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - CLI monitoring commands
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

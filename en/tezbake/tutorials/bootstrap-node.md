@@ -61,5 +61,13 @@ tezbake bootstrap-node --no-check https://snapshots.eu.tzinit.org/mainnet/rollin
 
 ---
 
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Complete setup guide
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check sync progress
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

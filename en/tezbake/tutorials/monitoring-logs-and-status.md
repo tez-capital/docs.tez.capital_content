@@ -92,5 +92,13 @@ tail -f /var/log/syslog | grep tezbake
 
 ---
 
+## Related Guides
+
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed endorsements
+* [TezWatch Setup](/tezwatch/tutorials/setup/) - Set up Discord/Telegram alerts
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

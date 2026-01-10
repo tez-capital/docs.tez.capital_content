@@ -89,5 +89,13 @@ You should see the expected Octez version along with the release date of the bin
 
 ---
 
+## Related Guides
+
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health after updates
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Initial setup guide
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

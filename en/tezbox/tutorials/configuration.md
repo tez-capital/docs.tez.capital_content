@@ -133,5 +133,13 @@ Unlike Flextesa, TezBox won't expose configuration through command line argument
 
 ---
 
+## Related Guides
+
+* [TezBox Setup](/tezbox/tutorials/setup/) - Basic sandbox setup
+* [Baking on Testnets](/tezbake/tutorials/baking-on-testnets/) - Test on public testnets
+* [Baking with Docker](/tezbake/tutorials/baking-with-docker/) - Docker-based baking
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

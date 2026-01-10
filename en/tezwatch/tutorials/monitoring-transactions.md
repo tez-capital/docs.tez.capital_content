@@ -58,5 +58,13 @@ Here's an example of subscribing to the wallet tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jff
 
 ---
 
+## Related Guides
+
+* [TezWatch Setup](/tezwatch/tutorials/setup/) - Initial bot configuration
+* [TezPay Notifications](/tezpay/tutorials/notifications/) - Payout alerts
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - CLI monitoring
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

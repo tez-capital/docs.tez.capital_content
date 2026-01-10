@@ -72,5 +72,13 @@ During the cooldown period you will period name `Cooldown` in the middle of the 
 
 ---
 
+## Related Guides
+
+* [Injecting Proposals](/tezgov/tutorials/injecting-proposals/) - Submit new proposals
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Set up your baker
+* [What is Baking?](/getting-started/what-is-baking/) - Understand Tezos consensus
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

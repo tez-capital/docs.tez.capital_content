@@ -89,5 +89,13 @@ We will use the API Key and Secret as well as the Access Token and Secret to edi
 
 ---
 
+## Related Guides
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - Initial TezPay configuration
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run payouts manually or continuously
+* [TezWatch Setup](/tezwatch/tutorials/setup/) - Discord/Telegram baker alerts
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

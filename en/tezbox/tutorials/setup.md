@@ -75,5 +75,13 @@ sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v21.0-r
 
 ---
 
+## Related Guides
+
+* [TezBox Configuration](/tezbox/tutorials/configuration/) - Customize sandbox settings
+* [Baking on Testnets](/tezbake/tutorials/baking-on-testnets/) - Test on public testnets
+* [Baking with Docker](/tezbake/tutorials/baking-with-docker/) - Docker-based baking
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

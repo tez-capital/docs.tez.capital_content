@@ -54,5 +54,13 @@ sudo ./tezsign_updater
 
 ---
 
+## Related Guides
+
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Full TezSign setup
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard baker setup
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

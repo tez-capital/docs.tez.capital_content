@@ -107,5 +107,13 @@ For additional DAL checks, refer to the [Nomadic Labs DAL Tutorial](https://tezo
 
 ---
 
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Complete setup guide
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check DAL and baker logs
+* [Updating](/tezbake/tutorials/updating/) - Keep TezBake up to date
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

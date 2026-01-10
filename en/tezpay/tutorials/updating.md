@@ -16,5 +16,13 @@ wget -q https://raw.githubusercontent.com/tez-capital/tezpay/main/install.sh -O 
 
 ---
 
+## Related Guides
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - Initial configuration
+* [TezBake Integration](/tezpay/tutorials/tezbake-integration/) - Use TezPay with TezBake
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run payouts
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

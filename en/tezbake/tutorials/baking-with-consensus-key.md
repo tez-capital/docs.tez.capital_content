@@ -216,5 +216,13 @@ tezbake node log baker -f
 
 ---
 
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Hardware signer setup
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

@@ -147,5 +147,13 @@ tezbake register-key
 
 ---
 
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard installation guide
+* [Updating](/tezbake/tutorials/updating/) - Keep TezBake up to date
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

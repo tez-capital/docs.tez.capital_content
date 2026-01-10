@@ -128,5 +128,13 @@ If you're connecting from the same computer, you can use `http://127.0.0.1:8733`
 
 ---
 
+## Related Guides
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - CLI-based setup
+* [Baking with Peak GUI](/tezbake/tutorials/baking-with-peak-gui/) - TezBake GUI setup
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run payouts
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

@@ -79,5 +79,13 @@ Occasional missed attestations are a normal and expected part of Tezos baking. U
 
 ---
 
+## Related Guides
+
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
+* [TezWatch Setup](/tezwatch/tutorials/setup/) - Get alerted to missed attestations
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

@@ -128,9 +128,17 @@ To run payouts continuously:
 ./tezpay continual
 ```
 
-> **Folder Location Tip:**  
-> If you run TezPay as a service, place your payout folder **outside of `/home`** for reliable service access.  
+> **Folder Location Tip:**
+> If you run TezPay as a service, place your payout folder **outside of `/home`** for reliable service access.
 > Example: `/tezos/payouts/my-baker`
+
+---
+
+## Related Guides
+
+* [TezPay Setup](/tezpay/tutorials/setup/) - Full setup guide
+* [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Payout commands and options
+* [Notifications](/tezpay/tutorials/notifications/) - Set up payout alerts
 
 ---
 

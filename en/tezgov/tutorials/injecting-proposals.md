@@ -41,5 +41,13 @@ We encourage all bakers to use this system only for serious ecosystem governance
 
 ---
 
+## Related Guides
+
+* [Voting on Proposals](/tezgov/tutorials/voting-on-proposals/) - Vote on existing proposals
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Set up your baker
+* [Public Baking](/getting-started/public-baking/) - Baker responsibilities
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)
