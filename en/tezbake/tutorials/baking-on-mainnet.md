@@ -36,6 +36,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This will be used for storing your funds, voting and changing your baking parameters.
    > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
 3. **TezSign remote signer device** - A purpose-built hardware signer for Tezos baking, based on affordable single-board computers like Raspberry Pi Zero 2W (~$20-30 in hardware). Connects via USB to your baking node and is designed to do one thing perfectly: sign baking operations securely. TezSign supports tz4 signatures required by modern Tezos protocols, which Ledger devices no longer support for baking. Unlike a general-purpose Ledger wallet, TezSign can remain connected 24/7 dedicated solely to baking. [Learn more: Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+   > **ℹ️ INFO:** Baking with a Ledger is no longer recommended for new bakers. It's still possible to bake with the Ledger but we recommend you implement TezSign right away.
 
 ---
 

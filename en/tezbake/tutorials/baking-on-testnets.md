@@ -15,7 +15,7 @@ summary: Using TezBake to bake on the Tezos testnets
 
 Installing TezBake and using it to setup your Tezos baker is very simple. You will need the following tools:
 
-1. Spare computer or existing computer or VM with Linux installed. We recommend Ubuntu Linux.
+*  Spare computer or existing computer or VM with Linux installed. We recommend Ubuntu Linux.
    > **ℹ️ INFO:** You must have an SSD drive (or better) and at least 8GB RAM
 
 All advanced TezBake configurations, including TezSign block signing apply here as well.
