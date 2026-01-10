@@ -9,6 +9,10 @@ summary: Run TezBake in a Docker container for isolated and portable Tezos bakin
 
 For this tutorial, you'll need to have already have installed Docker as shown here: <https://docs.docker.com/engine/install>
 
+> **🚨 CRITICAL: DAL Node Mandatory**
+>
+> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. The Docker container includes DAL support, but you must ensure it's properly configured. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for details.
+
 ---
 
 ## Pull and Execute the TezBake Docker Image
@@ -45,11 +49,11 @@ sudo docker exec -it tezbake-container /bin/sh
 
 Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) submit your baker registration on the blockchain.
 
-You have the option to use the secure Ledger hardware wallet or simply use a local, unencrypted software key (a.k.a. soft key). The secure Ledger hardware wallet is the recommended option for mainnet baking.
+You have the option to use a TezSign device, a Ledger hardware wallet, or a local unencrypted software key (soft key). TezSign is recommended for new bakers. Ledger remains a valid option for existing setups. See [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) for the recommended approach.
 
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
-#### (Option 1 - RECOMMENDED) Import Ledger key to TezBake signer
+#### (Option 1) Import Ledger key to TezBake signer
 
 ```bash
 tezbake setup-ledger --platform --import-key --authorize --hwm 1

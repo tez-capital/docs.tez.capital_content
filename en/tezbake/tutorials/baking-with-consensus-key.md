@@ -37,7 +37,7 @@ For this tutorial, you'll need to have already followed one of the following tut
 * [How to Bake](/tezbake/tutorials/baking-on-mainnet)
 * [How to Bake on Testnets](/tezbake/tutorials/baking-on-testnets)
 
-A Tezos consensus key is a cryptographic key specifically used for signing blocks and consensus operations (endorsing blocks) in the Tezos blockchain. Introduced to improve security and operational flexibility, it allows bakers (validators) to delegate block-signing responsibilities to a different key than the one associated with their primary baking account.
+A Tezos consensus key is a cryptographic key specifically used for signing blocks and consensus operations (attesting blocks) in the Tezos blockchain. Introduced to improve security and operational flexibility, it allows bakers (validators) to delegate block-signing responsibilities to a different key than the one associated with their primary baking account.
 
 A Tezos companion key was not necessary to use in the tz1-tz3 address era. With the introduction of tz4 or BLS consensus signing (aggregating signatures), it is now necessary to use a separate companion key, in addition to the separate consensus key to validate blocks in the tz4 era. Both the consensus key and the companion key bake together at the same time. The consensus key works with the consensus and the companion key works with the DAL.
 
@@ -92,7 +92,7 @@ tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --ledger-
 >
 > * Replace the `--ledger-id` value with the 4-word ID of the Ledger you want to use for the consensus key
 > * We use the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and the most portable option for both on-premise and cloud hardware security modules (HSMs)
-> * The consensus key is only used for signing blocks and endorsements, so it doesn't need to be the same curve as the baker key
+> * The consensus key is only used for signing blocks and attestations, so it doesn't need to be the same curve as the baker key
 > * Many bakers move from a tz1 key to a tz3 key for the consensus key to improve performance
 
 This will import your consensus key Ledger device and authorize it for baking. Leave the baking app running on the Ledger device.
@@ -199,7 +199,7 @@ Once the consensus Ledger becomes effective, you can unplug your original Ledger
 
 ### Confirm the consensus key is working
 
-Once the consensus key becomes effective, you will see a change in the baking logs by showing the consensus key operating on blocks and endorsements on behalf of the baker key.
+Once the consensus key becomes effective, you will see a change in the baking logs by showing the consensus key operating on blocks and attestations on behalf of the baker key.
 
 ```bash
 Dec 18 05:14:26 bb baker[2428547]: Dec 18 05:14:26.449: injected attestation op5RtCGypnrri9FyYHy91haPWB6CpouxNABcgM7BSUmr81p27G4 for

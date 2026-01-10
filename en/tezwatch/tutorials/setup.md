@@ -58,7 +58,7 @@ Here's an example command to subscribe to notifications for a missed attestation
 
 * [Monitoring Transactions](/tezwatch/tutorials/monitoring-transactions/) - Track balances and transfers
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - CLI-based monitoring
-* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed endorsements
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed attestations
 
 ---
 

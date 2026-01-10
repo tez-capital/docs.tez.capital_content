@@ -34,11 +34,11 @@ Using the command below shows everything your baker is doing on a second-by-seco
 tezbake node log -f
 ```
 
-![TezBake node log with all blocks synchronized and all attempted baking and endorsing work](/tezbake/tutorial/tezbakeNodeLogF.png)
+![TezBake node log with all blocks synchronized and all attempted baking and attesting work](/tezbake/tutorial/tezbakeNodeLogF.png)
 
 ### Monitor limited TezBake node or baker logs in real time
 
-Using these commands you can focus on just the node, just the baking/endorsing process or just the accusation (of double baking) processes
+Using these commands you can focus on just the node, just the baking/attesting process or just the accusation (of double baking) processes
 
 ```bash
 tezbake node log node -f
@@ -48,7 +48,7 @@ tezbake node log accuser -f
 
 Monitoring just the `node` process shows blocks being synchronized in real time by your node.
 
-Monitoring just the `baker` process shows all attempts to endorse and bake blocks. The baker process works along with the node process to inject blocks and endorsements into the Tezos network.
+Monitoring just the `baker` process shows all attempts to attest and bake blocks. The baker process works along with the node process to inject blocks and attestations into the Tezos network.
 
 Monitoring just the `accuser` process shows the attempts of your node to call our double baking events on the Tezos network. Normally you should not see anything in this log.
 
@@ -95,7 +95,7 @@ tail -f /var/log/syslog | grep tezbake
 ## Related Guides
 
 * [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
-* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed endorsements
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed attestations
 * [TezWatch Setup](/tezwatch/tutorials/setup/) - Set up Discord/Telegram alerts
 
 ---
