@@ -22,15 +22,15 @@ To mount the `/ascend/logs` directory from inside the container to your host sys
 
 Here’s the command format:
 
-   ```bash
-   docker run -it -v /path/on/host:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+docker run -it -v /path/on/host:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 For example:
 
-   ```bash
-   docker run -it -v /home/tezos/logs:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+docker run -it -v /home/tezos/logs:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 ### Overrides and configuration through mounted volumes
 
@@ -40,25 +40,25 @@ You can override any configuration file by mounting your own file to the `/tezbo
 
 For example if you want to adjust block times, you can create `sandbox-override-parameters.hjson` file with the following content:
 
-   ```bash
-   minimal_block_delay: "1" // minimal block delay in seconds, has to be quoted
-   ```
+```bash
+minimal_block_delay: "1" // minimal block delay in seconds, has to be quoted
+```
 
 Run the container with the following command:
 
-   ```bash
-   # sudo docker run -it -v <path-to-your-file>:/tezbox/overrides/protocols/<case sensitive protocol id>/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   
-   sudo docker run -it -v $(pwd)/sandbox-override-parameters.hjson:/tezbox/overrides/protocols/Proxford/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+# sudo docker run -it -v <path-to-your-file>:/tezbox/overrides/protocols/<case sensitive protocol id>/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+
+sudo docker run -it -v $(pwd)/sandbox-override-parameters.hjson:/tezbox/overrides/protocols/Proxford/sandbox-parameters.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 You can determine path based on folder structure in <https://github.com/tez-capital/tezbox/tree/main/configuration>
 
 Optionally you can mount entire overrides/configuration directory to `/tezbox/overrides` or `/tezbox/configuration` to replace the whole configuration.
 
-   ```bash
-   sudo docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+sudo docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 > Do not edit or mount configuration files in the `/tezbox/context` directory. They are generated automatically and should not be modified manually.
 
@@ -66,22 +66,22 @@ Optionally you can mount entire overrides/configuration directory to `/tezbox/ov
 
 By default tezbox comes with these accounts:
 
-   ```yaml
-    {
-        alice: {
-            pkh: tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb
-            pk: edpkvGfYw3LyB1UcCahKQk4rF2tvbMUk8GFiTuMjL75uGXrpvKXhjn
-            sk: unencrypted:edsk3QoqBuvdamxouPhin7swCvkQNgq4jP5KZPbwWNnwdZpSpJiEbq
-            balance: 2000000
-        }
-        bob: {
-            pkh: tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6
-            pk: edpkurPsQ8eUApnLUJ9ZPDvu98E8VNj4KtJa1aZr16Cr5ow5VHKnz4
-            sk: unencrypted:edsk3RFfvaFaxbHx8BMtEW1rKQcPtDML3LXjNqMNLCzC3wLC1bWbAt
-            balance: 2000000
-        }
+```yaml
+{
+    alice: {
+        pkh: tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb
+        pk: edpkvGfYw3LyB1UcCahKQk4rF2tvbMUk8GFiTuMjL75uGXrpvKXhjn
+        sk: unencrypted:edsk3QoqBuvdamxouPhin7swCvkQNgq4jP5KZPbwWNnwdZpSpJiEbq
+        balance: 2000000
     }
-   ```
+    bob: {
+        pkh: tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6
+        pk: edpkurPsQ8eUApnLUJ9ZPDvu98E8VNj4KtJa1aZr16Cr5ow5VHKnz4
+        sk: unencrypted:edsk3RFfvaFaxbHx8BMtEW1rKQcPtDML3LXjNqMNLCzC3wLC1bWbAt
+        balance: 2000000
+    }
+}
+```
 
 You can add modify as needed. Just mount your own file to `/tezbox/overrides/accounts.hjson` for override or `/tezbox/configuration/accounts.hjson` for full replacement.
 
@@ -93,23 +93,23 @@ If you want to disable a service, you can create override with `autostart: false
 
 For example to disable baker service you would crease `baker.hjson` file:
 
-   ```bash
-   autostart: false
-   ```
+```bash
+autostart: false
+```
 
 Mount it into overrides directory:
 
-   ```bash
-   sudo docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+sudo docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 ### Chain Context
 
 Chain and protocol is automatically initialized only once during the first run. The chain and all runtime data are stored in `/tezbox/context/data` directory. If you want to persist your sandbox state just run it with mounted volume to `/tezbox/context/data` directory.
 
-   ```bash
-   sudo docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
-   ```
+```bash
+sudo docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+```
 
 > To reset the state you can remove the `/tezbox/context/data/tezbox-initialized` file. After its removal all chain and client data will be removed and the chain will be reinitialized on the next run.
 

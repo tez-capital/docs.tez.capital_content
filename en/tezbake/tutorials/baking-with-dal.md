@@ -33,9 +33,9 @@ You can set up TezBake with DAL integration from scratch. Follow these steps:
 
 1. **Run setup with DAL integration:**
 
-   ```bash
-   tezbake setup --with-dal
-   ```
+```bash
+tezbake setup --with-dal
+```
 
 2. Proceed with your usual setup steps (ledger integration, baker registration, etc.).
 
@@ -59,21 +59,21 @@ tezbake setup --dal
 
 This step does not require interaction with your Ledger:
 
-   ```bash
-   tezbake update-dal-profiles --auto
-   ```
+```bash
+tezbake update-dal-profiles --auto
+```
 
 If the above command fails, specify your **baker key** (not consensus key):
 
-   ```bash
-   tezbake update-dal-profiles <your-baker-key>
-   ```
+```bash
+tezbake update-dal-profiles <your-baker-key>
+```
 
 2. **Restart TezBake to apply changes:**
 
-   ```bash
-   tezbake stop && tezbake start
-   ```
+```bash
+tezbake stop && tezbake start
+```
 
 ## Remote DAL Setup
 
@@ -83,25 +83,25 @@ Follow the Prism setup steps here: [Baking with Prism](/tezbake/tutorials/baking
 
 If you encounter issues or require immediate help, execute these commands to revert changes and reinstall:
 
-   ```bash
-   tezbake remove --dal
-   tezbake setup --node  # choose 'yes' to merge config when prompted
-   tezbake stop && tezbake start
-   ```
+```bash
+tezbake remove --dal
+tezbake setup --node  # choose 'yes' to merge config when prompted
+tezbake stop && tezbake start
+```
 
 ## Verify DAL Operation
 
 Ensure your DAL process is correctly running by checking logs:
 
-   ```bash
-   tezbake node log dal -f
-   ```
+```bash
+tezbake node log dal -f
+```
 
 Your logs should indicate the DAL is receiving block levels. Also, verify the TezBake baker logs are error-free regarding DAL integration:
 
-   ```bash
-   tezbake node log baker -f
-   ```
+```bash
+tezbake node log baker -f
+```
 
 For additional DAL checks, refer to the [Nomadic Labs DAL Tutorial](https://tezos.gitlab.io/shell/dal_overview.html).
 

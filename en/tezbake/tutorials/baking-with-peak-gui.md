@@ -27,15 +27,15 @@ TezPeak GUI supports using TezBake and TezPay simultaneously or by themselves. T
 
 ### Download and install TezPeak via TezBake
 
-   ```bash
-   tezbake setup --peak
-   ```
+```bash
+tezbake setup --peak
+```
 
 ### Setup TezPeak configuration
 
-   ```bash
-   cd /bake-buddy/peak/ && touch config.hjson
-   ```
+```bash
+cd /bake-buddy/peak/ && touch config.hjson
+```
 
 Open the `config.hjson` file with your favorite text editor.
 
@@ -45,85 +45,85 @@ Open the `config.hjson` file with your favorite text editor.
 
 Here's an example of a `config.hjson` file with minimal TezBake configuration for one baker:
 
-   ```bash
+```bash
 {
-    listen: 0.0.0.0:8733
-    app_root: /bake-buddy
-    modules: {
-        tezbake: {
-            bakers: [
-                tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
-            ]
-        }
+listen: 0.0.0.0:8733
+app_root: /bake-buddy
+modules: {
+    tezbake: {
+        bakers: [
+            tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
+        ]
     }
 }
-   ```
+}
+```
 
 You can also make TezPeak GUI only available on the local computer if you have an all-in-one setup (i.e. the baker and the GUI are on the same computer which has a graphical user interface):
 
-   ```bash
+```bash
 {
-    listen: 127.0.0.1:8733
-    app_root: /bake-buddy
-    modules: {
-        tezbake: {
-            bakers: [
-                tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
-            ]
-        }
+listen: 127.0.0.1:8733
+app_root: /bake-buddy
+modules: {
+    tezbake: {
+        bakers: [
+            tz1S5WxdZR5f9NzsPXhr7L9L1vrEb5spZFur
+        ]
     }
 }
-   ```
+}
+```
 
 ##### Full TezPeak configuration examples
 
 Here's the TezPeak configuration with all TezBake available options:
 
-   ```bash
+```bash
 {
-    # Id to show in the header
-    id: ""
-    # Address to listen on
-    listen: 127.0.0.1:8733
-    app_root: /bake-buddy
-    modules: {
-        tezbake: {
-            # uncomment bellow to disable tezbake package monitoring
-            # applications: null
-            bakers: [
-                # list of bakers to monitor for balances and rights
-                tz1P6WKJu2rcbxKiKRZHKQKmKrpC9TfW1AwM
-            ]
-        }
-    # List of reference nodes to connect to
-    # The reference nodes are used to get the rights and blocks if the baker's node is not available
-    nodes: {
-        "Tezos Foundation": {
-            address: https://rpc.tzbeta.net/
-            is_rights_provider: true
-            is_block_provider: false
-        }
-        tzkt: {
-            address: https://rpc.tzkt.io/mainnet/
-            is_rights_provider: false
-            is_block_provider: true
-            # reports error if node not available, use for baker's node
-            is_essential: false
-        }
+# Id to show in the header
+id: ""
+# Address to listen on
+listen: 127.0.0.1:8733
+app_root: /bake-buddy
+modules: {
+    tezbake: {
+        # uncomment bellow to disable tezbake package monitoring
+        # applications: null
+        bakers: [
+            # list of bakers to monitor for balances and rights
+            tz1P6WKJu2rcbxKiKRZHKQKmKrpC9TfW1AwM
+        ]
     }
-    # The mode tezpeak should operate in
-    # auto - if bound to localhost, it will operate in private mode if not, it will operate in public mode
-    # public - assumes public environment, only readonly operations are allowed
-    # private - assumes private environment, all operations are allowed
-    mode: auto
+# List of reference nodes to connect to
+# The reference nodes are used to get the rights and blocks if the baker's node is not available
+nodes: {
+    "Tezos Foundation": {
+        address: https://rpc.tzbeta.net/
+        is_rights_provider: true
+        is_block_provider: false
+    }
+    tzkt: {
+        address: https://rpc.tzkt.io/mainnet/
+        is_rights_provider: false
+        is_block_provider: true
+        # reports error if node not available, use for baker's node
+        is_essential: false
+    }
 }
-   ```
+# The mode tezpeak should operate in
+# auto - if bound to localhost, it will operate in private mode if not, it will operate in public mode
+# public - assumes public environment, only readonly operations are allowed
+# private - assumes private environment, all operations are allowed
+mode: auto
+}
+```
 
 ## Start TezPeak and connect to it
 
-   ```bash
-   tezbake start --peak
-   ```
+```bash
+tezbake start --peak
+```
 
 If you're connecting to the TezPeak GUI from a different computer, you'll need to open a web browser and navigate to `http://<your-baker-ip>:8733`.
 

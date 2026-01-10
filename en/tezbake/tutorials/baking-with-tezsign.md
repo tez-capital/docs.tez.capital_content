@@ -323,25 +323,25 @@ This setup offers slightly faster execution and lower latency by directly utiliz
 1. Open the signer configuration file: `/bake-buddy/signer/app.json`
 2. Add `BACKEND: tezsign` inside the `configuration` block:
 
-   ```yaml
-   // ...
-           "configuration": {
-               "BACKEND": "tezsign"
-           },
-   // ...
-   ```
+```yaml
+// ...
+       "configuration": {
+           "BACKEND": "tezsign"
+       },
+// ...
+```
 
 3. Apply the changes:
 
-   ```bash
-   tezbake upgrade --signer
-   ```
+```bash
+tezbake upgrade --signer
+```
 
 4. Restart the service:
 
-   ```bash
-   tezbake stop --signer && tezbake start --signer
-   ```
+```bash
+tezbake stop --signer && tezbake start --signer
+```
 
 **To Revert:**: Remove the `BACKEND` line from `app.json`, upgrade, and restart.
 
@@ -353,9 +353,9 @@ You can configure TezSign to unlock automatically by securely storing the device
 
 1. Run the following command to set and store the password:
 
-   ```bash
-   tezbake setup-tezsign --password
-   ```
+```bash
+tezbake setup-tezsign --password
+```
 
    This will prompt you to enter the password for your TezSign device.
 
@@ -363,15 +363,15 @@ You can configure TezSign to unlock automatically by securely storing the device
 
 2. Apply the changes by upgrading the configuration:
 
-   ```bash
-   tezbake upgrade --signer
-   ```
+```bash
+tezbake upgrade --signer
+```
 
 3. Restart if Required
 
-   ```bash
-   tezbake stop && tezbake start
-   ```
+```bash
+tezbake stop && tezbake start
+```
 
 ---
 

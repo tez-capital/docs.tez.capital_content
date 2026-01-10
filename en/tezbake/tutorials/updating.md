@@ -29,9 +29,9 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 
 (updates components: #1, #2, #4)
 
-   ```bash
-   tezbake upgrade -s
-   ```
+```bash
+tezbake upgrade -s
+```
 
 > The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
@@ -39,9 +39,9 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 
 (updates components: #4)
 
-   ```bash
-   tezbake upgrade
-   ```
+```bash
+tezbake upgrade
+```
 
 ## (C) Update the entire TezBake stack
 
@@ -49,16 +49,16 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 
 First update your tezbake binary to the latest version, depending on your computer architecture:
 
-   ```bash
-   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
-   # you may be prompted for sudo password
-   ```
+```bash
+wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+# you may be prompted for sudo password
+```
 
 Then update the rest of the TezBake software stack:
 
-   ```bash
-   tezbake upgrade -s
-   ```
+```bash
+tezbake upgrade -s
+```
 
 > The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
@@ -68,10 +68,10 @@ Then update the rest of the TezBake software stack:
 
 Update your tezbake binary to the latest version, depending on your computer architecture:
 
-   ```bash
-   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
-   # you may be prompted for sudo password
-   ```
+```bash
+wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+# you may be prompted for sudo password
+```
 
 ## What should I do after updating?
 
@@ -79,9 +79,9 @@ After all updates and changes to your Tezos node, always ensure your baking proc
 
 Check your TezBake stack versions to ensure they are up to date:
 
-   ```bash
-   tezbake version --all
-   ```
+```bash
+tezbake version --all
+```
 
 You should see the expected Octez version along with the release date of the binaries.
 

@@ -28,16 +28,16 @@ summary: How to update TezSign firmware and application
 
     *Example command to download and make executable:*
 
-    ```bash
-    wget [https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64](https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64) -O tezsign_updater && chmod +x tezsign_updater
-    ```
+```bash
+wget [https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64](https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64) -O tezsign_updater && chmod +x tezsign_updater
+```
 
 5. **Run the Updater:**
     Execute the updater tool. It will automatically scan for viable SD cards, check partition layouts, and verify the existence of TezSign files.
 
-    ```bash
-    sudo ./tezsign_updater
-    ```
+```bash
+sudo ./tezsign_updater
+```
 
     > **Note:** You can run `./tezsign_updater -h` to see all available options.
 

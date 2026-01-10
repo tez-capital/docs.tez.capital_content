@@ -35,32 +35,32 @@ All advanced TezBake configurations, including TezSign block signing apply here 
 
 To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
-   ```bash
-   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
-   # you may be prompted for sudo password
-   ```
+```bash
+wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+# you may be prompted for sudo password
+```
 
 ### Setup Tezos node, signer, DAL and install tezbake dependencies
 
-   ```bash
-   # Seoulnet setup:
-   tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/seoulnet.json
-   # Ghostnet setup:
-   tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
-   # you may be prompted for sudo password
-   ```
+```bash
+# Seoulnet setup:
+tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/seoulnet.json
+# Ghostnet setup:
+tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
+# you may be prompted for sudo password
+```
 
 ### Bootstrap Tezos node
 
 At this stage, it's necessary to bootstrap your node, meaning to download a copy of the blockchain so you don't have to synchronize block-by-block, which takes hours at best.
 
-   ```bash
-   tezbake bootstrap-node <url> <block_hash>
-   # Seoulnet example:
-   tezbake bootstrap-node https://snapshots.tzinit.org/seoulnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
-   # Ghostnet example:
-   tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
-   ```
+```bash
+tezbake bootstrap-node <url> <block_hash>
+# Seoulnet example:
+tezbake bootstrap-node https://snapshots.tzinit.org/seoulnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+# Ghostnet example:
+tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+```
 
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/ghostnet/rolling.html>
@@ -77,15 +77,15 @@ Simply search for the block level in the search field and verify the hash of the
 
 After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
 
-   ```bash
-   tezbake start
-   ```
+```bash
+tezbake start
+```
 
 After starting the node, run the following command over and over every few minutes and monitor the "level" displayed.
 
-   ```bash
-   tezbake info
-   ```
+```bash
+tezbake info
+```
 
 > **Understanding "Level"**
 >
@@ -107,17 +107,17 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 First, generate the baker key for TezBake:
 
-   ```bash
-   tezbake setup-soft-wallet --generate bls --key-alias baker
-   ```
+```bash
+tezbake setup-soft-wallet --generate bls --key-alias baker
+```
 
 > **⚠️ WARNING:** Make sure to backup your key in a secure location and never share it.
 
 You can get the secret/private key by running the following command:
 
-   ```bash
-   tezbake signer client show address baker --show-secret
-   ```
+```bash
+tezbake signer client show address baker --show-secret
+```
 
 ### Register as baker on the Tezos blockchain Testnet
 
@@ -127,9 +127,9 @@ To secure your XTZ security deposit on Ghostnet you can use the faucet to get so
 
 Each Tezos testnet has a faucet over at <https://teztnets.com>
 
-   ```bash
-   tezbake register-key
-   ```
+```bash
+tezbake register-key
+```
 
 > **ℹ️ When Registration is Required:**
 >
@@ -147,9 +147,9 @@ To bake on the Tezos network, you need to stake your XTZ security deposit. This 
 
 You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
 
-   ```bash
-   tezbake signer client stake 6000 for baker
-   ```
+```bash
+tezbake signer client stake 6000 for baker
+```
 
 > **ℹ️ Staking Options:**
 >
@@ -164,9 +164,9 @@ You can stake your security deposit by running the following command, after open
 
 ### Import your DAL attester profile
 
-   ```bash
-   tezbake update-dal-profiles <your-baker-tz4-key> --force
-   ```
+```bash
+tezbake update-dal-profiles <your-baker-tz4-key> --force
+```
 
 ## Installation (Advanced)
 

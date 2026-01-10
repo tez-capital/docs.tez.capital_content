@@ -52,27 +52,27 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 
 To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
-   ```bash
-   wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
-   # you may be prompted for sudo password
-   ```
+```bash
+wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+# you may be prompted for sudo password
+```
 
 ### Setup Tezos node, signer, DAL and install tezbake dependencies
 
-   ```bash
-   tezbake setup --with-dal
-   # you may be prompted for sudo password
-   ```
+```bash
+tezbake setup --with-dal
+# you may be prompted for sudo password
+```
 
 ### Bootstrap Tezos node
 
 At this stage, it's necessary to bootstrap your node, meaning to download a snapshot (copy) of the blockchain so you don't have to synchronize block-by-block, which would take many hours or days. We use a "rolling" snapshot which contains recent blockchain history (suitable for baking) rather than the complete archive from genesis.
   
-   ```bash
-   tezbake bootstrap-node <url> <block_hash>
-   # example:
-   tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
-   ```
+```bash
+tezbake bootstrap-node <url> <block_hash>
+# example:
+tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+```
 
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/mainnet/rolling.html>
@@ -89,15 +89,15 @@ Simply search for the block level in the search field and verify the hash of the
 
 After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
 
-   ```bash
-   tezbake start
-   ```
+```bash
+tezbake start
+```
 
 After starting the node, run the following command over and over every few minutes and monitor the "level" displayed.
 
-   ```bash
-   tezbake info
-   ```
+```bash
+tezbake info
+```
 
 > **Understanding "Level"**
 >
@@ -138,9 +138,9 @@ In order to get the most out of your Ledger, it's now recommended to use the P-2
 
 You can import your Ledger key by running the following command:
 
-   ```bash
-   tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
-   ```
+```bash
+tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
+```
 
 > **Derivation path:** You can specify a custom path like `--import-key="ed25519/0h/0h"` (the default). P-256 and secp256k1 curves offer faster signing than ed25519.
 >
@@ -165,17 +165,17 @@ If you used to bake on mainnet with the same ledger as you're trying to use now 
 
 First, generate the baker key for TezBake:
 
-   ```bash
-   tezbake setup-soft-wallet --generate bls --key-alias baker
-   ```
+```bash
+tezbake setup-soft-wallet --generate bls --key-alias baker
+```
 
 > Make sure to backup your key in a secure location and never share it.
 
 You can get the secret/private key by running the following command:
 
-   ```bash
-   tezbake node client show address baker --show-secret
-   ```
+```bash
+tezbake node client show address baker --show-secret
+```
 
 ### Register as baker on the Tezos Mainnet
 
@@ -187,9 +187,9 @@ Use the `Become a Baker` button on the <https://gov.tez.capital> portal.
 
 #### Using CLI (not recommended)
 
-   ```bash
-   tezbake register-key
-   ```
+```bash
+tezbake register-key
+```
 
 > **ℹ️ When Registration is Required:**
 >
@@ -236,19 +236,19 @@ Use the `Stake` button on the <https://gov.tez.capital> portal.
 
 You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
 
-   ```bash
-   tezbake signer client stake 6000 for baker 
-   ```
+```bash
+tezbake signer client stake 6000 for baker 
+```
 
 ### Import your DAL attester profile
 
 Your baker needs to register as a DAL attester to participate in the Data Availability Layer. This tells the network which DAL node to use for your baker.
 
-   ```bash
-   tezbake update-dal-profiles --auto
-   # If for some reason the auto method is not working, use the command below to bypass it.
-   tezbake update-dal-profiles <your-baker-tz4-key> --force
-   ```
+```bash
+tezbake update-dal-profiles --auto
+# If for some reason the auto method is not working, use the command below to bypass it.
+tezbake update-dal-profiles <your-baker-tz4-key> --force
+```
 
 > **ℹ️ INFO:** The tz4 key referenced here is your baker's public key address (starts with tz4), not your consensus key or companion key.
 
