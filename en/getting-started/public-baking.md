@@ -17,7 +17,7 @@ When you delegate your tez to a baker, your tokens never leave your wallet - you
 
 With the [Adaptive Issuance](https://research-development.nomadic-labs.com/adaptive-issuance-paris.html#the-new-staker-role) protocol upgrade, bakers can now accept stakers in addition to delegators. Staking differs from delegation in several important ways:
 
-* **Funds are locked** - Staked tez is frozen for up to 12 days (cannot be moved during this period)
+* **Funds are locked** - Staked tez is frozen for 3 cycles (~3 days) and cannot be moved during this period
 * **Higher rewards** - Stakers earn approximately 3x the rewards of delegators due to the additional commitment and risk
 * **Slashing risk** - Stakers are liable for losses if the baker double bakes or double attests (though this is rare)
 * **Direct protocol payment** - Stakers are paid directly by the protocol without baker intervention, unlike delegators who rely on the baker to distribute rewards
