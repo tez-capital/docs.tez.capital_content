@@ -5,6 +5,16 @@ type: docs
 summary: How to Pay Delegators Using TezPay
 ---
 
+## Table of Contents
+
+1. [Step 1: Generating a Payout Table](#using-tezpay-step-1---generating-a-payout-table)
+2. [Step 2: Testing Notifications](#using-tezpay-step-2---testing-notifications)
+3. [Step 3: Initiating a Payout](#using-tezpay-step-3---initiating-a-payout)
+4. [Paying Multiple Cycles](#using-tezpay-paying-multiple-cycles-at-a-time)
+5. [Running Continual Payouts](#using-tezpay-running-a-continual-payout)
+
+---
+
 ## Using TezPay
 
 ### Summary of Using Tezpay

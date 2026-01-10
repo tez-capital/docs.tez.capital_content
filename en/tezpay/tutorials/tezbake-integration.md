@@ -26,8 +26,18 @@ summary: Integrating TezPay with TezBake
 
 TezPay is integrated directly into TezBake as the `pay` module, simplifying your payout process.
 
-**New Users:**  
+**New Users:**
 Please follow the steps below to create your configuration and wallet or remote signer files. Refer to the [TezPay Configuration Documentation](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/) for detailed setup instructions.
+
+## Table of Contents
+
+1. [Installation](#installation)
+2. [Migration for Existing TezPay Users](#migration-for-existing-tezpay-users)
+3. [Setup Guide for New Users](#setup-guide-for-new-users)
+4. [Managing Payouts](#managing-payouts)
+5. [Automatic (Continual) Payouts](#automatic-continual-payouts)
+6. [Starting & Stopping TezPay](#starting--stopping-tezpay-continual-service)
+7. [Removing the Pay Module](#removing-the-pay-module)
 
 ---
 

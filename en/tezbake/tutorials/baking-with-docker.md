@@ -13,6 +13,13 @@ For this tutorial, you'll need to have already have installed Docker as shown he
 >
 > Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. The Docker container includes DAL support, but you must ensure it's properly configured. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for details.
 
+## Table of Contents
+
+1. [Pull the TezBake Docker Image](#pull-the-tezbake-docker-image)
+2. [Setup TezBake Container](#setup-tezbake-container)
+3. [Connect to TezBake Container](#connect-to-tezbake-container)
+4. [Import Ledger key and register as baker](#import-ledger-key-or-soft-key-and-register-as-baker)
+
 ---
 
 ## Pull and Execute the TezBake Docker Image

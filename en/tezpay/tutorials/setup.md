@@ -8,6 +8,19 @@ summary: How to setup TezPay
 Follow along on Youtube!
 {{< youtube 1SUPwKBWgTU >}}
 
+## Table of Contents
+
+1. [Preparation](#preparation)
+   - [Step 1: Create TezPay Directory](#preparation-step-1-create-tezpay-directory)
+   - [Step 2: Download Files](#preparation-step-2-download-files)
+   - [Step 3: Payout Wallet](#preparation-step-3---payout-wallet-optional)
+2. [Setup](#setup)
+   - [Step 1a: Configuration File (simple)](#setup-step-1a-configuration-file-simple)
+   - [Step 1b: Configuration File (advanced)](#setup-step-1b-configuration-file-advanced)
+   - [Step 2: Private-Key File](#setup-step-2-private-key-file)
+
+---
+
 ## Preparation
 
 There is minimal preparation needed to utilize TezPay, assuming that

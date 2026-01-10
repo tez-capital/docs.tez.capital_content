@@ -37,6 +37,17 @@ Prism is Tez Capital's in-house tunneling system for TezBake. Built on QUIC, Pri
 
 This guide assumes basic familiarity with Linux, networking, and remote SSH access.
 
+## Table of Contents
+
+1. [Supported Topologies](#supported-topologies)
+2. [Step 1: Choose Your Prism Endpoint](#step-1-choose-your-prism-endpoint)
+3. [Step 2: Setup Remote Applications](#step-2-setup-remote-applications)
+4. [Step 3: Edit Application Configurations](#step-3-edit-application-configurations)
+5. [Step 4: Activate Configurations](#step-4-activate-configurations)
+6. [Step 5: Generate and Distribute Prism Keys](#step-5-generate-and-distribute-prism-keys)
+7. [Final Step: Start Everything](#final-step-start-everything)
+8. [Troubleshooting](#troubleshooting)
+
 ---
 
 ## Supported Topologies

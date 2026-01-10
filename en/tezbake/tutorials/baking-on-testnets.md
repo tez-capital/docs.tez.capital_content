@@ -11,6 +11,14 @@ summary: Using TezBake to bake on the Tezos testnets
 * Ghostnet is the original Tezos testnet. It is a public testnet that is used by developers and users to test new features and applications before they are deployed on the mainnet. Ghostnet is a great way to get familiar with the Tezos ecosystem and to test your applications in a safe environment where the chain conditions are similar to mainnet.
 * Shadownet is similar to Ghostnet but it is a private testnet that is used by developers to test new features and applications before they are deployed on the mainnet. Shadownet is not open to the public and is only accessible to developers who are working on Tezos projects. Shadownet bakers are centrally selected by the core Tezos development team. Setting up a testnet bakery here is possible but not encouraged.
 
+## Table of Contents
+
+1. [Preparation](#preparation)
+2. [Installation (All-in-one)](#installation-all-in-one)
+3. [Installation (Advanced)](#installation-advanced)
+
+---
+
 ## Preparation
 
 Installing TezBake and using it to setup your Tezos baker is very simple. You will need the following tools:

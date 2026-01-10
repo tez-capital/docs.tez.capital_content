@@ -16,6 +16,16 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 >
 > TezSign is provided without any guarantee. Use it at your own risk.
 
+## Table of Contents
+
+1. [Phase 0: Purchase SBC and image SD card](#phase-0-purchase-sbc-and-image-sd-card)
+2. [Phase 1: Baker Configuration](#phase-1-baker-configuration)
+3. [Phase 2: Device Preparation](#phase-2-device-preparation)
+4. [Phase 3: Node Configuration](#phase-3-node-configuration)
+5. [Phase 4: Verify and Bake](#phase-4-verify-and-bake)
+6. [Advanced: Direct TezSign Backend](#advanced-direct-tezsign-backend)
+7. [Advanced: Automatic Unlock for TezSign](#advanced-automatic-unlock-for-tezsign)
+
 ---
 
 ## Phase 0: Purchase SBC and image SD card

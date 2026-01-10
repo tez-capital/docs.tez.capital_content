@@ -30,6 +30,14 @@ summary: TezBake Baking Tutorial for using a Consensus Key
 Follow along on Youtube!
 {{< youtube 5m_GKFRIflk >}}
 
+## Table of Contents
+
+1. [Preparation](#preparation)
+2. [BLS/tz4 Consensus and Companion key setup](#blstz4-consensus-and-companion-key-setup)
+3. [PRE-BLS (DEPRECATED) Ledger Consensus key setup](#pre-bls-deprecated-ledger-consensus-key-setup)
+
+---
+
 ## Preparation
 
 For this tutorial, you'll need to have already followed one of the following tutorials:
