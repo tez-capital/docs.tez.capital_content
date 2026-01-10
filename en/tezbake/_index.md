@@ -2,7 +2,7 @@
 title: "TezBake"
 weight: 1
 type: docs
-summary: TezBake Tutorials
+summary: All-in-one Tezos baking software for easy node setup, monitoring, and management
 ---
 
 <style>

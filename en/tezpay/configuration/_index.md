@@ -2,5 +2,5 @@
 title: "Configuration"
 weight: 2
 type: docs
-summary: tezpay configuration
+summary: TezPay configuration file reference and payout settings
 ---

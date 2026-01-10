@@ -2,7 +2,7 @@
 title: "Bootstrap Node"
 weight: 1
 type: docs
-summary: TezBake Bootstrapping Tutorial
+summary: How to bootstrap your Tezos node quickly using blockchain snapshots
 ---
 
 Follow along on Youtube!

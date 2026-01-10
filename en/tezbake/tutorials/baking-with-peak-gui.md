@@ -2,7 +2,7 @@
 title: "Baking with Peak GUI"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial for GUI Users
+summary: Manage your Tezos baker with TezPeak's graphical web interface
 ---
 
 Follow along on Youtube!

@@ -2,7 +2,7 @@
 title: "TezWatch Tutorials"
 weight: 1
 type: docs
-summary: TezWatch Tutorials
+summary: Set up baker monitoring and alerts with TezWatch bots
 ---
 **TezWatch**
 ---

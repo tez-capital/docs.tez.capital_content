@@ -2,5 +2,5 @@
 title: "TezSign"
 weight: 1
 type: docs
-summary: TezSign Tutorials
+summary: Hardware signer for secure Tezos baking key management
 ---

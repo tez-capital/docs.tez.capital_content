@@ -2,7 +2,7 @@
 title: "TezBox"
 weight: 1
 type: docs
-summary: TezBox Tutorials
+summary: Tezos sandbox for local development and smart contract testing
 ---
 
 <style>

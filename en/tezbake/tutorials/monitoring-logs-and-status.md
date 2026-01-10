@@ -2,7 +2,7 @@
 title: "Monitoring Logs and Status"
 weight: 1
 type: docs
-summary: TezBake Monitoring Tutorial
+summary: Monitor your Tezos baker status, view logs, and diagnose issues with TezBake
 ---
 
 Follow along on Youtube!

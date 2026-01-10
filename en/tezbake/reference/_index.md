@@ -2,5 +2,5 @@
 title: "Reference"
 weight: 3
 type: docs
-summary: tezbake command reference
+summary: TezBake CLI command reference and documentation
 ---

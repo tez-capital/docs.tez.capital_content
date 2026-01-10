@@ -2,5 +2,5 @@
 title: "Extensions"
 weight: 2
 type: docs
-summary: tezpay extensions
+summary: TezPay extensions and plugins for custom payout logic
 ---

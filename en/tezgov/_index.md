@@ -2,7 +2,7 @@
 title: "TezGov"
 weight: 1
 type: docs
-summary: TezGov Tutorials
+summary: Tezos governance portal for voting on proposals and managing baker settings
 ---
 
 <style>

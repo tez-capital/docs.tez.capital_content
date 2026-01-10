@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 weight: 1
 type: docs
-summary: TezBake Troubleshooting Tutorial
+summary: Common TezBake issues and solutions for installation errors and runtime problems
 ---
 
 ## Troubleshooting

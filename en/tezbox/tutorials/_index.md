@@ -2,7 +2,7 @@
 title: "TezBox Tutorials"
 weight: 1
 type: docs
-summary: TezBox Tutorials
+summary: Run a local Tezos chain for development with TezBox Docker container
 ---
 **TezBox**
 ---

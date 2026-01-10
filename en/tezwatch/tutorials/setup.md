@@ -2,7 +2,7 @@
 title: "> Setup"
 weight: 1
 type: docs
-summary: TezWatch Setup Tutorial
+summary: Configure TezWatch Discord bot for baker monitoring notifications
 ---
 
 ## Preparation

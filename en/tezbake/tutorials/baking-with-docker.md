@@ -2,7 +2,7 @@
 title: "Baking with Docker"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial for Docker Users
+summary: Run TezBake in a Docker container for isolated and portable Tezos baking
 ---
 
 ## Preparation

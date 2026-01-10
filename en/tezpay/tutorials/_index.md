@@ -2,7 +2,7 @@
 title: "TezPay Tutorials"
 weight: 1
 type: docs
-summary: TezPay Tutorials
+summary: Guides for setting up and automating delegator payouts with TezPay
 ---
 **TezPay**
 ---

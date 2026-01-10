@@ -2,7 +2,7 @@
 title: "> Voting on Proposals"
 weight: 1
 type: docs
-summary: TezGov Proposal Voting Tutorial
+summary: How to vote on Tezos protocol proposals using the TezGov portal
 ---
 
 Follow along on Youtube!

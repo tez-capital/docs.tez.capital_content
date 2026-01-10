@@ -2,7 +2,7 @@
 title: "TezGov Tutorials"
 weight: 1
 type: docs
-summary: TezGov Tutorials
+summary: Guides for participating in Tezos governance and managing your baker
 ---
 **TezGov**
 ---

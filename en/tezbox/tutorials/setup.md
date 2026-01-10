@@ -2,7 +2,7 @@
 title: "> Setup"
 weight: 1
 type: docs
-summary: TezBox Setup Tutorial
+summary: How to run TezBox Docker container for local Tezos development
 ---
 
 {{< youtube v-X90E4JFTY >}}

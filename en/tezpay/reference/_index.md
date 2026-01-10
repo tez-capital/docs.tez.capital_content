@@ -2,5 +2,5 @@
 title: "Reference"
 weight: 3
 type: docs
-summary: tezpay command reference
+summary: TezPay CLI command reference and configuration options
 ---

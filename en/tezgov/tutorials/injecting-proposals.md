@@ -2,7 +2,7 @@
 title: "Injecting Proposals"
 weight: 1
 type: docs
-summary: TezGov Portal Proposal Injection Tutorial
+summary: How to submit new protocol proposals to the Tezos network via TezGov
 ---
 
 ## TezGov Portal Proposal Injection Tutorial

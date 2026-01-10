@@ -2,7 +2,7 @@
 title: "> Baking on Mainnet"
 weight: 1
 type: docs
-summary: TezBake Baking Tutorial
+summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, Ledger, and DAL
 ---
 
 {{< youtube t85LjgpRtvc >}}

@@ -2,7 +2,7 @@
 title: "Configuration"
 weight: 1
 type: docs
-summary: TezBox Configuration Tutorial
+summary: Configure TezBox sandbox settings, accounts, and protocol options
 ---
 
 ## TezBox Configuration Options
