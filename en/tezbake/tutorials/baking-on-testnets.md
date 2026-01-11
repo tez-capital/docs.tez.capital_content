@@ -151,7 +151,7 @@ tezbake register-key
 
 ### Stake your baking XTZ security deposit
 
-To bake on the Tezos network, you need to stake your XTZ security deposit. This is a slashable security deposit that you will get back when you stop baking. The minimum bond to get baking rights is currently set at 6000 XTZ.
+To bake on the Tezos network, you need to stake your XTZ security deposit. This is a [slashable](/getting-started/slashing-explained/) security deposit that you will get back when you stop baking. The minimum bond to get baking rights is currently set at 6000 XTZ.
 
 You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
 

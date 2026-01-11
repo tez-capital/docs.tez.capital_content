@@ -38,7 +38,7 @@ While having two computers is somewhat optional, especially for a smaller baker,
 
 > **🚨 CRITICAL: Prevent Double Baking**
 >
-> You must NEVER simultaneously use two hardware signers to bake for the same baking address. This will result in a double baking or double attesting offense and you will be slashed.
+> You must NEVER simultaneously use two hardware signers to bake for the same baking address. This will result in a double baking or double attesting offense and you will be slashed. See [Slashing Explained](/getting-started/slashing-explained/) for details.
 >
 > **How to avoid this:**
 >

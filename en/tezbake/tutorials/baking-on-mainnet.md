@@ -153,7 +153,7 @@ tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
 > If your device was used to bake before it might have a "high watermark" aka HWM. If you try to use this device on a testnet, it will not work because the block height on test networks usually starts with 1 while mainnet is up to over a couple of million blocks at the time of writing.
 If you used to bake on mainnet with the same ledger as you're trying to use now but it's been a while, it's highly recommended to change the 1 above to the current block on the network that will be used for the device going forward.
 > The watermark is simply a record of the lack block number your ledger helped to bake or attest. If you're setting up a brand new device that's not been used for baking before, there is no need to alter the default command above.
-> **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is considered a malicious attack on the network. The protocol detects this and slashes (confiscates) your staked tez as punishment.
+> **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is considered a malicious attack on the network. The protocol detects this and slashes (confiscates) your staked tez as punishment. See [Slashing Explained](/getting-started/slashing-explained/) for penalty details.
 >
 > **Prevention - Critical Rules:**
 > * **Never use bakers with the same seed on any network** - even different networks (mainnet vs testnet)
@@ -217,7 +217,7 @@ The minimum bond to get baking rights is **6000 XTZ**. However, you have several
 | 1000     | 0            | 15,000          | Pure delegation model      |
 | 1000     | 2000         | 9000            | Mixed approach             |
 
-**How delegation weight works (Paris protocol):**
+**How delegation weight works:**
 
 * **Your stake + Stakers:** Each XTZ counts as **1.0** toward the requirement
 * **Delegators:** Each XTZ counts as **≈0.33** (1/3) toward the requirement
@@ -252,6 +252,40 @@ tezbake update-dal-profiles <your-baker-tz4-key> --force
 ```
 
 > **ℹ️ INFO:** The tz4 key referenced here is your baker's public key address (starts with tz4), not your consensus key or companion key.
+
+### Baker Per-Block Votes
+
+Bakers cast two types of votes with every block they produce. TezBake configures sensible defaults, but you should understand what you're voting for:
+
+**Liquidity Baking Toggle Vote:**
+- Controls a protocol feature that mints ~5 tez per minute into a tez/tzBTC liquidity pool
+- Options: `on` (continue subsidy), `off` (end subsidy), `pass` (abstain)
+- If enough bakers vote `off` over ~2000 blocks, the subsidy pauses
+- Default in TezBake: `on`
+
+**Adaptive Issuance Vote:**
+- Controls whether the protocol adjusts reward rates based on the network's staked ratio
+- The protocol targets 50% of tez staked; rewards increase when staking is low, decrease when high
+- Options: `on`, `off`, `pass`
+- Default in TezBake: `on`
+
+To view or modify your votes, edit the vote file:
+
+```bash
+nano /bake-buddy/node/data/vote-file.json
+```
+
+Example contents:
+
+```json
+{"adaptive_issuance_vote":"on","liquidity_baking_toggle_vote":"on"}
+```
+
+After changes, restart your baker:
+
+```bash
+tezbake stop && tezbake start
+```
 
 ## Installation (Advanced)
 

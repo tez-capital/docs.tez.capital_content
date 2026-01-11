@@ -56,7 +56,7 @@ This separation of roles is useful for reducing the exposure of the primary bake
 > **If Consensus Key is Compromised:**
 >
 > * Attacker can sign blocks and endorse operations
-> * Attacker can maliciously double-bake or double-attest on your behalf, **slashing your funds**
+> * Attacker can maliciously double-bake or double-attest on your behalf, **slashing your funds**. See [Slashing Explained](/getting-started/slashing-explained/)
 > * Attacker can transfer all baker funds NOT locked/staked in the security deposit using the drain operation
 >
 > **Protection Measures:**
@@ -201,7 +201,7 @@ tezbake signer client set consensus key for baker to consensus
 
 You can also set your consensus key on TezGov via <https://gov.tez.capital>.
 
-The new consensus key will become effective after 3 cycles. For example if you set your consensus key in cycle 1000, it will be effective in cycle 1003.
+The new consensus key will become effective after 3 cycles (~3 days). For example if you set your consensus key in cycle 1000, it will be effective in cycle 1003.
 
 Once the consensus Ledger becomes effective, you can unplug your original Ledger device as it's no longer needed for baking.
 

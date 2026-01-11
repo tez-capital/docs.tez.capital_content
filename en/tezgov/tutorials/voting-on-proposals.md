@@ -13,10 +13,21 @@ Follow along on Youtube!
 The Tezos proposal process consists of 5 stages, each of which lasts for 14 cycles (~14 days). Briefly, the proposal process is as follows:
 
 1. *Proposal.* If no proposal gets more than 5% of the state to vote for it, the proposal process repeats indefinitely. As soon as a proposal gets 5% of the state to vote for it, the proposal process moves to the next stage. In cases where there are multiple 5%+ proposals on the table, the proposal with the most votes wins.
-2. *Exploration* Proposal needs to hit quorum (around 50% of all stake voting in some way) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
+2. *Exploration* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
 3. *Cooldown* The proposal is tested on a dedicated test network to make sure it migrates and runs. Dapp developers make sure this proposal doesn't break their dapps.
-4. *Promotion* Proposal needs to hit quorum (around 50% of all stake voting in some way) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
+4. *Promotion* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
 5. *Adoption* The proposal is officially accepted and goes into effect at the end of the *Adoption* stage. The Ghostnet test network is upgraded as a final test before Mainnet adoption. Dapp developers make sure this proposal doesn't break their dapps and make any necessary changes to their dapps.
+
+### Understanding Quorum
+
+The quorum requirement ensures sufficient participation before accepting proposals:
+
+- **Dynamic adjustment**: Quorum adjusts after each vote based on historical participation using an exponential moving average (EMA)
+- **Range**: Minimum 20%, maximum 70%
+- **Supermajority**: Requires 80% of non-Pass votes to be Yay votes
+- **Pass votes**: Count toward quorum participation but don't affect supermajority calculation
+
+This design ensures governance can continue even if some bakers stop participating, while still requiring meaningful consensus.
 
 We recommend you read more about the Tezos Voting process here: <https://tezos.gitlab.io/active/voting.html>
 

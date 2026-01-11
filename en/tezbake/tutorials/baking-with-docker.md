@@ -94,7 +94,7 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 >
 > * Always ensure you're not accidentally going to double bake by using your production ledger/setup to bake on a testnet
 > * Double baking/attesting means having 2 different bakers with the same key on the same network
-> * This is a serious offense and can lead to loss of bond and other penalties
+> * This is a serious offense and can lead to loss of bond and other penalties. See [Slashing Explained](/getting-started/slashing-explained/) for details
 > * Always double-check your setup before proceeding
 
 #### (Option 2 - INSECURE) Import Soft key to TezBake signer

@@ -14,6 +14,27 @@ The Tezos Data Availability Layer (DAL) enhances network scalability by efficien
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
 
+## DAL Rewards and Penalties
+
+Running a DAL node directly impacts your baking income:
+
+**Reward Impact:**
+- DAL attestations account for approximately **10% of total block rewards** (2,275 out of 22,757 reward weight units)
+- Successfully attesting to DAL shards earns you this portion of rewards
+- Missing DAL attestations means losing ~10% of your potential baking income
+
+**How It Works:**
+1. When data is published to the DAL, it's split into "shards" distributed across bakers
+2. Your baker must download and verify shards assigned to you within the attestation lag period
+3. Your baker then declares whether it successfully obtained the shards (via the attestation operation)
+4. If enough bakers attest to availability, the data blob is marked as available
+
+**Attestation Lag:**
+The protocol defines an attestation lag period during which bakers must download and verify their assigned shards. Your DAL node must be online and synchronized to meet this deadline. The lag gives bakers time to fetch data before they must attest.
+
+**No Slashing for DAL Failures:**
+Unlike double baking/attestation, failing to run DAL does not result in slashing of your stake. You simply miss out on the DAL portion of rewards.
+
 > **⚠️ WARNING: IP Address Exposure Risk**
 >
 > The security implications for bakers in the DAL network are highlighted in the [official Octez documentation](https://octez.tezos.com/docs/shell/dal_overview.html).
