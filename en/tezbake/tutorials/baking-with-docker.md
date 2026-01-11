@@ -146,12 +146,12 @@ tezbake register-key
 > Registration is NOT necessary if:
 >
 > * This is already an active baker ledger being set up on a failover machine
-> * The baker has not been inactive for over 2 weeks
+> * The baker has not been inactive for over 3 days
 >
 > You MUST register your baker if:
 >
 > * You're setting up a new baker (first time)
-> * Your baker has been inactive for over 2 weeks
+> * Your baker has been inactive for over 3 days
 > * Your baking rights have stopped appearing in the schedule
 >
 > Check your baking rights schedule to confirm if re-registration is needed.

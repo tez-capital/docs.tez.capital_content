@@ -144,10 +144,10 @@ tezbake register-key
 > You must register your baker if:
 >
 > * You're setting up a new baker (first time)
-> * Your baker has been inactive for over 2 weeks
+> * Your baker has been inactive beyond the inactivity period (3 cycles - about 1 hour on fast testnets like Seoulnet, or 3 days on Ghostnet)
 > * Your baking rights have stopped appearing in the schedule
 >
-> You do NOT need to register if your baker has been inactive for less than 2 weeks. Check your baking rights schedule to confirm if re-registration is needed.
+> Check your baking rights schedule to confirm if re-registration is needed.
 
 ### Stake your baking XTZ security deposit
 
