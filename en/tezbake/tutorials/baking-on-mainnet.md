@@ -197,7 +197,7 @@ tezbake register-key
 > You must register your baker if:
 >
 > * You're setting up a new baker (first time)
-> * Your baker has been inactive for over 3 days
+> * Your baker has been inactive for over 2 cycles (~2 days)
 > * Your baking rights have stopped appearing in the schedule
 >
 > You do NOT need to register if your baker has been inactive for less than 3 days. Check your baking rights schedule to confirm if re-registration is needed.
