@@ -42,10 +42,11 @@ Bakers control whether and how much external stake they accept via two parameter
 > These limits are **independent** - accepting stakers does not reduce your delegation capacity. A baker with 10,000 XTZ frozen stake could theoretically accept up to 90,000 XTZ in stakers AND 90,000 XTZ in delegations (if both limits are maxed).
 
 **`edge_of_baking_over_staking`** (default: 1, range: 0-1)
-- Controls how staking rewards are split between you and your stakers
-- Value of 1 (100%): You keep all rewards from your own stake (stakers get their proportional share)
-- Value of 0: You share all rewards proportionally with stakers
-- Most public bakers use the default of 1
+- Your fee on staker rewards (similar to a delegation fee)
+- Value of 1 (100%): You keep all staker rewards as fee (stakers receive nothing)
+- Value of 0.1 (10%): You take 10% fee, stakers keep 90% of their proportional rewards
+- Value of 0: No fee, stakers receive their full proportional rewards
+- Public bakers typically set this lower (e.g., 0.05-0.15) to attract stakers
 
 Configure these via [TezGov](https://gov.tez.capital) or CLI. Changes take effect after 5 cycles (~5 days).
 
