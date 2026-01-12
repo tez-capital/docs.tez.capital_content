@@ -54,6 +54,10 @@ wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/insta
 # you may be prompted for sudo password
 ```
 
+> **💡 TIP: Refresh Your Shell Path**
+>
+> After updating the tezbake binary, run `hash -r` to refresh your shell's command path cache. This ensures your shell uses the newly installed version immediately.
+
 Then update the rest of the TezBake software stack:
 
 ```bash

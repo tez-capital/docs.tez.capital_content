@@ -16,6 +16,14 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 >
 > TezSign is provided without any guarantee. Use it at your own risk.
 
+> **⚠️ KNOWN ISSUE: Multiple Bakers on One Device**
+>
+> Running multiple bakers (e.g., mainnet + testnet) on a single TezSign device can cause occasional missed attestations (1-2 per few hours). If you bake for multiple networks:
+> * Use a **dedicated TezSign device** for each network
+> * Or accept occasional misses on the less critical network
+>
+> Single-baker setups (one baker with consensus + companion keys) are **not affected**.
+
 ## Table of Contents
 
 1. [Phase 0: Purchase SBC and image SD card](#phase-0-purchase-sbc-and-image-sd-card)
@@ -107,6 +115,13 @@ Before being able to initialize the device you must enable your computer to see 
 curl -fsSL https://raw.githubusercontent.com/tez-capital/tezsign/refs/heads/main/tools/add_udev_rules.sh | sudo bash
 sudo usermod -aG plugdev $USER
 ```
+
+> **⚠️ Ubuntu Username Issue**
+>
+> Ubuntu does not allow capital letters in usernames. If you encounter an error creating the `TDU_tezsign` service user, run:
+> ```bash
+> sudo useradd -r -s /usr/sbin/nologin TDU_tezsign --force-badname
+> ```
 
 Log out and log back in to make sure the new settings are effective.
 
@@ -241,6 +256,10 @@ companion
 > * Resume by USB Device / Power On by USB: **Enabled**
 >
 > These settings prevent your USB port from entering power-saving mode and shutting down the TezSign gadget.
+>
+> **💡 TIP: USB 2.0 vs USB 3.0**
+>
+> If you experience intermittent connection issues, try using a **USB 2.0 port** instead of USB 3.0. Some USB 3.0 controllers have compatibility issues with certain devices. USB 2.0 ports are often more reliable for TezSign communication.
 
 To register your keys on-chain (via [TezGov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
 
@@ -249,6 +268,14 @@ tezbake tezsign status --full
 ```
 
 The easiest way to activate your newly generated keys is by using the [TezGov](https://gov.tez.capital/) web portal. Connect with your manager Ledger or similar and within the `Baker Management` area, set your consensus and companion key details. You will need your BLpk's, first, and after filling them out, the prompt will ask you for your PoP's.
+
+> **⏱️ Key Activation Timeline**
+>
+> After registering your keys on-chain, they will activate in **2-3 cycles (~2-3 days)**. You can verify the activation status:
+> * On TzKT: `https://tzkt.io/<your_tz1_address>/secondary-keys`
+> * Via CLI: `tezbake info --signer`
+>
+> Your old keys remain active until the new ones take over. Do not remove or change your old signing setup until the new keys are confirmed active.
 
 Bakers must now set their new consensus and companion keys together when changing to tz4 signing at first. Later down the road, you will be able to only rotate your consensus key if so desired. The companion key is a **must** for tz4 BLS signing, to perform the DAL-related duties. When you see "companion," think "DAL." **Consensus and companion always go together.**
 

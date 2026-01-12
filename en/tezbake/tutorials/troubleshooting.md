@@ -51,6 +51,84 @@ mai 20 08:51:43 baker-VirtualBox node[5868]: May 20 08:51:43.267 - node.store: a
 
 ---
 
+## Common Fixes
+
+### Clear Cache
+
+If you encounter plugin or installation issues, clear the AMI cache:
+
+```bash
+ami --erase-cache && sudo ami --erase-cache
+```
+
+### Corrupted Node Storage
+
+If your node won't sync or shows storage errors, you may need to clear the storage and rebootstrap:
+
+```bash
+# Stop the node first
+tezbake stop
+
+# Remove corrupted storage files
+rm -rf /bake-buddy/node/data/.tezos-node/daily_logs \
+       /bake-buddy/node/data/.tezos-node/context \
+       /bake-buddy/node/data/.tezos-node/lock \
+       /bake-buddy/node/data/.tezos-node/store
+
+# Rebootstrap with a rolling snapshot
+tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling --no-check
+```
+
+### Full Disk
+
+Check disk usage and identify large directories:
+
+```bash
+# Check overall disk space
+df -hT
+
+# Check TezBake directory sizes
+du -sh /bake-buddy/node/data/.*
+```
+
+A rolling node should typically be under 100GB. If significantly larger, clear the storage and rebootstrap with a rolling snapshot as shown above.
+
+### Update eli (Lua Interpreter)
+
+If you encounter "illegal instruction" or other low-level errors, update eli:
+
+```bash
+# Check current version
+eli -v
+
+# Update to latest
+wget -q https://raw.githubusercontent.com/alis-is/eli/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+```
+
+eli version should be `0.36.3` or higher.
+
+### Shell Path Issues After Update
+
+If `tezbake` commands fail after an update, refresh your shell's path cache:
+
+```bash
+hash -r
+```
+
+This is needed because tezbake moved to `/usr/local/bin/tezbake`.
+
+### TezSign USB Issues
+
+If your TezSign device becomes unresponsive or you see timeout errors, try resetting the USB port before rebooting the machine:
+
+```bash
+tezbake tezsign advanced usb-port-reset
+```
+
+This often recovers the device without requiring a full system restart.
+
+---
+
 ## Related Guides
 
 **Setup & Operations:**

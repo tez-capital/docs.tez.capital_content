@@ -119,6 +119,15 @@ mode: auto
 }
 ```
 
+> **⚠️ SECURITY WARNING: Private Mode**
+>
+> In **private** mode, anyone with access to your TezPeak instance can **control your baker** (start, stop, and manage services). Only use private mode when:
+> - TezPeak is bound to `127.0.0.1` (localhost only), or
+> - TezPeak is behind a firewall/VPN and not publicly accessible
+>
+> If you need remote access, use `public` mode and manage your baker via CLI when needed.
+```
+
 ## Start TezPeak and connect to it
 
 ```bash

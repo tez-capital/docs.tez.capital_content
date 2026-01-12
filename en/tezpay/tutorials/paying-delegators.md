@@ -167,6 +167,14 @@ Running in continual mode will start its first payment a little bit after the cu
 
 If you would like to start in continual mode but still need to pay your delegators for last cycle, run the command from Step 3. first and then launch TezPay in continual mode.
 
+> **⚠️ IMPORTANT: Protocol Upgrades**
+>
+> TezPay continual mode will **stop** when a Tezos protocol upgrade occurs. After a protocol upgrade:
+> 1. Run a dry-run for the first cycle after the upgrade: `./tezpay generate-payouts`
+> 2. Check for any errors in the output
+> 3. If successful, manually pay the first cycle: `./tezpay pay`
+> 4. Restart continual mode: `./tezpay continual`
+
 ---
 
 ## Summary: TezPay

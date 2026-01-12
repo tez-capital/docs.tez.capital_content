@@ -76,6 +76,7 @@ modules: {
         applications: {
 # path to tezpay ami package, either absolute or relative to parent directory peak
             # `pay` is the correct value to use when both tezpay and tezpeak are installed as modules within tezbake instance.
+            # ⚠️ IMPORTANT: Use "pay" NOT "tezpay" when using TezBake integration!
             tezpay: pay
         }
         payout_wallet: tz1X7U9XxVz6NDxL4DSZhijME61PW45bYUJE

@@ -28,10 +28,18 @@ With the [Adaptive Issuance](https://research-development.nomadic-labs.com/adapt
 Bakers control whether and how much external stake they accept via two parameters:
 
 **`limit_of_staking_over_baking`** (default: 0, max: 9)
-- Defines how much external stake you accept relative to your own stake
+- Defines how much external stake you accept relative to your own frozen stake
 - Default of 0 means you reject all external stakers
-- Setting to 5 means you accept up to 5x your own stake from stakers
-- Example: If you stake 10,000 XTZ with limit=5, you can accept up to 50,000 XTZ from stakers
+- Setting to 5 means you accept up to 5x your own frozen stake from stakers
+- Example: If you have 10,000 XTZ frozen stake with limit=5, you can accept up to 50,000 XTZ from stakers
+
+> **💡 Understanding Capacity Limits**
+>
+> Bakers have two independent capacity limits:
+> * **Staking limit**: Up to 9x your own frozen stake (controlled by `limit_of_staking_over_baking`)
+> * **Delegation limit**: Up to 9x your own frozen stake (protocol-enforced, always active)
+>
+> These limits are **independent** - accepting stakers does not reduce your delegation capacity. A baker with 10,000 XTZ frozen stake could theoretically accept up to 90,000 XTZ in stakers AND 90,000 XTZ in delegations (if both limits are maxed).
 
 **`edge_of_baking_over_staking`** (default: 1, range: 0-1)
 - Controls how staking rewards are split between you and your stakers

@@ -257,6 +257,23 @@ This section will review how to setup the configuration file
 10. This section refers to network parameters to fetch information about
     the baker in order to compile rewards and payouts **Do not edit
     unless you are an experienced user**
+
+> **💡 TIP: Configure Multiple RPCs for Reliability**
+>
+> To avoid RPC failures during payouts, configure multiple RPC endpoints in your `config.hjson`:
+> ```hjson
+> network: {
+>     rpc_pool: [
+>         "https://rpc.tzkt.io/mainnet"
+>         "https://rpc.tzbeta.net/"
+>         "https://eu.rpc.tez.capital"
+>         "https://us.rpc.tez.capital"
+>         "https://prod.tcinfra.net/rpc/mainnet"
+>     ]
+>     tzkt_url: "https://api.tzkt.io"
+> }
+> ```
+> TezPay will automatically try the next RPC if one fails.
 11. Over delegation projection prohibits you from over paying beyond
     your delegation limit **Do not edit unless you are an experience
     user**

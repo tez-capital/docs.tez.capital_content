@@ -41,6 +41,17 @@ TezGov allows you to participate in Tezos proposal voting with your Ledger hardw
 
 **In order to vote using your Ledger device, you must have the Tezos wallet app installed and open on your Ledger device. If you have the baking app open, you will not be able to vote**
 
+> **⚠️ WARNING: "Transaction Not Trusted" Error**
+>
+> If you're voting from your baking machine while your baker is running, you may see a "Transaction Not Trusted" warning. This occurs because the new Ledger Wallet app cannot share the device with a running baker process.
+>
+> **Solution:**
+> 1. Stop your baker: `tezbake stop`
+> 2. Vote via TezGov
+> 3. Restart your baker: `tezbake start`
+>
+> Alternatively, use a secondary Ledger with the same seed on a different machine to avoid stopping your baker.
+
 ---
 
 ## TezGov Web Portal
