@@ -97,6 +97,7 @@ Example for Node:
 tezbake setup --node \
   --node-remote user@192.168.1.60:22 \
   --node-remote-auth key:/path/to/ssh/key
+  --node-remote-elevate sudo
 ```
 
 > **💡 TIP:** You can combine both in a single command.
