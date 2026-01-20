@@ -54,7 +54,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 # you may be prompted for sudo password
 ```
 
