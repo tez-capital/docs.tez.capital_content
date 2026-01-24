@@ -42,6 +42,14 @@ All `tezbake` commands available for the default instance can be run on a named 
 tezbake instance <alias> <any-tezbake-command>
 ```
 
+Alternatively, if you run:
+
+```bash
+tezbake instance <alias>
+```
+
+you will enter an interactive environment for that instance. All subsequent commands will be executed for the given instance only, until you exit the environment by typing `exit`.
+
 **Examples:**
 
 Start the 'ghostnet' instance:
