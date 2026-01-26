@@ -10,8 +10,12 @@ summary: Integrating TezPay with TezBake
 | Task                           | Command                               |
 | ------------------------------ | ------------------------------------- |
 | Install TezPay Module          | `tezbake setup --pay`                 |
+| Upgrade TezPay Only            | `tezbake upgrade --pay`               |
 | Verify Installation            | `tezbake apps`                        |
 | Generate Payouts               | `tezbake pay generate-payouts`        |
+| Pay Delegators                 | `tezbake pay pay`                     |
+| Pay with Previous Cycles       | `tezbake pay pay --include-previous-cycles N` |
+| View TezPay Logs               | `tezbake pay log` or `tezbake pay log -f` |
 | Check Continual Payout Status  | `tezbake pay continual status`      |
 | Enable Continual Payouts       | `tezbake pay continual enable`      |
 | Disable Continual Payouts      | `tezbake pay continual disable`     |
@@ -163,6 +167,58 @@ Continual payouts are initially disabled.
 - **Stop TezPay:**
   - direct: `tezbake pay stop`
   - combined: `tezbake stop --pay`
+
+---
+
+## Protocol Upgrade Handling
+
+TezPay automatically pauses continual payouts when a Tezos protocol upgrade occurs. This is a safety feature to ensure payout accuracy under the new protocol.
+
+### What Happens During Protocol Upgrades
+
+1. TezPay detects the protocol change
+2. Continual mode stops processing payments
+3. The service remains running but inactive
+
+### Restart Procedure After Protocol Upgrade
+
+1. **Update TezPay to the latest version:**
+
+   ```bash
+   tezbake upgrade --pay
+   ```
+
+2. **Run a dry-run to verify payouts:**
+
+   ```bash
+   tezbake pay generate-payouts
+   ```
+
+3. **Check for any errors in the output**
+
+4. **If satisfied, restart the service:**
+
+   ```bash
+   tezbake start --pay
+   ```
+
+> **Note:** The service may already be running but not processing. The start command ensures it resumes processing.
+
+---
+
+## Catching Up Missed Payments
+
+If payments were missed (due to downtime, protocol upgrades, or errors), use the `--include-previous-cycles` flag:
+
+```bash
+# Check last 5 cycles for missed payments (dry run first)
+tezbake pay generate-payouts --include-previous-cycles 5
+
+# Actually pay missed cycles
+tezbake pay pay --include-previous-cycles 5
+```
+
+This scans previous cycles for any payouts that weren't completed and includes them in the current batch.
 
 ---
 
