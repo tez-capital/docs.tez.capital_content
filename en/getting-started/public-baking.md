@@ -7,7 +7,7 @@ summary: How to Setup a Public Baker on Tezos
 
 ## Public Baking
 
-Public baking and private baking are the same thing from the perspective of the blockchain. The only difference is that a public baker has announced themselves to the Tezos community and is willing to accept delegations. A private baker is not willing to accept delegations from delegators. A private baker cannot stop these delegations from occuring but a private baker is not expected to pay out rewards to delegators.
+Public baking and private baking are the same thing from the perspective of the blockchain. The only difference is that a public baker has announced themselves to the Tezos community and is willing to accept delegations. A private baker is not willing to accept delegations from delegators. A private baker cannot stop these delegations from occurring but a private baker is not expected to pay out rewards to delegators.
 
 ### What is Delegation?
 

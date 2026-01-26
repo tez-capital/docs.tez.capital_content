@@ -105,7 +105,7 @@ you can open file in GitHub and copy text to a text editor*.
 
 1. Simple Config file : config.default.hjson (basic arguments to run
     Tezpay)
-2. Full Config: config.sample.hjson (advanced arguements to run
+2. Full Config: config.sample.hjson (advanced arguments to run
     Tezpay)
 
 | ![Repository with configuration Files.](/tezpay/tutorial/tezpayImage5.png) |

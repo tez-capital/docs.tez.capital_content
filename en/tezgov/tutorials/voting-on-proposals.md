@@ -12,7 +12,7 @@ Follow along on Youtube!
 
 The Tezos proposal process consists of 5 stages, each of which lasts for 14 cycles (~14 days). Briefly, the proposal process is as follows:
 
-1. *Proposal.* If no proposal gets more than 5% of the state to vote for it, the proposal process repeats indefinitely. As soon as a proposal gets 5% of the state to vote for it, the proposal process moves to the next stage. In cases where there are multiple 5%+ proposals on the table, the proposal with the most votes wins.
+1. *Proposal.* If no proposal gets more than 5% of the stake to vote for it, the proposal process repeats indefinitely. As soon as a proposal gets 5% of the stake to vote for it, the proposal process moves to the next stage. In cases where there are multiple 5%+ proposals on the table, the proposal with the most votes wins.
 2. *Exploration* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
 3. *Cooldown* The proposal is tested on a dedicated test network to make sure it migrates and runs. Dapp developers make sure this proposal doesn't break their dapps.
 4. *Promotion* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
@@ -62,7 +62,7 @@ Log into the TezGov portal by using the most secure method available to you.
 
 * **We highly recommend using the direct Ledger login at the top. This method allows you to see the specific details of your vote on your Ledger screen.**
 * Use the Remote (signer) method if you have a signer somewhere on your LAN or local computer. This is an option for advanced users.
-* Use the Beacon method if you are using a Beacon enabled wallet like Temple or Kukai. In this case you will not see the exact details of your vote on your Ledger screen and you will instead be asked to sign an arbitrary blob message. This method also works fine but it is inherently less secure than the direct Ledger method
+* Use the Beacon method if you are using a Beacon-enabled wallet like Temple or Kukai. In this case you will not see the exact details of your vote on your Ledger screen and you will instead be asked to sign an arbitrary blob message. This method also works fine but it is inherently less secure than the direct Ledger method.
 
 ![TezGov login home screen](/tezgov/tutorial/tezgovHome.png)
 
@@ -88,7 +88,7 @@ After finished, you'll be able to click on the confirmation link for your vote.
 
 ### Cooldown Period
 
-During the cooldown period you will period name `Cooldown` in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
+During the cooldown period you will see the period name `Cooldown` in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
 
 ![TezGov Cooldown period](/tezgov/tutorial/tezgovCooldown.png)
 

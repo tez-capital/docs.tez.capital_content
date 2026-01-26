@@ -208,7 +208,7 @@ Depending on the context of your setup, you will determine how to name your TezS
 
 When you're first switching to a new consensus key or to tz4 baking, you will already have a key called `baker`. This is the default key that always gets used in TezBake. In addition to this key, you will also import your consensus and companion keys, from TezSign. Once you are actively using your TezSign keys, you can then import the `consensus` key as the `baker` key as described below.
 
-If you're aleady baking using tz4 keys, it's recommended to alias your `consensus` key on the TezSign signer to the `baker` key.
+If you're already baking using tz4 keys, it's recommended to alias your `consensus` key on the TezSign signer to the `baker` key.
 
 The desired end stake of your TezBake signing experience is to use `baker` for `consensus` and to use the TezSign backend directly (see below). This way there are no missing keys reported by `tezbake info`. You need to ensure the migration to this desired state is performed one step at a time, respecting the in-between states.
 

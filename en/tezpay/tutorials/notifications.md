@@ -7,7 +7,7 @@ summary: How to setup notifications using TezPay
     
 ### Summary
 
-Notifications can be automatically sent out when payouts are generated using TezPay. The text are configured in the config.json file, however there are preliminary steps needed inorder to be able to utilize these features. This section will review the necessary steps and information needed from platforms that allow for auto-notifications sent via TezPay. **This tutorial is meant for individuals that have zero experience with interacting with these systems - feel free to skip sections if you are an advanced user.**
+Notifications can be automatically sent out when payouts are generated using TezPay. The text are configured in the config.json file, however there are preliminary steps needed in order to be able to utilize these features. This section will review the necessary steps and information needed from platforms that allow for auto-notifications sent via TezPay. **This tutorial is meant for individuals that have zero experience with interacting with these systems - feel free to skip sections if you are an advanced user.**
 
 ---
 
@@ -22,7 +22,7 @@ A Baker can use TezPay to automatically send notifications that payments have be
 
 In order to setup twitter, be sure you are signed in on a browser window to your twitter account.
 
- 1. While being signed into Twitter in a seperate browser, navigate to <https://developer.twitter.com/> and select 'Developer Portal' in the top menu- the developer portal site where you will set up your development account and get the required information for the config.json file and set up permissions.
+ 1. While being signed into Twitter in a separate browser, navigate to <https://developer.twitter.com/> and select 'Developer Portal' in the top menu- the developer portal site where you will set up your development account and get the required information for the config.json file and set up permissions.
    ![Navigate to the Twitter Development Portal website](/tezpay/tutorial/twitterNotificationimage0.png)
 
  2. You will then need to fill in some basic information in order to enable the Development Portal profile to be active. be sure that all of the information is correct (if you use multiple twitter accounts be sure the one you want to enable for notifications is the correct one).
@@ -37,7 +37,7 @@ In order to setup twitter, be sure you are signed in on a browser window to your
  5. Once you verify your email - this will automatically link you back to your Developer Portal Site and prompt you for an 'App Name' (see TezPay Notif in screen capture).
    ![Name your APP on Twitter Development Portal website](/tezpay/tutorial/twitterNotificationimage4.png)
 
- 6. Once you name your App - you will be given 3 seperate Keys. These will be used to inorder to call the Twitter profile that you are looking to send Notifcations to - and sign for the permissions. Be sure to have these saved in a secure place - they will be used later. Once you have the keys secured, click 'Dashboard' button in lower right.
+ 6. Once you name your App - you will be given 3 separate Keys. These will be used in order to call the Twitter profile that you are looking to send Notifcations to - and sign for the permissions. Be sure to have these saved in a secure place - they will be used later. Once you have the keys secured, click 'Dashboard' button in lower right.
    ![Save the Keys for your Twitter Development Profile and App](/tezpay/tutorial/twitterNotificationimage5.png)
 
  7. You will now be in your Twitter Development Dashboard and see the App you created (for this example TezPayNotifs). Click the 'gear' icon to continue set-up.
@@ -56,7 +56,7 @@ In order to setup twitter, be sure you are signed in on a browser window to your
         ![Select the outlined toggles under App Permissions & Type of App, then fill in a website for App Info](/tezpay/tutorial/twitterNotificationimage8.png)
 
  10. You will then get your Client ID and Client Secret - copy and save both of these with your other Keys attained earlier. Click 'Done'
-    ![Copy the Cliend ID and Client Secret](/tezpay/tutorial/twitterNotificationimage9.png)
+    ![Copy the Client ID and Client Secret](/tezpay/tutorial/twitterNotificationimage9.png)
 
  11. This will bring you back to the main screen of the App - navigate to the 'Keys and Tokens' toggle at the top of the page. Now, 'Generate' an Access Token and secret - write these down and then once you have confirmed you will be ready to edit the config.json in TezPay. Note - be sure the Access Token and Secret has 'read and write' permission (see image below). For the Next step - setting up the config.json - you will need four items:
         a. API Key and Secret (also known as Consumer Key/Secret)
