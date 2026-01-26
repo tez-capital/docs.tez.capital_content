@@ -97,6 +97,7 @@ During the cooldown period you will period name `Cooldown` in the middle of the 
 ## Related Guides
 
 * [Injecting Proposals](/tezgov/tutorials/injecting-proposals/) - Submit new proposals
+* [Managing Baker Settings](/tezgov/tutorials/managing-baker-settings/) - Configure staking parameters and keys
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Set up your baker
 * [What is Baking?](/getting-started/what-is-baking/) - Understand Tezos consensus
 

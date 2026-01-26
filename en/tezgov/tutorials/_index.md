@@ -7,8 +7,20 @@ summary: Guides for participating in Tezos governance and managing your baker
 **TezGov**
 ---
 
-*A proposal governance took as well as a delegator Swiss Army Knife*
+*A governance portal and baker management Swiss Army Knife*
 
-<https://gov.tez.capital> is a Tezos delegate proposal portal as well as a Tezos staker and delegator swiss army knife tools, which exposes all the staking and delegation features of the Tezos blockchain in a simple and easy to use interface.
+<https://gov.tez.capital> is a Tezos delegate portal that provides:
+
+- **Governance**: Vote on protocol proposals, submit new proposals
+- **Baker Management**: Set staking parameters, fees, consensus keys
+- **Staking**: Stake, unstake, and finalize unstake operations
+- **Maintenance**: Reactivate inactive bakers
 
 ## Tutorials
+
+### Governance
+- [Voting on Proposals](/tezgov/tutorials/voting-on-proposals/) - Cast your vote on protocol upgrades
+- [Injecting Proposals](/tezgov/tutorials/injecting-proposals/) - Submit new protocol proposals
+
+### Baker Management
+- [Managing Baker Settings](/tezgov/tutorials/managing-baker-settings/) - Configure staking parameters, keys, and reactivation
