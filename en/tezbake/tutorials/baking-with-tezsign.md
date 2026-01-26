@@ -42,20 +42,25 @@ Generally speaking, the Radxa Zero 3 (the lowest available configuration) as wel
 
 ### Sample shopping lists
 
-Radxa Zero 3
+#### General Supplies (for both RPi and Radxa)
+
+   1. **Dual Micro SD Card Reader** (2 slots) - For easy SD card cloning and backups. Having two slots allows direct card-to-card cloning without intermediate steps. <https://a.co/d/iOrBvk6> or similar dual-slot reader.
+   2. High-endurance Micro SD Cards (8GB+) - Get at least 3: one for baking, one backup clone, one spare. Samsung PRO Endurance or SanDisk Max Endurance or similar recommended.
+
+#### Radxa Zero 3
 
    1. Radxa ZERO 3W RK3566 4-core CPU SBC, GPU, NPU, HDMI with 1080P Output, and WiFi 6 & BT 5.4, Single Board Computer <https://www.aliexpress.us/item/3256807428419499.html?gatewayAdapt=glo2usa4itemAdapt>
    2. Radxa Heatsink 5519A, Designed for Radxa ZERO 3W / 3E, Easy to Install and Remove. <https://www.aliexpress.us/item/3256806829446736.html?gatewayAdapt=glo2usa4itemAdapt>
-   3. USB A to USB C Cable10Gbps Data Transfer and 60W 3A Fast Charging Cable USBC 3.1/3.2 Cable <https://www.aliexpress.us/item/3256805660336073.html?spm=a2g0o.productlist.main.11.31ce63d3dP4ICu>
-   4. OPTIONAL: micro HDMI to HDMI cable <https://www.walmart.com/ip/Micro-USB-to-HDMI-Cable-Micro-USB-to-HDMI-Adapters-Black-E7Z3/10094271646> or some equivalent micro HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
-   5. OPTIONAL: Radxa Power PD 30W <https://radxa.com/products/accessories/power-pd-30w/> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provided consistent power. A powered USB hub can also be used.*
+   3. USB A to USB C Cable 10Gbps Data Transfer and 60W 3A Fast Charging Cable USBC 3.1/3.2 Cable <https://www.aliexpress.us/item/3256805660336073.html?spm=a2g0o.productlist.main.11.31ce63d3dP4ICu>
+   4. OPTIONAL: micro HDMI to HDMI cable <https://www.walmart.com/ip/Micro-USB-to-HDMI-Cable-Micro-USB-to-HDMI-Adapters-Black-E7Z3/10094271646> or some equivalent micro HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiosity purposes.*
+   5. OPTIONAL: Radxa Power PD 30W <https://radxa.com/products/accessories/power-pd-30w/> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provide consistent power. A powered USB hub can also be used.*
 
-Raspberry Pi Zero 2W
+#### Raspberry Pi Zero 2W
 
    1. Raspberry Pi Zero 2 W (add case & heatsink) <https://www.pishop.us/product/raspberry-pi-zero-2-w/>
    2. CableCreation Short Micro USB Cable, USB to Micro USB 24 AWG Triple Shielded Fast Charger Cable, Compatible with PS5/PS4, Raspberry Pi Zero, Chromecast, Phone, 0.5FT/6 inch Black <https://www.amazon.com/CableCreation-Charger-Compatible-Chromecast-Android/dp/B013G4EAEI>
-   3. OPTIONAL: mini HDMI to HDMI cable <https://www.walmart.com/ip/4K-HDMI-2-0-Cable-6ft-High-Speed-18Gbps-Mini-HDMI-HDMI-Cable-4K-60Hz-HDR-3D-2160P-1080P-Ethernet-Braided-Cord-32AWG-Audio-Return-ARC-Compatible-MacBo/14899622631> or some equivalent mini HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiocity purposes.*
-   4. OPTIONAL: Rasberry Pi power supply <https://www.canakit.com/raspberry-pi-adapter-power-supply-2-5a.html> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provided consistent power. A powered USB hub can also be used.*
+   3. OPTIONAL: mini HDMI to HDMI cable <https://www.walmart.com/ip/4K-HDMI-2-0-Cable-6ft-High-Speed-18Gbps-Mini-HDMI-HDMI-Cable-4K-60Hz-HDR-3D-2160P-1080P-Ethernet-Braided-Cord-32AWG-Audio-Return-ARC-Compatible-MacBo/14899622631> or some equivalent mini HDMI dongle or cable for your setup. *Buy this only if you want to see what the screen of your TezSign gadget is showing, for development or curiosity purposes.*
+   4. OPTIONAL: Raspberry Pi power supply <https://www.canakit.com/raspberry-pi-adapter-power-supply-2-5a.html> *An independent power source to the device has been shown to resolve certain edge cases where the OTG USB power does not provide consistent power. A powered USB hub can also be used.*
 
 ### Download gadget image and flash SD card
 
@@ -101,11 +106,15 @@ tezbake setup-tezsign --init --platform
 
 ## Phase 2: Device Preparation
 
-Please note that it's highly recommended to complete this step on a machine separate from your TezBake baking machine. This ensures the highest level of security.
+Please note that it's highly recommended to complete this step on a clean machine separate from your TezBake baking machine. This ensures the highest level of security. 
 
-Use the companion app to complete the setup, available here: [TezSign Releases](https://github.com/tez-capital/tezsign/releases)
+When considering whether to use your baking machine (with TezBake on it) itself or a separate machine to setup your TezSign gadget, consider which machine is less likely to be compromised. A newly setup Linux machine is preferred. If that's not an option, use the machine that has the lowest risk profile. For example, your baking machine with just tezbake on it is often a better option than your daily driver machine because it doesn't browse the internet or download any applications.
 
-Command examples are provided for using the companion app and TezBake, if you go for the ease of setup.
+When using a separate setup machine, download the companion app to complete the setup, available here: [TezSign Releases](https://github.com/tez-capital/tezsign/releases) *(the companion app filename starts with `tezsign-host-`)*
+
+When using TezBake itself to setup your TezSign gadget, you'll be using `tezbake tezsign *` commands directly on your baking machine and downloading the companion app is not necessary (i.e., the companion app is already a part of TezBake, just like TezPay and TezPeak).
+
+Command examples are provided for using the companion app and TezBake.
 
 ### 1. Initialize device
 
@@ -118,16 +127,15 @@ sudo usermod -aG plugdev $USER
 
 > **⚠️ Ubuntu Username Issue**
 >
-> Ubuntu does not allow capital letters in usernames. If you encounter an error creating the `TDU_tezsign` service user, run:
-> ```bash
-> sudo useradd -r -s /usr/sbin/nologin TDU_tezsign --force-badname
-> ```
+> Ubuntu does not allow capital letters in usernames.
 
 Log out and log back in to make sure the new settings are effective.
 
-Connect your TezSign device to your workstation and run:
+Connect your TezSign device to your workstation or baker and run:
 
 ```bash
+# PLEASE NOTE YOU WILL BE USING EITHER THE TOP COMMAND OR THE BOTTOM COMMAND DEPENDING WHERE YOU'RE SETTING UP THE GADGET
+#
 # Using companion app
 ./tezsign-host init
 # Using TezBake
@@ -171,7 +179,20 @@ In this example, we generate two keys named "consensus" and "companion". You can
 
 ## Phase 3: Node Configuration
 
-### 1. Import Keys to TezBake client
+### 1. Enable USB Access on the Baking Machine
+
+Before the baking machine can communicate with your TezSign gadget, you must install the udev rules and add your user to the correct group.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tez-capital/tezsign/refs/heads/main/tools/add_udev_rules.sh | sudo bash
+sudo usermod -aG plugdev $USER
+```
+
+Log out and log back in to apply the group membership changes.
+
+> **ℹ️ INFO:** This step is required on any machine that will communicate with the TezSign device, including your baking machine.
+
+### 2. Import Keys to TezBake client
 
 Link the keys stored on your TezSign device to TezBake's configuration using local aliases.
 
@@ -208,7 +229,7 @@ tezbake setup-tezsign --import-key=companion --key-alias=companion
 > * Ensure your `--key-alias` does not conflict with existing keys you wish to keep
 > * Use the `--force` flag only if you intend to overwrite an existing alias
 
-### 2. Import Keys to TezBake node and signer
+### 3. Import Keys to TezBake node and signer
 
 To bake with multiple keys (e.g., separate keys for consensus and DAL), you must register them in the node configuration.
 
@@ -234,7 +255,7 @@ companion
 
 > The consensus keys is not listed because it's the default assumed baking key by TezBake
 
-### 3. Retrieve Public Keys & Proofs & Register them on the chain
+### 4. Retrieve Public Keys & Proofs & Register them on the chain
 
 > **⚠️ WARNING: Testing & Power Considerations**
 >
@@ -288,7 +309,7 @@ tezbake signer client set consensus key for baker to consensus --consensus-key-p
 tezbake signer client set companion key for baker to companion --companion-key-pop BLsig9xyDJ29WjExJgRAvPXrD5u46aTn1uEmrhz12VKXtrUSzP34FCqgUF56L3otpzB1kLuzUCaLk2tzT2309GKLDgj209jeslkjes3mr43590jfgLKDJd09j3092jLKDFJnlksjodijF3
 ```
 
-### 4. Reconfigure
+### 5. Reconfigure
 
 ```bash
 tezbake upgrade
