@@ -64,7 +64,7 @@ Generally speaking, the Radxa Zero 3 (the lowest available configuration) as wel
 
 ### Download gadget image and flash SD card
 
-Navitate to the release page and download the latest image for your RPI or Radxa device: [TezSign Releases](https://github.com/tez-capital/tezsign/releases)
+Navigate to the release page and download the latest image for your RPI or Radxa device: [TezSign Releases](https://github.com/tez-capital/tezsign/releases)
 
 Once downloaded, extract the image. The image will be around 1.5GB - 2GB once it's been extracted.
 
@@ -106,15 +106,17 @@ tezbake setup-tezsign --init --platform
 
 ## Phase 2: Device Preparation
 
-Please note that it's highly recommended to complete this step on a clean machine separate from your TezBake baking machine. This ensures the highest level of security. 
+> **🖥️ WHERE: Separate Trusted Machine (Recommended)**
+>
+> It's highly recommended to complete this step on a clean machine separate from your TezBake baking machine for maximum security. If that's not an option, your baking machine is acceptable.
+>
+> **Why separate?** A machine that doesn't browse the internet or download applications has a lower risk of compromise. Your baking machine with only TezBake installed is often safer than a daily driver machine.
 
-When considering whether to use your baking machine (with TezBake on it) itself or a separate machine to setup your TezSign gadget, consider which machine is less likely to be compromised. A newly setup Linux machine is preferred. If that's not an option, use the machine that has the lowest risk profile. For example, your baking machine with just tezbake on it is often a better option than your daily driver machine because it doesn't browse the internet or download any applications.
+When using a **separate setup machine**, download the companion app: [TezSign Releases](https://github.com/tez-capital/tezsign/releases) *(filename starts with `tezsign-host-`)*
 
-When using a separate setup machine, download the companion app to complete the setup, available here: [TezSign Releases](https://github.com/tez-capital/tezsign/releases) *(the companion app filename starts with `tezsign-host-`)*
+When using **TezBake itself** to setup your TezSign gadget, use `tezbake tezsign *` commands directly—the companion app is already included (no separate download needed).
 
-When using TezBake itself to setup your TezSign gadget, you'll be using `tezbake tezsign *` commands directly on your baking machine and downloading the companion app is not necessary (i.e., the companion app is already a part of TezBake, just like TezPay and TezPeak).
-
-Command examples are provided for using the companion app and TezBake.
+Command examples are provided for both the companion app and TezBake.
 
 ### 1. Initialize device
 
@@ -180,6 +182,10 @@ In this example, we generate two keys named "consensus" and "companion". You can
 > Now that your keys are on the TezSign device, use Balena Etcher or similar tool to clone the SD card. This backup will allow you to quickly recover if your original SD card fails.
 
 ## Phase 3: Node Configuration
+
+> **🖥️ WHERE: Your Baker Machine**
+>
+> All commands in Phase 3 and beyond run on your **TezBake baker machine**. Plug your TezSign device into this machine now.
 
 ### 1. Enable USB Access on the Baking Machine
 
@@ -280,9 +286,32 @@ companion
 >
 > These settings prevent your USB port from entering power-saving mode and shutting down the TezSign gadget.
 >
-> **💡 TIP: USB 2.0 vs USB 3.0**
+> **⚠️ USB 3.0 (xHCI) Compatibility Issues**
 >
-> If you experience intermittent connection issues, try using a **USB 2.0 port** instead of USB 3.0. Some USB 3.0 controllers have compatibility issues with certain devices. USB 2.0 ports are often more reliable for TezSign communication.
+> TezSign USB gadget mode may have issues with USB 3.0 (xHCI) controllers. Symptoms include:
+> * `error -110` (timeout) or `error -62` (device not accepting address) in `dmesg`
+> * Device never appears in `lsusb`
+> * 5-second timeout errors
+>
+> **Solutions (try in order):**
+>
+> 1. **Use a USB 2.0 port** if your machine has one (check `lspci | grep -i usb` for EHCI)
+>
+> 2. **Use a USB 2.0 hub** (NOT 3.0) between host and TezSign device—this forces USB 2.0 negotiation
+>
+> 3. **BIOS settings** (especially for Intel NUC):
+>    * Disable "xHCI Mode" or set to "Auto"
+>    * Disable "USB Power Saving" / "USB Suspend"
+>    * Enable "Legacy USB Support"
+>    * Set USB port power to "Always On"
+>
+> To enter BIOS from Linux: `sudo systemctl reboot --firmware-setup`
+>
+> 4. **USB Reset Command** if device stops responding:
+>    ```bash
+>    tezbake tezsign advanced usb-port-reset
+>    tezbake stop --signer && tezbake start --signer
+>    ```
 
 To register your keys on-chain (via [TezGov](https://gov.tez.capital/) or `octez-client`), you need the Public Key (BLpk) and the Proof of Possession (PoP)
 
@@ -432,6 +461,38 @@ tezbake upgrade --signer
 ```bash
 tezbake stop && tezbake start
 ```
+
+---
+
+## Disaster Recovery & Failover
+
+### Backup Your SD Card
+
+After successful setup, **immediately clone your SD card**:
+
+**Using Balena Etcher (recommended):**
+1. Select "Clone Drive"
+2. Choose source SD card → destination SD card
+3. Store backup in a safe location
+
+**Using dd:**
+```bash
+sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
+```
+
+> **💡 TIP:** Keep at least 2 backup SD cards. Data on the card is encrypted with your master password, so clones are safe to store.
+
+### If Your TezSign Device Fails
+
+1. **Have a backup SD card ready** - Insert your cloned card into a spare device
+2. **Never run two devices with the same keys simultaneously** - This causes double-signing and slashing
+3. If no backup exists, use your manager Ledger via [TezGov](https://gov.tez.capital/) to set a new consensus key (takes 2-3 cycles to activate)
+
+### Recommended Redundancy
+
+* 2 TezSign devices (one active, one backup)
+* 2+ cloned SD cards
+* Test backup periodically by booting on backup device (with primary **unplugged**)
 
 ---
 
