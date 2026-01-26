@@ -85,7 +85,7 @@ The example below displays *arm64*
 If you would rather utilize CLI to download the application you will need
 to change directory (cd) to the TezPay directory created in step 1 in
 the terminal, **then** use command `wget -q
-https://raw.githubusercontent.com/tez-capital/tezpay/main/install.sh -O
+https://pay.tez.capital/install -O
 /tmp/install.sh && sh /tmp/install.sh`
 
 See example code below (*note: input begins after last '%' character*):

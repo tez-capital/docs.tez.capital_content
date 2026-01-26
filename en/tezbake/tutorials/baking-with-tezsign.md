@@ -85,7 +85,7 @@ Once done, plug in the SD card into your gadget and connect it to your baking co
 TezSign support is now available in the latest version of TezBake.
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 ```
 
 Upgrade the instance to ensure all packages are up to date:

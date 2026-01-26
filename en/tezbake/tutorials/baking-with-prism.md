@@ -97,6 +97,7 @@ Example for Node:
 tezbake setup --node \
   --node-remote user@192.168.1.60:22 \
   --node-remote-auth key:/path/to/ssh/key
+  --node-remote-elevate sudo
 ```
 
 > **💡 TIP:** You can combine both in a single command.
@@ -114,7 +115,7 @@ tezbake remove --dal --all
 
 ## Step 3: Edit Application Configurations
 
-### If Node is Public Prism Endpoint
+### If Node is Public Prism Endpoint (DAL ran independently)
 
 **Node's `app.json`:**
 
@@ -142,6 +143,42 @@ tezbake remove --dal --all
     "PRISM": {
       "remote": "<node-ip>:20080",
       "node": true
+    }
+    # ...
+  }
+  # ...
+}
+```
+
+**Signer's `app.json`:**
+
+```yaml
+{
+  "configuration": {
+    # ...
+    "PRISM": {
+      "remote": "<node-ip>:20080",
+      "node": true
+    }
+    # ...
+  }
+  # ...
+}
+```
+
+---
+
+### If Node is Public Prism Endpoint (DAL ran on the same host as the node)
+
+**Node's `app.json`:**
+
+```yaml
+{
+  "configuration": {
+    # ...
+    "PRISM": {
+      "listen": "0.0.0.0:20080",
+      "signer": true
     }
     # ...
   }

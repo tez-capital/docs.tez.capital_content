@@ -2,7 +2,7 @@
 title: "TRD to TezPay Migration"
 weight: 7
 type: docs
-summary: Migrating from TzKT Reward Distributor to TezPay
+summary: Migrating from Tezos Reward Distributor to TezPay
 ---
 
 ## Command Cheatsheet

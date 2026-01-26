@@ -50,7 +50,7 @@ tezbake upgrade
 First update your tezbake binary to the latest version, depending on your computer architecture:
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 # you may be prompted for sudo password
 ```
 
@@ -73,7 +73,7 @@ tezbake upgrade -s
 Update your tezbake binary to the latest version, depending on your computer architecture:
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 # you may be prompted for sudo password
 ```
 

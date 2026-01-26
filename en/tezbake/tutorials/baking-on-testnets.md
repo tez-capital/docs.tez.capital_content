@@ -44,7 +44,7 @@ All advanced TezBake configurations, including TezSign block signing apply here 
 To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 # you may be prompted for sudo password
 ```
 
@@ -52,9 +52,9 @@ wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/insta
 
 ```bash
 # Seoulnet setup:
-tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/seoulnet.json
+tezbake setup --with-dal --node-configuration=https://configs.tez.capital/seoulnet.json
 # Ghostnet setup:
-tezbake setup --with-dal --node-configuration=https://raw.githubusercontent.com/tez-capital/xtz.configs/main/ghostnet.json
+tezbake setup --with-dal --node-configuration=https://configs.tez.capital/ghostnet.json
 # you may be prompted for sudo password
 ```
 
