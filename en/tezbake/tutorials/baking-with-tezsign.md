@@ -44,7 +44,7 @@ Generally speaking, the Radxa Zero 3 (the lowest available configuration) as wel
 
 #### General Supplies (for both RPi and Radxa)
 
-   1. **Dual Micro SD Card Reader** (2 slots) - For easy SD card cloning and backups. Having two slots allows direct card-to-card cloning without intermediate steps. <https://a.co/d/iOrBvk6> or similar dual-slot reader.
+   1. Dual Micro SD Card Reader (2 slots) - For easy SD card cloning and backups. Having two slots allows direct card-to-card cloning without intermediate steps. <https://a.co/d/iOrBvk6> or similar dual-slot reader.
    2. High-endurance Micro SD Cards (8GB+) - Get at least 3: one for baking, one backup clone, one spare. Samsung PRO Endurance or SanDisk Max Endurance or similar recommended.
 
 #### Radxa Zero 3
@@ -158,6 +158,8 @@ tezbake tezsign init
 Generate your baking keys directly on the hardware. In this example, we will generate keys for Consensus and DAL (i.e., companion key).
 
 ```bash
+# PLEASE NOTE YOU WILL BE USING EITHER THE TOP COMMAND OR THE BOTTOM COMMAND DEPENDING WHERE YOU'RE SETTING UP THE GADGET
+#
 # Using companion app
 ./tezsign-host new consensus companion
 # Using TezBake
