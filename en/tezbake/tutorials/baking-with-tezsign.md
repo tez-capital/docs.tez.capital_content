@@ -268,7 +268,7 @@ companion
 > **⚠️ WARNING: Testing & Power Considerations**
 >
 > **Testing Period:**
-> It's highly recommended to setup TezSign, activate it on the blockchain, and wait 2-3 cycles to ensure stability before relying on it for production baking.
+> It's highly recommended to setup TezSign, activate it on the blockchain, and wait 3 cycles to ensure stability before relying on it for production baking.
 >
 > **Power Issues:**
 > In some cases, connecting the TezSign gadget only via the OTG USB port may not provide consistent power, causing the device to go offline. Solutions:
@@ -323,7 +323,7 @@ The easiest way to activate your newly generated keys is by using the [TezGov](h
 
 > **⏱️ Key Activation Timeline**
 >
-> After registering your keys on-chain, they will activate in **2-3 cycles (~2-3 days)**. You can verify the activation status:
+> After registering your keys on-chain, they will activate in **3 cycles (~3 days)**. You can verify the activation status:
 > * On TzKT: `https://tzkt.io/<your_tz1_address>/secondary-keys`
 > * Via CLI: `tezbake info --signer`
 >
@@ -486,7 +486,7 @@ sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
 
 1. **Have a backup SD card ready** - Insert your cloned card into a spare device
 2. **Never run two devices with the same keys simultaneously** - This causes double-signing and slashing
-3. If no backup exists, use your manager Ledger via [TezGov](https://gov.tez.capital/) to set a new consensus key (takes 2-3 cycles to activate)
+3. If no backup exists, use your manager Ledger via [TezGov](https://gov.tez.capital/) to set a new consensus key (takes 3 cycles to activate)
 
 ### Recommended Redundancy
 

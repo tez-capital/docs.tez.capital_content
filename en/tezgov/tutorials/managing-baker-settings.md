@@ -90,7 +90,7 @@ Delegate parameters control how your baker accepts stakers and what fee you char
 ### Important Notes
 
 - **Default state**: By default, stakers are NOT accepted until you explicitly set parameters
-- **Activation delay**: Parameter changes take effect after **2 cycles** (~3 days)
+- **Activation delay**: Parameter changes take effect after **5 cycles** (~5 days)
 - **External stakes**: Until parameters are set, any external stake is treated as delegation
 
 ### CLI Alternative
@@ -171,7 +171,7 @@ Consensus keys allow you to separate your baker's consensus signing from your ma
 
 ### Activation Timeline
 
-- Key changes take effect after **2-3 cycles** (~3-5 days)
+- Key changes take effect after **3 cycles** (~3 days)
 - Check activation status on TezGov or TzKT (Secondary Keys tab)
 - Plan key rotations ahead of time
 
@@ -224,7 +224,7 @@ This occurs because the Ledger Wallet app cannot share the device with a running
 
 ### Parameter Changes Not Taking Effect
 
-- Remember: changes take **2 cycles** to activate
+- Remember: changes take **5 cycles** to activate
 - Verify the transaction was confirmed on-chain (check TzKT)
 - Check your current parameters: `tezbake info`
 
