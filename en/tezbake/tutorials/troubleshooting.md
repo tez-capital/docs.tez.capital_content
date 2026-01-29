@@ -144,5 +144,103 @@ This often recovers the device without requiring a full system restart.
 
 ---
 
+---
+
+## DAL Troubleshooting
+
+The Data Availability Layer (DAL) accounts for ~10% of baking rewards. If your DAL isn't working properly, you're missing out on income.
+
+### Command Translation: Octez → TezBake
+
+When reading official [Octez DAL documentation](https://octez.tezos.com/docs/shell/dal_run.html), translate commands:
+
+| Octez Command | TezBake Equivalent |
+|---------------|-------------------|
+| `octez-client ...` | `tezbake node client ...` |
+| `octez-node config ...` | `tezbake node config ...` |
+
+### Quick DAL Status Check
+
+```bash
+tezbake info --dal
+```
+
+**Note:** "Status down" is normal immediately after start/restart. Give it time to sync.
+
+### Step-by-Step DAL Verification
+
+**1. Check connected peers:**
+```bash
+curl http://localhost:10732/p2p/points/info?connected
+```
+Expected: List of connected DAL nodes. Empty = connection problem.
+
+**2. Check topic subscriptions:**
+```bash
+curl http://localhost:10732/p2p/gossipsub/topics
+```
+Expected: Topics like `{"slot_index":N,"pkh":"tz1..."}`.
+
+**3. Check shard assignments:**
+```bash
+tezbake node client rpc get /chains/main/blocks/head/context/dal/shards?delegates=<YOUR_TZ1>
+```
+Expected: Your address with shard indexes.
+
+**4. Verify on Explorus:**
+
+Check [Explorus Consensus Ops](https://explorus.io/consensus_ops) for your baker:
+- **2/2** = Attesting all slots ✅
+- **0/2** = Not attesting (issue with DAL)
+- **Empty** = No shards assigned or not connected
+
+### "No Common Protocol" Errors
+
+**Symptoms:** DAL logs show `cancelled` or `no common protocol`.
+
+**Root Cause:** Usually the underlying L1 node, not the DAL itself.
+
+**Solution:**
+```bash
+tezbake info  # Check full status
+# If node has sync issues:
+tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling --no-check
+```
+
+### DAL Connection Issues
+
+If no peers are connecting:
+
+1. **Upgrade TezBake:** `tezbake upgrade`
+
+2. **Check bootstrap connection:**
+   ```bash
+   tezbake node client --endpoint http://127.0.0.1:10732 rpc get /p2p/gossipsub/connections | jq ".[].connection.bootstrap"
+   ```
+   At least one should show `true`.
+
+3. **Restart:** `tezbake stop && tezbake start`
+
+### Firewall/NAT
+
+**DAL Ports:**
+- **11732** — P2P (recommended to open)
+- **10732** — RPC (local only)
+
+```bash
+# Allow DAL P2P if behind firewall
+sudo ufw allow 11732/tcp comment "DAL P2P"
+```
+
+> DAL can work without a public IP, but connectivity improves with port forwarding.
+
+### DAL and Ledger
+
+Ensure **Tezos Baking app v2.5.0+** for DAL attestation support.
+
+For complete DAL setup, see [Baking with DAL](/tezbake/tutorials/baking-with-dal/).
+
+---
+
 Any questions/comments/concerns? Please contact the Tez Capital team on
 [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)
