@@ -301,7 +301,8 @@ As with everything in life, complexity adds more failure points. Only separate t
 
 **Next Steps:**
 
-* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker's health
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker's health via CLI
+* [TezPeak Setup](/tezpeak/tutorials/setup/) - Monitor your baker with a graphical web dashboard
 * [TezPay Setup](/tezpay/tutorials/setup/) - Automate reward payments to delegators
 * [Best Practices](/getting-started/best-practices/) - Hardware and operational recommendations
 

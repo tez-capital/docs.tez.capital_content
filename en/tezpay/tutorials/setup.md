@@ -320,6 +320,7 @@ These three files will be used to run the application and payouts.
 
 * [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run your first payout
 * [TezBake Integration](/tezpay/tutorials/tezbake-integration/) - Automate payouts with TezBake
+* [TezPeak Setup](/tezpeak/tutorials/setup/) - Manage payouts with a graphical web dashboard
 * [Notifications](/tezpay/tutorials/notifications/) - Set up Discord/Twitter/email alerts
 
 **Configuration:**
