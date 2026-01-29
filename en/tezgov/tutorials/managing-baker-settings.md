@@ -82,7 +82,7 @@ Delegate parameters control how your baker accepts stakers and what fee you char
 
 1. Log into [TezGov](https://gov.tez.capital) with your baker's key
 2. Navigate to the **Baker Settings** or **Delegate Parameters** section
-3. Set your desired **Limit of staking over baking** (0-5)
+3. Set your desired **Limit of staking over baking** (0-9)
 4. Set your desired **Edge of baking over staking** (e.g., 0.10 for 10%)
 5. Click **Update Parameters**
 6. Confirm the transaction on your Ledger

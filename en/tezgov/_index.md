@@ -50,7 +50,7 @@ summary: Tezos governance portal for voting on proposals and managing baker sett
 |---------|-------------|
 | **Protocol Voting** | Vote on Tezos protocol upgrades during Exploration and Promotion periods |
 | **Proposal Submission** | Submit new protocol proposals during Proposal periods |
-| **Staking Parameters** | Set your staking limit (0-5x) and fee (edge) for accepting stakers |
+| **Staking Parameters** | Set your staking limit (0-9x) and fee (edge) for accepting stakers |
 | **Stake Management** | Stake and unstake funds from your baker |
 | **Consensus Keys** | Set and rotate consensus and companion keys |
 | **Baker Reactivation** | Reactivate your baker if it becomes inactive |

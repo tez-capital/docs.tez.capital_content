@@ -115,7 +115,7 @@ tezbake node client show voting period
 1. Login at https://gov.tez.capital
 2. Navigate to Baker Management
 3. Set your parameters:
-   - `limit_of_staking_over_baking`: 0-5x your stake
+   - `limit_of_staking_over_baking`: 0-9x your stake
    - `edge_of_baking_over_staking`: 0.0-1.0 (your fee, e.g., 0.1 = 10%)
 
 **Via CLI:**
