@@ -14,6 +14,24 @@ The Tezos Data Availability Layer (DAL) enhances network scalability by efficien
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
 
+## Version Requirements
+
+DAL requires specific minimum versions to function correctly. These requirements change with protocol upgrades.
+
+| Protocol | Octez Version | TezBake Version | Notes |
+|----------|---------------|-----------------|-------|
+| Tallinn | 24.0+ | 0.18.6+ | Current mainnet |
+
+**Verify your versions:**
+
+```bash
+tezbake version --all
+```
+
+Check that your DAL is running latest version, same as all other binaries.
+
+> **Note:** Version requirements change with protocol upgrades. After a protocol upgrade, update TezBake and verify your DAL is running the required version.
+
 ## DAL Rewards and Penalties
 
 Running a DAL node directly impacts your baking income:

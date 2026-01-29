@@ -72,6 +72,14 @@ Tezos has **two completely different voting mechanisms**. Don't confuse them!
 }
 ```
 
+**What is Adaptive Issuance?**
+
+Adaptive Issuance is a Tezos protocol feature that dynamically adjusts block rewards based on the global staking ratio. When more tez is staked, rewards decrease; when less is staked, rewards increase. This creates an equilibrium that balances security with inflation.
+
+- `"on"` = Support adaptive issuance
+- `"off"` = Oppose adaptive issuance
+- `"pass"` = Abstain
+
 After editing, restart: `tezbake stop && tezbake start`
 
 **⚠️ TezGov does NOT handle per-block votes - those are configured on your node.**

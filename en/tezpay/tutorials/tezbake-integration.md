@@ -154,6 +154,37 @@ Continual payouts are initially disabled.
 - **Disable continual payouts:**  
   `tezbake pay continual disable`
 
+### Setting the Payout Interval
+
+When using TezBake integration, the payout interval is configured in `/bake-buddy/pay/app.json` within the `CONTINUAL` configuration block.
+
+Example `/bake-buddy/pay/app.json`:
+
+```hjson
+{
+  "configuration": {
+    CONTINUAL: {
+      interval: 7
+      interval_trigger_offset: 0
+      include_previous_cycles: 7
+    }
+  },
+  "id": "bb-default-pay",
+  "type": {
+    "id": "tzc.tezpay",
+    "version": "latest"
+  },
+  "user": "primate"
+}
+```
+
+**CONTINUAL options:**
+- `interval` - aggregate and pay every N cycles. Cycles must complete before being paid (e.g., interval `7` pays cycles 1-7 during cycle 8, then cycles 8-14 during cycle 15, etc.)
+- `interval_trigger_offset` - shifts the interval start to align payments with your preferred cycle. For example, if it's currently cycle 10 and you want to start paying during cycle 11 for the previous 7 cycles, then continue every 7 cycles, use offset `3`. This works because 7 is the end of the default interval, and adding 3 makes 10 the end of the interval. Instead of cycles 1-7 being paid, cycles 3-10 are paid.
+- `include_previous_cycles` - number of past cycles before the current interval to check for missed payments. If any are detected, they will be included in the current batch.
+
+> **Note:** The `--interval` CLI flag does not work with TezBake integration. You must configure the interval in `app.json`.
+
 ---
 
 ## Starting & Stopping TezPay (continual service)

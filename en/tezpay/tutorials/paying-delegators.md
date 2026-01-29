@@ -131,17 +131,19 @@ send notifications because that was not set up).
 
 TezPay provides bakers a way to aggregate multiple cycles and pay delegators in a lumpsum fashion.
 
-Using the `--interval` argument you can specify how many cycles you want to include in each payment. Let's say you want to use an interval of 7 days. The start of every interval is cycle 1. This means that if it's currently cycle 65, you can pay for cycles 56-62 by default.
+Using the `--interval` argument you can specify how many cycles you want to aggregate into each payment. Cycles must complete before they can be paid. For example, with interval `7`, cycles 1-7 are paid during cycle 8, then cycles 8-14 are paid during cycle 15, and so on.
 
-If it's currently cycle 65 and you would like to pay for cycles 58-64 and the continue paying for cycles 65-71, 72-78, 79-85 etc. you can use the `--interval-trigger-offset` argument with the value of 2. This shifts the interval start to cycles 65, 72 and 79 instead the original blocks 1,
+**Shifting the interval with `--interval-trigger-offset`:**
 
-Here's a sample for an aggregated payment every 7 cycles with offset 2:
+By default, intervals align to cycle 1. The offset lets you shift this alignment to match your preferred schedule. For example, if it's currently cycle 10 and you want to start paying during cycle 11 for the previous 7 cycles, then continue every 7 cycles, use offset `3`. This works because 7 is the end of the default interval, and adding 3 makes 10 the end of the interval. Instead of cycles 1-7 being paid, cycles 3-10 are paid.
 
-`./tezpay pay --interval 7 --interval-trigger-offset 2`
+`./tezpay pay --interval 7 --interval-trigger-offset 3`
 
-Instead of using the `--interval-trigger-offset` argument, you can also simply just specify your payment cycle manually and the inteval will be counted from there.
+**Alternative: specify the cycle manually**
 
-Again, it's cycle 65 and you'd like ot pay cycles 56-62.
+Instead of calculating an offset, you can specify the payment cycle directly with `--cycle` and the interval will be counted from there.
+
+For example, if it's cycle 65 and you'd like to pay cycles 56-62:
 
 `./tezpay pay --interval 7 --cycle 63`
 
