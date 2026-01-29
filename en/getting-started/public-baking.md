@@ -17,7 +17,7 @@ When you delegate your tez to a baker, your tokens never leave your wallet - you
 
 With the [Adaptive Issuance](https://research-development.nomadic-labs.com/adaptive-issuance-paris.html#the-new-staker-role) protocol upgrade, bakers can now accept stakers in addition to delegators. Staking differs from delegation in several important ways:
 
-* **Funds are locked** - Staked tez is frozen and cannot be moved. Unstaking takes up to 4 days (3 cycles plus the remainder of the current cycle)
+* **Funds are locked** - Staked tez is frozen and cannot be moved. Unstaking takes **2+1 cycles** (~3 days on Tallinn): if you unstake during cycle 1000, you can finalize in cycle 1003
 * **Higher rewards** - Stakers earn approximately 3x the rewards of delegators due to the additional commitment and risk
 * **Slashing risk** - Stakers share in slashing penalties proportionally if the baker double bakes or double attests. See [Slashing Explained](/getting-started/slashing-explained/) for details
 * **Direct protocol payment** - Stakers are paid directly by the protocol without baker intervention, unlike delegators who rely on the baker to distribute rewards

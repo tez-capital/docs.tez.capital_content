@@ -38,12 +38,12 @@ Delegate parameters control how your baker accepts stakers and what fee you char
 
 | Parameter | Description | Range |
 |-----------|-------------|-------|
-| **Limit of staking over baking** | Maximum external stake you'll accept, relative to your own stake | 0 to 5; by default new bakers do not accept external stake |
+| **Limit of staking over baking** | Maximum external stake you'll accept, relative to your own stake | 0 to 9 (default: 0, meaning no external stakers accepted) |
 | **Edge of baking over staking** | Your fee (portion of staking rewards you keep) | 0.0 to 1.0 |
 
 ### Understanding the Limits
 
-- **Staking limit of 5** means you can accept external stakers up to 5× your own frozen stake
+- **Staking limit** determines how much external stake you accept relative to your own (e.g., limit of 5 = up to 5× your frozen stake; maximum allowed is 9)
 - **Edge of 0.10** means you keep 10% of staking rewards as your fee
 - **Delegation limit** is always 9× your frozen stake (not configurable)
 
@@ -124,7 +124,7 @@ Staked funds become part of your frozen stake and increase your baking power.
 Unstaking is a multi-step process due to the protocol's security requirements:
 
 1. **Initiate unstake**: Request to unstake an amount
-2. **Waiting period**: Funds are "frozen unstaked" for **4 cycles** (~5-6 days)
+2. **Waiting period**: Funds are "frozen unstaked" for **2+1 cycles** (~3 days on Tallinn). If you unstake during cycle 1000, you can finalize in cycle 1003.
 3. **Finalize**: After the waiting period, finalize to make funds spendable
 
 **To unstake:**
