@@ -135,7 +135,6 @@ Since the start of the Tezos mainnet, slashing has been extremely rare - occurri
 
 You can verify your baker hasn't been denounced by checking:
 - [TzKT](https://tzkt.io) - Search your baker address and check for denunciation operations
-- [TzStats](https://tzstats.com) - View baker history and any penalties
 
 ## What To Do If Slashed
 

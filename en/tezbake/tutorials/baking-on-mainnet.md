@@ -82,7 +82,6 @@ Get the block hash and block level from the snapshot provider's website:
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 <https://tzkt.io/blocks>
-<https://tzstats.com/>
 
 Simply search for the block level in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
 
@@ -105,7 +104,7 @@ tezbake info
 > The level is the current block height (block number) on the blockchain. To verify your node is synchronized:
 >
 > 1. Check the level shown by `tezbake info`
-> 2. Compare it to the latest block on <https://tzkt.io> or <https://tzstats.com>
+> 2. Compare it to the latest block on <https://tzkt.io>
 > 3. Once they match, your node is fully synced and you can proceed
 >
 > **ℹ️ INFO:** Both blockchain explorers also provide Ghostnet and Testnet views. Make sure you're looking at the correct network (mainnet).

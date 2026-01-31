@@ -43,7 +43,6 @@ Get the block hash and block level from the snapshot provider's website:
 
 Verify the hash/checksum provided by the snapshot provider to ensure the snapshot is valid. You can find the correct hashes for all blocks on Tezos blockchain explorers such as:
 <https://tzkt.io/blocks>
-<https://tzstats.com/>
 
 Simply search for the block level in the search field and verify the hash of the block matches the hash provided by the snapshot provider.
 

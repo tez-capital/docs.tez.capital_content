@@ -79,7 +79,7 @@ wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/inst
 
 ## What should I do after updating?
 
-After all updates and changes to your Tezos node, always ensure your baking process continues successfully by monitoring its performance on <https://TzStats.com> and <https://TzKT.io>.
+After all updates and changes to your Tezos node, always ensure your baking process continues successfully by monitoring its performance on <https://tzkt.io>.
 
 Check your TezBake stack versions to ensure they are up to date:
 

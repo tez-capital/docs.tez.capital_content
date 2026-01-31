@@ -20,7 +20,7 @@ Prepare these items in advance:
 - [ ] Backup computer with TezBake installed (but not started)
 - [ ] Backup TezSign device or Ledger (not authorized for baking)
 - [ ] Document your baker's public key hash (tz1/tz2/tz3/tz4 address)
-- [ ] Know your current block level (check [TzKT](https://tzkt.io) or [TzStats](https://tzstats.com))
+- [ ] Know your current block level (check [TzKT](https://tzkt.io))
 
 ## Failover Steps
 

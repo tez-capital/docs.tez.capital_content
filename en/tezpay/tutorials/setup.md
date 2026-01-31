@@ -17,6 +17,8 @@ Follow along on Youtube!
 2. [Setup](#setup)
    - [Step 1a: Configuration File (simple)](#setup-step-1a-configuration-file-simple)
    - [Step 1b: Configuration File (advanced)](#setup-step-1b-configuration-file-advanced)
+   - [Advanced Configuration Examples](#advanced-configuration-examples)
+   - [Other Configuration Options](#other-configuration-options)
    - [Step 2: Private-Key File](#setup-step-2-private-key-file)
 
 ---
@@ -282,6 +284,167 @@ This section will review how to setup the configuration file
     has paid 100XTZ in rewards for latest cycle'* **We will cover this
     in a separate section**
     *see appendix X* and platforms supported are ***Twitter, Discord, and E-mail***
+
+---
+
+### Advanced Configuration Examples
+
+The following examples show common configuration patterns you can add to your `config.hjson`.
+
+#### Custom Fees for Specific Delegators
+
+You can set custom fee rates for individual delegators using two methods:
+
+**Method A: Full Override**
+
+Use `delegators.overrides` for complete control over a delegator's settings:
+
+```hjson
+delegators: {
+  overrides: {
+    tz1YourFriendAddress: {
+      fee: 0         // 0% fee - friend pays no fee
+    }
+    tz1SpecialDelegator: {
+      fee: 0.02      // 2% custom fee (lower than your default)
+    }
+  }
+}
+```
+
+**Method B: Fee Shortcut**
+
+Use `delegators.fee_overrides` for a simpler syntax when you only need to change fees:
+
+```hjson
+delegators: {
+  fee_overrides: {
+    0: ["tz1FriendAddress1", "tz1FriendAddress2"]     // 0% fee (no fee)
+    0.02: ["tz1LoyalDelegator"]                       // 2% fee
+    0.5: ["tz1Address1"]                              // 50% fee
+    1: ["tz1CharityAddress"]                          // 100% fee (all to baker)
+  }
+}
+```
+
+> **💡 TIP:** Use Method B (`fee_overrides`) when you only need to change fees. Use Method A (`overrides`) when you also need to change other settings like `minimum_balance` or `maximum_balance` for a delegator.
+
+#### Payment Timing After Cycle Completion
+
+Control when TezPay sends payments after a cycle ends using the `payouts` section:
+
+```hjson
+payouts: {
+  minimum_delay_blocks: 10     // Wait at least 10 blocks after cycle ends
+  maximum_delay_blocks: 250    // Pay within 250 blocks maximum
+}
+```
+
+**Why this matters:**
+
+- TezPay picks a random time between the minimum and maximum delay
+- This spreads out payout transactions across the network
+- Prevents congestion if many bakers pay simultaneously at cycle end
+
+**Timing reference** (at 6 seconds per block):
+
+| Blocks | Approximate Time |
+|--------|------------------|
+| 10     | 1 minute         |
+| 50     | 5 minutes        |
+| 250    | 25 minutes       |
+
+The default values work well for most bakers. Adjust only if you have specific timing requirements.
+
+#### Other Configuration Options
+
+TezPay has many more options available. Here's a quick reference to help you know what's possible:
+
+**Payout Mode (`payouts.payout_mode`):**
+
+```hjson
+payouts: {
+  payout_mode: ideal    // 'ideal' (default) or 'actual'
+}
+```
+
+- `ideal` — Pay based on what delegators *should* have earned (rarely used but availablea)
+- `actual` — Pay based on what the baker *actually* earned (accounts for missed blocks/attestations)
+
+**Who Pays Transaction Fees (`payouts`):**
+
+```hjson
+payouts: {
+  baker_pays_transaction_fee: true      // Baker covers tx fees (default: true)
+  baker_pays_allocation_fee: true       // Baker covers allocation fees for new accounts
+}
+```
+
+**Delegator Filtering (`delegators`):**
+
+```hjson
+delegators: {
+  // Only pay these specific addresses (leave empty to pay everyone)
+  prefilter: [
+    "tz1WhitelistedAddress1"
+    "tz1WhitelistedAddress2"
+  ]
+
+  // Never pay these addresses (rewards redistributed to others)
+  ignore: [
+    "tz1BlacklistedAddress"
+    "tz1burnburnburnburnburnburnburjAYjjX"
+  ]
+}
+```
+
+**Redirect Payouts to Different Address:**
+
+```hjson
+delegators: {
+  overrides: {
+    tz1OriginalDelegator: {
+      recipient: "tz1DifferentPayoutAddress"    // Send their rewards here instead
+    }
+  }
+}
+```
+
+**Cap Delegator Balance (Overdelegation Management):**
+
+```hjson
+delegators: {
+  overrides: {
+    tz1LargeDelegator: {
+      maximum_balance: 100000    // Only count up to 100k tez of their balance
+    }
+  }
+}
+```
+
+**Minimum Balance & Small Reward Handling:**
+
+```hjson
+delegators: {
+  requirements: {
+    minimum_balance: 1                           // Delegators need at least 1 tez
+    below_minimum_reward_destination: everyone   // 'everyone' or 'none'
+  }
+}
+```
+
+- `everyone` — Redistribute small rewards to other delegators
+- `none` — Small rewards go to the baker
+
+**Overdelegation Protection:**
+
+```hjson
+overdelegation: {
+  protect: true    // Prevent paying more than you can cover (recommended)
+}
+```
+
+> **📚 Full Reference:** See the [complete sample configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) for all available options including notifications, extensions, and network settings.
 
 ---
 

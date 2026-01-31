@@ -20,7 +20,7 @@ TezBake software focuses on individuals and companies baking on-premise in their
 New to Tezos baking? Follow this sequence:
 
 1. **[What is Baking?](what-is-baking/)** - Understand the basics of Tezos validation
-2. **[Public Baking](public-baking/)** - Learn about baker responsibilities and rewards
+2. **[Public Baking](public-baking/)** - Delegation, staking, automation, and configuration
 3. **[Best Practices](best-practices/)** - Essential safety and reliability guidelines
 
 **Ready to start baking?** → **[Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)**
