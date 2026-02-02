@@ -290,16 +290,19 @@ companion
 >
 > TezSign USB gadget mode may have issues with USB 3.0 (xHCI) controllers. Symptoms include:
 > * `error -110` (timeout) or `error -62` (device not accepting address) in `dmesg`
+> * Device gets no power or doesn't boot
 > * Device never appears in `lsusb`
 > * 5-second timeout errors
 >
 > **Solutions (try in order):**
 >
-> 1. **Use a USB 2.0 port** if your machine has one (check `lspci | grep -i usb` for EHCI)
+> 1. **Check your USB cable** - A faulty or low-quality cable is a common cause of these errors. Try a different cable, preferably a short, high-quality data cable (not a charge-only cable). The cables in the shopping lists above are tested and recommended.
 >
-> 2. **Use a USB 2.0 hub** (NOT 3.0) between host and TezSign device—this forces USB 2.0 negotiation
+> 2. **Use a USB 2.0 port** if your machine has one (check `lspci | grep -i usb` for EHCI)
 >
-> 3. **BIOS settings** (especially for Intel NUC):
+> 3. **Use a USB 2.0 hub** (NOT 3.0) between host and TezSign device—this forces USB 2.0 negotiation
+>
+> 4. **BIOS settings** (especially for Intel NUC):
 >    * Disable "xHCI Mode" or set to "Auto"
 >    * Disable "USB Power Saving" / "USB Suspend"
 >    * Enable "Legacy USB Support"
@@ -307,7 +310,7 @@ companion
 >
 > To enter BIOS from Linux: `sudo systemctl reboot --firmware-setup`
 >
-> 4. **USB Reset Command** if device stops responding:
+> 5. **USB Reset Command** if device stops responding:
 >    ```bash
 >    tezbake tezsign advanced usb-port-reset
 >    tezbake stop --signer && tezbake start --signer
