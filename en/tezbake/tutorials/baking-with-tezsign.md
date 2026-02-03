@@ -16,14 +16,6 @@ This guide covers how to configure **TezSign** (hardware signer) to work seamles
 >
 > TezSign is provided without any guarantee. Use it at your own risk.
 
-> **⚠️ KNOWN ISSUE: Multiple Bakers on One Device**
->
-> Running multiple bakers (e.g., mainnet + testnet) on a single TezSign device can cause occasional missed attestations (1-2 per few hours). If you bake for multiple networks:
-> * Use a **dedicated TezSign device** for each network
-> * Or accept occasional misses on the less critical network
->
-> Single-baker setups (one baker with consensus + companion keys) are **not affected**.
-
 ## Table of Contents
 
 1. [Phase 0: Purchase SBC and image SD card](#phase-0-purchase-sbc-and-image-sd-card)
