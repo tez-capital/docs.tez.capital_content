@@ -231,29 +231,31 @@ tezbake setup-tezsign --import-key=companion --key-alias=companion
 
 ### 3. Import Keys to TezBake node and signer
 
-To bake with multiple keys (e.g., separate keys for consensus and DAL), you must register them in the node configuration.
+To bake with multiple keys (e.g., separate keys for consensus and DAL), you must register them as key aliases in the node configuration.
 
-Create or edit the following file: `/bake-buddy/node/additional_key_aliases.list`.
-Add the key aliases you used in the `Import Keys to TezBake` step.
+> **⚠️ DEPRECATED:** The file-based method (`additional_key_aliases.list`) is deprecated. Use the CLI commands below instead. See [Key Aliases](/tezbake/tutorials/key-aliases/) for the full reference.
 
-**IF MIGRATING TO BLS/tz4:***
-As per the example we used consensus and companion so our file would look as follows:
+**IF MIGRATING TO BLS/tz4:**
 
-```toml
-consensus
-companion
+As per the example we used consensus and companion, add both aliases:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["consensus","companion"]'
 ```
 
-> NOTE: Later on when your `consensus` key activates you can reimport it under `baker` alias (the default one) with `--force`. Then you can remove consensus from additional keys and run `tezbake upgrade` again.
+> NOTE: Later on when your `consensus` key activates you can reimport it under `baker` alias (the default one) with `--force`. Then you can remove consensus from additional keys:
+> ```bash
+> tezbake node modify --remove configuration.additional_key_aliases '"consensus"'
+> ```
 > NOTE: Only the import alias from `--key-alias=<THIS ALIAS>` is relevant. The internal tezsign alias can differ.
 
 **IF ALREADY ON BLS/TZ4:**
 
-```toml
-companion
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
 ```
 
-> The consensus keys is not listed because it's the default assumed baking key by TezBake
+> The consensus key is not listed because it's the default assumed baking key by TezBake
 
 ### 4. Retrieve Public Keys & Proofs & Register them on the chain
 

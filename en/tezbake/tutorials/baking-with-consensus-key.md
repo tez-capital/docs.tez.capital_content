@@ -107,71 +107,19 @@ This will import your consensus key Ledger device and authorize it for baking. L
 
 ### Modify the baking configuration
 
-Open the TezBake node configuration file:
+Add the consensus key alias so the baker knows to inject it alongside your default baker key:
 
 ```bash
-nano /bake-buddy/node/app.json
+tezbake node modify --set configuration.additional_key_aliases '["consensus"]'
 ```
 
-Inside the `"configuration"` object, add the following key-value pair:
+You can verify it was set:
 
 ```bash
-"additional_key_aliases": [ "consensus" ]
+tezbake node show configuration.additional_key_aliases
 ```
 
-Here an example of a file with the consensus key alias added:
-
-```json
-{
-        "configuration": {
-                "BAKER_STARTUP_ARGS": [
-                        "--dal-node",
-                        "http://127.0.0.1:10732/"
-                ],
-                "CONFIG_FILE": {
-                        "p2p": {
-                                "bootstrap-peers": [
-                                        "boot.tzbeta.net"
-                                ],
-                                "limits": {
-                                        "connection-timeout": 10,
-                                        "expected-connections": 40,
-                                        "max-connections": 50,
-                                        "max_known_peer_ids": [
-                                                320,
-                                                240
-                                        ],
-                                        "max_known_points": [
-                                                320,
-                                                240
-                                        ],
-                                        "min-connections": 20
-                                },
-                                "listen-addr": "[::]:9732"
-                        },
-                        "shell": {
-                                "chain_validator": {
-                                        "synchronisation_threshold": 6
-                                }
-                        }
-                },
-                "NODE_TYPE": "baker",
-                "VOTE_FILE": {
-                        "adaptive_issuance_vote": "on",
-                        "liquidity_baking_toggle_vote": "on"
-                },
-                "additional_key_aliases": [
-                        "consensus"
-                ]
-        },
-        "id": "bb-default-node",
-        "type": {
-                "id": "xtz.node",
-                "version": "latest"
-        },
-        "user": "bb"
-}
-```
+> **📖 See [Key Aliases](/tezbake/tutorials/key-aliases/) for the full reference** on managing key aliases, including the difference between `additional_key_aliases` and `key_aliases`.
 
 Re-run the TezBake upgrade and merge your configuration when asked:
 
