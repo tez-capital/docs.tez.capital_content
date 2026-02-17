@@ -76,11 +76,7 @@ nano /bake-buddy/node/data/vote-file.json
 }
 ```
 
-3. **Restart your baker for the changes to take effect:**
-
-```bash
-tezbake stop && tezbake start
-```
+Changes take effect immediately — the baker reads the vote file every time it produces a block. **No restart required.**
 
 ---
 
@@ -101,7 +97,7 @@ These defaults reflect the current community consensus. You are free to change t
 
 - **Per-block votes are NOT the same as protocol upgrade votes.** Protocol upgrade voting (YAY/NAY/PASS on proposals like Paris, Tallinn, etc.) is handled through [TezGov](https://gov.tez.capital). Per-block votes are configured on your node.
 - **TezGov does NOT manage per-block votes.** You must edit the vote file manually on your baking node.
-- **Changes take effect after restart.** Simply editing the file is not enough — you must restart the baker.
+- **Changes take effect immediately.** The baker reads the vote file each time it bakes a block — no restart needed.
 - **Your vote is public.** Anyone can see your per-block votes by inspecting the blocks you produce on a block explorer.
 
 ---
@@ -112,7 +108,7 @@ These defaults reflect the current community consensus. You are free to change t
 A: Your baker will use the protocol defaults, which may vary by upgrade. It's best to always have an explicit vote file.
 
 **Q: Can I change my vote at any time?**
-A: Yes. Edit the file and restart. Your new vote will be included in the next block you produce.
+A: Yes. Just edit the file — your new vote will be picked up the next time you bake a block. No restart needed.
 
 **Q: Does my voting power depend on my stake?**
 A: Yes — bakers with more staking power produce more blocks and therefore cast more votes. The per-block vote mechanism is stake-weighted by nature.

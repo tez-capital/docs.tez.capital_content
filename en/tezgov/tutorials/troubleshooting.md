@@ -80,7 +80,7 @@ Adaptive Issuance is a Tezos protocol feature that dynamically adjusts block rew
 - `"off"` = Oppose adaptive issuance
 - `"pass"` = Abstain
 
-After editing, restart: `tezbake stop && tezbake start`
+Changes take effect immediately — the baker reads the vote file each time it bakes a block. No restart required.
 
 **⚠️ TezGov does NOT handle per-block votes - those are configured on your node.**
 

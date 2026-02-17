@@ -280,11 +280,7 @@ Example contents:
 {"adaptive_issuance_vote":"on","liquidity_baking_toggle_vote":"on"}
 ```
 
-After changes, restart your baker:
-
-```bash
-tezbake stop && tezbake start
-```
+Changes take effect immediately — the baker reads the vote file each time it produces a block. No restart required.
 
 ## Installation (Advanced)
 
