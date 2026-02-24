@@ -61,7 +61,7 @@ DAL (Data Availability Layer) participation is now **mandatory** for bakers. If 
 Check DAL node status:
 
 ```bash
-tezbake status
+tezbake info
 ```
 
 Look for `dal-node` in the output — it should show as running. You can also check on [TzKT](https://tzkt.io) by looking at your recent attestations; DAL attestations are indicated separately from regular attestations.
@@ -100,7 +100,7 @@ However, you should:
 ### How do I check if my baker is actually baking?
 
 ```bash
-tezbake status
+tezbake info
 ```
 
 This shows whether all services (node, baker, accuser, DAL node, TezSign/Ledger) are running.
@@ -177,11 +177,9 @@ Use [TezWatch](/tezwatch/) to receive Telegram or Discord notifications when:
 - A service goes down
 - Your baker is scheduled to bake soon
 
-```bash
-tezbake setup --add tezwatch
-```
+TezWatch is a standalone bot — set it up via the Discord or Telegram bot interface, not through TezBake. Head to the [Tez Capital Discord](https://discord.gg/cVGMA4MaNM) `#tezwatch` channel and use the `/subscribe` slash command to get started.
 
-**→ More:** [TezWatch documentation](/tezwatch/)
+**→ More:** [TezWatch Setup](/tezwatch/tutorials/setup/)
 
 ---
 
@@ -190,7 +188,7 @@ tezbake setup --add tezwatch
 An occasional missed attestation is normal and expected (network latency, momentary CPU spike, etc.). The protocol requires only a **67% attestation rate** per cycle to receive full rewards.
 
 If you are consistently missing more than 33% of attestations, investigate:
-- Is the baker process running? (`tezbake status`)
+- Is the baker process running? (`tezbake info`)
 - Is the signer (TezSign or Ledger) connected and responsive?
 - Is the node fully synced?
 - Is DAL running and keeping up?
