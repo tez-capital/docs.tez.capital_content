@@ -96,7 +96,7 @@ When the reveal deadline arrives, your baker cannot respond. The protocol treats
 
 **Why a 5-6 day old snapshot helps:**
 
-Tezos cycles last roughly 2-3 days. By using a snapshot that is at least 5-6 days old, you ensure that the imported blockchain already contains the full block history for at least one complete past cycle — so any outstanding nonce reveals are already covered in the snapshot.
+Tezos cycles last approximately 1 day (on Tallinn). By using a snapshot that is at least 5-6 days old, you ensure that the imported blockchain already contains the full block history for at least one complete past cycle — so any outstanding nonce reveals are already covered in the snapshot.
 
 **Why keeping `.tezos-client` matters:**
 

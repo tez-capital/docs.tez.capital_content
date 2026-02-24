@@ -19,7 +19,7 @@ These are the lowest specs on which a Tezos baker can run. Performance may be ti
 
 | Component | Minimum |
 |-----------|---------|
-| CPU | 4 cores (x86-64 or ARM64) |
+| CPU | 3 cores (x86-64 or ARM64) |
 | RAM | 8 GB |
 | Storage | 256 GB SSD |
 | Network | 50 Mbps symmetric, wired Ethernet |

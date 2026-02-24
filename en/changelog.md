@@ -51,7 +51,7 @@ tezbake setup
 | Parameter | Before Tallinn | After Tallinn |
 |-----------|---------------|--------------|
 | Block time | ~15 seconds | **6 seconds** |
-| Blocks per cycle | 8,192 | **12,288** |
+| Blocks per cycle | 10,800 | **14,400** |
 | Cycle duration | ~2.8 days | **~1 day** |
 
 **Impact on bakers:**

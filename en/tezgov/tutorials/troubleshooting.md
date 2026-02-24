@@ -65,7 +65,7 @@ Tezos has **two completely different voting mechanisms**. Don't confuse them!
 
 ### 1. Protocol Amendment Voting (via TezGov)
 
-- **What:** Voting on protocol upgrades (e.g., Paris, Quebec)
+- **What:** Voting on protocol upgrades (e.g., Tallinn, and future proposals)
 - **When:** During Exploration and Promotion periods
 - **How:** Cast YAY/NAY/PASS ballot on TezGov
 - **URL:** https://gov.tez.capital
