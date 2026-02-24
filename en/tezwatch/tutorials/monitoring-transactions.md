@@ -27,8 +27,8 @@ Here are the descriptions of all the key variables you will need to configure to
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `source`    | `wallet` | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
 | `event`     | `transfer`, `balance-updated` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
-| `conditions` for transfers | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in>1`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>in>1` | Be nofified for all incoming transactions, all incoming transactions over 1 or all transactions smaller than 1 but larger than 50 |
-| `conditions` for balance-updated | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>balance` | Be nofidied for all incoming transactions, all incoming transactions over X or all transactions smaller than X but larger than Y |
+| `conditions` for transfers | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in>1`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>in>1` | Be notified for all incoming transactions, all incoming transactions over 1 or all transactions smaller than 1 but larger than 50 |
+| `conditions` for balance-updated | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>balance` | Be notified for all incoming transactions, all incoming transactions over X or all transactions smaller than X but larger than Y |
 
 > Please note that some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 

@@ -1,9 +1,15 @@
 ---
-title: "> Setup"
+title: "Setup"
 weight: 1
 type: docs
 summary: Configure TezWatch Discord bot for baker monitoring notifications
 ---
+
+## Prerequisites
+
+- **[Running baker on mainnet](/tezbake/tutorials/baking-on-mainnet/)** — TezWatch monitors an active baker; you need a tz1 baker address to subscribe to alerts
+- **[Discord account](https://discord.com)** — TezWatch delivers notifications via Discord DMs
+- **[Join the Tez Capital Discord](https://discord.gg/cVGMA4MaNM)** — setup is done in the `#tezwatch` channel using slash commands
 
 ## Preparation
 
@@ -51,6 +57,16 @@ Here's an example command to subscribe to notifications for a missed attestation
 
 | ![Example TezWatch slash command](/tezwatch/tutorial/tezwatchSlashCommandExample.png) |
 |-|
+
+---
+
+## What's Next
+
+✅ **TezWatch is configured!** You'll receive Discord alerts for your baker. Consider these additional monitoring tools:
+
+1. [Monitor transactions](/tezwatch/tutorials/monitoring-transactions/) — Track wallet balances and incoming/outgoing transfers
+2. [Install TezPeak dashboard](/tezpeak/tutorials/setup/) — Visual web dashboard for baker status and TezPay management
+3. [Check logs via CLI](/tezbake/tutorials/monitoring-logs-and-status/) — Real-time log monitoring directly on your baker
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "> Voting on Proposals"
+title: "Voting on Proposals"
 weight: 1
 type: docs
 summary: How to vote on Tezos protocol proposals using the TezGov portal
@@ -30,6 +30,13 @@ The quorum requirement ensures sufficient participation before accepting proposa
 This design ensures governance can continue even if some bakers stop participating, while still requiring meaningful consensus.
 
 We recommend you read more about the Tezos Voting process here: <https://tezos.gitlab.io/active/voting.html>
+
+## Prerequisites
+
+- **[Running baker on mainnet](/tezbake/tutorials/baking-on-mainnet/)** — you must be an active registered baker with staked funds to have voting power
+- **Staked XTZ** — at least 6000 XTZ staked to meet the minimum bond requirement
+- **Ledger hardware wallet** with the Tezos **Wallet** app installed (not the Baking app) — required for signing votes on TezGov
+- **[TezGov web portal access](https://gov.tez.capital)** — works best with Chromium-based browsers (Chrome, Brave, Edge)
 
 ## Proposal voting with TezGov
 
@@ -64,7 +71,7 @@ Log into the TezGov portal by using the most secure method available to you.
 * Use the Remote (signer) method if you have a signer somewhere on your LAN or local computer. This is an option for advanced users.
 * Use the Beacon method if you are using a Beacon-enabled wallet like Temple or Kukai. In this case you will not see the exact details of your vote on your Ledger screen and you will instead be asked to sign an arbitrary blob message. This method also works fine but it is inherently less secure than the direct Ledger method.
 
-![TezGov login home screen](/tezgov/tutorial/tezgovHome.png)
+![TezGov login page showing connection method options including Ledger, Remote signer, and Beacon](/tezgov/tutorial/tezgovHome.png)
 
 Once logged in you'll see the TezGov home screen. You can see the current cycle, the current proposal, the current voting period, and the current voting period progress. You can also see the current proposal status and the current proposal details.
 
@@ -72,25 +79,35 @@ Once logged in you'll see the TezGov home screen. You can see the current cycle,
 
 During the exploration and promotion periods you will see the period name `Exploration` or `Promotion` in the middle of the page. You can vote for the current proposal by clicking the `NAY`, `PASS` or `YAY` buttons.
 
-![TezGov login home screen](/tezgov/tutorial/tezgovPromotion.png)
+![TezGov Promotion period screen showing NAY, PASS, and YAY voting buttons for the current proposal](/tezgov/tutorial/tezgovPromotion.png)
 
  You will be asked to confirm the vote on your Ledger device.
 
-![TezGov login home screen](/tezgov/tutorial/tezgovPromotionConfirm.png)
+![TezGov vote confirmation prompt asking user to confirm their vote choice on the Ledger device](/tezgov/tutorial/tezgovPromotionConfirm.png)
 
 Once confirmed, the page will refresh within 30 seconds.
 
-![TezGov login home screen](/tezgov/tutorial/tezgovPromotionConfirm2.png)
+![TezGov page refreshing after vote confirmation, displaying updated vote status](/tezgov/tutorial/tezgovPromotionConfirm2.png)
 
 After finished, you'll be able to click on the confirmation link for your vote.
 
-![TezGov login home screen](/tezgov/tutorial/tezgovPromotionConfirm3.png)
+![TezGov vote complete screen showing confirmation link to view the on-chain voting transaction](/tezgov/tutorial/tezgovPromotionConfirm3.png)
 
 ### Cooldown Period
 
 During the cooldown period you will see the period name `Cooldown` in the middle of the page and you will not be able to vote until the next period. The time remaining is also reflected on the page.
 
 ![TezGov Cooldown period](/tezgov/tutorial/tezgovCooldown.png)
+
+---
+
+## What's Next
+
+✅ **Your vote is cast!** Explore other governance and baker management options:
+
+1. [Inject a proposal](/tezgov/tutorials/injecting-proposals/) — Submit your own protocol upgrade proposal
+2. [Manage baker settings](/tezgov/tutorials/managing-baker-settings/) — Configure staking parameters, consensus keys, and fees
+3. [Set up TezWatch alerts](/tezwatch/tutorials/setup/) — Get notified if your baker misses attestations
 
 ---
 

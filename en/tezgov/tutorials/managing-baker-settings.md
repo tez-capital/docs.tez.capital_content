@@ -134,7 +134,7 @@ Unstaking is a multi-step process due to the protocol's security requirements:
 3. Enter the amount to unstake
 4. Click **Unstake**
 5. Confirm on your Ledger
-6. Wait 4 cycles
+6. Wait 3 cycles (~3 days)
 7. Return to finalize the unstake
 
 > **⚠️ NOTE**: If you have issues unstaking decimal amounts, try using whole numbers instead.

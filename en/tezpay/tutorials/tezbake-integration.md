@@ -1,5 +1,5 @@
 ---
-title: "> TezBake Pay Module Setup"
+title: "TezBake Pay Module Setup"
 weight: 2
 type: docs
 summary: Integrating TezPay with TezBake
@@ -32,6 +32,12 @@ TezPay is integrated directly into TezBake as the `pay` module, simplifying your
 
 **New Users:**
 Please follow the steps below to create your configuration and wallet or remote signer files. Refer to the [TezPay Configuration Documentation](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/) for detailed setup instructions.
+
+## Prerequisites
+
+- **[TezBake installed and running](/tezbake/tutorials/baking-on-mainnet/)** — your baker must already be set up and active
+- **[TezPay configured](/tezpay/tutorials/setup/)** — a `config.hjson` and payout wallet key file must be ready before installing the TezBake pay module
+- **TezBake version 0.18.0+** — required for the integrated pay module; verify with `tezbake version`
 
 ## Table of Contents
 

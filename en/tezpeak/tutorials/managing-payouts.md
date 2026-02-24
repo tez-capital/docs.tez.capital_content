@@ -19,25 +19,7 @@ For this tutorial, you'll need to have already followed:
 
 ---
 
-## Installation
-
-TezPeak supports using TezBake and TezPay simultaneously or by themselves. To run them at the same time, combine both configurations in the same file as shown here: [https://github.com/tez-capital/tezpeak](https://github.com/tez-capital/tezpeak)
-
-### Download and install TezPeak via TezBake
-
-```bash
-tezbake setup --peak
-```
-
-> You don't need to install the TezBake node or baker services to use TezPay.
-
-### Setup TezPeak configuration
-
-```bash
-cd /bake-buddy/peak/ && touch config.hjson
-```
-
----
+> If TezPeak is not yet installed, see [TezPeak Setup](/tezpeak/tutorials/setup/) first.
 
 ## Configuration Examples
 

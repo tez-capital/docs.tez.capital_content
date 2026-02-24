@@ -64,8 +64,8 @@ Before assuming something is broken, check the following:
 - **Is your setup healthy?**  
   Use:  
   ``tezbake info``  
-  ``tezbake node logs -f``  
-  ``tezbake signer logs -f``
+  ``tezbake node log -f``  
+  ``tezbake signer log -f``
 
 Look for signs of delay, network errors, or system load.
 

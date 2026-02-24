@@ -32,6 +32,8 @@ For example:
 docker run -it -v /home/tezos/logs:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
+> **⚠️ NOTE:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
+
 ### Overrides and configuration through mounted volumes
 
 You can override any configuration file by mounting your own file to the `/tezbox/overrides` directory. The file will be merged with the default configuration. If you want to replace the whole configuration or file without merging, you can mount it to the `/tezbox/configuration` directory. The configuration is merged with the overrides and the result is stored in the `/tezbox/context` directory during the initialization of the container.

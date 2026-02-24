@@ -5,6 +5,13 @@ type: docs
 summary: How to update TezBake, Octez binaries, and protocol versions safely
 ---
 
+> **Quick Reference**
+> ```bash
+> tezbake upgrade    # Upgrade all components (Octez binaries + ami/eli)
+> tezbake restart    # Restart services after upgrade
+> ```
+> For a full stack upgrade including the tezbake binary itself, see [Method C](#c-update-the-entire-tezbake-stack) below.
+
 ## TezBake Updating
 
 The TezBake software consists of four components:

@@ -1,11 +1,23 @@
 ---
-title: "> Baking on Mainnet"
+title: "Baking on Mainnet"
 weight: 1
 type: docs
-summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, Ledger, and DAL
+summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, from system preparation to first baking rights
 ---
 
 {{< youtube t85LjgpRtvc >}}
+
+> **ℹ️ System Requirements**
+> - **OS:** Ubuntu 22.04+ or Debian 12+ (other Linux distributions may work but are untested)
+> - **Hardware:** See [Hardware Requirements](/getting-started/hardware-requirements/)
+> - macOS and Windows are **not supported**
+
+## Prerequisites
+
+- **Ubuntu 22.04+ or Debian 12+** Linux server or desktop with SSH access
+- **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers/delegators — see staking table below)
+- **Ledger hardware wallet** with Tezos Wallet app installed, OR a [TezSign device](/tezbake/tutorials/baking-with-tezsign/)
+- **Hardware meeting minimum specs:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
 
 ## Table of Contents
 
@@ -21,6 +33,24 @@ summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, Led
    * [Import DAL attester profile](#import-your-dal-attester-profile)
 3. [Installation (Advanced)](#installation-advanced)
 4. [Related Guides](#related-guides)
+
+---
+
+## Installation Checklist & Time Estimates
+
+| Step | Estimated Time |
+|------|---------------|
+| System setup (Ubuntu, user, firewall) | 15-30 min |
+| Install TezBake | ~2 min |
+| Setup node + DAL | ~5 min |
+| Bootstrap node | 30 min - 3 hours (depends on internet) |
+| Wait for sync | 5-30 min after bootstrap |
+| Import keys | ~10 min |
+| Register as baker | ~5 min |
+| Stake XTZ | ~5 min |
+| **Total active work** | **~1-4 hours** |
+
+> **ℹ️ INFO:** After registration, it takes up to **2 cycles (~2 days)** before you receive your first baking rights.
 
 ---
 
@@ -134,32 +164,72 @@ Follow the following guide and then proceed directly to [stake your XTZ](#stake-
 
 #### (Option 2 - DEPRECATED) Import Ledger key to TezBake signer
 
-In order to get the most out of your Ledger, it's now recommended to use the P-256 curve (tz3) for baking. This curve is faster than the default ed25519 curve (tz1). If you're setting up a baker that already exists on the network, you can use the same curve as before. If you're setting up a new baker, it's recommended to use the P-256 curve.
+> **ℹ️ INFO:** Baking with a Ledger is no longer recommended for new bakers. TezSign is the preferred signing solution. These instructions remain for existing Ledger bakers.
 
-You can import your Ledger key by running the following command:
+##### Derivation Path
+
+The derivation path controls which key on your Ledger is used for baking. You can specify any supported curve and path:
+
+| Path | Curve | Notes |
+|------|-------|-------|
+| `P-256/0h/0h` | tz3 | **Recommended** — faster signing |
+| `ed25519/0h/0h` | tz1 | Default — slower, widely supported |
+| `secp256k1/0h/0h` | tz2 | Alternative — faster than ed25519 |
+
+> **💡 TIP:** P-256 and secp256k1 offer faster signing than ed25519. If you're setting up a new baker, use P-256. If you're migrating an existing baker, keep the same curve you've been using.
+>
+> Using a non-default derivation path adds an extra layer of security but also complexity. Make sure your choice is clearly documented for your own records. To find out which key a given path corresponds to, go to <https://gov.tez.capital> and log in with Ledger — it shows the address for the default path.
+
+##### Importing the Key
+
+Make sure your Ledger has the **Tezos Baking app** open before running this command.
 
 ```bash
 tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
 ```
 
-> **Derivation path:** You can specify a custom path like `--import-key="ed25519/0h/0h"` (the default). P-256 and secp256k1 curves offer faster signing than ed25519.
+The Ledger will ask you **twice** to confirm the operation. Check that the baker address shown on the Ledger screen is the one you intend to use.
+
+> **💡 TIP:** If you're importing for the second time after a failed attempt, add `--force` to override the previous import.
+
+> **⚠️ Ledger Baking App Behavior**
+> - The Ledger **must** stay on the Tezos Baking app at all times while baking
+> - The screensaver activating is normal — baking continues
+> - Do **NOT** open Ledger Live while baking — it will disconnect the signer
+> - To vote or transfer funds, stop the baker first, switch apps, then switch back
+
+##### High Watermark (HWM)
+
+The `--hwm 1` flag sets the High Watermark — a security counter stored on the Ledger that records the highest block level it has ever signed. The Ledger refuses to sign any block at or below this level, which prevents accidentally signing the same block twice.
+
+- **New baker / new device:** Use `--hwm 1` (the default command above is safe).
+- **Existing baker returning after a break:** Set `--hwm` to the **current block height** to prevent signing any historical blocks. You can find the current level at <https://tzkt.io>.
+- **Migrating from mainnet to testnet:** Testnet block levels usually start at 1, which is below a mainnet HWM of millions. Use a testnet-specific device, never reuse a mainnet device.
+
+> **💡 TIP:** The HWM is device-specific. Each Ledger maintains its own watermark independently.
+
+##### Verification
+
+After importing, confirm the key was imported successfully:
+
+```bash
+tezbake info
+```
+
+Look for your baker address in the output. If it appears and the signer status shows as connected, the import was successful. See [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) for a full explanation of the `tezbake info` output.
+
+##### ⚠️ Double Baking Prevention
+
+> **🚨 CRITICAL: Double Baking**
 >
-> **High Watermark (HWM):** `--hwm 1` sets the starting block level for safety. The HWM is a security feature that prevents double baking by tracking the highest block your device has signed. For first-time setup, use `--hwm 1`. If your device previously baked, set this to the current block height to prevent accidentally signing older blocks.
-> If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
-> Once imported, you can see your baker address by running `tezbake info`
-> The ledger will ask you twice to confirm this operation. Make sure the baker you see on the ledger screen matches the one you want to use. If you don't have this information yet, don't worry. To get the address of the ledger that's used by default simply go to <https://gov.tez.capital> and login with ledger, accepting the default derivation path.
-> Putting the baker on a non-default derivation path provides an additional layer of security for your baker at the cost of extra complexity for you. Make sure your setup is clearly documented for your own records.
-> If your device was used to bake before it might have a "high watermark" aka HWM. If you try to use this device on a testnet, it will not work because the block height on test networks usually starts with 1 while mainnet is up to over a couple of million blocks at the time of writing.
-If you used to bake on mainnet with the same ledger as you're trying to use now but it's been a while, it's highly recommended to change the 1 above to the current block on the network that will be used for the device going forward.
-> The watermark is simply a record of the lack block number your ledger helped to bake or attest. If you're setting up a brand new device that's not been used for baking before, there is no need to alter the default command above.
-> **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is considered a malicious attack on the network. The protocol detects this and slashes (confiscates) your staked tez as punishment. See [Slashing Explained](/getting-started/slashing-explained/) for penalty details.
+> **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is treated as a malicious attack. The protocol detects this and **slashes (confiscates) your staked tez** as punishment. See [Slashing Explained](/getting-started/slashing-explained/) for penalty details.
 >
-> **Prevention - Critical Rules:**
-> * **Never use bakers with the same seed on any network** - even different networks (mainnet vs testnet)
-> * **Never use your TezSign backup device to bake** - backup devices are only for emergency failover
-> * **Always create testnet-specific devices** - use separate Ledger or TezSign devices dedicated to testnet
-> * **Always use different computers for different functions** - one computer for mainnet baking, a separate computer for testnet baking
-> * The HWM protection helps prevent accidental double baking, but careful operational procedures are your primary defense
+> **Critical Rules:**
+> * **Never run two bakers with the same key** — even briefly, even on different machines
+> * **Never use your TezSign backup device to bake** — backup devices are only for emergency failover
+> * **Always use separate devices for testnet** — never reuse a mainnet Ledger or TezSign on a testnet
+> * **Always use separate computers per network** — one machine for mainnet, a different machine for testnet
+> * The HWM helps prevent *accidental* double baking, but careful operational procedures are your primary defense
 
 #### (Option 3 - INSECURE) Import Soft key to TezBake node
 
@@ -257,7 +327,7 @@ tezbake update-dal-profiles <your-baker-tz4-key> --force
 Bakers cast two types of votes with every block they produce. TezBake configures sensible defaults, but you should understand what you're voting for:
 
 **Liquidity Baking Toggle Vote:**
-- Controls a protocol feature that mints ~5 tez per minute into a tez/tzBTC liquidity pool
+- Controls a protocol feature that mints approximately 2.5 tez per block into a tez/tzBTC liquidity pool
 - Options: `on` (continue subsidy), `off` (end subsidy), `pass` (abstain)
 - If enough bakers vote `off` over ~2000 blocks, the subsidy pauses
 - Default in TezBake: `on`
@@ -289,6 +359,19 @@ You can install different TezBake components on different systems. For example, 
 Follow the steps in [Baking with Prism](/tezbake/tutorials/baking-with-prism/)
 
 As with everything in life, complexity adds more failure points. Only separate the TezBake components if you have a compelling use case.
+
+---
+
+## What's Next
+
+✅ **Your baker is running!** Here's what to set up next:
+
+1. [Monitor your baker](/tezbake/tutorials/monitoring-logs-and-status/) — Track sync status and performance
+2. [Set up TezWatch alerts](/tezwatch/tutorials/setup/) — Get notified about missed attestations
+3. [Configure TezPay](/tezpay/tutorials/setup/) — Automate delegator payouts
+4. [Install TezPeak dashboard](/tezpeak/tutorials/setup/) — Visual monitoring interface
+5. [Set up TezGov](/tezgov/tutorials/voting-on-proposals/) — Participate in governance
+6. [Review best practices](/getting-started/best-practices/) — Security, UPS, monitoring
 
 ---
 

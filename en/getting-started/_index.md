@@ -24,3 +24,9 @@ New to Tezos baking? Follow this sequence:
 3. **[Best Practices](best-practices/)** - Essential safety and reliability guidelines
 
 **Ready to start baking?** → **[Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)**
+
+## Reference & Planning
+
+- **[Choose Your Setup](/getting-started/choose-your-setup/)** - Compare baking configurations and find the right fit
+- **[Hardware Requirements](/getting-started/hardware-requirements/)** - Minimum and recommended hardware specs
+- **[Glossary](/getting-started/glossary/)** - Key Tezos baking terms defined

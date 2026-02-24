@@ -8,13 +8,36 @@ summary: How to bootstrap your Tezos node quickly using blockchain snapshots
 Follow along on Youtube!
 {{< youtube 2BQZ1SY3PD4 >}}
 
+> **Quick Reference**
+> ```bash
+> tezbake stop
+> tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling --no-check  # Fast, trusts source
+> tezbake start
+> ```
+
+## Prerequisites
+
+- **[TezBake installed and configured](/tezbake/tutorials/baking-on-mainnet/)** — TezBake must already be set up on your machine
+- **Your baker stopped** — always run `tezbake stop` before bootstrapping to avoid data corruption
+
 ## TezBake Bootstrapping
 
 To bootstrap your TezBake node means to download someone else's snapshot of the blockchain and import it into your node. This is much faster than synchronizing the blockchain from scratch. There is a way to quickly bootstrap your node using a snapshot and a way to bootstrap your node using a snapshot and a block hash. The latter is the most reliable and robust method but it is also the slowest. The former is faster but it assumes you trust the source of the snapshot.
 
-**Please be aware that bootstrapping your node could result in your nonce revelation to fail and for you to forfeit your attestation rights for the cycle.** This is because by default we're using rolling snapshots which don't export full blocks for past cycles by default. If your node baked a special kind of block during the last cycle, it may be asked to provide its nonce to the network. To do so, it needs to have the `.tezos-client` data intact from the last cycle and it needs to have the full blocks for the last cycle.
+---
 
-To remedy this situation and to never risk forfeiting your attestation rights for a whole cycle, you have to use a snapshot that's at least 5-6 days old (from today), when bootstrapping a node. You also have to not wipe out or to move your `.tezos-client` directory. This way you'll always have at least 1 cycle+ of full blocks in your node's database as well as the nonce file on disk. The downside of this method is that it will slow down your bootstrap process by the amount of time it takes to download the full blocks for the past 1 cycle+, which can be up to 2 hours on some slow home networks.
+> **🚨 CRITICAL: Nonce Forfeiture Risk**
+>
+> Re-bootstrapping your node mid-cycle can cause you to forfeit attestation rights for an entire cycle — meaning lost income.
+>
+> **To minimize risk:**
+> 1. Use a snapshot that is **at least 5-6 days old**
+> 2. Do **NOT** delete your `.tezos-client` directory
+> 3. If possible, wait until a cycle boundary
+>
+> See the [detailed explanation below](#nonce-forfeiture-explained).
+
+---
 
 ### Bootstrap using a snapshot
 
@@ -22,9 +45,9 @@ You can get Tezos node snapshots in the following place run by the Tezos Foundat
 
 * <https://snapshots.tzinit.org/>
 
-*Before bootstrapping your node, made sure to stop your node as shown below.*
+*Before bootstrapping your node, make sure to stop your node as shown below.*
 
-Using the first bootstrap method below ensures that the snapshot is checked for consistency both programmatically and by your checking the blockchain explorer(s) to confirm the block hash. This is the most reliable and robust method but it it also the slowest.
+Using the first bootstrap method below ensures that the snapshot is checked for consistency both programmatically and by your checking the blockchain explorer(s) to confirm the block hash. This is the most reliable and robust method but it is also the slowest.
 
 ```bash
 tezbake stop
@@ -57,6 +80,35 @@ tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling --no-chec
 ```
 
 > **💡 TIP:** You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
+
+---
+
+## Nonce Forfeiture Explained
+
+When a baker produces certain blocks, it commits a **nonce** — a random number that must be revealed in the following cycle. This is part of Tezos' on-chain randomness mechanism.
+
+Bootstrapping your node replaces the blockchain data with a snapshot. If you use a **recent snapshot** (less than 5-6 days old) and **wipe your `.tezos-client` directory**, two things go wrong:
+
+1. **The node loses the full block history** for the current cycle — it no longer has the data needed to reveal the nonce.
+2. **The nonce file is deleted** from `.tezos-client`, so the baker can no longer prove what it committed.
+
+When the reveal deadline arrives, your baker cannot respond. The protocol treats this as a forfeiture and you lose your attestation rewards for that cycle.
+
+**Why a 5-6 day old snapshot helps:**
+
+Tezos cycles last roughly 2-3 days. By using a snapshot that is at least 5-6 days old, you ensure that the imported blockchain already contains the full block history for at least one complete past cycle — so any outstanding nonce reveals are already covered in the snapshot.
+
+**Why keeping `.tezos-client` matters:**
+
+The nonce file lives inside `.tezos-client`. As long as you don't delete this directory, your baker retains its nonce commitments across the bootstrap and can reveal them when required.
+
+> **💡 TIP:** The downside of using an older snapshot is a slower bootstrap — it takes extra time to sync the additional blocks (up to 2 hours on slow home networks). This trade-off is worth it to protect your income.
+
+---
+
+## What's Next
+
+→ Return to [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) to continue setup
 
 ---
 

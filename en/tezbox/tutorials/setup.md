@@ -1,5 +1,5 @@
 ---
-title: "> Setup"
+title: "Setup"
 weight: 1
 type: docs
 summary: How to run TezBox Docker container for local Tezos development
@@ -48,6 +48,8 @@ To view all available protocols available in the TezBox container, you can run t
 ```bash
 sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 list-protocols
 ```
+
+> **⚠️ NOTE:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
 
 ## Setup TezBox to test Release Candidate (RC) protocols
 

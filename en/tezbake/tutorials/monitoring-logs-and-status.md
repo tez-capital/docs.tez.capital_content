@@ -8,6 +8,15 @@ summary: Monitor your Tezos baker status, view logs, and diagnose issues with Te
 Follow along on Youtube!
 {{< youtube tqqLNBo1OeE >}}
 
+> **Quick Reference**
+> ```bash
+> tezbake info                    # Overall status snapshot
+> tezbake node log -f             # All node logs (live)
+> tezbake node log baker -f       # Baker logs only (live)
+> tezbake node log node -f        # Node sync logs only (live)
+> tezbake signer log -f           # Signer/Ledger logs (live)
+> ```
+
 ## Monitoring
 
 TezBake gives you the option to monitor all Tezos node and baking services. TezBake utilizes the journalctl utility included in most Linux distribution to store and manage its logging.  You can extract all logs for a node easily to diagnose any issues. This tutorial will walk you through the process of monitoring your TezBake node.
@@ -23,6 +32,50 @@ tezbake info
 ```
 
 ![Info screen showing status of node services and Ledger](/tezbake/tutorial/tezbakeInfo.png)
+
+### Understanding `tezbake info` Output
+
+The `tezbake info` command shows a snapshot of your baker's health. Here's what a healthy output looks like and what each field means:
+
+```
+Node:
+  synchronized:     true          ← MUST be true before importing keys or registering
+  level:            7,432,881     ← Should match the latest block on https://tzkt.io
+  network:          mainnet
+
+Baker:
+  baker_registered: true          ← true once you've run register-key or used TezGov
+  baker_active:     true          ← true once you have baking rights (up to 2 cycles after registration)
+  next_baking:      in 4h 12m     ← your next scheduled block production slot
+
+Signer:
+  status:           connected     ← MUST be "connected" — if "disconnected", check your signer device
+  type:             ledger        ← or "tezsign" depending on your setup
+  address:          tz3Abc...     ← your baker's public key address
+
+Services:
+  node:             running       ← all services should show "running"
+  baker:            running
+  accuser:          running
+  signer:           running
+```
+
+> **ℹ️ INFO:** If you just started the baker, give it 1-2 minutes for all fields to populate. Some fields like `baker_active` and `next_baking` only appear after full synchronization.
+
+### Healthy Baker Checklist
+
+Use this checklist to confirm your baker is operating correctly:
+
+- ✅ `synchronized: true` — node is fully caught up with the chain
+- ✅ `level` matches the latest block on <https://tzkt.io>
+- ✅ `baker_registered: true` — registration transaction confirmed on-chain
+- ✅ `signer: connected` — signing device is reachable and responding
+- ✅ All services show `running` (node, baker, accuser, signer)
+- ✅ No error messages in `tezbake node log -f` output
+
+> **⚠️ WARNING:** If `synchronized` is `false`, your baker is not attesting. Do not register or import keys until your node is fully synced. Monitor the `level` field and compare it to <https://tzkt.io> until they match.
+
+> **💡 TIP:** If `signer` shows `disconnected`, check that your Ledger is unlocked with the Tezos Baking app open (or that your TezSign device is powered on and connected). Run `tezbake signer log -f` for details.
 
 ## Monitor TezBake logs
 

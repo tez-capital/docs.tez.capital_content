@@ -5,6 +5,20 @@ type: docs
 summary: Common TezBake issues and solutions for installation errors and runtime problems
 ---
 
+## Error Quick Reference
+
+| Error / Symptom | Jump To |
+|----------------|---------|
+| Installation fails or hangs | [Installation Errors](#installation-errors) |
+| Node stuck syncing / won't sync | [Blockchain Errors](#blockchain-errors) |
+| Plugin or package issues | [Clear Cache](#clear-cache) |
+| Node storage errors / can't start | [Corrupted Node Storage](#corrupted-node-storage) |
+| Full disk / no space left | [Full Disk](#full-disk) |
+| "illegal instruction" / low-level errors | [Update eli](#update-eli-lua-interpreter) |
+| TezSign USB timeout / not responding | [TezSign USB Issues](#tezsign-usb-issues) |
+| DAL not attesting / no peers | [DAL Troubleshooting](#dal-troubleshooting) |
+| Missing attestations | [Missing Attestations](/tezbake/tutorials/missing-attestations/) |
+
 ## Troubleshooting
 
 Troubleshooting TezBake mostly comes in during the installation phase, when an error is encountered during the setup process.

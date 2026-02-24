@@ -5,6 +5,18 @@ type: docs
 summary: Common TezGov issues and solutions for Ledger, voting, and staking problems
 ---
 
+## Error Quick Reference
+
+| Error / Symptom | Jump To |
+|----------------|---------|
+| "Transaction Not Trusted" warning | [Transaction Not Trusted](#transaction-not-trusted-warning) |
+| "Failed to Open Device" / can't connect Ledger | [Failed to Open Device](#failed-to-open-device) |
+| Vote not counting / clicked wrong button | [Protocol Voting Issues](#protocol-voting-issues) |
+| Staking parameters not taking effect | [Staking Issues](#staking-issues) |
+| Consensus/companion key not activating | [Key Management](#key-management) |
+| Baker inactive / needs reactivation | [Baker Reactivation](#baker-reactivation) |
+| TezGov page not loading / stale UI | [Browser Issues](#browser-issues) |
+
 ## TezGov Troubleshooting
 
 TezGov (https://gov.tez.capital) is used for protocol voting, staking management, and baker configuration. Most issues involve Ledger connectivity or understanding the two different voting systems.
@@ -135,7 +147,7 @@ tezbake signer client set delegate parameters for <tz_address> \
 
 ### Parameters Not Taking Effect
 
-- Changes take **2-3 cycles (~3-5 days)** to activate
+- Changes take **5 cycles (~5 days)** to activate
 - External stakes are treated as delegation until parameters are set
 - Default: Stakers NOT accepted until you explicitly set parameters
 
@@ -169,7 +181,7 @@ If unstaking decimal amounts fails:
 
 ### Key Activation Timing
 
-- **Activation delay:** 2-3 cycles (~3-5 days)
+- **Activation delay:** 3 cycles (~3 days)
 - Register in cycle N → Live in cycle N+3
 - Check status: https://tzkt.io/YOUR_TZ1/secondary-keys
 

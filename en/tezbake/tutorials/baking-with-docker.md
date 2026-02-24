@@ -5,13 +5,19 @@ type: docs
 summary: Run TezBake in a Docker container for isolated and portable Tezos baking
 ---
 
+## Prerequisites
+
+- **[Docker installed](https://docs.docker.com/engine/install)** — Docker Engine must be installed and running on your system
+- **Linux operating system** — Ubuntu 22.04+ or Debian 12+ recommended; macOS and Windows are not supported
+- **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers — see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#stake-your-baking-xtz-security-deposit))
+- **Hardware:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
+
 ## Preparation
 
 For this tutorial, you'll need to have already have installed Docker as shown here: <https://docs.docker.com/engine/install>
 
 > **🚨 CRITICAL: DAL Node Mandatory**
->
-> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. The Docker container includes DAL support, but you must ensure it's properly configured. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for details.
+> All bakers are required to run a DAL node. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for setup instructions and details.
 
 ## Table of Contents
 
@@ -74,7 +80,7 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 >
 > * Once imported, you can see your baker address by running `tezbake info`
 > * The ledger will ask you twice to confirm this operation - ensure the baker address matches the one you want to use
-> * To get the default ledger address, go to <https://kukai.app> and login with ledger, accepting the default derivation path
+> * To get the default ledger address, go to <https://gov.tez.capital> and login with ledger, accepting the default derivation path
 >
 > **ℹ️ BLS Signatures:**
 > BLS (i.e. bip) signatures offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
@@ -102,7 +108,7 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 First, generate the baker key for TezBake signer:
 
 ```bash
-tezbake signer - gen keys baker
+tezbake signer gen-keys baker
 ```
 
 Make sure to backup your key in a secure location. You can get the key by running the following command:
@@ -116,6 +122,7 @@ Then, import the baker public key hash to TezBake node:
 Get the tz1-tz3 address which is the hashed public key of the baker key:
 
 ```bash
+# Note: 'public_key_hashs' is the actual Octez filename (not 'hashes')
 cat /bake-buddy/signer/data/.tezos-signer/public_key_hashs
 ```
 
@@ -146,12 +153,12 @@ tezbake register-key
 > Registration is NOT necessary if:
 >
 > * This is already an active baker ledger being set up on a failover machine
-> * The baker has not been inactive for over 3 days
+> * The baker has not been inactive for over 2 cycles (~2 days)
 >
 > You MUST register your baker if:
 >
 > * You're setting up a new baker (first time)
-> * Your baker has been inactive for over 3 days
+> * Your baker has been inactive for over 2 cycles (~2 days)
 > * Your baking rights have stopped appearing in the schedule
 >
 > Check your baking rights schedule to confirm if re-registration is needed.

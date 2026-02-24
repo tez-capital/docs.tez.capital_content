@@ -11,6 +11,13 @@ summary: Using TezBake to bake on the Tezos testnets
 * Ghostnet is the original Tezos testnet. It is a public testnet that is used by developers and users to test new features and applications before they are deployed on the mainnet. Ghostnet is a great way to get familiar with the Tezos ecosystem and to test your applications in a safe environment where the chain conditions are similar to mainnet.
 * Shadownet is similar to Ghostnet but it is a private testnet that is used by developers to test new features and applications before they are deployed on the mainnet. Shadownet is not open to the public and is only accessible to developers who are working on Tezos projects. Shadownet bakers are centrally selected by the core Tezos development team. Setting up a testnet bakery here is possible but not encouraged.
 
+## Prerequisites
+
+- **Linux OS installed** (Ubuntu 22.04+ recommended) with SSH or physical access
+- **[TezBake binary](/tezbake/tutorials/baking-on-mainnet/#download-and-install-tezbake)** — download and install before running setup
+- **Test XTZ** from the [testnet faucet](https://teztnets.com) (no real funds required)
+- **Hardware:** 8GB RAM minimum, SSD storage
+
 ## Table of Contents
 
 1. [Preparation](#preparation)
@@ -31,11 +38,7 @@ All advanced TezBake configurations, including TezSign block signing apply here 
 ---
 
 > **🚨 CRITICAL: DAL Node Mandatory**
->
-> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
->
-> **What is the DAL?**
-> The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify.
+> All bakers are required to run a DAL node. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for setup instructions and details.
 
 ## Installation (All-in-one)
 
@@ -65,10 +68,12 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 ```bash
 tezbake bootstrap-node <url> <block_hash>
 # Seoulnet example:
-tezbake bootstrap-node https://snapshots.tzinit.org/seoulnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+tezbake bootstrap-node https://snapshots.tzinit.org/seoulnet/rolling <BLOCK_HASH>
 # Ghostnet example:
-tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling BL8Vq12HX6MJWkB6RLgQAYRKpKZ5fyMoLpWzAoQ6mh55gkKHiQU
+tezbake bootstrap-node https://snapshots.eu.tzinit.org/ghostnet/rolling <BLOCK_HASH>
 ```
+
+> **ℹ️ INFO:** Get the current block hash from the snapshot provider's website.
 
 Get the block hash and block level from the snapshot provider's website:
 <https://snapshots.eu.tzinit.org/ghostnet/rolling.html>

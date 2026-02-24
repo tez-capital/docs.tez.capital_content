@@ -2,8 +2,16 @@
 title: "Paying Delegators"
 weight: 4
 type: docs
-summary: How to Pay Delegators Using TezPay
+summary: How to generate payout tables and pay delegators using TezPay, including continual and multi-cycle payouts
 ---
+
+> **ℹ️ INFO:** This guide assumes TezPay is already installed. If not, see [TezPay Setup](/tezpay/tutorials/setup/) first. If you're using TezBake integration (`tezbake setup --pay`), use `tezbake pay` commands instead of standalone `./tezpay`. See [TezBake Integration](/tezpay/tutorials/tezbake-integration/).
+
+## Prerequisites
+
+- **[TezPay installed and configured](/tezpay/tutorials/setup/)** — TezPay must be set up with a `config.hjson` and a payout wallet key file
+- **[Running baker on mainnet](/tezbake/tutorials/baking-on-mainnet/)** — your baker must be active and have completed at least one cycle to generate payouts
+- **Payout wallet funded** — the wallet specified in your config must have enough XTZ to cover delegator payments and transaction fees
 
 ## Table of Contents
 
@@ -31,21 +39,6 @@ This section will review:
 3. Generating an actual payout
 4. Running a continual payout
 5. Keeping TezPay up-to-date
-
-Before using a command in TezPay, you will need to run
-***two additional commands</span>*** that will
-allow you to call the application via commands and set permissions
-While in the TezPay directory in the terminal, run the following
-commands (*see code and examples below*):
-
-   `mv tezpay-linux-amd64 tezpay`
-
-| ![Command to move TezPay application in order to run.](/tezpay/tutorial/tezpayImage16.png) |
-|-|
-
-   `chmod +x tezpay`
-
-   ![Command to change permissions for TezPay application in order to run.](/tezpay/tutorial/tezpayImage17.png)
 
 ---
 

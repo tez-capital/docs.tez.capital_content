@@ -119,7 +119,7 @@ tezbake remove --dal --all
 
 **Node's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -136,7 +136,7 @@ tezbake remove --dal --all
 
 **DAL's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -152,7 +152,7 @@ tezbake remove --dal --all
 
 **Signer's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -172,7 +172,7 @@ tezbake remove --dal --all
 
 **Node's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -188,7 +188,7 @@ tezbake remove --dal --all
 
 **Signer's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -208,7 +208,7 @@ tezbake remove --dal --all
 
 **DAL's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...
@@ -224,7 +224,7 @@ tezbake remove --dal --all
 
 **Node's `app.json`:**
 
-```yaml
+```hjson
 {
   "configuration": {
     # ...

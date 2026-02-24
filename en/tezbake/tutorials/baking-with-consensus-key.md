@@ -2,7 +2,7 @@
 title: "Baking with Consensus Key"
 weight: 11
 type: docs
-summary: TezBake Baking Tutorial for using a Consensus Key
+summary: Guide to setting up a separate consensus key and companion key for secure Tezos baking with TezSign or Ledger
 ---
 
 > **⚠️ WARNING: tz4/BLS Signing Requirements**
@@ -37,6 +37,13 @@ Follow along on Youtube!
 3. [PRE-BLS (DEPRECATED) Ledger Consensus key setup](#pre-bls-deprecated-ledger-consensus-key-setup)
 
 ---
+
+## Prerequisites
+
+- **[Running baker on mainnet or testnet](/tezbake/tutorials/baking-on-mainnet/)** — your baker must already be set up and actively baking
+- **[TezBake installed](/tezbake/tutorials/baking-on-mainnet/#download-and-install-tezbake)** — latest version required
+- **For tz4/BLS setup (recommended):** A [TezSign hardware device](/tezbake/tutorials/baking-with-tezsign/) to generate secure consensus and companion keys
+- **For deprecated Ledger setup:** A second Ledger device to use as the consensus key signer
 
 ## Preparation
 

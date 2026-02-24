@@ -10,11 +10,17 @@ summary: Integrating the TezSign hardware signer with your TezBake setup.
 This guide covers how to configure **TezSign** (hardware signer) to work seamlessly with **TezBake**. It assumes you're setting up your hardware signer on the same machine as your baking machine, as part of an all-in-one setup. You do not have to use TezBake to setup TezSign; instead you can use the helper app.
 
 - **Security First:** TezSign ensures your baking keys remain secure on hardware and never leave the device.
-- **Prerequisites:** You must have a supported TezSign device ready.
 
 > **ℹ️ INFO**
 >
 > TezSign is provided without any guarantee. Use it at your own risk.
+
+## Prerequisites
+
+- **[TezBake installed](/tezbake/tutorials/baking-on-mainnet/#download-and-install-tezbake)** — TezBake must be set up on your baking machine before integrating TezSign
+- **A supported TezSign hardware device** — Radxa Zero 3W or Raspberry Pi Zero 2W (see shopping list in Phase 0)
+- **SD card(s)** — at least 8GB, enterprise/endurance grade recommended; buy 3 (one active, one clone, one spare)
+- **USB cable** — a short, high-quality data cable to connect TezSign to your baking machine
 
 ## Table of Contents
 
@@ -512,11 +518,11 @@ sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
 
 | Task                               | Command Example                                                       |
 | ---------------------------------- | --------------------------------------------------------------------- |
-| Initialize TezSign Platform        | `TezBake setup-tezsign --init --platform`                             |
-| Initialize Device                  | `TezBake tezsign init`                                                |
-| Generate New Keys                  | `TezBake tezsign new <key-name-1> <key-name-2>`                       |
-| Import Key to TezBake              | `TezBake setup-tezsign --import-key=<tezsign-alias> --key-alias=<alias>` |
-| Verify Keys                        | `TezBake info`                                                        |
+| Initialize TezSign Platform        | `tezbake setup-tezsign --init --platform`                             |
+| Initialize Device                  | `tezbake tezsign init`                                                |
+| Generate New Keys                  | `tezbake tezsign new <key-name-1> <key-name-2>`                       |
+| Import Key to TezBake              | `tezbake setup-tezsign --import-key=<tezsign-alias> --key-alias=<alias>` |
+| Verify Keys                        | `tezbake info`                                                        |
 
 ---
 

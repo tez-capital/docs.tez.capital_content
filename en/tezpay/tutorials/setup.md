@@ -1,8 +1,8 @@
 ---
-title: "> Setup"
+title: "Setup"
 weight: 1
 type: docs
-summary: How to setup TezPay
+summary: Step-by-step guide to installing and configuring TezPay for automated delegator reward payouts on Tezos
 ---
 
 Follow along on Youtube!
@@ -474,6 +474,16 @@ Wallet.
 
 At this point there should be 3 files in the directory *tezpay*.
 These three files will be used to run the application and payouts.
+
+---
+
+## What's Next
+
+✅ **TezPay is configured!** Next steps:
+
+1. [Generate a test payout](/tezpay/tutorials/paying-delegators/) — Verify everything works before going live
+2. [Integrate with TezBake](/tezpay/tutorials/tezbake-integration/) — Automate payout scheduling as a managed service
+3. [Set up notifications](/tezpay/tutorials/notifications/) — Get payout confirmations via Discord, Twitter, or email
 
 ---
 

@@ -2,7 +2,7 @@
 title: "Setup"
 weight: 1
 type: docs
-summary: How to install and configure TezPeak
+summary: How to install and configure TezPeak for visual baker monitoring and TezPay management
 ---
 
 Follow along on Youtube!
@@ -140,6 +140,16 @@ If you're connecting from the same computer, use `http://127.0.0.1:8733` or `htt
 ## TezPeak example screenshot
 
 ![TezPeak example screenshot](/tezbake/tutorial/tezpeakexample.png)
+
+---
+
+## What's Next
+
+✅ **TezPeak is running!** Here are additional things you can do:
+
+1. [Manage TezPay payouts via TezPeak GUI](/tezpeak/tutorials/managing-payouts/) — Run and monitor delegator payouts from the dashboard
+2. [Set up TezWatch alerts](/tezwatch/tutorials/setup/) — Get Discord notifications for missed attestations
+3. [Participate in governance](/tezgov/tutorials/voting-on-proposals/) — Vote on Tezos protocol proposals
 
 ---
 

@@ -5,6 +5,17 @@ type: docs
 summary: Common TezPay issues and solutions
 ---
 
+## Error Quick Reference
+
+| Error / Symptom | Jump To |
+|----------------|---------|
+| "failed to apply batch" | [Batch Error](#failed-to-apply-batch) |
+| RPC timeout / context deadline exceeded | [RPC Timeout Errors](#rpc-timeout-errors) |
+| "stream closed" / extension loading error | [Extension Loading Error](#extension-loading-error-stream-closed) |
+| Payment missing after crash | [Payment Not Recorded After Crash](#payment-not-recorded-after-crash) |
+| Protocol upgrade stopped payouts | [After Protocol Upgrades](#after-protocol-upgrades) |
+| Missed cycles need catching up | [Catching Up Missed Payments](#catching-up-missed-payments) |
+
 ## Common Errors and Solutions
 
 ### "failed to apply batch"
@@ -37,13 +48,20 @@ summary: Common TezPay issues and solutions
 
 **Cause:** Using the entire sample config with incompatible options.
 
-**Solution:** Start with minimal config, only add options you need:
+**Solution:** Start with minimal config, only add options you need. Start with this minimal config to verify TezPay works, then add advanced options:
 
 ```hjson
 {
-  baker_address: "tz1YourBakerAddress"
-  payout_fee: 0.05
-  min_payout: 1
+    baker_address: "tz1YOUR_BAKER_ADDRESS"
+    payout_fee: 0.05
+    min_payout: 1
+    network: {
+        rpc_pool: [
+            "https://eu.rpc.tez.capital"
+            "https://rpc.tzkt.io/mainnet"
+        ]
+        tzkt_url: "https://api.tzkt.io"
+    }
 }
 ```
 

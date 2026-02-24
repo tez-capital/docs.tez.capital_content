@@ -2,7 +2,7 @@
 title: "Baking with DAL"
 weight: 8
 type: docs
-summary: TezBake Baking Tutorial for DAL
+summary: Step-by-step guide to setting up the Tezos Data Availability Layer (DAL) node with TezBake for maximum baking rewards
 ---
 
 Follow along on Youtube!
@@ -13,6 +13,12 @@ Follow along on Youtube!
 The Tezos Data Availability Layer (DAL) enhances network scalability by efficiently handling large volumes of data off-chain, providing essential support for rollups and other layer-2 solutions. This guide explains how to set up DAL locally alongside your TezBake baker.
 
 For more details on DAL, see [Tezos DAL Overview](https://tezos.gitlab.io/shell/dal_overview.html).
+
+## Prerequisites
+
+- **[TezBake installed and running](/tezbake/tutorials/baking-on-mainnet/)** — your baker must already be set up on mainnet or testnet
+- **TezBake version 0.18.6+** and **Octez 24.0+** — required for current mainnet (Tallinn protocol); verify with `tezbake version --all`
+- **Sufficient disk space and bandwidth** — the DAL node downloads and verifies shard data continuously
 
 ## Version Requirements
 
@@ -143,6 +149,34 @@ tezbake node log baker -f
 ```
 
 For additional DAL checks, refer to the [Nomadic Labs DAL Tutorial](https://tezos.gitlab.io/shell/dal_overview.html).
+
+---
+
+## Verifying DAL is Running
+
+After setup, verify your DAL node is operational:
+
+```bash
+tezbake info    # Check DAL status in output
+```
+
+**Signs of a healthy DAL:**
+- DAL section appears in `tezbake info` output
+- DAL companion key is registered (check via your baker's page on tzkt.io)
+- No "connection refused" errors in DAL logs
+
+### Common DAL Issues
+
+**Port conflicts:** DAL uses port 10732 by default. Check for conflicts:
+```bash
+sudo ss -tlnp | grep 10732
+```
+
+**Companion key not imported:** If DAL shows as running but not attesting:
+```bash
+tezbake node client list signing scheme
+```
+Verify your DAL companion key appears in the list.
 
 ---
 
