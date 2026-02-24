@@ -50,10 +50,10 @@ Using the second bootstrap method below is faster but it assumes you trust the s
 
 ```bash
 tezbake stop
-tezbake bootstrap-node --no-check <url>
+tezbake bootstrap-node <url> --no-check
 tezbake start
 # example:
-tezbake bootstrap-node --no-check https://snapshots.eu.tzinit.org/mainnet/rolling
+tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling --no-check
 ```
 
 > **💡 TIP:** You can replace `eu` above with `us` or `asia` if you prefer to use a different mirror closer to you.
