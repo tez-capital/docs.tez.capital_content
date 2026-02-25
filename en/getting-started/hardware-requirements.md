@@ -105,7 +105,7 @@ Both devices are more than sufficient for signing Tezos operations. The Pi Zero 
 | Dedicated machine | Yes — do not share with daily-use workloads |
 | Monitoring | Configure [TezWatch](/tezwatch/) alerts via Discord or Telegram |
 
-> **ℹ️ INFO:** Tezos does **not** slash bakers for downtime caused by hardware failure or power outage. You will miss rewards during downtime, but you will not lose stake. However, you must maintain a 67% attestation success rate per cycle (~24 hours) to avoid any penalty.
+> **ℹ️ INFO:** Tezos does **not** slash bakers for downtime caused by hardware failure or power outage. You will miss rewards during downtime, but you will not lose stake. However, bakers who fall below 67% attestation participation for 2 consecutive cycles risk deactivation. Rewards are proportional to attestations made — there is no cliff penalty.
 
 ---
 

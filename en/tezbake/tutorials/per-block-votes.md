@@ -15,7 +15,7 @@ Every time your baker produces a block, it casts two automatic votes embedded in
 
 ### 1. Liquidity Baking (LB) Toggle
 
-Liquidity Baking is a protocol feature that mints approximately **2.5 tez per block** into a tez/tzBTC liquidity pool on-chain. This subsidy has been active since the Granada protocol upgrade (2021).
+Liquidity Baking is a protocol feature that mints **5 tez per minute** (0.5 tez per block at 6-second block times) into a tez/tzBTC liquidity pool on-chain. This subsidy has been active since the Granada protocol upgrade (2021).
 
 | Vote | Meaning |
 |------|---------|

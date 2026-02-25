@@ -185,7 +185,7 @@ TezWatch is a standalone bot — set it up via the Discord or Telegram bot inter
 
 ### I see "missed endorsements" / "missed attestations" in my stats — is something wrong?
 
-An occasional missed attestation is normal and expected (network latency, momentary CPU spike, etc.). The protocol requires only a **67% attestation rate** per cycle to receive full rewards.
+An occasional missed attestation is normal and expected (network latency, momentary CPU spike, etc.). Rewards are proportional to attestations made. However, bakers who fall below **67% participation** for 2 consecutive cycles risk **deactivation** (automatic removal from baking).
 
 If you are consistently missing more than 33% of attestations, investigate:
 - Is the baker process running? (`tezbake info`)

@@ -19,7 +19,7 @@ A protocol mechanism that dynamically adjusts the rate of new XTZ issued as baki
 
 ### Attestation
 
-An operation broadcast by a baker to certify that a block they observed is valid and should be included in the chain. Attestations replaced the older term *endorsements*. Bakers must maintain a 67% attestation success rate per cycle or face reduced rewards. See also: [Rights](#rights), [Cycle](#cycle).
+An operation broadcast by a baker to certify that a block they observed is valid and should be included in the chain. Attestations replaced the older term *endorsements*. Bakers who fall below 67% participation for 2 consecutive cycles risk deactivation. Rewards are earned proportionally for each attestation made. See also: [Rights](#rights), [Cycle](#cycle).
 
 ---
 

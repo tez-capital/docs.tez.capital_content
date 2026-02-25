@@ -65,7 +65,7 @@ See the full [hardware and best practices guide](/getting-started/best-practices
 
 ## Expected Returns
 
-Baking rewards on Tezos are approximately **5–6% APY**, but this varies based on:
+Baking rewards on Tezos are variable, currently around **8–10% APY** for stakers (as of early 2026). This rate adjusts dynamically via Adaptive Issuance based on the network's staked ratio relative to its 50% target, but this varies based on:
 
 - The network's overall staking ratio (Adaptive Issuance adjusts rewards automatically)
 - Whether you're a solo baker, staker, or delegator

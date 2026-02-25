@@ -202,7 +202,7 @@ If your baker becomes inactive:
 3. Find "Reactivate" button
 4. Confirm transaction on Ledger
 
-**Note:** You can also reactivate by simply resuming baking - if you attest >67% of assigned work, the baker automatically reactivates.
+**Note:** You can also reactivate by simply resuming baking - if you resume attesting above 67% of assigned slots, the baker automatically reactivates.
 
 ---
 

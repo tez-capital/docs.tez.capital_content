@@ -327,7 +327,7 @@ tezbake update-dal-profiles <your-baker-tz4-key> --force
 Bakers cast two types of votes with every block they produce. TezBake configures sensible defaults, but you should understand what you're voting for:
 
 **Liquidity Baking Toggle Vote:**
-- Controls a protocol feature that mints approximately 2.5 tez per block into a tez/tzBTC liquidity pool
+- Controls a protocol feature that mints 5 tez per minute (0.5 tez per block at 6-second block times) into a tez/tzBTC liquidity pool
 - Options: `on` (continue subsidy), `off` (end subsidy), `pass` (abstain)
 - If enough bakers vote `off` over ~2000 blocks, the subsidy pauses
 - Default in TezBake: `on`

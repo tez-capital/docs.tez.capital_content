@@ -13,7 +13,7 @@ TezBake software focuses on individuals and companies baking on-premise in their
 - No stake slashing for hardware failures (you only miss rewards during downtime)
 - Blocks scheduled 2 cycles (~2 days) in advance
 - Must be operational during scheduled block times
-- Need 67% attestation success rate per cycle (every ~24 hours)
+- Bakers below 67% attestation rate for 2 cycles risk deactivation
 
 ## Learning Path
 
