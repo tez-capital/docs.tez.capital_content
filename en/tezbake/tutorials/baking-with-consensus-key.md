@@ -35,6 +35,7 @@ Follow along on Youtube!
 1. [Preparation](#preparation)
 2. [BLS/tz4 Consensus and Companion key setup](#blstz4-consensus-and-companion-key-setup)
 3. [PRE-BLS (DEPRECATED) Ledger Consensus key setup](#pre-bls-deprecated-ledger-consensus-key-setup)
+4. [Reverting from tz4/BLS back to tz1/tz3 keys](#reverting-from-tz4bls-back-to-tz1tz3-keys)
 
 ---
 
@@ -175,6 +176,61 @@ To view your baker logs, run the following command:
 
 ```bash
 tezbake node log baker -f
+```
+
+---
+
+## Reverting from tz4/BLS Back to tz1/tz3 Keys
+
+If you were baking with tz4 keys (via TezSign) and want to revert to a tz1/tz3 key (Ledger or soft key), follow these steps.
+
+> **ℹ️ INFO:** tz1/tz3 keys do not require a separate companion key. When reverting, you set both the consensus key and the companion key to the same tz1/tz3 address — this effectively removes the tz4 companion requirement.
+
+### 1. Import your tz1/tz3 key into TezBake
+
+If you previously removed your tz1/tz3 key, re-import it. For a Ledger key:
+
+```bash
+tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1 --key-alias=consensus
+```
+
+Or for a soft key, import it under the appropriate alias.
+
+### 2. Set both consensus and companion keys on TezGov
+
+Go to [gov.tez.capital](https://gov.tez.capital) → Baker Management.
+
+Set **both** fields to your tz1/tz3 address:
+- **Consensus key** → your tz1/tz3 address
+- **Companion key** → the **same** tz1/tz3 address
+
+Setting the companion key to the same tz1/tz3 address as the consensus key tells the protocol you are no longer using a separate tz4 companion.
+
+### 3. Wait 3 cycles (~3 days) for activation
+
+The new key assignment takes effect after 3 cycles. Monitor activation status:
+- On TzKT: `https://tzkt.io/<your_tz1_address>/secondary-keys`
+- Via CLI: `tezbake info`
+
+### 4. Remove companion from additional_key_aliases
+
+Once the new keys are active, remove the companion alias since it is no longer needed:
+
+```bash
+tezbake node modify --remove configuration.additional_key_aliases '"companion"'
+tezbake upgrade
+```
+
+### 5. (Optional) Remove TezSign backend
+
+If you switched to the direct TezSign backend, revert it:
+
+1. Open `/bake-buddy/signer/app.json` and remove the `"BACKEND": "tezsign"` line from the `configuration` block.
+2. Apply and restart:
+
+```bash
+tezbake upgrade --signer
+tezbake stop --signer && tezbake start --signer
 ```
 
 ---

@@ -11,6 +11,14 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ---
 
+## 2026
+
+### Documentation: Reverting from tz4 to tz1/tz3 Keys
+
+**What changed:** Added a new section to [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) explaining how to revert from tz4/BLS (TezSign) back to tz1/tz3 signing. Key steps: re-import your tz1/tz3 key, set both consensus and companion keys to the same tz1/tz3 address via TezGov, wait 3 cycles, then remove the companion alias from TezBake config.
+
+---
+
 ## 2025
 
 ### DAL Now Mandatory for Bakers
