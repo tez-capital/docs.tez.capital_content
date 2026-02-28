@@ -196,13 +196,26 @@ tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1 -
 
 Or for a soft key, import it under the appropriate alias.
 
-### 2. Set both consensus and companion keys on TezGov
+### 2. Set both consensus and companion keys
+
+You can do this via TezGov (recommended) or the CLI.
+
+#### Option A: TezGov (recommended)
 
 Go to [gov.tez.capital](https://gov.tez.capital) → Baker Management.
 
 Set **both** fields to your tz1/tz3 address:
 - **Consensus key** → your tz1/tz3 address
 - **Companion key** → the **same** tz1/tz3 address
+
+#### Option B: CLI
+
+Replace `<tz1_alias>` with the alias you imported your tz1/tz3 key under (e.g. `consensus`):
+
+```bash
+tezbake signer client set consensus key for baker to <tz1_alias>
+tezbake signer client set companion key for baker to <tz1_alias>
+```
 
 Setting the companion key to the same tz1/tz3 address as the consensus key tells the protocol you are no longer using a separate tz4 companion.
 
