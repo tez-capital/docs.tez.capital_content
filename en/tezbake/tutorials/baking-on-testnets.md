@@ -117,11 +117,23 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 #### Import Soft key to TezBake
 
-> **⚠️ WARNING: tz4 Soft Keys Require a Companion Key**
+> **ℹ️ Understanding the Three Key Roles**
 >
-> When using a tz4 (BLS) key as your baker/consensus key, you **must** also register a separate tz4 companion key. The companion key is mandatory for DAL attestation. Without it, your baker will produce attestations without DAL payloads and you will forfeit ~10% of your baking rewards.
+> Before proceeding, it's important to understand how the three key roles relate to each other:
+>
+> | Role | Alias | Purpose |
+> |------|-------|---------|
+> | **Manager key** | `baker` | Your primary baker address. Controls funds, governance votes, staking, and has the authority to set or change your consensus and companion keys. This is permanent — it cannot be changed. |
+> | **Consensus key** | `baker` (initially) | Signs blocks and attestations. By default this is the same address as the manager key. You can later rotate it to a separate key without changing your manager address. |
+> | **Companion key** | `companion` | A separate tz4 key required when your consensus key is tz4. Handles DAL-specific signing. Always distinct from the manager and consensus keys. |
+>
+> **In this soft key setup:** the `baker` key is your manager key AND your consensus key — both roles live at the same tz4 address. The manager always controls consensus: it can delegate consensus signing to a different key, but until you do, manager = consensus.
+>
+> **⚠️ WARNING: Companion Key is Mandatory**
+>
+> When using a tz4 (BLS) key as your manager/consensus key, you **must** also register a separate tz4 companion key. The companion key is mandatory for DAL attestation. Without it, your baker will produce attestations without DAL payloads and you will forfeit ~10% of your baking rewards.
 
-**Step 1 — Generate the baker (consensus) key:**
+**Step 1 — Generate the baker key (this becomes your manager address AND initial consensus key):**
 
 ```bash
 tezbake setup-soft-wallet --generate bls --key-alias baker
