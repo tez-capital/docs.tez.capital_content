@@ -143,9 +143,34 @@ tezbake info
 
 Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) submit your baker registration on the blockchain.
 
-You have the option to use the secure TezSign device, a Ledger hardware wallet or simply use a local, unencrypted software key (a.k.a. soft key). TezSign is now recommended for validating blocks securely on Tezos. Interoperation guides will be provided for alternative tz4 remote signing devices.
-
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
+
+---
+
+#### Understanding Baker Key Roles
+
+Before choosing your signing setup, it's essential to understand the three key roles in Tezos baking. These apply to **all baker setups** — TezSign, Ledger, and soft keys alike.
+
+| Role | Purpose | Key type | Changeable? |
+|------|---------|----------|-------------|
+| **Manager key** | Your baker's permanent identity. Controls funds, governance votes, staking, and has exclusive authority to set or rotate the consensus and companion keys. | Any (tz1/tz2/tz3/tz4) | ❌ Never — this is your baker address forever |
+| **Consensus key** | Signs blocks and attestations on behalf of the manager. By default this is the same address as the manager key. Can be rotated to a separate key at any time without changing your baker address. | Any (tz1/tz2/tz3/tz4) | ✅ Yes — rotate anytime |
+| **Companion key** | **Mandatory when your consensus key is tz4 (BLS).** Signs DAL-specific content in consensus operations. Think of it as "the DAL key." Always a separate tz4 key. | tz4 only | ✅ Yes — rotate anytime |
+
+**The Recommended Architecture: Ledger (manager) + TezSign (consensus + companion)**
+
+The recommended setup separates security responsibilities:
+
+- **Ledger** = manager key. Stays cold. You use it only when you need to vote, stake/unstake, or rotate your signing keys. Since Ledger does not support tz4, it holds a tz1/tz2/tz3 address.
+- **TezSign** = tz4 consensus key + tz4 companion key. Signs every block and attestation 24/7. Keys never leave the hardware device.
+
+This architecture means your funds are never exposed to the hot signing path. Even if your TezSign device were compromised, an attacker cannot transfer your funds — only the manager key (Ledger) can do that.
+
+> **ℹ️ The manager always controls consensus.** The Ledger (manager) is what you connect with in [TezGov](https://gov.tez.capital) to register your TezSign keys on-chain. After registration, TezSign handles all block signing automatically — but the Ledger remains essential for any future key rotation or governance action.
+
+> **⚠️ If your consensus key is tz4, a companion key is mandatory.** Without it, your baker will attest without DAL payloads, forfeiting ~10% of baking rewards.
+
+---
 
 #### (Option 1 - RECOMMENDED) Import TezSign consensus and companion keys
 
@@ -233,21 +258,11 @@ Look for your baker address in the output. If it appears and the signer status s
 
 #### (Option 3 - INSECURE) Import Soft key to TezBake node
 
-> **ℹ️ Understanding the Three Key Roles**
->
-> Before proceeding, it's important to understand how the three key roles relate to each other:
->
-> | Role | Alias | Purpose |
-> |------|-------|---------|
-> | **Manager key** | `baker` | Your primary baker address. Controls funds, governance votes, staking, and has the authority to set or change your consensus and companion keys. This is permanent — it cannot be changed. |
-> | **Consensus key** | `baker` (initially) | Signs blocks and attestations. By default this is the same address as the manager key. You can later rotate it to a separate key without changing your manager address. |
-> | **Companion key** | `companion` | A separate tz4 key required when your consensus key is tz4. Handles DAL-specific signing. Always distinct from the manager and consensus keys. |
->
-> **In this soft key setup:** the `baker` key is your manager key AND your consensus key — both roles live at the same tz4 address. The manager always controls consensus: it can delegate consensus signing to a different key, but until you do, manager = consensus.
->
 > **⚠️ WARNING: Companion Key is Mandatory**
 >
-> When using a tz4 (BLS) key as your manager/consensus key, you **must** also register a separate tz4 companion key. The companion key is mandatory for DAL attestation. Without it, your baker will produce attestations without DAL payloads and you will forfeit ~10% of your baking rewards.
+> When using a tz4 (BLS) key as your manager/consensus key, you **must** also register a separate tz4 companion key. See the [key roles overview above](#understanding-baker-key-roles) for details.
+
+> **ℹ️ In this soft key setup:** the `baker` key is your manager address AND your initial consensus key — both roles live at the same tz4 address. There is no separate hardware device; both keys are unencrypted files on disk.
 
 **Step 1 — Generate the baker key (this becomes your manager address AND initial consensus key):**
 

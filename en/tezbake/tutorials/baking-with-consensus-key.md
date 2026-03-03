@@ -80,9 +80,45 @@ This separation of roles is useful for reducing the exposure of the primary bake
 
 ## BLS/tz4 Consensus and Companion key setup
 
-Simply follow the TezSign instructions to generate, verify and activate your TezSign keys.
+### Recommended Architecture: Ledger (manager) + TezSign (consensus + companion)
+
+The recommended baker setup separates key responsibilities across two hardware devices:
+
+| Device | Role | Key type | Used for |
+|--------|------|----------|----------|
+| **Ledger** | Manager key | tz1/tz2/tz3 | Funds, governance, staking, registering/rotating consensus and companion keys. Used occasionally — stays cold. |
+| **TezSign** | Consensus key | tz4 (BLS) | Signs every block and attestation. Online 24/7. |
+| **TezSign** | Companion key | tz4 (BLS) | Signs DAL content in attestations. Online 24/7. Required when consensus key is tz4. |
+
+**Why this separation matters:**
+
+- Your funds are never on the hot signing path. TezSign cannot transfer your tez — only the manager key (Ledger) can do that.
+- If TezSign is compromised, an attacker can cause double-signing penalties but cannot drain your wallet. Rotate the consensus key from TezGov immediately using your Ledger.
+- The Ledger is what you connect with in [TezGov](https://gov.tez.capital) to register your TezSign keys on-chain. After that, it only comes out for governance votes, staking changes, or key rotations.
+
+> **⚠️ The companion key is mandatory when your consensus key is tz4.** Both must be registered together. Without the companion key, your baker will attest without DAL payloads and forfeit ~10% of baking rewards.
+
+> **ℹ️ The manager always controls consensus.** The manager key has sole authority to set or change the consensus and companion keys. The consensus key can sign blocks on the manager's behalf, but it cannot change its own registration.
+
+### Setup Steps
+
+**Step 1 — Follow the TezSign guide to generate your consensus and companion keys on the device:**
 
 [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+
+**Step 2 — Register the keys on-chain using TezGov (recommended):**
+
+1. Connect to [gov.tez.capital](https://gov.tez.capital) with your **Ledger** (manager key, Tezos Wallet app)
+2. Navigate to **Baker Management → Keys**
+3. Set your **Consensus Key**: paste the `BLpk...` public key and Proof of Possession (PoP) from `tezbake tezsign status --full`
+4. Set your **Companion Key**: paste the `BLpk...` public key and PoP for the companion
+5. Confirm both operations on your Ledger
+
+**Step 3 — Wait 3 cycles (~3 days) for activation:**
+
+Monitor at `https://tzkt.io/<your_manager_address>/secondary-keys`
+
+Once active, TezSign handles all block signing. Your Ledger is no longer needed for day-to-day baking operations.
 
 ## PRE-BLS (DEPRECATED) Ledger Consensus key setup
 
