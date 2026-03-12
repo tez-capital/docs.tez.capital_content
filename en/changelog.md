@@ -13,6 +13,12 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Documentation: Removed Redundant In-Page H1 (Per-Block Votes)
+
+**What changed:** Removed the duplicate `# Per-Block Votes` heading from [Per-Block Votes](/tezbake/tutorials/per-block-votes/). Docsy already renders the page title from frontmatter, so this avoids repeated page titles in the UI.
+
+---
+
 ### Documentation: Per-Block Vote Guidance Sweep
 
 **What changed:** Swept related docs and removed outdated `vote-file.json` editing guidance from:

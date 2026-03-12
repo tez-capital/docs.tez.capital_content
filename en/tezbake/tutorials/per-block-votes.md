@@ -5,8 +5,6 @@ type: docs
 summary: "How to configure your baker's Liquidity Baking per-block vote with supported TezBake commands"
 ---
 
-# Per-Block Votes
-
 This page documents the *currently supported* TezBake workflow for per-block voting.
 
 At this time, use this guide for the *Liquidity Baking toggle vote* only.
