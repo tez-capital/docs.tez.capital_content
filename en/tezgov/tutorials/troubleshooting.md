@@ -70,31 +70,28 @@ Tezos has **two completely different voting mechanisms**. Don't confuse them!
 - **How:** Cast YAY/NAY/PASS ballot on TezGov
 - **URL:** https://gov.tez.capital
 
-### 2. Per-Block Voting (via vote-file.json)
+### 2. Per-Block Voting (configured on your node)
 
-- **What:** Liquidity Baking toggle + Adaptive Issuance toggle
+- **What:** Liquidity Baking toggle vote
 - **When:** Every block you bake
-- **How:** Edit config file on your baking node
-- **Location:** `/bake-buddy/node/data/vote-file.json`
+- **How (supported path):**
 
-```json
-{
-  "liquidity_baking_toggle_vote": "on",
-  "adaptive_issuance_vote": "on"
-}
+```bash
+tezbake node modify configuration.VOTE_FILE.liquidity_baking_toggle_vote pass
+tezbake node show configuration.VOTE_FILE.liquidity_baking_toggle_vote
 ```
 
-**What is Adaptive Issuance?**
+Accepted values: `on`, `off`, `pass`.
 
-Adaptive Issuance is a Tezos protocol feature that dynamically adjusts block rewards based on the global staking ratio. When more tez is staked, rewards decrease; when less is staked, rewards increase. This creates an equilibrium that balances security with inflation.
+Apply node config immediately only if needed:
 
-- `"on"` = Support adaptive issuance
-- `"off"` = Oppose adaptive issuance
-- `"pass"` = Abstain
+```bash
+tezbake upgrade --node
+```
 
-Changes take effect immediately — the baker reads the vote file each time it bakes a block. No restart required.
+**⚠️ TezGov does NOT handle per-block LB vote configuration.**
 
-**⚠️ TezGov does NOT handle per-block votes - those are configured on your node.**
+See: [Per-Block Votes](/tezbake/tutorials/per-block-votes/)
 
 ---
 

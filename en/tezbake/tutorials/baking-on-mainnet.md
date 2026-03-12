@@ -399,33 +399,31 @@ tezbake update-dal-profiles <your-baker-tz4-key> --force
 
 ### Baker Per-Block Votes
 
-Bakers cast two types of votes with every block they produce. TezBake configures sensible defaults, but you should understand what you're voting for:
+Per-block voting is separate from protocol amendment voting on TezGov.
 
-**Liquidity Baking Toggle Vote:**
-- Controls a protocol feature that mints 5 tez per minute (0.5 tez per block at 6-second block times) into a tez/tzBTC liquidity pool
-- Options: `on` (continue subsidy), `off` (end subsidy), `pass` (abstain)
-- If enough bakers vote `off` over ~2000 blocks, the subsidy pauses
-- Default in TezBake: `on`
-
-**Adaptive Issuance Vote:**
-- Controls whether the protocol adjusts reward rates based on the network's staked ratio
-- The protocol targets 50% of tez staked; rewards increase when staking is low, decrease when high
-- Options: `on`, `off`, `pass`
-- Default in TezBake: `on`
-
-To view or modify your votes, edit the vote file:
+Use the supported TezBake command path for the Liquidity Baking vote:
 
 ```bash
-nano /bake-buddy/node/data/vote-file.json
+tezbake node modify configuration.VOTE_FILE.liquidity_baking_toggle_vote pass
 ```
 
-Example contents:
+Accepted values: `on`, `off`, `pass`.
 
-```json
-{"adaptive_issuance_vote":"on","liquidity_baking_toggle_vote":"on"}
+Verify current value:
+
+```bash
+tezbake node show configuration.VOTE_FILE.liquidity_baking_toggle_vote
 ```
 
-Changes take effect immediately — the baker reads the vote file each time it produces a block. No restart required.
+If you need to apply node config changes immediately:
+
+```bash
+tezbake upgrade --node
+```
+
+If your vote file is already correct, no restart/apply is required just to keep baking with that vote.
+
+For details, see [Per-Block Votes](/tezbake/tutorials/per-block-votes/).
 
 ## Installation (Advanced)
 

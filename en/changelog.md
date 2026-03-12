@@ -13,6 +13,31 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Documentation: Per-Block Vote Guidance Sweep
+
+**What changed:** Swept related docs and removed outdated `vote-file.json` editing guidance from:
+
+- [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)
+- [TezGov Troubleshooting](/tezgov/tutorials/troubleshooting/)
+
+Both pages now point to the supported TezBake command flow:
+
+- `tezbake node modify configuration.VOTE_FILE.liquidity_baking_toggle_vote <on|off|pass>`
+- `tezbake node show configuration.VOTE_FILE.liquidity_baking_toggle_vote`
+
+---
+
+### Documentation: Corrected Per-Block Votes Guide (TezBake)
+
+**What changed:** Updated [Per-Block Votes](/tezbake/tutorials/per-block-votes/) to remove unsupported/ambiguous vote-file instructions and document the supported TezBake command path for Liquidity Baking voting:
+
+- `tezbake node modify configuration.VOTE_FILE.liquidity_baking_toggle_vote <on|off|pass>`
+- `tezbake node show configuration.VOTE_FILE.liquidity_baking_toggle_vote`
+
+Also clarified that `tezbake upgrade --node` is only needed when you explicitly want to apply node config changes immediately.
+
+---
+
 ### Documentation: Reverting from tz4 to tz1/tz3 Keys
 
 **What changed:** Added a new section to [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) explaining how to revert from tz4/BLS (TezSign) back to tz1/tz3 signing. Key steps: re-import your tz1/tz3 key, set both consensus and companion keys to the same tz1/tz3 address via TezGov, wait 3 cycles, then remove the companion alias from TezBake config.
