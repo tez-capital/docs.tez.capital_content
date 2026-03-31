@@ -8,7 +8,7 @@ summary: Run TezBake in a Docker container for isolated and portable Tezos bakin
 ## Prerequisites
 
 - **[Docker installed](https://docs.docker.com/engine/install)** — Docker Engine must be installed and running on your system
-- **Linux operating system** — Ubuntu 22.04+ or Debian 12+ recommended; macOS and Windows are not supported
+- **Linux or macOS** — Ubuntu 22.04+ or Debian 12+ recommended; macOS is also supported; Windows is not supported
 - **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers — see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#stake-your-baking-xtz-security-deposit))
 - **Hardware:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
 

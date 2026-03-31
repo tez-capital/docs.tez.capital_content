@@ -8,13 +8,13 @@ summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, fro
 {{< youtube t85LjgpRtvc >}}
 
 > **ℹ️ System Requirements**
-> - **OS:** Ubuntu 22.04+ or Debian 12+ (other Linux distributions may work but are untested)
+> - **OS:** Ubuntu 22.04+, Debian 12+, or macOS (other Linux distributions may work but are untested)
 > - **Hardware:** See [Hardware Requirements](/getting-started/hardware-requirements/)
-> - macOS and Windows are **not supported**
+> - Windows is **not supported**
 
 ## Prerequisites
 
-- **Ubuntu 22.04+ or Debian 12+** Linux server or desktop with SSH access
+- **Ubuntu 22.04+, Debian 12+, or macOS** — server or desktop with SSH access (Linux recommended for production)
 - **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers/delegators — see staking table below)
 - **Ledger hardware wallet** with Tezos Wallet app installed, OR a [TezSign device](/tezbake/tutorials/baking-with-tezsign/)
 - **Hardware meeting minimum specs:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband

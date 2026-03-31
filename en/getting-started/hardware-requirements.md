@@ -23,7 +23,7 @@ These are the lowest specs on which a Tezos baker can run. Performance may be ti
 | RAM | 8 GB |
 | Storage | 256 GB SSD |
 | Network | 50 Mbps symmetric, wired Ethernet |
-| OS | Ubuntu 22.04 LTS or Debian 12 (recommended) |
+| OS | Ubuntu 22.04 LTS, Debian 12, or macOS (recommended) |
 
 ### Recommended Specifications
 
@@ -35,7 +35,7 @@ For comfortable operation, headroom during syncing, and the ability to run monit
 | RAM | 16 GB |
 | Storage | 512 GB NVMe SSD |
 | Network | 100 Mbps+ symmetric, wired Ethernet |
-| OS | Ubuntu 22.04 LTS or Debian 12 |
+| OS | Ubuntu 22.04 LTS, Debian 12, or macOS |
 
 > **💡 TIP:** A mini PC (Intel N100, AMD Ryzen 5, or similar) with 16 GB RAM and a 512 GB NVMe SSD is an excellent and affordable baking node. These are widely available for $150–250.
 
