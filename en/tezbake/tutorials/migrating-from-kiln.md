@@ -113,13 +113,28 @@ This installs and configures:
 2. Open the **Tezos Baking** app on the Ledger
 3. Import your Ledger key:
 
+The command varies depending on your key type. Use the derivation path you recorded in Step 1:
+
+**tz1 (ed25519) — most common with Kiln:**
 ```bash
-sudo tezbake setup-ledger
+sudo tezbake setup-ledger --platform --import-key="ed25519/0h/0h" --authorize --hwm 1
 ```
 
-Follow the prompts to select your key and derivation path, then authorize it for baking on the Ledger.
+**tz3 (P-256 / NIST):**
+```bash
+sudo tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
+```
 
-> ⚠️ **Verify the derivation path matches what you recorded in Step 1.** If you use the wrong path, TezBake will import a different key than the one your baker is registered with. After setup, confirm the imported address matches your baker address:
+**tz2 (secp256k1):**
+```bash
+sudo tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm 1
+```
+
+> **💡** The `0h/0h` part is the default derivation path. If your Kiln setup used a custom path (e.g. `ed25519/1h/0h`), substitute it here. The derivation path **must** match exactly or you'll import a different key.
+
+Confirm on the Ledger screen when prompted to authorize the key for baking.
+
+> ⚠️ **Verify the imported key matches your baker.** After setup, check the address:
 > ```bash
 > sudo tezbake info --signer
 > ```
