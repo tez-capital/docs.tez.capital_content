@@ -38,9 +38,7 @@ This guide walks you through the migration step by step.
 Before touching anything, collect this information from your running Kiln setup:
 
 - [ ] **Baker address** (`tz1...`, `tz2...`, or `tz3...`)
-- [ ] **Key type** (ed25519/secp256k1/p256) and how it's stored (Ledger)
-
-> **ℹ️** This guide covers Ledger-based migrations. If you baked with a software key in Kiln, see the [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) guide for general setup instructions.
+- [ ] **Key type** (ed25519/secp256k1/p256) — stored on your Ledger
 - [ ] **Current cycle** — check on [TzKT](https://tzkt.io) or [TzStats](https://tzstats.com) to confirm your baker is active
 - [ ] **Pending nonce revelations** — if you have unrevealed nonces from the current cycle, wait for them to be revealed before migrating (or use a snapshot ≥5 days old during bootstrap)
 
