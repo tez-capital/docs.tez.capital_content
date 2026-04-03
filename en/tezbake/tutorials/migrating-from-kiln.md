@@ -152,10 +152,10 @@ Confirm on the Ledger screen when prompted to authorize the key for baking.
 Rather than syncing from scratch, bootstrap from a snapshot:
 
 ```bash
-sudo tezbake bootstrap-node https://snapshots.eu.tzinit.org/mainnet/rolling
+sudo tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
 ```
 
-Regional mirrors are available — replace `eu` with `us` or `asia` for faster downloads depending on your location.
+TezBake automatically selects the fastest mirror for your region.
 
 > **Tip:** If you have unrevealed nonces, use a snapshot that's at least 5–6 days old to avoid nonce revelation issues.
 
@@ -224,7 +224,7 @@ sudo tezbake node log -f
 
 # If stuck, try re-bootstrapping
 sudo tezbake stop
-sudo tezbake bootstrap-node https://snapshots.us.tzinit.org/mainnet/rolling
+sudo tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
 sudo tezbake start
 ```
 
