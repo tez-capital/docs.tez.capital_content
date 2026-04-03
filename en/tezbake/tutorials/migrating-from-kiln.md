@@ -53,7 +53,9 @@ Before touching anything, collect this information from your running Kiln setup:
 From your Kiln interface or config, record:
 - Your baker's `tz` address
 - Whether you're using a Ledger or software key
-- Your Ledger derivation path (if applicable — typically `ed25519/0h/0h`)
+- Your **Ledger derivation path** — this is critical. Kiln typically uses `ed25519/0h/0h` but yours may differ. Check your Kiln config or logs for the exact path. Using the wrong derivation path in TezBake will import a **different key** and your baker won't work.
+
+> **💡 How to find your derivation path in Kiln:** Check your Kiln configuration file or look for the `--ledger` flag in your running baker process (`ps aux | grep octez-baker`). The derivation path appears after the Ledger URI, e.g. `ledger://.../<curve>/<path>`.
 
 ### 2. Stop Kiln
 
@@ -116,6 +118,12 @@ sudo tezbake setup-ledger
 ```
 
 Follow the prompts to select your key and derivation path, then authorize it for baking on the Ledger.
+
+> ⚠️ **Verify the derivation path matches what you recorded in Step 1.** If you use the wrong path, TezBake will import a different key than the one your baker is registered with. After setup, confirm the imported address matches your baker address:
+> ```bash
+> sudo tezbake info --signer
+> ```
+> The `tz` address shown must match your baker address exactly. If it doesn't, re-run `setup-ledger` with the correct derivation path.
 
 > **Note:** You'll need the **Tezos Wallet** app (not Baking) for one-time operations like registration. Switch back to the **Tezos Baking** app for ongoing baking.
 
