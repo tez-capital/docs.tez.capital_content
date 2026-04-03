@@ -38,7 +38,9 @@ This guide walks you through the migration step by step.
 Before touching anything, collect this information from your running Kiln setup:
 
 - [ ] **Baker address** (`tz1...`, `tz2...`, or `tz3...`)
-- [ ] **Key type** (ed25519/secp256k1/p256) and how it's stored (Ledger, software wallet)
+- [ ] **Key type** (ed25519/secp256k1/p256) and how it's stored (Ledger)
+
+> **ℹ️** This guide covers Ledger-based migrations. If you baked with a software key in Kiln, see the [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) guide for general setup instructions.
 - [ ] **Current cycle** — check on [TzKT](https://tzkt.io) or [TzStats](https://tzstats.com) to confirm your baker is active
 - [ ] **Pending nonce revelations** — if you have unrevealed nonces from the current cycle, wait for them to be revealed before migrating (or use a snapshot ≥5 days old during bootstrap)
 
@@ -113,24 +115,27 @@ This installs and configures:
 2. Open the **Tezos Baking** app on the Ledger
 3. Import your Ledger key:
 
-The command varies depending on your key type. Use the derivation path you recorded in Step 1:
+The command varies depending on your key type. **Before copy-pasting**, check two things:
+
+1. **Your derivation path from Step 1** — the examples below use the default `0h/0h`. If your Kiln setup used a custom path (e.g. `ed25519/1h/2h`), you **must** substitute it. Using the wrong path imports a completely different key.
+2. **The current chain level** — replace `<CURRENT_LEVEL>` below with the current block level from [TzKT](https://tzkt.io) or your node. This sets the Ledger's high water mark (HWM), which prevents double-baking. **Do not use `--hwm 1`** on a migration — that resets the Ledger's double-bake protection and could lead to slashing if your old baker isn't fully stopped.
 
 **tz1 (ed25519) — most common with Kiln:**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="ed25519/0h/0h" --authorize --hwm 1
+sudo tezbake setup-ledger --platform --import-key="ed25519/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
 **tz3 (P-256 / NIST):**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm 1
+sudo tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
 **tz2 (secp256k1):**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm 1
+sudo tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
-> **💡** The `0h/0h` part is the default derivation path. If your Kiln setup used a custom path (e.g. `ed25519/1h/0h`), substitute it here. The derivation path **must** match exactly or you'll import a different key.
+> **💡 Finding the current level:** Run `curl -s https://rpc.tzkt.io/mainnet/chains/main/blocks/head/header | grep '"level"'` or check [TzKT](https://tzkt.io) — the block level is shown on the homepage. Round up by 10 to be safe (e.g. if current level is 7,500,000, use `--hwm 7500010`).
 
 Confirm on the Ledger screen when prompted to authorize the key for baking.
 
