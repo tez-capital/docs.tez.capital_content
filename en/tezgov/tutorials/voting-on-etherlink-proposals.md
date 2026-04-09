@@ -1,5 +1,5 @@
 ---
-title: "Voting on Etherlink Proposals"
+title: "Voting on Etherlink"
 weight: 10
 type: docs
 summary: How to vote on Etherlink kernel and sequencer upgrade proposals using TezGov
