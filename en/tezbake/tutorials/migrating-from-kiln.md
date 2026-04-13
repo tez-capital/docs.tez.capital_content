@@ -11,13 +11,13 @@ Kiln is being sunset. If you're currently baking with Kiln, **TezBake** by [Tez 
 
 This guide walks you through the migration step by step.
 
-> **TezBake runs on Linux and macOS** (Ubuntu 22.04+, Debian 12+, or macOS with Apple Silicon / Intel). Linux is recommended for production bakers, but macOS is fully supported.
+> **TezBake runs on Linux and macOS** (Ubuntu 24.04+, Debian 12+, or macOS with Apple Silicon / Intel). Linux is recommended for production bakers, but macOS is fully supported.
 
 ---
 
 ## Prerequisites
 
-- **Linux or macOS machine** — Ubuntu 22.04+, Debian 12+, or macOS (dedicated hardware recommended for production)
+- **Linux or macOS machine** — Ubuntu 24.04+, Debian 12+, or macOS (dedicated hardware recommended for production)
 - **Ledger** — Nano S Plus or Nano X (the same one you used with Kiln)
 - **Your baker address** — the `tz1`/`tz2`/`tz3` address you're currently baking with
 - **Root/sudo access** on the machine
