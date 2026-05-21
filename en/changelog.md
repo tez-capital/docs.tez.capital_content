@@ -13,6 +13,17 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Documentation: Clarified TezSign DAL Companion Alias Setup
+
+**What changed:** Updated [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/), [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/), [Baking with DAL](/tezbake/tutorials/baking-with-dal/), and [Key Aliases](/tezbake/tutorials/key-aliases/) to make the BLS/tz4 alias decision explicit:
+
+- If the TezSign consensus key is imported as `consensus`, load `["consensus","companion"]`.
+- If the TezSign consensus key is imported as the default `baker` alias, load only `["companion"]`.
+
+Added verification steps for `tezbake info --dal` and the baker log warning that a tz4 key "has not been provided to the baker."
+
+---
+
 ### Documentation: Removed Redundant In-Page H1 (Per-Block Votes)
 
 **What changed:** Removed the duplicate `# Per-Block Votes` heading from [Per-Block Votes](/tezbake/tutorials/per-block-votes/). Docsy already renders the page title from frontmatter, so this avoids repeated page titles in the UI.

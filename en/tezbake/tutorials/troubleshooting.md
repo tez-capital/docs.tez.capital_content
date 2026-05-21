@@ -17,6 +17,7 @@ summary: Common TezBake issues and solutions for installation errors and runtime
 | "illegal instruction" / low-level errors | [Update eli](#update-eli-lua-interpreter) |
 | TezSign USB timeout / not responding | [TezSign USB Issues](#tezsign-usb-issues) |
 | DAL not attesting / no peers | [DAL Troubleshooting](#dal-troubleshooting) |
+| tz4 key "has not been provided to the baker" | [Missing tz4 Consensus or Companion Alias](#missing-tz4-consensus-or-companion-alias) |
 | Missing attestations | [Missing Attestations](/tezbake/tutorials/missing-attestations/) |
 
 ## Troubleshooting
@@ -180,6 +181,42 @@ tezbake info --dal
 ```
 
 **Note:** "Status down" is normal immediately after start/restart. Give it time to sync.
+
+### Missing tz4 Consensus or Companion Alias
+
+**Symptoms:** The baker log says a tz4 consensus key "has not been provided to the baker" and warns that the baker can only issue attestations without DAL content.
+
+**Root cause:** The keys may exist and be unlocked in TezSign, but one of the required aliases is not being loaded by the baker. This is different from a locked TezSign key.
+
+Check the aliases TezBake is loading:
+
+```bash
+tezbake node show configuration.key_aliases
+tezbake node show configuration.additional_key_aliases
+```
+
+For the recommended TezSign setup, where the active consensus key is imported as `baker`, add only the companion:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
+tezbake upgrade
+```
+
+If your TezSign consensus key is imported as `consensus`, load both aliases:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["consensus","companion"]'
+tezbake upgrade
+```
+
+Then verify:
+
+```bash
+tezbake info --dal
+tezbake node log baker -f
+```
+
+You want the DAL node to be operational and the old "has not been provided to the baker" warning to stop repeating.
 
 ### Step-by-Step DAL Verification
 

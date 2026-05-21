@@ -202,13 +202,12 @@ Log out and log back in to apply the group membership changes.
 
 Link the keys stored on your TezSign device to TezBake's configuration using local aliases.
 
-Depending on the context of your setup, you will determine how to name your TezSign wallet aliases within TezBake itself.
+The alias you choose with `--key-alias` is the local Octez alias TezBake will load. Non-default aliases must later be listed in `configuration.additional_key_aliases`.
 
-When you're first switching to a new consensus key or to tz4 baking, you will already have a key called `baker`. This is the default key that always gets used in TezBake. In addition to this key, you will also import your consensus and companion keys, from TezSign. Once you are actively using your TezSign keys, you can then import the `consensus` key as the `baker` key as described below.
+- If you are first migrating to a new BLS/tz4 consensus key, keep your existing `baker` key in place and import the TezSign consensus key as `consensus`.
+- If your BLS/tz4 TezSign consensus key is already active, import that consensus key as `baker`, because `baker` is the default key TezBake loads automatically.
 
-If you're already baking using tz4 keys, it's recommended to alias your `consensus` key on the TezSign signer to the `baker` key.
-
-The desired end stake of your TezBake signing experience is to use `baker` for `consensus` and to use the TezSign backend directly (see below). This way there are no missing keys reported by `tezbake info`. You need to ensure the migration to this desired state is performed one step at a time, respecting the in-between states.
+The desired end state is to use `baker` for your active TezSign consensus key and `companion` for the DAL companion key. Move to that state one step at a time so the old active key keeps baking during the 3-cycle activation window.
 
 **Syntax:**
 
@@ -223,7 +222,7 @@ tezbake setup-tezsign --import-key=consensus --key-alias=consensus
 tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-**Example (Importing the Consensus and Companion Keys -- IF ALREADY ON BLS/tz4:**
+**Example (Importing the Consensus and Companion Keys) -- IF ALREADY ON BLS/tz4:**
 
 ```bash
 tezbake setup-tezsign --import-key=consensus --key-alias=baker
@@ -239,29 +238,49 @@ tezbake setup-tezsign --import-key=companion --key-alias=companion
 
 To bake with multiple keys (e.g., separate keys for consensus and DAL), you must register them as key aliases in the node configuration.
 
+> **Important:** DAL needs the `companion` alias loaded by the baker, not just unlocked in TezSign. If the companion key is missing from the baker configuration, your baker may attest without DAL payloads and lose DAL rewards.
+
 > **⚠️ DEPRECATED:** The file-based method (`additional_key_aliases.list`) is deprecated. Use the CLI commands below instead. See [Key Aliases](/tezbake/tutorials/key-aliases/) for the full reference.
 
-**IF MIGRATING TO BLS/tz4:**
+Choose the command that matches the aliases you imported in the previous step.
 
-As per the example we used consensus and companion, add both aliases:
+**If your TezSign consensus key was imported as `consensus`:**
 
 ```bash
 tezbake node modify --set configuration.additional_key_aliases '["consensus","companion"]'
 ```
 
-> NOTE: Later on when your `consensus` key activates you can reimport it under `baker` alias (the default one) with `--force`. Then you can remove consensus from additional keys:
+Use this while migrating to BLS/tz4, when the active `baker` key is still separate and the new TezSign consensus key is named `consensus`.
+
+> Later, after your `consensus` key activates, you can reimport it under the default `baker` alias with `--force`. Then you can remove `consensus` from the additional keys:
 > ```bash
 > tezbake node modify --remove configuration.additional_key_aliases '"consensus"'
 > ```
-> NOTE: Only the import alias from `--key-alias=<THIS ALIAS>` is relevant. The internal tezsign alias can differ.
+> Only the import alias from `--key-alias=<THIS ALIAS>` is relevant. The internal TezSign alias can differ.
 
-**IF ALREADY ON BLS/TZ4:**
+**If your TezSign consensus key was imported as `baker`:**
 
 ```bash
 tezbake node modify --set configuration.additional_key_aliases '["companion"]'
 ```
 
-> The consensus key is not listed because it's the default assumed baking key by TezBake
+Use this when your active BLS/tz4 consensus key is already the default `baker` alias. The consensus key is not listed because TezBake loads `baker` automatically.
+
+Verify the node configuration and DAL status:
+
+```bash
+tezbake node show configuration.key_aliases
+tezbake node show configuration.additional_key_aliases
+tezbake info --dal
+```
+
+Expected:
+
+- `configuration.key_aliases` is usually unset or `null`. If it is set, it replaces the default key list, so make sure it includes every key you need.
+- `configuration.additional_key_aliases` includes `companion`, and includes `consensus` only if your TezSign consensus key was imported with `--key-alias=consensus`.
+- `tezbake info --dal` reports the DAL node as operational.
+
+If the baker log says a tz4 consensus key "has not been provided to the baker," the tz4 signing alias set is incomplete. Recheck the `--key-alias` value you imported and the matching `configuration.additional_key_aliases` command above.
 
 ### 4. Retrieve Public Keys & Proofs & Register them on the chain
 
@@ -365,9 +384,10 @@ Check that TezBake sees your new keys:
 
 ```bash
 tezbake info
+tezbake info --dal
 ```
 
-If your keys appear in the info output, you are ready to bake!
+If your keys appear in the info output and `tezbake info --dal` shows the DAL node as operational, you are ready to bake. The baker log should no longer report that the active tz4 consensus key "has not been provided to the baker."
 
 ### 3. Unlock
 

@@ -137,11 +137,13 @@ If you currently have an `additional_key_aliases.list` file:
 
 ### Consensus key + DAL companion
 
+Use this when your separate consensus key was imported as `consensus`:
+
 ```bash
 tezbake node modify --set configuration.additional_key_aliases '["consensus","companion"]'
 ```
 
-### Consensus key only (already on tz4/BLS)
+### Default `baker` consensus key + DAL companion
 
 If your consensus key is imported under the default `baker` alias, you only need to add the companion:
 
@@ -152,9 +154,12 @@ tezbake node modify --set configuration.additional_key_aliases '["companion"]'
 ### Verify everything is set
 
 ```bash
+tezbake node show configuration.key_aliases
 tezbake node show configuration.additional_key_aliases
-tezbake info
+tezbake info --dal
 ```
+
+If `configuration.key_aliases` is set, it replaces the default baker key list. Most setups should leave it unset or `null` and use `additional_key_aliases` instead. If the baker log says a tz4 consensus key "has not been provided to the baker," the tz4 signing alias set is incomplete or `key_aliases` is overriding the default `baker` alias.
 
 ---
 

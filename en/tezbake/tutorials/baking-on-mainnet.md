@@ -176,6 +176,8 @@ Follow the following guide and then proceed directly to [stake your XTZ](#stake-
 > * Use `companion` as-is (for your companion key)
 >
 > This naming convention is required because you're managing your baker operations from a Ledger device using the <https://gov.tez.capital> interface.
+>
+> When the TezSign guide asks which aliases to add to `configuration.additional_key_aliases`, use only `["companion"]`. The consensus key is already loaded through the default `baker` alias.
 
 #### (Option 2 - DEPRECATED) Import Ledger key to TezBake signer
 
@@ -396,6 +398,15 @@ tezbake update-dal-profiles <your-baker-tz4-key> --force
 ```
 
 > **ℹ️ INFO:** The tz4 key referenced here is your baker's public key address (starts with tz4), not your consensus key or companion key.
+
+Verify both DAL profile and companion-key wiring:
+
+```bash
+tezbake info --dal
+tezbake node show configuration.additional_key_aliases
+```
+
+For the recommended TezSign setup above, `additional_key_aliases` should include `companion`. If the baker log says the active tz4 consensus key "has not been provided to the baker," return to the TezSign alias configuration step and make sure the imported aliases match the aliases TezBake is loading.
 
 ### Baker Per-Block Votes
 

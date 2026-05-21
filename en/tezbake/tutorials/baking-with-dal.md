@@ -114,7 +114,29 @@ If the above command fails, specify your **baker key** (not consensus key):
 tezbake update-dal-profiles <your-baker-key>
 ```
 
-2. **Restart TezBake to apply changes:**
+2. **Verify the companion key alias is loaded by the baker:**
+
+If you use a tz4/BLS consensus key, DAL also requires the companion key alias to be present in the baker configuration:
+
+```bash
+tezbake node show configuration.additional_key_aliases
+```
+
+For the common TezSign setup where the active consensus key is imported as `baker`, only `companion` needs to be listed as an additional alias:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
+```
+
+If your TezSign consensus key is imported as `consensus` instead of `baker`, include both aliases:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["consensus","companion"]'
+```
+
+If you intentionally use other additional aliases, keep them in the JSON list when setting this value.
+
+3. **Restart TezBake to apply changes:**
 
 ```bash
 tezbake stop && tezbake start
