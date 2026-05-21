@@ -22,6 +22,8 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 Added verification steps for `tezbake info --dal` and the baker log warning that a tz4 key "has not been provided to the baker."
 
+Follow-up: Replaced generic stop/start restart guidance in the key alias and DAL companion alias flows with `tezbake upgrade` plus a note to confirm install-specific lifecycle commands with `tezbake --help`. Also normalized generic full-node restart examples to `tezbake restart`.
+
 ---
 
 ### Documentation: Removed Redundant In-Page H1 (Per-Block Votes)

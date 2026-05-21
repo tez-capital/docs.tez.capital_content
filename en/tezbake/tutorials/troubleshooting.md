@@ -270,7 +270,7 @@ If no peers are connecting:
    ```
    At least one should show `true`.
 
-3. **Restart:** `tezbake stop && tezbake start`
+3. **Restart TezBake:** `tezbake restart`
 
 ### Firewall/NAT
 

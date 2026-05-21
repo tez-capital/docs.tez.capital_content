@@ -46,11 +46,13 @@ tezbake node modify --remove configuration.additional_key_aliases '"bb1_dal"'
 tezbake node modify --unset configuration.additional_key_aliases
 ```
 
-After any change, restart your baker:
+After any change, apply the updated configuration:
 
 ```bash
-tezbake stop && tezbake start
+tezbake upgrade
 ```
+
+If your install uses different lifecycle commands, confirm the current command with `tezbake --help`.
 
 ---
 
@@ -90,11 +92,13 @@ tezbake node show configuration.key_aliases
 tezbake node modify --unset configuration.key_aliases
 ```
 
-After any change, restart your baker:
+After any change, apply the updated configuration:
 
 ```bash
-tezbake stop && tezbake start
+tezbake upgrade
 ```
+
+If your install uses different lifecycle commands, confirm the current command with `tezbake --help`.
 
 ---
 
@@ -126,9 +130,9 @@ If you currently have an `additional_key_aliases.list` file:
    ```bash
    rm /bake-buddy/node/additional_key_aliases.list
    ```
-4. Restart:
+4. Apply the updated configuration:
    ```bash
-   tezbake stop && tezbake start
+   tezbake upgrade
    ```
 
 ---

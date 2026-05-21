@@ -136,11 +136,13 @@ tezbake node modify --set configuration.additional_key_aliases '["consensus","co
 
 If you intentionally use other additional aliases, keep them in the JSON list when setting this value.
 
-3. **Restart TezBake to apply changes:**
+3. **Apply the updated configuration:**
 
 ```bash
-tezbake stop && tezbake start
+tezbake upgrade
 ```
+
+If your install uses different lifecycle commands, confirm the current command with `tezbake --help`.
 
 ## Remote DAL Setup
 
@@ -153,7 +155,7 @@ If you encounter issues or require immediate help, execute these commands to rev
 ```bash
 tezbake remove --dal
 tezbake setup --node  # choose 'yes' to merge config when prompted
-tezbake stop && tezbake start
+tezbake restart
 ```
 
 ## Verify DAL Operation
