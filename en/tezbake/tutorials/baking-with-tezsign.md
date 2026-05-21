@@ -215,14 +215,14 @@ The desired end state is to use `baker` for your active TezSign consensus key an
 tezbake setup-tezsign --import-key=<tezsign key alias> --key-alias=<octez key alias> [--force]
 ```
 
-**Example (Importing the Consensus and Companion Keys) -- IF MIGRATING TO BLS/tz4:**
+**Example (Importing the Consensus and Companion Keys -- IF MIGRATING TO BLS/tz4):**
 
 ```bash
 tezbake setup-tezsign --import-key=consensus --key-alias=consensus
 tezbake setup-tezsign --import-key=companion --key-alias=companion
 ```
 
-**Example (Importing the Consensus and Companion Keys) -- IF ALREADY ON BLS/tz4:**
+**Example (Importing the Consensus and Companion Keys -- IF ALREADY ON BLS/tz4):**
 
 ```bash
 tezbake setup-tezsign --import-key=consensus --key-alias=baker
@@ -264,14 +264,19 @@ Use this while migrating to BLS/tz4, when the active `baker` key is still separa
 tezbake node modify --set configuration.additional_key_aliases '["companion"]'
 ```
 
-Use this when your active BLS/tz4 consensus key is already the default `baker` alias. The consensus key is not listed because TezBake loads `baker` automatically.
+Only do this if you imported the TezSign consensus key with `--key-alias=baker`; otherwise include the actual consensus alias too. The consensus key is not listed here because TezBake loads `baker` automatically.
 
-Verify the node configuration and DAL status:
+Verify the companion alias and DAL status:
+
+```bash
+tezbake node show configuration.additional_key_aliases
+tezbake info --dal
+```
+
+You can also check whether `configuration.key_aliases` is overriding the default baker key list:
 
 ```bash
 tezbake node show configuration.key_aliases
-tezbake node show configuration.additional_key_aliases
-tezbake info --dal
 ```
 
 Expected:
