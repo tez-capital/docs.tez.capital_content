@@ -380,7 +380,8 @@ tezbake upgrade
 Restart your setup to apply changes.
 
 ```bash
-tezbake restart
+tezbake stop
+tezbake start
 ```
 
 ### 2. Check Status
@@ -487,7 +488,8 @@ tezbake upgrade --signer
 3. Restart if Required
 
 ```bash
-tezbake restart
+tezbake stop
+tezbake start
 ```
 
 ---

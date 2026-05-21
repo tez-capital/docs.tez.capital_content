@@ -19,10 +19,11 @@ For example, to set the node synchronization threshold to `0`:
 tezbake node modify configuration.STARTUP_ARGS '["--synchronisation-threshold=0"]'
 ```
 
-Restart TezBake after changing startup arguments so the node starts with the new configuration:
+Stop and start TezBake after changing startup arguments so the node starts with the new configuration:
 
 ```bash
-tezbake restart
+tezbake stop
+tezbake start
 ```
 
 You can verify the configured startup arguments with:

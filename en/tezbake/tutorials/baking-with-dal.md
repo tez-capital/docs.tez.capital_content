@@ -155,7 +155,8 @@ If you encounter issues or require immediate help, execute these commands to rev
 ```bash
 tezbake remove --dal
 tezbake setup --node  # choose 'yes' to merge config when prompted
-tezbake restart
+tezbake stop
+tezbake start
 ```
 
 ## Verify DAL Operation

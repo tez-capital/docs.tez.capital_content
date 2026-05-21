@@ -39,7 +39,8 @@ You can add `--log-level=trace` regardless of the setup type that's being attemp
 Sometimes, you will notice that `tezbake info` never seems to show that you are able to fully synchronize your node. Upon looking at it you may find that your node is stuck on a certain block. This is usually due to a problem with the Tezos node itself. The Tezos node is a separate process from the TezBake process. If you are having issues with the Tezos node, you can try to restart it with the following command:
 
 ```bash
-tezbake restart
+tezbake stop
+tezbake start
 ```
 
 You may see an error like the one below, which indicates your node needs to be bootstrapped with a fresh copy of the Tezos blockchain.
@@ -270,7 +271,7 @@ If no peers are connecting:
    ```
    At least one should show `true`.
 
-3. **Restart TezBake:** `tezbake restart`
+3. **Restart TezBake:** `tezbake stop && tezbake start`
 
 ### Firewall/NAT
 
