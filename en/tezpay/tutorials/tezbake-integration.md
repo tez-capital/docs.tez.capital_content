@@ -10,17 +10,17 @@ summary: Integrating TezPay with TezBake
 | Task                           | Command                               |
 | ------------------------------ | ------------------------------------- |
 | Install TezPay Module          | `tezbake setup --pay`                 |
-| Upgrade TezPay Only            | `tezbake upgrade --pay`               |
+| Upgrade TezPay Only            | `sudo tezbake upgrade --pay`          |
 | Verify Installation            | `tezbake apps`                        |
 | Generate Payouts               | `tezbake pay generate-payouts`        |
 | Pay Delegators                 | `tezbake pay pay`                     |
 | Pay with Previous Cycles       | `tezbake pay pay --include-previous-cycles N` |
 | View TezPay Logs               | `tezbake pay log` or `tezbake pay log -f` |
-| Check Continual Payout Status  | `tezbake pay continual status`      |
-| Enable Continual Payouts       | `tezbake pay continual enable`      |
-| Disable Continual Payouts      | `tezbake pay continual disable`     |
-| Start TezPay                   | `tezbake pay start` or `tezbake start --pay` |
-| Stop TezPay                    | `tezbake pay stop` or `tezbake stop --pay` |
+| Check Continual Payout Status  | `sudo tezbake pay continual status`   |
+| Enable Continual Payouts       | `sudo tezbake pay continual enable`   |
+| Disable Continual Payouts      | `sudo tezbake pay continual disable`  |
+| Start TezPay                   | `sudo tezbake pay start` or `sudo tezbake start --pay` |
+| Stop TezPay                    | `sudo tezbake pay stop` or `sudo tezbake stop --pay` |
 | TezPay Information             | `tezbake info --pay`                  |
 | Remove TezPay Module           | `tezbake remove --pay`                |
 
@@ -152,13 +152,13 @@ Reports are stored in:
 Continual payouts are initially disabled.
 
 - **Check current status:**  
-  `tezbake pay continual status`
+  `sudo tezbake pay continual status`
 
 - **Enable continual payouts:**  
-  `tezbake pay continual enable`
+  `sudo tezbake pay continual enable`
 
 - **Disable continual payouts:**  
-  `tezbake pay continual disable`
+  `sudo tezbake pay continual disable`
 
 ### Setting the Payout Interval
 
@@ -191,6 +191,12 @@ Example `/bake-buddy/pay/app.json`:
 
 > **Note:** The `--interval` CLI flag does not work with TezBake integration. You must configure the interval in `app.json`.
 
+After changing the `CONTINUAL` block in `/bake-buddy/pay/app.json`, apply the updated pay module configuration:
+
+```bash
+sudo tezbake upgrade --pay
+```
+
 ---
 
 ## Starting & Stopping TezPay (continual service)
@@ -198,12 +204,12 @@ Example `/bake-buddy/pay/app.json`:
 > **ℹ️ INFO:** This applies only when continual payouts are enabled. Refer to the section above for instructions on enabling continual payouts.
 
 - **Start TezPay:**
-  - direct: `tezbake pay start`
-  - combined: `tezbake start --pay`
+  - direct: `sudo tezbake pay start`
+  - combined: `sudo tezbake start --pay`
 
 - **Stop TezPay:**
-  - direct: `tezbake pay stop`
-  - combined: `tezbake stop --pay`
+  - direct: `sudo tezbake pay stop`
+  - combined: `sudo tezbake stop --pay`
 
 ---
 
@@ -222,7 +228,7 @@ TezPay automatically pauses continual payouts when a Tezos protocol upgrade occu
 1. **Update TezPay to the latest version:**
 
    ```bash
-   tezbake upgrade --pay
+   sudo tezbake upgrade --pay
    ```
 
 2. **Run a dry-run to verify payouts:**
@@ -236,7 +242,7 @@ TezPay automatically pauses continual payouts when a Tezos protocol upgrade occu
 4. **If satisfied, restart the service:**
 
    ```bash
-   tezbake start --pay
+   sudo tezbake start --pay
    ```
 
 > **Note:** The service may already be running but not processing. The start command ensures it resumes processing.
