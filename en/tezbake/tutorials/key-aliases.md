@@ -155,7 +155,7 @@ If your consensus key is imported under the default `baker` alias, you only need
 tezbake node modify --set configuration.additional_key_aliases '["companion"]'
 ```
 
-If you previously had `baker` + `consensus` + `companion` and your tz4 key is now active, follow the [TezSign transition cleanup section](/tezbake/tutorials/baking-with-tezsign/#transition-from-bakerconsensuscompanion-to-bakercompanion).
+If you previously had `baker` + `consensus` + `companion` and your tz4 key is now active, follow the [TezSign later cleanup section](/tezbake/tutorials/baking-with-tezsign/#later-cleanup-after-on-chain-activation).
 
 ### Verify everything is set
 

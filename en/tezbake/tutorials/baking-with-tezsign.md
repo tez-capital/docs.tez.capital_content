@@ -252,7 +252,7 @@ tezbake node modify --set configuration.additional_key_aliases '["consensus","co
 
 Use this while migrating to BLS/tz4, when the active `baker` key is still separate and the new TezSign consensus key is named `consensus`.
 
-> Later, after your `consensus` key activates, use the transition cleanup section below to load that key through the default `baker` alias and remove the stale local `consensus` alias.
+> Later, after your `consensus` key activates, use the later cleanup section below to load that key through the default `baker` alias and remove the stale local `consensus` alias.
 
 **If your TezSign consensus key was imported as `baker`:**
 
@@ -282,52 +282,6 @@ Expected:
 - `tezbake info --dal` reports the DAL node as operational.
 
 If the baker log says a tz4 consensus key "has not been provided to the baker," the tz4 signing alias set is incomplete. Recheck the `--key-alias` value you imported and the matching `configuration.additional_key_aliases` command above.
-
-### Transition from `baker`/`consensus`/`companion` to `baker`/`companion`
-
-Use this after the tz4 consensus key has activated on-chain and you want the active TezSign consensus key loaded through the default `baker` alias.
-
-**1. Re-import TezSign's consensus key as the default baker alias:**
-
-```bash
-tezbake setup-tezsign --import-key=consensus --key-alias=baker --force
-```
-
-**2. Keep only the DAL companion as an additional baker key:**
-
-```bash
-tezbake node modify --set configuration.additional_key_aliases '["companion"]'
-```
-
-**3. Remove the stale consensus alias from the node wallet, if present:**
-
-```bash
-tezbake node client forget address consensus --force
-```
-
-**4. Remove the stale consensus alias from the signer daemon wallet, if present:**
-
-```bash
-tezbake signer signer forget address consensus --force
-```
-
-**5. Apply and verify:**
-
-```bash
-tezbake upgrade
-tezbake node show configuration.additional_key_aliases
-tezbake node client list known addresses
-tezbake signer signer list known addresses
-tezbake info
-```
-
-Expected final state:
-
-- `configuration.additional_key_aliases` is exactly `["companion"]`.
-- Node known addresses include `baker` and `companion`.
-- Signer daemon known addresses include `baker` and `companion`.
-- No local Octez alias named `consensus` remains.
-- The on-chain consensus key is unchanged; only local alias wiring changed.
 
 ### 4. Retrieve Public Keys & Proofs & Register them on the chain
 
@@ -459,6 +413,56 @@ tezbake tezsign status
 >
 > * `tezbake tezsign status` - Check lock/unlock status
 > * `tezbake info` - Check general baker status
+
+### Later cleanup after on-chain activation
+
+Use this after the tz4 consensus key has activated on-chain and you want to transition from `baker`/`consensus`/`companion` to `baker`/`companion`, with the active TezSign consensus key loaded through the default `baker` alias.
+
+Do not run this during the 3-cycle activation window; keep `consensus` loaded until the tz4 consensus key is active on-chain.
+
+**1. Re-import TezSign's consensus key as the default baker alias:**
+
+```bash
+tezbake setup-tezsign --import-key=consensus --key-alias=baker --force
+```
+
+**2. Keep only the DAL companion as an additional baker key:**
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
+```
+
+**3. Remove the stale consensus alias from the node wallet, if present:**
+
+```bash
+tezbake node client forget address consensus --force
+```
+
+**4. Remove the stale consensus alias from the signer daemon wallet, if present:**
+
+```bash
+tezbake signer signer forget address consensus --force
+```
+
+**5. Apply and verify:**
+
+```bash
+tezbake upgrade
+tezbake node show configuration.additional_key_aliases
+tezbake node client list known addresses
+tezbake signer signer list known addresses
+tezbake info
+```
+
+Expected final state:
+
+- `configuration.additional_key_aliases` is exactly `["companion"]`.
+- Node known addresses include `baker` and `companion`.
+- Signer daemon known addresses include `baker` and `companion`.
+- No local Octez alias named `consensus` remains.
+- The on-chain consensus key is unchanged; only local alias wiring changed.
+
+The TezSign device/internal key may still be named `consensus`; this cleanup only removes stale local Octez aliases from the node and signer daemon wallets.
 
 ## Advanced: Direct TezSign Backend
 
