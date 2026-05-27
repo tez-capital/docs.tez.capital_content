@@ -252,7 +252,7 @@ tezbake node modify --set configuration.additional_key_aliases '["consensus","co
 
 Use this while migrating to BLS/tz4, when the active `baker` key is still separate and the new TezSign consensus key is named `consensus`.
 
-> Later, after your `consensus` key activates, use the later cleanup section below to load that key through the default `baker` alias and remove the stale local `consensus` alias.
+> Later, after your `consensus` key activates, use the Later cleanup after on-chain activation section below to load that key through the default `baker` alias and remove the stale local `consensus` alias.
 
 **If your TezSign consensus key was imported as `baker`:**
 
@@ -452,6 +452,7 @@ tezbake node show configuration.additional_key_aliases
 tezbake node client list known addresses
 tezbake signer signer list known addresses
 tezbake info
+tezbake info --dal
 ```
 
 Expected final state:
