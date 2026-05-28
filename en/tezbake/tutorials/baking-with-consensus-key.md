@@ -274,12 +274,11 @@ tezbake upgrade
 
 If you switched to the direct TezSign backend, revert it:
 
-1. Open `/bake-buddy/signer/app.json` and remove the `"BACKEND": "tezsign"` line from the `configuration` block.
-2. Apply and restart:
-
 ```bash
+tezbake signer modify --unset configuration.BACKEND
+tezbake signer show configuration.BACKEND
 tezbake upgrade --signer
-tezbake stop --signer && tezbake start --signer
+tezbake start --signer
 ```
 
 ---

@@ -485,30 +485,27 @@ This setup offers slightly faster execution and lower latency by directly utiliz
 
 **How to Enable:**
 
-1. Open the signer configuration file: `/bake-buddy/signer/app.json`
-2. Add `BACKEND: tezsign` inside the `configuration` block:
-
-```yaml
-// ...
-       "configuration": {
-           "BACKEND": "tezsign"
-       },
-// ...
-```
-
-3. Apply the changes:
+Use the signer configuration CLI. You do not need to edit `/bake-buddy/signer/app.json` manually.
 
 ```bash
+tezbake signer modify configuration.BACKEND tezsign
+tezbake signer show configuration.BACKEND
 tezbake upgrade --signer
+tezbake start --signer
 ```
 
-4. Restart the service:
+The `show` command should confirm that `configuration.BACKEND` is set to `tezsign` before you apply and restart the signer.
+
+**To Revert:**
+
+Unset the direct backend configuration, confirm it is no longer set to `tezsign`, then apply and restart:
 
 ```bash
-tezbake stop --signer && tezbake start --signer
+tezbake signer modify --unset configuration.BACKEND
+tezbake signer show configuration.BACKEND
+tezbake upgrade --signer
+tezbake start --signer
 ```
-
-**To Revert:**: Remove the `BACKEND` line from `app.json`, upgrade, and restart.
 
 ## Advanced: Automatic Unlock for TezSign
 
