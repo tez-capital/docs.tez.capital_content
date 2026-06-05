@@ -20,6 +20,8 @@ summary: How to update TezSign firmware and application
 > 1. Back up the whole `tezsign` folder from the `data` partition.
 > 2. Re-flash the SD card with the latest full image.
 > 3. Copy the backed-up `tezsign` folder into the `data` partition on the new card. This is required due to a one-time layout change.
+>
+> Do not use a full-card clone as the migration method for this case. Cloning preserves the old TezSign image generation; it does not move the card onto the new image.
 
 ### Update Procedure
 

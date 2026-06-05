@@ -77,6 +77,8 @@ The `data` partition contains the `tezsign` folder used for backup, restore, and
 
 See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) before updating, reflashing, or migrating a TezSign card.
 
+For same-image spare cards, you can also clone a working SD card. A dual-slot reader or two USB SD-card readers makes this easiest. Cloning is a backup method, not a way to move onto a newer TezSign image generation.
+
 ---
 
 Any questions/comments/concerns? Please contact the Tez Capital team on

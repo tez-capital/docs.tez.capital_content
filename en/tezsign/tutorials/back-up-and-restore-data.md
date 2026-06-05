@@ -2,23 +2,71 @@
 title: "Back Up and Restore TezSign Data"
 weight: 1
 type: docs
-summary: Copy the TezSign data folder from the SD card for backups, recovery, and hardware migrations
+summary: Clone TezSign SD cards or copy the data folder for backups, recovery, and hardware migrations
 ---
 
 ## When to Use This
 
-Use this procedure when you want to:
+Use this guide when you want to:
 
 - Back up the keys and signer state from a TezSign SD card
+- Clone a working TezSign SD card to make a ready spare
 - Move a working TezSign setup to a newly flashed SD card
 - Migrate to a newer TezSign image or hardware architecture
 - Recover from a failing SD card by transplanting the TezSign data to a fresh card
 
-This is an offline SD-card procedure. You remove the microSD card from the TezSign device, mount it on a Linux computer, copy the `tezsign` folder from the `data` partition, then restore that folder to the `data` partition on another flashed card.
+These are offline SD-card procedures. You remove the microSD card from the TezSign device, use a computer to clone the whole card or copy the `tezsign` folder from the `data` partition, then restore the backup to another card.
 
 > **Important:** macOS does not mount the TezSign `data` partition correctly. Use a Linux computer, a Linux live USB, or a trusted Linux VM with direct access to the card reader.
 
-## What You Are Copying
+## Choose a Backup Method
+
+There are two useful TezSign backup methods:
+
+| Method | Best for | What it copies |
+|--------|----------|----------------|
+| **Clone the whole SD card** | Fast same-image spare cards | The entire card: `app`, `boot`, `data`, partition layout, TezSign image version, and keys |
+| **Copy `data/tezsign` only** | Moving to a newly flashed card or newer TezSign generation | Only the TezSign keys and signer state |
+
+Cloning is the quickest way to create ready spare cards on the same TezSign image generation. It is not an upgrade path.
+
+> **New-generation image warning:** A full-card clone preserves the old image. It will not move you to the new TezSign image generation, and it will not work around an older image that cannot use the built-in update process. For that, flash the latest full image first, then restore the `data/tezsign` folder onto the new card.
+
+## Clone the Whole SD Card
+
+Use this when you want a bit-for-bit spare card for the same TezSign image version.
+
+The easiest setup is a computer with two SD-card slots, or two USB SD-card readers:
+
+1. Insert the working TezSign SD card as the source.
+2. Insert a blank target SD card of the same size or larger.
+3. Use a cloning or imaging tool to copy the source card to the target card.
+4. Safely eject both cards when the clone is complete.
+5. Label the clone clearly and store it offline.
+
+Tools people commonly use:
+
+- [Balena Etcher](https://etcher.balena.io/) - use **Clone drive** if your version offers it, or use **Flash from file** after creating an image.
+- [GNOME Disks](https://wiki.gnome.org/Apps/Disks) - a simple Linux GUI app that can create and restore disk images.
+
+Never boot the cloned card at the same time as the original for the same baker. A clone contains the same signing keys and signer state.
+
+## Clone by Making an Image First
+
+Use this two-step workflow if you have only one SD-card slot or one USB SD-card reader.
+
+1. Insert the working TezSign SD card.
+2. Use GNOME Disks or another disk imaging tool to create a full disk image from the SD card. Save the image somewhere secure with enough free space for the full card size.
+3. Safely eject the source card.
+4. Insert the new target SD card.
+5. Restore or flash the saved image to the target card. GNOME Disks can restore disk images; Balena Etcher can flash from an image file.
+6. Safely eject the target card, label it, and store it offline.
+
+Keep full-card images secure. They contain the TezSign `data` partition and therefore the encrypted signer keys.
+
+## Copy the `data/tezsign` Folder
+
+Use this when you are moving keys and signer state to a freshly flashed TezSign card, especially when migrating to a newer TezSign image generation or hardware architecture.
 
 A current TezSign image has three partitions. On Linux, you should see partitions labeled `app`, `boot`, and `data`. The one you need is `data`.
 
@@ -192,6 +240,8 @@ Do not lower a high-watermark level casually. Only change it when you are intent
 
 - Treat the backup as sensitive signing material, even though the TezSign keys are protected by your master password.
 - Keep at least two backup TezSign-flashed SD cards ready, plus additional backups if your operation needs them.
+- Use full-card clones for same-image ready spares.
+- Use the `data/tezsign` transplant method when moving to a new TezSign image generation or architecture.
 - Store backup cards offline and clearly labeled.
 - Label backups clearly so you know which baker and network they belong to.
 - Save the TezSign master/key decryption password somewhere safe and separate from the SD cards.
@@ -203,7 +253,6 @@ Do not lower a high-watermark level casually. Only change it when you are intent
 
 - [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main TezSign setup
 - [Updating TezSign](/tezsign/tutorials/updating/) - Firmware and application updates
-- [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard baker setup
 - [Slashing Explained](/getting-started/slashing-explained/) - Why duplicate signer operation is dangerous
 
 ---
