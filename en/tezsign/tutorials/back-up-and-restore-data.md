@@ -35,11 +35,15 @@ Copy the entire `tezsign` folder as one unit. Do not copy only individual files 
 
 - Stop baking with this TezSign device before removing its SD card.
 - Disconnect the TezSign device from the baker machine.
-- Use a Linux machine you trust.
+- Take the microSD card out of the Raspberry Pi or Radxa board.
+- Insert it into a computer's SD-card slot, or use a USB SD-card reader.
+- Use a Linux machine you trust. If you do not have another Linux computer, the baker host itself is often the easiest option, especially if it has a desktop GUI.
 - Have a backup destination ready, such as another drive or an encrypted folder.
-- Keep your TezSign master password safe. The backup is not useful without it.
+- Keep your TezSign master/key decryption password safe. The backup is not useful without it.
 
 > **Critical:** Never run two TezSign devices, cards, or restored copies with the same keys at the same time. That can cause double signing and slashing.
+
+> **Baker host note:** If you use the baker machine itself as a temporary staging computer, delete the temporary backup folder or archive from the baker after you have restored it to your backup flashed card(s). Do not leave loose signer backups sitting on the baker host.
 
 ## Find the `data` Partition
 
@@ -55,57 +59,95 @@ lsblk -o NAME,LABEL,FSTYPE,SIZE,MOUNTPOINTS
 
 Find the row with `LABEL` set to `data`. If your desktop auto-mounted it, the mount point may look like `/media/$USER/data` or `/run/media/$USER/data`.
 
-## Back Up the `tezsign` Folder
+## Back Up the `tezsign` Folder with a GUI
 
-### Option A: File Manager
+This is the easiest method if the Linux machine has a desktop environment.
 
 1. Open the mounted `data` partition.
 2. Find the `tezsign` folder at the top level of the partition.
-3. Copy the whole `tezsign` folder to your backup location.
+3. Copy the whole `tezsign` folder to your backup location, or directly onto the `data` partition of another freshly flashed TezSign SD card.
 4. Safely eject or unmount the SD card before removing it.
 
-### Option B: Command Line
+If you are using the baker host as the backup computer, treat any copied folder on that host as temporary. Once you have restored it to backup TezSign-flashed SD card(s), delete the temporary copy from the baker.
 
-Create a backup directory and copy the folder:
+## Back Up the `tezsign` Folder without a GUI
+
+Use this method on a headless Linux host over SSH or on a server without a graphical file manager.
+
+Insert the TezSign SD card and identify the `data` partition:
+
+```bash
+lsblk -o NAME,LABEL,FSTYPE,SIZE,MOUNTPOINTS
+```
+
+Create a mount point and mount the `data` partition. Replace `/dev/sdX3` with the actual partition device shown by `lsblk`:
+
+```bash
+sudo mkdir -p /mnt/tezsign-data
+sudo mount /dev/sdX3 /mnt/tezsign-data
+```
+
+Create a temporary backup directory and copy the folder:
 
 ```bash
 mkdir -p "$HOME/tezsign-backups"
-sudo rsync -aHAX --info=progress2 /media/$USER/data/tezsign/ "$HOME/tezsign-backups/tezsign/"
+sudo rsync -aHAX --info=progress2 /mnt/tezsign-data/tezsign/ "$HOME/tezsign-backups/tezsign/"
 sync
 ```
 
-If your `data` partition mounted somewhere else, replace `/media/$USER/data` with the mount point shown by `lsblk`.
-
-For a portable archive, especially if you are storing the backup on a non-Linux filesystem, use:
+For a portable archive, especially if you are storing the backup on a non-Linux filesystem, use this instead of the `rsync` copy:
 
 ```bash
 mkdir -p "$HOME/tezsign-backups"
-sudo tar -C /media/$USER/data -czf "$HOME/tezsign-backups/tezsign-$(date +%Y%m%d).tar.gz" tezsign
+sudo tar -C /mnt/tezsign-data -czf "$HOME/tezsign-backups/tezsign-$(date +%Y%m%d).tar.gz" tezsign
 sync
 ```
+
+Unmount the card before removing it:
+
+```bash
+sudo umount /mnt/tezsign-data
+```
+
+If you are using the baker host as the temporary backup location, delete this folder or archive from the baker after restoring it to your backup card(s).
 
 ## Restore to a Newly Flashed Card
 
 Flash the new TezSign image to a fresh SD card first. Then insert that card into the Linux computer and open or mount its `data` partition.
 
-If you backed up the folder directly:
+If you are using a GUI, open the new card's `data` partition and copy the backed-up `tezsign` folder into it.
+
+If you are using the command line, mount the new card's `data` partition first. Replace `/dev/sdX3` with the actual new-card `data` partition shown by `lsblk`:
 
 ```bash
-sudo rsync -aHAX --delete "$HOME/tezsign-backups/tezsign/" /media/$USER/data/tezsign/
+sudo mkdir -p /mnt/tezsign-data
+sudo mount /dev/sdX3 /mnt/tezsign-data
+```
+
+If you backed up the folder directly, restore it:
+
+```bash
+sudo rsync -aHAX --delete "$HOME/tezsign-backups/tezsign/" /mnt/tezsign-data/tezsign/
 sync
 ```
 
 If you backed up a `.tar.gz` archive:
 
 ```bash
-sudo rm -rf /media/$USER/data/tezsign
-sudo tar -C /media/$USER/data -xzf "$HOME/tezsign-backups/tezsign-YYYYMMDD.tar.gz"
+sudo rm -rf /mnt/tezsign-data/tezsign
+sudo tar -C /mnt/tezsign-data -xzf "$HOME/tezsign-backups/tezsign-YYYYMMDD.tar.gz"
 sync
 ```
 
 Replace `tezsign-YYYYMMDD.tar.gz` with your actual backup file name.
 
-When the restore is complete, safely eject or unmount the SD card before removing it.
+When the restore is complete, safely eject or unmount the SD card before removing it:
+
+```bash
+sudo umount /mnt/tezsign-data
+```
+
+Repeat this restore for each backup card you want ready.
 
 ## Verify After Restore
 
@@ -134,10 +176,13 @@ tezbake info --dal
 ## Safety Notes
 
 - Treat the backup as sensitive signing material, even though the TezSign keys are protected by your master password.
-- Store at least one backup offline.
+- Keep at least two backup TezSign-flashed SD cards ready, plus additional backups if your operation needs them.
+- Store backup cards offline and clearly labeled.
 - Label backups clearly so you know which baker and network they belong to.
+- Save the TezSign master/key decryption password somewhere safe and separate from the SD cards.
 - Test a restored card only when the primary TezSign device is unplugged.
-- For routine disaster recovery, an SD-card clone is still useful. This `data/tezsign` transplant is the focused backup you need for image migrations and fresh-card restores.
+- For routine disaster recovery, ready-to-use TezSign-flashed backup cards are the goal. This `data/tezsign` transplant is the focused backup you need for image migrations and fresh-card restores.
+- If you used the baker host as temporary staging, remove the transient backup copy from the baker after the restore is complete.
 
 ## Related Guides
 

@@ -551,14 +551,16 @@ tezbake start
 After successful setup, **immediately back up your TezSign data**:
 
 1. Remove the SD card from the TezSign device.
-2. Mount it on a Linux machine.
+2. Insert it into a Linux computer's SD-card slot, or use a USB SD-card reader. If you do not have another Linux computer, the baker host itself is often the easiest option if it has a GUI.
 3. Copy the whole `tezsign` folder from the `data` partition.
-4. Store the backup safely.
-5. Restore that folder to the `data` partition on a newly flashed card when needed.
+4. Restore that folder to the `data` partition on at least two freshly flashed backup cards.
+5. Save the TezSign master/key decryption password somewhere safe.
 
 Follow the complete procedure here:
 
 **[Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)**
+
+If you use the baker host as a temporary staging computer, delete the temporary backup folder or archive after the backup cards are restored.
 
 You can also keep a full SD-card clone for fast recovery:
 
@@ -572,7 +574,7 @@ You can also keep a full SD-card clone for fast recovery:
 sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
 ```
 
-> **💡 TIP:** Keep at least 2 backup SD cards. Data on the card is protected by your master password, but clones and folder backups should still be stored as sensitive signer material.
+> **💡 TIP:** Keep at least 2 backup TezSign-flashed SD cards. Data on the card is protected by your master password, but clones and folder backups should still be stored as sensitive signer material.
 
 ### If Your TezSign Device Fails
 
@@ -583,7 +585,8 @@ sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
 ### Recommended Redundancy
 
 * 2 TezSign devices (one active, one backup)
-* 2+ cloned SD cards
+* At least 2 backup TezSign-flashed SD cards with restored `data/tezsign`
+* TezSign master/key decryption password saved somewhere safe
 * Test backup periodically by booting on backup device (with primary **unplugged**)
 
 ---
