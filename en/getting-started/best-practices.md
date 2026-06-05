@@ -46,6 +46,7 @@ While having two computers is somewhat optional, especially for a smaller baker,
 > * Do not authorize the backup signer to bake before it's needed
 > * Do not import your baking wallet into your backup computer before it's needed
 > * Before changing any signer connections, always ensure only one device is baking
+> * For TezSign failover, set high-watermark levels for both `consensus` and `companion` with `tezbake tezsign advanced set-level <alias> <level>` before the backup signs
 > * Do not install TezBake on second computer before it's needed (setup takes just a few minutes with fast internet)
 
 If you only have one hardware signer and it fails, you will be down until you get a replacement and set it up to bake.

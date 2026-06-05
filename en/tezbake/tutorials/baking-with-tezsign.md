@@ -580,13 +580,23 @@ sudo dd if=/dev/sdX of=/path/to/backup.img bs=4M status=progress
 
 1. **Have a backup SD card ready** - Insert your cloned card, or a newly flashed card with restored `data/tezsign`, into a spare device
 2. **Never run two devices with the same keys simultaneously** - This causes double-signing and slashing
-3. If no backup exists, use your manager Ledger via [TezGov](https://gov.tez.capital/) to set a new consensus key (takes 3 cycles to activate)
+3. **Set high-watermark levels before baking if this is a failover or migration** - Use the current chain level, or current level plus a small safety margin:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
+Run this for each TezSign device key alias that signs for the baker. The common aliases are `consensus` and `companion`; if you used different TezSign aliases, replace them.
+
+4. If no backup exists, use your manager Ledger via [TezGov](https://gov.tez.capital/) to set a new consensus key (takes 3 cycles to activate)
 
 ### Recommended Redundancy
 
 * 2 TezSign devices (one active, one backup)
 * At least 2 backup TezSign-flashed SD cards with restored `data/tezsign`
 * TezSign master/key decryption password saved somewhere safe
+* Current HWM plan for `consensus` and `companion` before failover
 * Test backup periodically by booting on backup device (with primary **unplugged**)
 
 ---

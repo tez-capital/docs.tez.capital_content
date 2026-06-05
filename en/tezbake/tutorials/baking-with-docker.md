@@ -66,6 +66,15 @@ You have the option to use a TezSign device, a Ledger hardware wallet, or a loca
 
 If you use TezSign, back up the `tezsign` folder from the Linux-only `data` partition after key generation. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
+For TezSign backup, failover, or migration, set the high-watermark level for each TezSign signing alias before the backup signs again:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
+Use the current chain level, or current level plus a small safety margin during failover. Replace `consensus` or `companion` if your TezSign device uses different key aliases.
+
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
 #### (Option 1) Import Ledger key to TezBake signer

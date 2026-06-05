@@ -110,13 +110,22 @@ Upon denunciation, a **forbidden period** begins immediately:
 2. **Single signer rule** - Never run multiple signers with the same key
 3. **Proper backup procedures** - Only activate backup hardware after confirming primary is fully stopped
 
+For TezSign failover or migration, set the high-watermark level for every signing alias before the backup signs again:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
+Use the current chain level, or the current level plus a small safety margin during failover. Replace the aliases if your TezSign device uses different key names.
+
 ### Operational Best Practices
 
 | Do | Don't |
 |----|-------|
 | Use dedicated baking hardware | Share your baking computer for other tasks |
 | Keep backup signer unauthorized until needed | Pre-authorize backup "just in case" |
-| Set HWM to current block height when migrating | Leave HWM at 1 when moving to a used device |
+| Set HWM to current block height when migrating; for TezSign, set both consensus and companion aliases | Leave HWM at 1 when moving to a used device |
 | Wait for full shutdown before failover | Rush failover during outages |
 | Use separate devices for mainnet and testnet | Reuse the same signer across networks |
 

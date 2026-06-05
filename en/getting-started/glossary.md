@@ -108,6 +108,8 @@ See [Public Baking](/getting-started/public-baking/).
 
 A monotonically increasing counter maintained by the signing device (TezSign or Ledger) that records the highest block level and round ever signed. The HWM prevents a signer from ever signing a block at a level it has already signed — the primary defence against accidental double baking.
 
+For TezSign backup, restore, or failover workflows, TezBake can set the level per TezSign key alias with `tezbake tezsign advanced set-level <alias> <level>`.
+
 > **⚠️ WARNING:** Resetting or tampering with the HWM is dangerous. Only do so if explicitly instructed by the TezBake documentation.
 
 ---

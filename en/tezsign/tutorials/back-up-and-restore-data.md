@@ -173,6 +173,21 @@ tezbake info
 tezbake info --dal
 ```
 
+## Optional: Set High-Watermark Levels
+
+For extra safety during failover, recovery, or migration, you can set the TezSign high-watermark level before the restored card signs again.
+
+Use the current chain level, or the current level plus a small safety margin such as `+10` during failover:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
+Run the command for each TezSign key alias that signs for the baker. The common aliases are `consensus` and `companion`; if you used different TezSign device aliases, replace them. These are the TezSign device key aliases, not necessarily the local Octez aliases loaded by the baker.
+
+Do not lower a high-watermark level casually. Only change it when you are intentionally preparing a restored, migrated, or backup TezSign card to resume baking safely.
+
 ## Safety Notes
 
 - Treat the backup as sensitive signing material, even though the TezSign keys are protected by your master password.

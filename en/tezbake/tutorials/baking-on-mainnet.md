@@ -172,6 +172,15 @@ Follow the following guide and then proceed directly to [stake your XTZ](#stake-
 
 After you generate keys on the TezSign device, follow [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) so you have a Linux-readable `data/tezsign` backup before you rely on the device for production baking.
 
+For TezSign backup, failover, or migration, you can set the high-watermark level for each TezSign signing alias before the backup signs again:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
+Use the current chain level, or current level plus a small safety margin during failover. Replace `consensus` or `companion` if your TezSign device uses different key aliases.
+
 > **⚠️ WARNING: Key Alias Naming**
 >
 > When following the TezSign guide, use these alias names:

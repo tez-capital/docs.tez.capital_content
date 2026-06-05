@@ -110,6 +110,13 @@ After the keys are generated, back up the whole `tezsign` folder from the Linux-
 
 [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
 
+If you later restore or migrate that TezSign data to another card, set the high-watermark level for both TezSign signing aliases before the backup signs again:
+
+```bash
+tezbake tezsign advanced set-level consensus <level>
+tezbake tezsign advanced set-level companion <level>
+```
+
 **Step 2 — Register the keys on-chain using TezGov (recommended):**
 
 1. Connect to [gov.tez.capital](https://gov.tez.capital) with your **Ledger** (manager key, Tezos Wallet app)

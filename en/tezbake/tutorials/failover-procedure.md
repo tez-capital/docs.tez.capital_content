@@ -84,10 +84,16 @@ If the backup SD card is newly flashed, restore the `tezsign` folder from the `d
 # Initialize if not already done
 tezbake setup-tezsign --init --platform
 
+# Set HWM for each TezSign signing alias
+tezbake tezsign advanced set-level consensus <current_level+10>
+tezbake tezsign advanced set-level companion <current_level+10>
+
 # The device should already have keys from initial setup
 # Verify it's detected
 tezbake info
 ```
+
+Replace `consensus` and `companion` if your TezSign device uses different key aliases. These are TezSign device aliases, not necessarily the local Octez aliases loaded by the baker.
 
 **For Ledger:**
 ```bash
@@ -95,7 +101,7 @@ tezbake info
 tezbake setup-ledger --platform --import-key --authorize --hwm <current_level+10>
 ```
 
-> **ℹ️ HWM Safety Margin**: Setting HWM slightly above current level ensures your backup won't sign any block the primary might have signed.
+> **ℹ️ HWM Safety Margin**: Setting HWM slightly above current level ensures your backup won't sign any block the primary might have signed. For TezSign, set the level for every signing alias, commonly `consensus` and `companion`.
 
 ### Step 6: Start Backup Baker
 
@@ -143,7 +149,13 @@ Fix the primary issue but **do not start baking** on it. Keep it as your new bac
 When the repaired machine becomes your backup:
 
 ```bash
-# Set HWM to current level when you eventually need to use it
+# Set TezSign HWM to current level when you eventually need to use it
+tezbake tezsign advanced set-level consensus <current_level>
+tezbake tezsign advanced set-level companion <current_level>
+
+# For Ledger, import or re-authorize with the current-level HWM
+# tezbake setup-ledger --platform --import-key --authorize --hwm <current_level>
+
 # Don't pre-authorize - wait until needed
 ```
 
