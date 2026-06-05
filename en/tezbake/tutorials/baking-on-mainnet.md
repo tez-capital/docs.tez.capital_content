@@ -72,9 +72,11 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 
 ---
 
-> **🚨 CRITICAL: DAL Node Mandatory**
+> **DAL Included by Default**
 >
-> Running a DAL (Data Availability Layer) node is now **mandatory** for baking on the Tezos network. It's not currently mandatory to run the DAL on the same machine as your node or signer. Read more about advanced DAL configurations here: [Baking with DAL](/tezbake/tutorials/baking-with-dal)
+> DAL is part of the standard TezBake baker setup. The command below installs and configures it with the node, baker, and signer.
+>
+> If you intentionally need to run without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 >
 > **What is the DAL?**
 > The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify.
@@ -609,8 +611,8 @@ These are not all required to get your first baker running, but you should not s
 * [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 * [Hardware and Flashing](/tezsign/tutorials/hardware-and-flashing/) - TezSign hardware and image flashing
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - TezSign SD-card backup and migration
-* [Baking with DAL](/tezbake/tutorials/baking-with-dal/) - Advanced DAL configurations
-* [Baking with Prism](/tezbake/tutorials/baking-with-prism/) - Distributed component setup
+* [Baking Without DAL](/tezbake/tutorials/baking-without-dal/) - Exception path when you intentionally disable DAL
+* [Baking with Prism](/tezbake/tutorials/baking-with-prism/) - Run node, DAL, and signer across separate hosts
 * [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) - Separate consensus key management
 
 **Troubleshooting:**

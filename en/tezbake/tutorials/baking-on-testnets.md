@@ -40,8 +40,10 @@ TezSign block signing applies to testnets too. If you are testing TezSign, follo
 
 ---
 
-> **🚨 CRITICAL: DAL Node Mandatory**
-> All bakers are required to run a DAL node. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for setup instructions and details.
+> **DAL Included by Default**
+> DAL is part of the standard testnet baker setup. The commands below include `--with-dal`.
+>
+> If you intentionally need to test without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 
 ## Installation (All-in-one)
 

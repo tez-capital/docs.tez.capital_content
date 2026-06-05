@@ -16,8 +16,8 @@ summary: Run TezBake in a Docker container for isolated and portable Tezos bakin
 
 For this tutorial, you'll need to have already have installed Docker as shown here: <https://docs.docker.com/engine/install>
 
-> **🚨 CRITICAL: DAL Node Mandatory**
-> All bakers are required to run a DAL node. See [Baking with DAL](/tezbake/tutorials/baking-with-dal/) for setup instructions and details.
+> **DAL Included by Default**
+> DAL is part of the standard baker setup. If your Docker deployment intentionally runs without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 
 ## Table of Contents
 

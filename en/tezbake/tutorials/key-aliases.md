@@ -173,4 +173,4 @@ If `configuration.key_aliases` is set, it replaces the default baker key list. M
 
 - [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) — Full consensus key setup
 - [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) — Main TezSign setup flow
-- [Baking with DAL](/tezbake/tutorials/baking-with-dal/) — DAL node and companion key setup
+- [Baking Without DAL](/tezbake/tutorials/baking-without-dal/) — Exception path when you intentionally disable DAL

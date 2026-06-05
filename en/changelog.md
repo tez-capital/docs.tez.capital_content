@@ -15,7 +15,7 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ### Documentation: Clarified TezSign DAL Companion Alias Setup
 
-**What changed:** Updated [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/), [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/), [Baking with DAL](/tezbake/tutorials/baking-with-dal/), and [Key Aliases](/tezbake/tutorials/key-aliases/) to make the BLS/tz4 alias decision explicit:
+**What changed:** Updated [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/), [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/), the DAL setup notes, and [Key Aliases](/tezbake/tutorials/key-aliases/) to make the BLS/tz4 alias decision explicit:
 
 - If the TezSign consensus key is imported as `consensus`, load `["consensus","companion"]`.
 - If the TezSign consensus key is imported as the default `baker` alias, load only `["companion"]`.
@@ -125,7 +125,7 @@ tezbake setup
 - Bakers currently using tz1 keys can continue without any changes
 - To use tz4, you must set up or migrate to TezSign
 
-**→ See:** [Glossary — tz1/tz4](/getting-started/glossary/#tz1--tz4-address-types) | [Choose Your Setup](/getting-started/choose-your-setup/)
+**→ See:** [Glossary — tz1/tz4](/getting-started/glossary/#tz1-tz4-address-types) | [Choose Your Setup](/getting-started/choose-your-setup/)
 
 ---
 

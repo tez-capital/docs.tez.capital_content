@@ -95,7 +95,7 @@ tezbake version
 
 ### 4. Setup TezBake
 
-Run the setup with DAL support (recommended for all bakers):
+Run the standard setup with DAL:
 
 ```bash
 sudo tezbake setup --with-dal

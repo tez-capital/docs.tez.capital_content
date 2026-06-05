@@ -290,7 +290,7 @@ sudo ufw allow 11732/tcp comment "DAL P2P"
 
 Ensure **Tezos Baking app v2.5.0+** for DAL attestation support.
 
-For complete DAL setup, see [Baking with DAL](/tezbake/tutorials/baking-with-dal/).
+For the standard setup path, see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/). If you intentionally disabled local DAL, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 
 ---
 

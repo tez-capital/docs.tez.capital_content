@@ -55,7 +55,7 @@ The key that a baker uses to sign blocks and attestations. This is separate from
 
 On modern Tezos protocols, consensus keys can be **tz4** (BLS12-381) addresses, which enables more efficient aggregated signatures. **TezSign** supports tz4; **Ledger does not** for baking operations.
 
-See also: [tz1 / tz4](#tz1--tz4-address-types), [TezSign](/tezsign/tutorials/).
+See also: [tz1 / tz4](#tz1-tz4-address-types), [TezSign](/tezsign/tutorials/).
 
 ---
 
