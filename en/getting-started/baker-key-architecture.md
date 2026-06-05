@@ -119,7 +119,7 @@ No. Your manager key (Ledger) is the permanent baker identity. If TezSign is los
 - [Choose Your Setup](/getting-started/choose-your-setup/) — Compare TezSign, Ledger, and soft key signing options
 - [Ledger vs TezSign](/getting-started/ledger-vs-tezsign/) — Detailed comparison
 - [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) — Full baker setup guide
-- [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) — TezSign hardware setup
+- [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) — Main TezSign baker setup
 - [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) — TezSign SD-card backup and migration
 - [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) — Activating tz4 consensus and companion keys
 - [Managing Baker Settings](/tezgov/tutorials/managing-baker-settings/) — Setting keys via TezGov

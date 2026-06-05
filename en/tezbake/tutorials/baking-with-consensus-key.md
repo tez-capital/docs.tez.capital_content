@@ -43,7 +43,7 @@ Follow along on Youtube!
 
 - **[Running baker on mainnet or testnet](/tezbake/tutorials/baking-on-mainnet/)** — your baker must already be set up and actively baking
 - **[TezBake installed](/tezbake/tutorials/baking-on-mainnet/#download-and-install-tezbake)** — latest version required
-- **For tz4/BLS setup (recommended):** A [TezSign hardware device](/tezbake/tutorials/baking-with-tezsign/) to generate secure consensus and companion keys
+- **For tz4/BLS setup (recommended):** A TezSign hardware device, set up through [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#recommended-set-up-tezsign-consensus-and-companion-keys), to generate secure consensus and companion keys
 - **For deprecated Ledger setup:** A second Ledger device to use as the consensus key signer
 
 ## Preparation
@@ -102,9 +102,9 @@ The recommended baker setup separates key responsibilities across two hardware d
 
 ### Setup Steps
 
-**Step 1 — Follow the TezSign guide to generate your consensus and companion keys on the device:**
+**Step 1 — Follow the mainnet TezSign setup to generate your consensus and companion keys on the device:**
 
-[Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+[Baking on Mainnet — TezSign consensus and companion keys](/tezbake/tutorials/baking-on-mainnet/#recommended-set-up-tezsign-consensus-and-companion-keys)
 
 After the keys are generated, back up the whole `tezsign` folder from the Linux-only `data` partition before relying on the device for production baking:
 
@@ -297,7 +297,7 @@ tezbake start --signer
 ## Related Guides
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Hardware signer setup
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide with TezSign
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - SD-card data backup and migration
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
 

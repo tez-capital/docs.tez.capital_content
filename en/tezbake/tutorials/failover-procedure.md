@@ -195,7 +195,7 @@ If your primary is completely unreachable (fire, theft, hardware death):
 * [Best Practices](/getting-started/best-practices/) - Backup hardware recommendations
 * [Slashing Explained](/getting-started/slashing-explained/) - Why double baking is dangerous
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign setup
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Restore TezSign data to a fresh card
 
 ---

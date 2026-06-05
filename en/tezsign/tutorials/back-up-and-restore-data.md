@@ -201,7 +201,7 @@ Do not lower a high-watermark level casually. Only change it when you are intent
 
 ## Related Guides
 
-- [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Full TezSign setup
+- [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main TezSign setup
 - [Updating TezSign](/tezsign/tutorials/updating/) - Firmware and application updates
 - [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard baker setup
 - [Slashing Explained](/getting-started/slashing-explained/) - Why duplicate signer operation is dangerous

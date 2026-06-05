@@ -156,7 +156,7 @@ This often recovers the device without requiring a full system restart.
 **Getting Help:**
 
 * [Best Practices](/getting-started/best-practices/) - Prevent common issues
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign-specific setup
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 
 ---
 

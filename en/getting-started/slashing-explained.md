@@ -161,7 +161,7 @@ If you discover you've been slashed:
 
 * [What is Baking?](/getting-started/what-is-baking/) - Baking fundamentals
 * [Best Practices](/getting-started/best-practices/) - Prevent operational issues
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Secure signer setup
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Complete setup guide
 
 ---

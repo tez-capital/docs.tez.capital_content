@@ -34,7 +34,9 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 *  Spare computer or existing computer or VM with Linux installed. We recommend Ubuntu Linux.
    > **ℹ️ INFO:** You must have an SSD drive (or better) and at least 8GB RAM
 
-All advanced TezBake configurations, including TezSign block signing apply here as well.
+TezSign block signing applies to testnets too. If you are testing TezSign, follow the TezSign setup steps in [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#recommended-set-up-tezsign-consensus-and-companion-keys) after you run the testnet-specific `tezbake setup`, bootstrap, and sync steps below.
+
+> **⚠️ Testnet Safety:** Do not reuse a mainnet TezSign device, restored card, Ledger, or key material on a testnet. Use a separate testnet device/card or a soft-key testnet setup.
 
 ---
 
@@ -90,7 +92,7 @@ Simply search for the block level in the search field and verify the hash of the
 
 ### Start Tezos node
 
-After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
+After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your signing keys.
 
 ```bash
 tezbake start
@@ -254,12 +256,26 @@ As with everything in life, complexity adds more failure points. Only separate t
 
 ---
 
+## TezSign Follow-Up KBs
+
+If you use TezSign on a testnet, these are not blockers for getting a test baker running, but they are the same habits you need before production:
+
+- [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Practice backup and restore on separate testnet cards
+- [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) - Learn HWM handling before mainnet failover
+- [USB and Power Reliability](/tezsign/tutorials/usb-power-reliability/) - Debug hardware and USB issues
+- [Alias Cleanup After Activation](/tezsign/tutorials/alias-cleanup-after-activation/) - Clean up temporary aliases after activation
+- [Direct TezSign Backend](/tezsign/tutorials/direct-backend/) - Optional direct backend after the setup is stable
+- [Automatic Unlock](/tezsign/tutorials/automatic-unlock/) - Optional automatic unlock after you understand the tradeoff
+
+---
+
 ## Related Guides
 
 **Production Baking:**
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Production setup guide
 * [Best Practices](/getting-started/best-practices/) - Hardware and operational recommendations
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 
 **After Setup:**
 

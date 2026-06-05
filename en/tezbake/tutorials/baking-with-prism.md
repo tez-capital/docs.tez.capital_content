@@ -374,7 +374,7 @@ TezBake will initialize all services and Prism tunnels. You should now have a se
 
 ## Related Guides
 
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Hardware signer setup
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard single-machine setup
 * [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
 

@@ -32,7 +32,7 @@ summary: How to update TezSign firmware and application
     *Example command to download and make executable:*
 
 ```bash
-wget [https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64](https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64) -O tezsign_updater && chmod +x tezsign_updater
+wget https://github.com/tez-capital/tezsign/releases/download/release-202512022318/tezsign_updater_linux_amd64 -O tezsign_updater && chmod +x tezsign_updater
 ```
 
 5. **Run the Updater:**
@@ -60,8 +60,7 @@ sudo ./tezsign_updater
 ## Related Guides
 
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Linux-only data partition backup and restore
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Full TezSign setup
-* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard baker setup
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main TezSign setup
 * [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
 
 ---

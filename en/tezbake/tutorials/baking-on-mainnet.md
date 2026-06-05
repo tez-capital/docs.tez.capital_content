@@ -16,7 +16,7 @@ summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, fro
 
 - **Ubuntu 22.04+, Debian 12+, or macOS** — server or desktop with SSH access (Linux recommended for production)
 - **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers/delegators — see staking table below)
-- **Ledger hardware wallet** with Tezos Wallet app installed, OR a [TezSign device](/tezbake/tutorials/baking-with-tezsign/)
+- **TezSign device** for consensus and companion signing, plus a Ledger or other manager wallet for funds, staking, governance, and registering key changes
 - **Hardware meeting minimum specs:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
 
 ## Table of Contents
@@ -63,9 +63,9 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
     * 8GB RAM + 8GB swap (or 16GB RAM);
     * 100GB SSD storage (or similar I/O performance);
     * a low-latency, reliable broadband internet connection.
-2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This will be used for storing your funds, voting and changing your baking parameters.
+2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This remains your manager wallet for funds, staking, voting, and changing baking parameters.
    > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
-3. **TezSign remote signer device** - A purpose-built hardware signer for Tezos baking, based on affordable single-board computers like Raspberry Pi Zero 2W (~$20-30 in hardware). Connects via USB to your baking node and is designed to do one thing perfectly: sign baking operations securely. TezSign supports tz4 signatures required by modern Tezos protocols, which Ledger devices no longer support for baking. Unlike a general-purpose Ledger wallet, TezSign can remain connected 24/7 dedicated solely to baking. [Learn more: Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+3. **TezSign remote signer device** - A purpose-built hardware signer for Tezos baking, based on affordable single-board computers like Raspberry Pi Zero 2W (~$20-30 in hardware). Connects via USB to your baking node and is designed to do one thing perfectly: sign baking operations securely. TezSign supports tz4 signatures required by modern Tezos protocols, which Ledger devices no longer support for baking. Unlike a general-purpose Ledger wallet, TezSign can remain connected 24/7 dedicated solely to baking. [TezSign hardware and flashing details](/tezsign/tutorials/hardware-and-flashing/)
    > **ℹ️ INFO:** Baking with a Ledger is no longer recommended for new bakers. It's still possible to bake with the Ledger but we recommend you implement TezSign right away.
    >
    > After generating keys on TezSign, back up the `tezsign` folder from the Linux-only `data` partition. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
@@ -119,7 +119,7 @@ Simply search for the block level in the search field and verify the hash of the
 
 ### Start Tezos node
 
-After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your Ledger key.
+After importing the snapshot, you need to start your node and wait until it's fully synchronized before importing your signing keys.
 
 ```bash
 tezbake start
@@ -164,13 +164,133 @@ Before choosing your signing setup, it's essential to understand the three key r
 
 ---
 
-#### (Option 1 - RECOMMENDED) Import TezSign consensus and companion keys
+#### (Recommended) Set up TezSign consensus and companion keys
 
-Follow the following guide and then proceed directly to [stake your XTZ](#stake-your-baking-xtz-security-deposit):
+TezSign is the recommended signing path for mainnet baking. Your Ledger remains the manager key for funds, staking, governance, and registering key changes. TezSign holds the online consensus and companion keys that sign blocks, attestations, and DAL payloads.
 
-[Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+##### 1. Prepare the TezSign device
 
-After you generate keys on the TezSign device, follow [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) so you have a Linux-readable `data/tezsign` backup before you rely on the device for production baking.
+Use a Raspberry Pi Zero 2W or Radxa Zero 3W with a freshly flashed TezSign image. Connect the device to the baker host using the OTG/data USB port.
+
+For hardware choices, SD card recommendations, image flashing, and correct USB ports, see [TezSign Hardware and Flashing](/tezsign/tutorials/hardware-and-flashing/).
+
+##### 2. Enable USB access
+
+Install the TezSign udev rules and add your user to the required group:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tez-capital/tezsign/refs/heads/main/tools/add_udev_rules.sh | sudo bash
+sudo usermod -aG plugdev $USER
+```
+
+> **Ubuntu username note:** Ubuntu does not allow capital letters in usernames.
+
+Log out and log back in so the group membership takes effect.
+
+##### 3. Initialize the TezBake TezSign platform
+
+This creates the TezSign signer configuration on the baker host:
+
+```bash
+tezbake setup-tezsign --init --platform
+```
+
+##### 4. Initialize TezSign and generate keys
+
+Initialize the TezSign device:
+
+```bash
+tezbake tezsign init
+```
+
+You will be prompted to set the TezSign master/key decryption password. Save this password somewhere safe. It cannot be changed later, and the TezSign backup is not useful without it.
+
+Generate the consensus and companion keys directly on the TezSign device:
+
+```bash
+tezbake tezsign new consensus companion
+```
+
+The `consensus` key signs blocks and attestations. The `companion` key signs DAL payloads. Both are required for tz4/BLS baking.
+
+##### 5. Back up the TezSign data
+
+Before relying on the TezSign device for production baking, back up the whole `tezsign` folder from the Linux-only `data` partition and restore it to at least two TezSign-flashed backup SD cards:
+
+[Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
+
+This is not required to get a first baker running, but it is required for sane recovery.
+
+##### 6. Import TezSign keys into TezBake
+
+For the recommended Ledger-manager + TezSign-consensus setup, import the TezSign consensus key through the local `baker` alias and the DAL companion key through `companion`:
+
+```bash
+tezbake setup-tezsign --import-key=consensus --key-alias=baker
+tezbake setup-tezsign --import-key=companion --key-alias=companion
+```
+
+Tell the baker to load the DAL companion key in addition to the default `baker` key:
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
+tezbake upgrade
+```
+
+Verify the alias configuration:
+
+```bash
+tezbake node show configuration.additional_key_aliases
+tezbake info --dal
+```
+
+The expected `configuration.additional_key_aliases` value is `["companion"]`. The consensus key is already loaded through the default `baker` alias.
+
+##### 7. Get public keys and proofs
+
+To register TezSign keys on-chain, get the public keys and proofs of possession:
+
+```bash
+tezbake tezsign status --full
+```
+
+Copy the `BLpk...` public key and proof of possession for both `consensus` and `companion`.
+
+##### 8. Register consensus and companion keys on TezGov
+
+Use [TezGov](https://gov.tez.capital/) with your manager Ledger:
+
+1. Connect with the Ledger that controls your baker manager address.
+2. Open **Baker Management -> Keys**.
+3. Set the consensus key using the TezSign consensus `BLpk...` and proof of possession.
+4. Set the companion key using the TezSign companion `BLpk...` and proof of possession.
+5. Confirm the operation on your Ledger.
+
+Both keys activate after 3 cycles. Your old signing setup remains active until the new keys take over. Do not remove or disable the old active signing setup during the activation window.
+
+Monitor activation at:
+
+```text
+https://tzkt.io/<your_manager_address>/secondary-keys
+```
+
+##### 9. Unlock and verify
+
+After the TezSign keys are active, unlock them:
+
+```bash
+tezbake tezsign unlock
+```
+
+Check TezSign status and overall baker status:
+
+```bash
+tezbake tezsign status
+tezbake info
+tezbake info --dal
+```
+
+If the baker log says a tz4 consensus key "has not been provided to the baker," recheck the `--key-alias` imports and `configuration.additional_key_aliases`.
 
 For TezSign backup, failover, or migration, you can set the high-watermark level for each TezSign signing alias before the backup signs again:
 
@@ -181,16 +301,7 @@ tezbake tezsign advanced set-level companion <level>
 
 Use the current chain level, or current level plus a small safety margin during failover. Replace `consensus` or `companion` if your TezSign device uses different key aliases.
 
-> **⚠️ WARNING: Key Alias Naming**
->
-> When following the TezSign guide, use these alias names:
->
-> * Use `baker` instead of `consensus` (for your consensus key)
-> * Use `companion` as-is (for your companion key)
->
-> This naming convention is required because you're managing your baker operations from a Ledger device using the <https://gov.tez.capital> interface.
->
-> When the TezSign guide asks which aliases to add to `configuration.additional_key_aliases`, use only `["companion"]`. The consensus key is already loaded through the default `baker` alias.
+The options below are retained for compatibility and testing. New mainnet bakers should use the TezSign path above.
 
 #### (Option 2 - DEPRECATED) Import Ledger key to TezBake signer
 
@@ -470,6 +581,18 @@ As with everything in life, complexity adds more failure points. Only separate t
 5. [Set up TezGov](/tezgov/tutorials/voting-on-proposals/) — Participate in governance
 6. [Review best practices](/getting-started/best-practices/) — Security, UPS, monitoring
 
+## TezSign Follow-Up KBs
+
+These are not all required to get your first baker running, but you should not skip them. Do them after your baker is online and stable.
+
+- [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Create ready backup cards and know how to restore them
+- [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) - Know how to set HWM levels for failover or migration
+- [USB and Power Reliability](/tezsign/tutorials/usb-power-reliability/) - Fix power, cable, OTG, and host-controller issues before they become outages
+- [Alias Cleanup After Activation](/tezsign/tutorials/alias-cleanup-after-activation/) - Clean up temporary aliases after tz4 keys activate
+- [Direct TezSign Backend](/tezsign/tutorials/direct-backend/) - Optional backend simplification after TezSign is stable
+- [Automatic Unlock](/tezsign/tutorials/automatic-unlock/) - Optional automatic unlock after you understand the tradeoff
+- [Updating TezSign](/tezsign/tutorials/updating/) - Keep the TezSign image and app current
+
 ---
 
 ## Related Guides
@@ -483,7 +606,8 @@ As with everything in life, complexity adds more failure points. Only separate t
 
 **Advanced Configurations:**
 
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Detailed TezSign setup guide
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
+* [Hardware and Flashing](/tezsign/tutorials/hardware-and-flashing/) - TezSign hardware and image flashing
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - TezSign SD-card backup and migration
 * [Baking with DAL](/tezbake/tutorials/baking-with-dal/) - Advanced DAL configurations
 * [Baking with Prism](/tezbake/tutorials/baking-with-prism/) - Distributed component setup
