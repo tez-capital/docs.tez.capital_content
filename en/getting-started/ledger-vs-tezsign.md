@@ -25,6 +25,8 @@ TezSign is a purpose-built hardware signer for Tezos baking, based on affordable
 
 **Setup guide:** [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/)
 
+After generating keys on TezSign, back up the `tezsign` folder from the Linux-only `data` partition. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
+
 ## Ledger
 
 Ledger hardware wallets (Nano S Plus, Nano X) can still be used for baking, but are no longer the recommended option for new bakers.
@@ -46,6 +48,8 @@ TezBake supports both Ledger and TezSign:
 ## Migrating from Ledger to TezSign
 
 If you're currently baking with a Ledger and want to migrate to TezSign, follow the [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) guide.
+
+When the TezSign keys are generated, make a `data/tezsign` backup before relying on the device for production baking.
 
 ---
 

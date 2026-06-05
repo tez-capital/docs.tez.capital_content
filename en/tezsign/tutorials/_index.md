@@ -15,6 +15,16 @@ For an overview of TezSign vs Ledger, see [Ledger vs TezSign](/getting-started/l
 
 ---
 
+## Backups and Migrations
+
+Before updating, reflashing, or migrating a TezSign SD card, back up the `tezsign` folder from the Linux-only `data` partition:
+
+- **[Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)**
+
+This is the focused backup path for moving TezSign keys and signer state to a newly flashed card.
+
+---
+
 ## Setup Options
 
 - **Same machine:** Follow [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/)

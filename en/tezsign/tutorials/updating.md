@@ -1,6 +1,6 @@
 ---
 title: "Updating"
-weight: 1
+weight: 2
 type: docs
 summary: How to update TezSign firmware and application
 ---
@@ -8,15 +8,18 @@ summary: How to update TezSign firmware and application
 ## Keeping TezSign Up-to-Date
 
 > **⚠️ WARNING: Experimental Updater**
-> The `tezsign_updater` is currently experimental. **Please backup all files from your data partition before proceeding.**
+> The `tezsign_updater` is currently experimental. Before updating or reflashing, **back up the `data/tezsign` folder** with [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
+>
+> macOS does not mount the TezSign `data` partition correctly. Use Linux to make this backup.
+>
 > **IMPORTANT: Image Compatibility Note**
 > This update process **only works if you are using an image from 21.11.2025 or newer**.
 >
 > **If you are using an older image:**
 >
-> 1. Backup your data partition.
+> 1. Back up the whole `tezsign` folder from the `data` partition.
 > 2. Re-flash the SD card with the latest full image.
-> 3. Copy your backed-up files into the dedicated `tezsign` folder on the new data partition. (This is required due to a one-time layout change).
+> 3. Copy the backed-up `tezsign` folder into the `data` partition on the new card. This is required due to a one-time layout change.
 
 ### Update Procedure
 
@@ -56,6 +59,7 @@ sudo ./tezsign_updater
 
 ## Related Guides
 
+* [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Linux-only data partition backup and restore
 * [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Full TezSign setup
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard baker setup
 * [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues

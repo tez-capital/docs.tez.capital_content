@@ -68,6 +68,8 @@ TezSign turns an inexpensive single-board computer into a dedicated hardware sig
 - Radxa Zero 3
 
 > **💡 TIP:** You can buy two Pi Zero 2W boards for less than the price of one Ledger. Running a primary + backup TezSign is the gold standard setup.
+>
+> After generating TezSign keys, keep a backup of the `tezsign` folder from the Linux-only `data` partition so you can restore to a newly flashed card. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
 **→ Get started:** [Baking with TezSign](/tezsign/tutorials/)
 
@@ -117,6 +119,7 @@ A soft key stores your private baking key as a file on the baking node itself. I
 ## Next Steps
 
 - **New baker with TezSign:** → [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)
+- **TezSign backups and migrations:** → [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
 - **Using a Ledger:** → [Ledger vs TezSign](/getting-started/ledger-vs-tezsign/)
 - **Check your hardware:** → [Hardware Requirements](/getting-started/hardware-requirements/)
 - **Understand the basics first:** → [What is Baking?](/getting-started/what-is-baking/)

@@ -106,6 +106,10 @@ The recommended baker setup separates key responsibilities across two hardware d
 
 [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
 
+After the keys are generated, back up the whole `tezsign` folder from the Linux-only `data` partition before relying on the device for production baking:
+
+[Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
+
 **Step 2 — Register the keys on-chain using TezGov (recommended):**
 
 1. Connect to [gov.tez.capital](https://gov.tez.capital) with your **Ledger** (manager key, Tezos Wallet app)
@@ -287,6 +291,7 @@ tezbake start --signer
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide
 * [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Hardware signer setup
+* [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - SD-card data backup and migration
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
 
 ---

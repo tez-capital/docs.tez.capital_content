@@ -64,6 +64,8 @@ Now that your node is in full sync, you can proceed with the most important part
 
 You have the option to use a TezSign device, a Ledger hardware wallet, or a local unencrypted software key (soft key). TezSign is recommended for new bakers. Ledger remains a valid option for existing setups. See [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) for the recommended approach.
 
+If you use TezSign, back up the `tezsign` folder from the Linux-only `data` partition after key generation. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
+
 You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
 #### (Option 1) Import Ledger key to TezBake signer

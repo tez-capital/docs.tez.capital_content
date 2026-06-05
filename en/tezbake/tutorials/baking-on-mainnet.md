@@ -67,6 +67,8 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
    > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
 3. **TezSign remote signer device** - A purpose-built hardware signer for Tezos baking, based on affordable single-board computers like Raspberry Pi Zero 2W (~$20-30 in hardware). Connects via USB to your baking node and is designed to do one thing perfectly: sign baking operations securely. TezSign supports tz4 signatures required by modern Tezos protocols, which Ledger devices no longer support for baking. Unlike a general-purpose Ledger wallet, TezSign can remain connected 24/7 dedicated solely to baking. [Learn more: Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
    > **ℹ️ INFO:** Baking with a Ledger is no longer recommended for new bakers. It's still possible to bake with the Ledger but we recommend you implement TezSign right away.
+   >
+   > After generating keys on TezSign, back up the `tezsign` folder from the Linux-only `data` partition. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
 ---
 
@@ -167,6 +169,8 @@ Before choosing your signing setup, it's essential to understand the three key r
 Follow the following guide and then proceed directly to [stake your XTZ](#stake-your-baking-xtz-security-deposit):
 
 [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign)
+
+After you generate keys on the TezSign device, follow [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) so you have a Linux-readable `data/tezsign` backup before you rely on the device for production baking.
 
 > **⚠️ WARNING: Key Alias Naming**
 >
@@ -471,6 +475,7 @@ As with everything in life, complexity adds more failure points. Only separate t
 **Advanced Configurations:**
 
 * [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - Detailed TezSign setup guide
+* [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - TezSign SD-card backup and migration
 * [Baking with DAL](/tezbake/tutorials/baking-with-dal/) - Advanced DAL configurations
 * [Baking with Prism](/tezbake/tutorials/baking-with-prism/) - Distributed component setup
 * [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) - Separate consensus key management

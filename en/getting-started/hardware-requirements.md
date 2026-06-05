@@ -92,6 +92,8 @@ TezSign is the recommended signing solution. It runs on very modest hardware —
 Both devices are more than sufficient for signing Tezos operations. The Pi Zero 2W is the most common choice due to its low cost and wide availability.
 
 > **💡 TIP:** Buy two TezSign-compatible boards — one for primary baking, one as a backup. Two Pi Zero 2W boards cost less than $40 total, less than half the price of a single Ledger.
+>
+> Also keep a backup of the `tezsign` folder from the Linux-only `data` partition. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
 **→ See also:** [Choose Your Setup](/getting-started/choose-your-setup/) | [Baking with TezSign](/tezsign/tutorials/)
 

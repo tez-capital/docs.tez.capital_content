@@ -16,6 +16,7 @@ You can get an idea of what kind of computer needs to be dedicated to Tezos baki
 
 * Two computers (see link above) with equal or equivalent hardware specs *(one optional)*
 * **TezSign device** (recommended for new bakers) or Ledger Nano S Plus/Nano X hardware wallet. See [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) for setup
+* **TezSign data backup** if you use TezSign. Back up the `tezsign` folder from the Linux-only `data` partition after key generation. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
 * One UPS battery backup *(optional)*
 
 > **ℹ️ INFO: Hardware Signer Options**
@@ -48,6 +49,8 @@ While having two computers is somewhat optional, especially for a smaller baker,
 > * Do not install TezBake on second computer before it's needed (setup takes just a few minutes with fast internet)
 
 If you only have one hardware signer and it fails, you will be down until you get a replacement and set it up to bake.
+
+For TezSign, keep a current backup of the `data/tezsign` folder so you can restore it to a newly flashed SD card or migrate to a newer TezSign image without regenerating keys. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
 ### One UPS battery backup
 

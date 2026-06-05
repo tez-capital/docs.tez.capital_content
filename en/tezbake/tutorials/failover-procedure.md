@@ -19,6 +19,7 @@ Prepare these items in advance:
 
 - [ ] Backup computer with TezBake installed (but not started)
 - [ ] Backup TezSign device or Ledger (not authorized for baking)
+- [ ] For TezSign: cloned SD card or restored `data/tezsign` folder ready for the backup device
 - [ ] Document your baker's public key hash (tz1/tz2/tz3/tz4 address)
 - [ ] Know your current block level (check [TzKT](https://tzkt.io))
 
@@ -76,6 +77,9 @@ Record this level - you'll use it for the High Watermark (HWM).
 Connect your backup signer to the backup computer:
 
 **For TezSign:**
+
+If the backup SD card is newly flashed, restore the `tezsign` folder from the `data` partition backup before using it. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
+
 ```bash
 # Initialize if not already done
 tezbake setup-tezsign --init --platform
@@ -180,6 +184,7 @@ If your primary is completely unreachable (fire, theft, hardware death):
 * [Slashing Explained](/getting-started/slashing-explained/) - Why double baking is dangerous
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
 * [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign setup
+* [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Restore TezSign data to a fresh card
 
 ---
 
