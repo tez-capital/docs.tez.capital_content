@@ -1,6 +1,6 @@
 ---
 title: "Failover Procedure"
-weight: 7
+weight: 9
 type: docs
 summary: How to safely switch to your backup baker when your primary fails
 ---
@@ -59,7 +59,7 @@ tezbake info
 - **TezSign**: Unplug the USB cable from the primary computer
 - **Ledger**: Unplug from primary and close the Baking app
 
-If you cannot access the primary machine physically, wait at least 2-3 blocks (~20-30 seconds) after the last known signing before proceeding.
+If you cannot access the primary machine physically, wait at least 2-3 blocks (~12-18 seconds at 6-second block times) after the last known signing before proceeding.
 
 ### Step 4: Note Current Block Level
 

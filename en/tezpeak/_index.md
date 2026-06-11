@@ -1,6 +1,6 @@
 ---
 title: "TezPeak"
-weight: 5
+weight: 8
 type: docs
 summary: Graphical dashboard for monitoring your Tezos baker and payments
 ---

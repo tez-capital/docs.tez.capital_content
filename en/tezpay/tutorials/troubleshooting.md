@@ -52,9 +52,11 @@ summary: Common TezPay issues and solutions
 
 ```hjson
 {
-    baker_address: "tz1YOUR_BAKER_ADDRESS"
-    payout_fee: 0.05
-    min_payout: 1
+    baker: "tz1YOUR_BAKER_ADDRESS"
+    payouts: {
+        fee: 0.05
+        minimum_payout_amount: 1
+    }
     network: {
         rpc_pool: [
             "https://eu.rpc.tez.capital"

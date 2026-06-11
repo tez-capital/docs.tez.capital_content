@@ -2,7 +2,7 @@
 title: "TezWatch Tutorials"
 weight: 1
 type: docs
-summary: Set up baker monitoring and alerts with TezWatch bots
+summary: Set up baker monitoring and alerts with the TezWatch Discord bot
 ---
 **TezWatch**
 ---
@@ -11,7 +11,7 @@ summary: Set up baker monitoring and alerts with TezWatch bots
 
 TezWatch is intended to provide Tezos bakers, stakers and delegators the peace of mind that their baking operations are running smoothly. TezWatch is a bot-based monitoring tool that will notify you of any issues with your baking operations.
 
-TezWatch's original focus was the Discord platform, but we are expanding to other platforms as well. We are currently working on a Telegram bot and a Twitter bot.
+TezWatch currently delivers baker alerts through Discord. Support for additional platforms will be documented when those integrations are available.
 
 ---
 

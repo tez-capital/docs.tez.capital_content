@@ -5,6 +5,8 @@ type: docs
 summary: How to run TezBox Docker container for local Tezos development
 ---
 
+> **⚠️ Protocol examples age quickly:** The commands below demonstrate the TezBox workflow, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
+
 {{< youtube v-X90E4JFTY >}}
 
 ## Preparation

@@ -5,6 +5,8 @@ type: docs
 summary: Configure TezBox sandbox settings, accounts, and protocol options
 ---
 
+> **⚠️ Protocol examples age quickly:** The commands below demonstrate TezBox configuration patterns, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
+
 ## TezBox Configuration Options
 
 ### CI/CD Pipelines
@@ -93,7 +95,7 @@ You can adjust service behavior by mounting your own configuration to `/tezbox/o
 
 If you want to disable a service, you can create override with `autostart: false`.
 
-For example to disable baker service you would crease `baker.hjson` file:
+For example, to disable the baker service you would create a `baker.hjson` file:
 
 ```bash
 autostart: false
@@ -110,7 +112,7 @@ sudo docker run -it -v $(pwd)/baker.hjson:/tezbox/overrides/services/baker.hjson
 Chain and protocol is automatically initialized only once during the first run. The chain and all runtime data are stored in `/tezbox/context/data` directory. If you want to persist your sandbox state just run it with mounted volume to `/tezbox/context/data` directory.
 
 ```bash
-sudo docker run -it -v $(pwd)/sandbox-data:/tezbox -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
+sudo docker run -it -v $(pwd)/sandbox-data:/tezbox/context/data -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
 > To reset the state you can remove the `/tezbox/context/data/tezbox-initialized` file. After its removal all chain and client data will be removed and the chain will be reinitialized on the next run.

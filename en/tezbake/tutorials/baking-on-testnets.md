@@ -49,7 +49,7 @@ TezSign block signing applies to testnets too. If you are testing TezSign, follo
 
 ### Download and install tezbake
 
-To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
+To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/local/bin` directory. This script works with both x86_64 and arm64 architectures.
 
 ```bash
 wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
@@ -198,7 +198,7 @@ tezbake upgrade
 
 ### Register as baker on the Tezos blockchain Testnet
 
-For this step your node level must be synced with the latest block on the blockchain explorer. You must also temporarily open your Ledger Tezos Wallet app to register your key as a baker (__note__: as well as when voting). For all other baker operations, you must use the Tezos Baking app.
+For this step your node level must be synced with the latest block on the blockchain explorer. The soft-key testnet setup above does not require a Ledger. If you are testing with a dedicated testnet Ledger, open the Ledger Tezos Wallet app only for registration and voting; use the Tezos Baking app for baking operations.
 
 To secure your XTZ security deposit on a testnet, use the faucet for your chosen network to get free test XTZ:
 
@@ -225,7 +225,7 @@ tezbake register-key
 
 To bake on the Tezos network, you need to stake your XTZ security deposit. This is a [slashable](/getting-started/slashing-explained/) security deposit that you will get back when you stop baking. The minimum bond to get baking rights is currently set at 6000 XTZ.
 
-You can stake your security deposit by running the following command, after opening your Ledger Tezos Wallet app:
+You can stake your security deposit by running the following command. If you are using a dedicated testnet Ledger, open the Ledger Tezos Wallet app for this operation.
 
 ```bash
 tezbake signer client stake 6000 for baker
@@ -245,8 +245,12 @@ tezbake signer client stake 6000 for baker
 ### Import your DAL attester profile
 
 ```bash
-tezbake update-dal-profiles <your-baker-tz4-key> --force
+tezbake update-dal-profiles --auto
+# If for some reason the auto method is not working, use the command below to bypass it.
+tezbake update-dal-profiles <your-baker-address> --force
 ```
+
+> **ℹ️ INFO:** Use your testnet baker address here. In the soft-key testnet setup above this may be a `tz4` address, but TezBake also supports `tz1`, `tz2`, or `tz3` baker addresses depending on the setup.
 
 ## Installation (Advanced)
 

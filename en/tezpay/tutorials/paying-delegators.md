@@ -54,7 +54,7 @@ The command to generate a payout table is as follows (always remember to be in t
 
    `./tezpay generate-payouts`
 
-This will generate a payout table, as exampled below:
+This will generate a payout table, as shown below:
 
 | ![Description of output for ./tezpay generate-payout command.](/tezpay/tutorial/tezpayImage18.png) |
 |-|
@@ -104,7 +104,7 @@ table, similar to the table(s) from step 1.
 
 Once the table is displayed, the prompt will ask you to confirm the payout, and you need to confirm *y* or *n* (see below):
 
-| ![Output and subseqant request for confirmation while running TezPay.](/tezpay/tutorial/tezpayImage19.png) |
+| ![Output and subsequent request for confirmation while running TezPay.](/tezpay/tutorial/tezpayImage19.png) |
 |-|
 
 1. You will be asked to confirm, type '***y***' for yes or '***n***'

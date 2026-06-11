@@ -1,13 +1,13 @@
 ---
 title: "Baking With Multiple Instances"
-weight: 15
+weight: 16
 type: docs
 summary: How to manage and switch between multiple TezBake instances.
 ---
 
 ## Overview
 
-TezBake supports managing multiple independent instances on a single machine. This is useful for running multiple networks (e.g., Mainnet and Ghostnet) or maintaining separate configurations.
+TezBake supports managing multiple independent instances on a single machine. This is useful for running multiple networks (e.g., Mainnet and Bakingnet) or maintaining separate configurations.
 
 The `tezbake instance` command (alias `i`) allows you to interact with these instances easily.
 
@@ -17,8 +17,8 @@ The `tezbake instance` command (alias `i`) allows you to interact with these ins
 | ------------------------------|-----------------------------------------------|
 | List Instances                | `tezbake instance list`                       |
 | Run Command on Instance       | `tezbake instance <alias> <command>`          |
-| Example: Start 'ghostnet'     | `tezbake instance ghostnet start`             |
-| Example: Check Log            | `tezbake instance ghostnet node log -f`       |
+| Example: Start 'bakingnet'    | `tezbake instance bakingnet start`            |
+| Example: Check Log            | `tezbake instance bakingnet node log -f`      |
 
 ---
 
@@ -52,9 +52,9 @@ you will enter an interactive environment for that instance. All subsequent comm
 
 **Examples:**
 
-Start the 'ghostnet' instance:
+Start the 'bakingnet' instance:
 ```bash
-tezbake instance ghostnet start
+tezbake instance bakingnet start
 ```
 
 Upgrade the 'mainnet' instance:
@@ -68,3 +68,16 @@ tezbake instance testnet node log
 ```
 
 This acts exactly as if you were running `tezbake ...` but targets the specific instance's directory and configuration.
+
+---
+
+## Related Guides
+
+* [Baking on Testnets](/tezbake/tutorials/baking-on-testnets/) - Set up a non-mainnet baker
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main TezBake setup flow
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Common TezBake issues
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

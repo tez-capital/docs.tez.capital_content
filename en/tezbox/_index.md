@@ -1,6 +1,6 @@
 ---
 title: "TezBox"
-weight: 7
+weight: 9
 type: docs
 summary: Tezos sandbox for local development and smart contract testing
 ---

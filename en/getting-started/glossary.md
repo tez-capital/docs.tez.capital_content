@@ -64,9 +64,10 @@ See also: [tz1 / tz4](#tz1-tz4-address-types), [TezSign](/tezsign/tutorials/).
 A unit of time on the Tezos blockchain, measured in blocks. Under the **Tallinn** protocol (6-second blocks), one cycle is approximately **1 day**. Many protocol parameters — rewards, rights, staking changes — are denominated in cycles.
 
 | Protocol era | Blocks per cycle | Cycle duration |
-|---|---|---|
-| Pre-Tallinn | 8,192 | ~2.8 days |
-| **Tallinn+** | **12,288** | **~1 day** |
+|---|---:|---|
+| Older 30-second block eras | 8,192 | ~2.8 days |
+| Seoul (immediate pre-Tallinn) | 10,800 | ~1 day |
+| **Tallinn+** | **14,400** | **~1 day** |
 
 > **ℹ️ INFO:** Older documentation may refer to cycles as lasting ~2–3 days. Since Tallinn, a cycle is approximately 1 day.
 
@@ -158,7 +159,7 @@ See [Public Baking — Understanding Staking](/getting-started/public-baking/).
 
 ### TezSign
 
-A purpose-built hardware signing device for Tezos baking, implemented on single-board computers (Raspberry Pi Zero 2W, Radxa Zero 3). Connects via USB to the baking node. Recommended for all new bakers. Supports tz4 consensus keys.
+A purpose-built hardware signing device for Tezos baking, implemented on single-board computers (Raspberry Pi Zero 2W, Radxa Zero 3W). Connects via USB to the baking node. Recommended for all new bakers. Supports tz4 consensus keys.
 
 See [TezSign documentation](/tezsign/tutorials/).
 

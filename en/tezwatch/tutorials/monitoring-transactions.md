@@ -14,7 +14,7 @@ You can monitor some of the following aspects:
 - Transfers in/out in amounts greater than X but less than Y
 - Notify when balance falls below X
 
-> If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and what with it in private.
+> If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and chat with it in private.
 
 To get all "sources" and "events" use the `/events` command
 
@@ -25,10 +25,10 @@ Here are the descriptions of all the key variables you will need to configure to
 
 | Variable    | Available Options                          | Description                                                                                                                                                   |
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `source`    | `wallet` | The general area of interest. `staking` is related to activities that validate on the chain and `chain` is related to general chain progression               |
-| `event`     | `transfer`, `balance-updated` | These are the specific staking events that you're interested in being notified for. Each event has its own unique subscription tier. All `missed*` ones are TIER 0 or FREE |
-| `conditions` for transfers | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in>1`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>in>1` | Be notified for all incoming transactions, all incoming transactions over 1 or all transactions smaller than 1 but larger than 50 |
-| `conditions` for balance-updated | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>balance` | Be notified for all incoming transactions, all incoming transactions over X or all transactions smaller than X but larger than Y |
+| `source`    | `wallet` | The general area of interest for wallet balance and transfer monitoring |
+| `event`     | `transfer`, `balance-updated` | The specific wallet event you want to be notified about |
+| `conditions` for transfers | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in>1`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>in>1` | Be notified for all incoming transactions, incoming transactions over 1 tez, or incoming transactions greater than 1 tez and less than 50 tez |
+| `conditions` for balance-updated | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>balance` | Be notified when the wallet balance falls below 50 tez |
 
 > Please note that some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 

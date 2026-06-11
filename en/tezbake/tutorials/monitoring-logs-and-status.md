@@ -151,7 +151,7 @@ tail -f /var/log/syslog | grep tezbake
 
 * [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Fix common issues
 * [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Understanding missed attestations
-* [TezWatch Setup](/tezwatch/tutorials/setup/) - Set up Discord/Telegram alerts
+* [TezWatch Setup](/tezwatch/tutorials/setup/) - Set up Discord alerts
 
 ---
 

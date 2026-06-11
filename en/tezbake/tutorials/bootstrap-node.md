@@ -1,6 +1,6 @@
 ---
 title: "Bootstrap Node"
-weight: 7
+weight: 8
 type: docs
 summary: How to bootstrap your Tezos node quickly using blockchain snapshots
 ---

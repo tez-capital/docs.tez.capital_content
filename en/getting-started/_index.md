@@ -22,6 +22,7 @@ New to Tezos baking? Follow this sequence:
 1. **[What is Baking?](what-is-baking/)** - Understand the basics of Tezos validation
 2. **[Public Baking](public-baking/)** - Delegation, staking, automation, and configuration
 3. **[Best Practices](best-practices/)** - Essential safety and reliability guidelines
+4. **[Slashing Explained](slashing-explained/)** - Understand what can and cannot put stake at risk
 
 **Ready to start baking?** → **[Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)**
 
@@ -29,4 +30,6 @@ New to Tezos baking? Follow this sequence:
 
 - **[Choose Your Setup](/getting-started/choose-your-setup/)** - Compare baking configurations and find the right fit
 - **[Hardware Requirements](/getting-started/hardware-requirements/)** - Minimum and recommended hardware specs
+- **[Baker Key Architecture](/getting-started/baker-key-architecture/)** - Understand manager, consensus, and companion key roles
+- **[Ledger vs TezSign](/getting-started/ledger-vs-tezsign/)** - Compare signer choices before you set up keys
 - **[Glossary](/getting-started/glossary/)** - Key Tezos baking terms defined

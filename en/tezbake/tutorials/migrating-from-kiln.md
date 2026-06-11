@@ -1,23 +1,23 @@
 ---
 title: "Migrating from Kiln"
-weight: 15
+weight: 17
 type: docs
 summary: Step-by-step guide for Kiln users migrating to TezBake, covering Ledger setup, node bootstrap, and post-migration verification
 ---
 
-# Migrating from Kiln to TezBake
+> **⚠️ Migration path:** Use this guide only when moving an existing Kiln baker to TezBake. For a fresh setup, follow [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) and use TezSign for new tz4 consensus and companion keys.
 
 Kiln is being sunset. If you're currently baking with Kiln, **TezBake** by [Tez Capital](https://tez.capital) is the recommended migration path. It's a modern, actively maintained baking tool that manages your entire stack — node, baker, signer, DAL — under one CLI.
 
 This guide walks you through the migration step by step.
 
-> **TezBake runs on Linux and macOS** (Ubuntu 24.04+, Debian 12+, or macOS with Apple Silicon / Intel). Linux is recommended for production bakers, but macOS is fully supported.
+> **TezBake runs on Linux and macOS** (Ubuntu 22.04+, Debian 12+, or macOS with Apple Silicon / Intel). Linux is recommended for production bakers, but macOS is fully supported.
 
 ---
 
 ## Prerequisites
 
-- **Linux or macOS machine** — Ubuntu 24.04+, Debian 12+, or macOS (dedicated hardware recommended for production)
+- **Linux or macOS machine** — Ubuntu 22.04+, Debian 12+, or macOS (dedicated hardware recommended for production)
 - **Ledger** — Nano S Plus or Nano X (the same one you used with Kiln)
 - **Your baker address** — the `tz1`/`tz2`/`tz3` address you're currently baking with
 - **Root/sudo access** on the machine
@@ -28,7 +28,7 @@ This guide walks you through the migration step by step.
 |-----------|---------|
 | CPU | 3 cores (arm64 or x86-64) |
 | RAM | 8GB + 8GB swap (or 16GB RAM) |
-| Storage | 100GB SSD |
+| Storage | 256GB SSD |
 | Network | Reliable broadband, low latency |
 
 ---
@@ -85,7 +85,7 @@ This should return nothing.
 On your Linux machine:
 
 ```bash
-wget -q https://github.com/tez-capital/tezbake/raw/main/install.sh -O /tmp/install.sh && sudo sh /tmp/install.sh
+wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
 ```
 
 Verify installation:
@@ -98,7 +98,7 @@ tezbake version
 Run the standard setup with DAL:
 
 ```bash
-sudo tezbake setup --with-dal
+tezbake setup --with-dal
 ```
 
 This installs and configures:
@@ -120,17 +120,17 @@ The command varies depending on your key type. **Before copy-pasting**, check tw
 
 **tz1 (ed25519) — most common with Kiln:**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="ed25519/0h/0h" --authorize --hwm <CURRENT_LEVEL>
+tezbake setup-ledger --platform --import-key="ed25519/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
 **tz3 (P-256 / NIST):**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm <CURRENT_LEVEL>
+tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
 **tz2 (secp256k1):**
 ```bash
-sudo tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm <CURRENT_LEVEL>
+tezbake setup-ledger --platform --import-key="secp256k1/0h/0h" --authorize --hwm <CURRENT_LEVEL>
 ```
 
 > **💡 Finding the current level:** Run `curl -s https://rpc.tzkt.io/mainnet/chains/main/blocks/head/header | grep '"level"'` or check [TzKT](https://tzkt.io) — the block level is shown on the homepage. Round up by 10 to be safe (e.g. if current level is 7,500,000, use `--hwm 7500010`).
@@ -139,7 +139,7 @@ Confirm on the Ledger screen when prompted to authorize the key for baking.
 
 > ⚠️ **Verify the imported key matches your baker.** After setup, check the address:
 > ```bash
-> sudo tezbake info --signer
+> tezbake info --signer
 > ```
 > The `tz` address shown must match your baker address exactly. If it doesn't, re-run `setup-ledger` with the correct derivation path.
 
@@ -152,7 +152,7 @@ Confirm on the Ledger screen when prompted to authorize the key for baking.
 Rather than syncing from scratch, bootstrap from a snapshot:
 
 ```bash
-sudo tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
+tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
 ```
 
 TezBake automatically selects the fastest mirror for your region.
@@ -164,17 +164,17 @@ Bootstrap takes anywhere from 10 minutes to an hour+ depending on your hardware 
 ### 7. Start Baking
 
 ```bash
-sudo tezbake start
+tezbake start
 ```
 
 This starts the node, baker, DAL node, and signer as managed systemd services.
 
 ### 8. Register (If Needed)
 
-If your baker has been **inactive for more than 3 days**, you may need to re-register:
+If your baker has been **inactive for more than 2 cycles**, you may need to re-register:
 
 ```bash
-sudo tezbake register-key
+tezbake register-key
 ```
 
 If your baker is already active and was only briefly offline during migration, registration is **not** required.
@@ -189,19 +189,19 @@ Run through each of these to confirm everything is working:
 
 ```bash
 # Overall status
-sudo tezbake info
+tezbake info
 
 # Signer status
-sudo tezbake info --signer
+tezbake info --signer
 
 # DAL status
-sudo tezbake info --dal
+tezbake info --dal
 
 # Node logs (watch for sync progress)
-sudo tezbake node log -f
+tezbake node log -f
 
 # Baker logs (watch for attestations/baking)
-sudo tezbake node log baker -f
+tezbake node log baker -f
 ```
 
 ### Checklist
@@ -220,19 +220,19 @@ sudo tezbake node log baker -f
 ### Node won't sync
 ```bash
 # Check node logs for errors
-sudo tezbake node log -f
+tezbake node log -f
 
 # If stuck, try re-bootstrapping
-sudo tezbake stop
-sudo tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
-sudo tezbake start
+tezbake stop
+tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling
+tezbake start
 ```
 
 ### Ledger not connecting
 - Ensure Ledger is unlocked and **Tezos Baking** app is open
 - Check USB connection — try a different port or cable
 - Make sure no other application (Ledger Live, etc.) is using the device
-- Verify with `sudo tezbake info --signer`
+- Verify with `tezbake info --signer`
 
 ### Baker not producing attestations
 - Confirm the node is fully synced first (`tezbake info`)
@@ -248,11 +248,11 @@ sudo tezbake start
 ### DAL issues
 ```bash
 # Check DAL profiles
-sudo tezbake info --dal
+tezbake info --dal
 
 # Update DAL profiles if needed
-sudo tezbake update-dal-profiles --auto
-sudo tezbake stop && sudo tezbake start
+tezbake update-dal-profiles --auto
+tezbake stop && tezbake start
 ```
 
 ---
@@ -287,8 +287,13 @@ TezBake stores everything under `/bake-buddy/`:
 ## Further Resources
 
 - **Tez Capital Docs:** [docs.tez.capital](https://docs.tez.capital)
-- **TezPeak** (monitoring dashboard): Included with TezBake — access via browser after setup
+- **TezPeak** (monitoring dashboard): [Install TezPeak](/tezpeak/tutorials/setup/) after TezBake setup if you want a browser dashboard
 - **TezPay** (automated reward distribution): [github.com/tez-capital/tezpay](https://github.com/tez-capital/tezpay)
 - **TezGov** (governance & staking): [gov.tez.capital](https://gov.tez.capital)
-- **Community Support:** [Tez Capital Discord](https://discord.gg/tezcapital)
+- **Community Support:** [Tez Capital Discord](https://discord.gg/cVGMA4MaNM)
 - **Octez Documentation:** [octez.tezos.com](https://octez.tezos.com/docs/introduction/tezos.html)
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

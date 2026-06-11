@@ -1,16 +1,18 @@
 ---
 title: "Baking with Docker"
-weight: 10
+weight: 11
 type: docs
 summary: Run TezBake in a Docker container for isolated and portable Tezos baking
 ---
+
+> **⚠️ Legacy / advanced path:** This page is for operators who already know they need a Dockerized TezBake deployment. New bakers should use the standard [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) flow with TezSign consensus and companion keys.
 
 ## Prerequisites
 
 - **[Docker installed](https://docs.docker.com/engine/install)** — Docker Engine must be installed and running on your system
 - **Linux or macOS** — Ubuntu 22.04+ or Debian 12+ recommended; macOS is also supported; Windows is not supported
 - **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers — see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#stake-your-baking-xtz-security-deposit))
-- **Hardware:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
+- **Hardware:** 3 CPU cores, 8GB RAM + 8GB swap, 256GB SSD, reliable broadband
 
 ## Preparation
 
@@ -82,7 +84,7 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 ```bash
 tezbake setup-ledger --platform --import-key --authorize --hwm 1
 
-# If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; change ed to bip as needed for your individual needs; the default is ed25519/0h/0h which works just fine)
+# If you have a custom derivation path, you can specify it as shown: (`--import-key="ed25519/0h/0h"`; the default is ed25519/0h/0h which works just fine)
 # `--hwm 1` works great if you're setting up for the first time. If you're setting up a device that's been used to bake before, you want to change this (`1`) to the current block height on the blockchain for your safety.
 # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
 ```
@@ -93,8 +95,8 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 > * The ledger will ask you twice to confirm this operation - ensure the baker address matches the one you want to use
 > * To get the default ledger address, go to <https://gov.tez.capital> and login with ledger, accepting the default derivation path
 >
-> **ℹ️ BLS Signatures:**
-> BLS (i.e. bip) signatures offer greater flexibility and scalability for certain applications compared to the default ED25519 algorithm.
+> **ℹ️ Ledger Key Types:**
+> Ledger baking supports tz1/tz2/tz3 key types. It does not provide tz4/BLS baking keys; use TezSign for tz4 consensus and companion keys.
 >
 > **💡 TIP: Security:**
 > Putting the baker on a non-default derivation path provides an additional layer of security at the cost of extra complexity. Make sure your setup is clearly documented for your own records.

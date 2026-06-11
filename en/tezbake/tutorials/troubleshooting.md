@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting"
-weight: 6
+weight: 15
 type: docs
 summary: Common TezBake issues and solutions for installation errors and runtime problems
 ---
@@ -145,23 +145,6 @@ This often recovers the device without requiring a full system restart.
 
 ---
 
-## Related Guides
-
-**Setup & Operations:**
-
-* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main setup guide
-* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
-* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Debug attestation issues
-
-**Getting Help:**
-
-* [Best Practices](/getting-started/best-practices/) - Prevent common issues
-* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
-
----
-
----
-
 ## DAL Troubleshooting
 
 The Data Availability Layer (DAL) accounts for ~10% of baking rewards. If your DAL isn't working properly, you're missing out on income.
@@ -291,6 +274,21 @@ sudo ufw allow 11732/tcp comment "DAL P2P"
 Ensure **Tezos Baking app v2.5.0+** for DAL attestation support.
 
 For the standard setup path, see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/). If you intentionally disabled local DAL, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
+
+---
+
+## Related Guides
+
+**Setup & Operations:**
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main setup guide
+* [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
+* [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Debug attestation issues
+
+**Getting Help:**
+
+* [Best Practices](/getting-started/best-practices/) - Prevent common issues
+* [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/) - TezSign KB hub
 
 ---
 

@@ -56,4 +56,9 @@ If your vote file is already correct, a restart/apply is not required just to co
 ## What's Next
 
 - Continue with [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)
-- Review [TezGov voting workflow](/tezgov/tutorials/cast-votes/) for protocol amendment votes
+- Review [TezGov voting workflow](/tezgov/tutorials/voting-on-proposals/) for protocol amendment votes
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

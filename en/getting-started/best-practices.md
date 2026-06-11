@@ -1,6 +1,6 @@
 ---
 title: "Tezos Baking Best Practices"
-weight: 3
+weight: 4
 type: docs
 summary: Tezos Baking Best Practices
 ---
@@ -9,12 +9,11 @@ summary: Tezos Baking Best Practices
 
 This is the description of the ideal TezBake hardware setup and best practice for someone who wants to perform an excellent job baking on-premise, in their home, office or data center (in person) at a reasonable cost.
 
-You can get an idea of what kind of computer needs to be dedicated to Tezos baking by looking at the guide below
-[https://www.fxhash.xyz/article/how-to-setup-your-own-tezos-bakery](https://www.fxhash.xyz/article/how-to-setup-your-own-tezos-bakery)
+Start with the current [Hardware Requirements](/getting-started/hardware-requirements/) when choosing a baking machine.
 
 ## Recommended Hardware Setup
 
-* Two computers (see link above) with equal or equivalent hardware specs *(one optional)*
+* Two computers with equal or equivalent hardware specs *(one optional)*
 * **TezSign device** (recommended for new bakers) or Ledger Nano S Plus/Nano X hardware wallet. See [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) for setup
 * **TezSign data backup** if you use TezSign. Back up the `tezsign` folder from the Linux-only `data` partition after key generation. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
 * One UPS battery backup *(optional)*
@@ -64,7 +63,7 @@ If your baking computer and your ISP are in different rooms or on different elec
 * Using Wi-Fi
 * Using DHCP
 * Using your daily use computer or laptop
-* Not using TezBake Discord or Telegram monitoring bots
+* Not using TezWatch monitoring alerts
 
 ### Using Wi-Fi
 
@@ -84,11 +83,11 @@ If your baking computer and your ISP are in different rooms or on different elec
 >
 > Using your daily-use computer for baking increases the risk of accidentally disrupting either your baker's internet connection or your Ledger's USB connection. Use a dedicated machine for baking.
 
-### Not using TezBake Discord or Telegram monitoring bots
+### Not using TezWatch monitoring alerts
 
 > **⚠️ WARNING**
 >
-> The TezBake Discord and Telegram bots monitor your baker's status and alert you immediately if issues arise. You should configure these monitoring bots to receive instant notifications when your baker goes offline.
+> TezWatch monitors your baker's status and alerts you immediately if issues arise. You should configure TezWatch Discord alerts so you receive instant notifications when your baker goes offline.
 
 ---
 

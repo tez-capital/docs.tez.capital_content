@@ -1,6 +1,6 @@
 ---
 title: "Baking with Prism Tunneling"
-weight: 12
+weight: 13
 type: docs
 summary: Secure, low-latency tunneling between TezBake components using Prism.
 ---
@@ -96,7 +96,7 @@ Example for Node:
 ```bash
 tezbake setup --node \
   --node-remote user@192.168.1.60:22 \
-  --node-remote-auth key:/path/to/ssh/key
+  --node-remote-auth key:/path/to/ssh/key \
   --node-remote-elevate sudo
 ```
 
@@ -340,13 +340,13 @@ tezbake node prism key-info --path=/bake-buddy/node/prism/keys/node.prism
 For the DAL key:
 
 ```bash
-tezbake dal prism key-info --path=/bake-buddy/node/prism/keys/dal.prism
+tezbake dal prism key-info --path=/bake-buddy/dal/prism/keys/dal.prism
 ```
 
 If the Node is the public Prism endpoint, use this command for the Signer key:
 
 ```bash
-tezbake signer prism key-info --path=/bake-buddy/node/prism/keys/signer.prism
+tezbake signer prism key-info --path=/bake-buddy/signer/prism/keys/signer.prism
 ```
 
 ---

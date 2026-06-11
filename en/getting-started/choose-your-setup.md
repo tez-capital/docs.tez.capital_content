@@ -13,7 +13,7 @@ There are three options:
 
 | Signer | What It Is | tz4 Support | Cost | Recommended? |
 |--------|-----------|------------|------|--------------|
-| **TezSign** | Dedicated single-board computer (Pi Zero 2W or Radxa Zero 3) running signing software | ✅ Yes | ~$20–30 hardware | ✅ **Yes — best choice for new bakers** |
+| **TezSign** | Dedicated single-board computer (Pi Zero 2W or Radxa Zero 3W) running signing software | ✅ Yes | ~$20–30 hardware | ✅ **Yes — best choice for new bakers** |
 | **Ledger** | General-purpose hardware wallet (Nano S Plus / Nano X) | ❌ No | ~$80–150 | ⚠️ Legacy — still supported |
 | **Soft key** | Private key stored in a file on the baking node | ❌ N/A | Free | 🚫 Not recommended |
 
@@ -65,7 +65,7 @@ TezSign turns an inexpensive single-board computer into a dedicated hardware sig
 
 **Supported hardware:**
 - Raspberry Pi Zero 2W
-- Radxa Zero 3
+- Radxa Zero 3W
 
 > **💡 TIP:** You can buy two Pi Zero 2W boards for less than the price of one Ledger. Running a primary + backup TezSign is the gold standard setup.
 >
@@ -108,7 +108,7 @@ A soft key stores your private baking key as a file on the baking node itself. I
 | Role | Hardware |
 |------|----------|
 | Baking node | Dedicated computer — see [Hardware Requirements](/getting-started/hardware-requirements/) |
-| Primary signer | TezSign (Pi Zero 2W or Radxa Zero 3) |
+| Primary signer | TezSign (Pi Zero 2W or Radxa Zero 3W) |
 | Backup signer | Second TezSign (strongly recommended) |
 | UPS | Battery backup for node + ISP router |
 

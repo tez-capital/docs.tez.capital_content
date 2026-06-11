@@ -5,8 +5,6 @@ type: docs
 summary: "How to configure additional key aliases for consensus keys, DAL companion keys, and multi-key setups"
 ---
 
-# Key Aliases
-
 When baking with TezBake, the baker automatically injects your default baker key. If you use additional keys — such as a separate consensus key or a DAL companion key — you need to register them as key aliases so the baker knows about them.
 
 There are two approaches:
@@ -174,3 +172,8 @@ If `configuration.key_aliases` is set, it replaces the default baker key list. M
 - [Baking with Consensus Key](/tezbake/tutorials/baking-with-consensus-key/) — Full consensus key setup
 - [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) — Main TezSign setup flow
 - [Baking Without DAL](/tezbake/tutorials/baking-without-dal/) — Exception path when you intentionally disable DAL
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

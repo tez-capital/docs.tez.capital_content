@@ -91,12 +91,19 @@ Start with the [Starter Configuration](https://github.com/tez-capital/tezpay/blo
 
 Minimal starter example:
 
-```yaml
+```hjson
 {
-  baker_address: "tz1-your-baker-wallet-address",
-  payout_fee: 0.05, // 5% fee
-  delegator_pays_xfer_fee: true,
-  min_payout: 1 // minimum payout 1 XTZ
+  baker: "tz1-your-baker-wallet-address"
+  payouts: {
+    fee: 0.05
+    baker_pays_transaction_fee: true
+    minimum_payout_amount: 1
+  }
+  delegators: {
+    requirements: {
+      minimum_balance: 0.5
+    }
+  }
 }
 ```
 
@@ -180,7 +187,7 @@ Example `/bake-buddy/pay/app.json`:
     "id": "tzc.tezpay",
     "version": "latest"
   },
-  "user": "primate"
+  "user": "tezos"
 }
 ```
 

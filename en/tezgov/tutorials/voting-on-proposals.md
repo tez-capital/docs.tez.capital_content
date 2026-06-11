@@ -16,7 +16,7 @@ The Tezos proposal process consists of 5 stages, each of which lasts for 14 cycl
 2. *Exploration* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
 3. *Cooldown* The proposal is tested on a dedicated test network to make sure it migrates and runs. Dapp developers make sure this proposal doesn't break their dapps.
 4. *Promotion* Proposal needs to hit quorum (between 20-70% based on participation history) and it needs to further hit an acceptance level of 80%+. If it fails to meet these thresholds, the process resets back to the *Proposal* stage.
-5. *Adoption* The proposal is officially accepted and goes into effect at the end of the *Adoption* stage. The Ghostnet test network is upgraded as a final test before Mainnet adoption. Dapp developers make sure this proposal doesn't break their dapps and make any necessary changes to their dapps.
+5. *Adoption* The proposal is officially accepted and goes into effect at the end of the *Adoption* stage. Protocol test networks are used before Mainnet adoption so bakers and application developers can verify that the proposal does not break their infrastructure.
 
 ### Understanding Quorum
 

@@ -114,18 +114,18 @@ tezbake setup
 
 **What changed:** The **Tallinn** protocol upgrade changed the fundamental time constants of the Tezos blockchain:
 
-| Parameter | Before Tallinn | After Tallinn |
+| Parameter | Before Tallinn (Seoul) | After Tallinn |
 |-----------|---------------|--------------|
-| Block time | ~15 seconds | **6 seconds** |
+| Block time | ~8 seconds | **6 seconds** |
 | Blocks per cycle | 10,800 | **14,400** |
-| Cycle duration | ~2.8 days | **~1 day** |
+| Cycle duration | ~1 day | **~1 day** |
 
 **Impact on bakers:**
 - Baking rights are now scheduled in advance for a shorter window
 - Reward and staking parameter changes (which take effect after N cycles) now apply faster
 - Monitoring and alerting are more time-sensitive — a few minutes of downtime is a larger fraction of a cycle
 
-> **ℹ️ INFO:** Any documentation or community resource that refers to cycles as lasting "~3 days" or "~2-3 days" is outdated. Since Tallinn, one cycle ≈ 1 day.
+> **ℹ️ INFO:** Documentation or community resources that refer to current cycles as lasting "~3 days" or "~2-3 days" are outdated. In the Tallinn era, one cycle is approximately 1 day.
 
 ---
 
@@ -134,7 +134,7 @@ tezbake setup
 **What changed:** Tezos now supports **tz4 (BLS12-381)** addresses as consensus keys. BLS keys enable more efficient signature aggregation, which improves network performance at scale.
 
 **Key facts:**
-- tz4 keys are supported by **TezSign** (Pi Zero 2W and Radxa Zero 3)
+- tz4 keys are supported by **TezSign** (Pi Zero 2W and Radxa Zero 3W)
 - tz4 keys are **not supported by Ledger** hardware wallets for baking operations
 - Bakers currently using tz1 keys can continue without any changes
 - To use tz4, you must set up or migrate to TezSign

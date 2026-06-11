@@ -1,6 +1,6 @@
 ---
 title: "Hardware Requirements"
-weight: 3
+weight: 8
 type: docs
 summary: "Minimum and recommended hardware specifications for running a Tezos baker"
 ---
@@ -23,7 +23,7 @@ These are the lowest specs on which a Tezos baker can run. Performance may be ti
 | RAM | 8 GB |
 | Storage | 256 GB SSD |
 | Network | 50 Mbps symmetric, wired Ethernet |
-| OS | Ubuntu 22.04 LTS, Debian 12, or macOS (recommended) |
+| OS | Ubuntu 22.04 LTS or Debian 12 recommended for production; macOS supported |
 
 ### Recommended Specifications
 
@@ -68,7 +68,7 @@ The Tezos full node currently requires approximately **100 GB** of disk space, a
 | Minimum speed | 50 Mbps down / 50 Mbps up |
 | Recommended speed | 100 Mbps+ symmetric |
 | IP address | Static (not DHCP) |
-| Ports needed | 9732 (Tezos P2P), 8732 (RPC, local only) |
+| Ports needed | 9732 (Tezos P2P), 8732 (RPC, local only); see [Ports and Firewall](/tezbake/reference/ports-and-firewall/) |
 
 > **⚠️ WARNING: Do not use Wi-Fi.**
 >
@@ -87,7 +87,7 @@ TezSign is the recommended signing solution. It runs on very modest hardware —
 | Device | CPU | RAM | Storage | Cost |
 |--------|-----|-----|---------|------|
 | Raspberry Pi Zero 2W | Quad-core ARM Cortex-A53 @ 1 GHz | 512 MB | microSD (8 GB min) | ~$15–20 |
-| Radxa Zero 3 | Quad-core ARM Cortex-A55 @ 1.8 GHz | 2–8 GB | eMMC / microSD | ~$25–40 |
+| Radxa Zero 3W | Quad-core ARM Cortex-A55 @ 1.8 GHz | 2–8 GB | eMMC / microSD | ~$25–40 |
 
 Both devices are more than sufficient for signing Tezos operations. The Pi Zero 2W is the most common choice due to its low cost and wide availability.
 
@@ -105,7 +105,7 @@ Both devices are more than sufficient for signing Tezos operations. The Pi Zero 
 |------|---------------|
 | UPS (Uninterruptible Power Supply) | Strongly recommended — attach baking node + ISP router |
 | Dedicated machine | Yes — do not share with daily-use workloads |
-| Monitoring | Configure [TezWatch](/tezwatch/) alerts via Discord or Telegram |
+| Monitoring | Configure [TezWatch](/tezwatch/) alerts via Discord |
 
 > **ℹ️ INFO:** Tezos does **not** slash bakers for downtime caused by hardware failure or power outage. You will miss rewards during downtime, but you will not lose stake. However, bakers who fall below 67% attestation participation for 2 consecutive cycles risk deactivation. Rewards are proportional to attestations made — there is no cliff penalty.
 

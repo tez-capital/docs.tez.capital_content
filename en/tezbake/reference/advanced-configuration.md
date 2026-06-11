@@ -5,8 +5,6 @@ type: docs
 summary: Advanced TezBake CLI configuration and customization options
 ---
 
-# Advanced Configuration
-
 TezBake stores runtime settings under the node configuration. Advanced users can inspect and customize those values with `tezbake node show` and `tezbake node modify`.
 
 ## Customize node startup arguments
@@ -31,3 +29,16 @@ You can verify the configured startup arguments with:
 ```bash
 tezbake node show configuration.STARTUP_ARGS
 ```
+
+---
+
+## Related Guides
+
+* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main TezBake setup flow
+* [Key Aliases](/tezbake/tutorials/key-aliases/) - Configure additional baker key aliases
+* [Troubleshooting](/tezbake/tutorials/troubleshooting/) - Common TezBake issues
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

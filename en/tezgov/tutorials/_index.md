@@ -20,7 +20,9 @@ summary: Guides for participating in Tezos governance and managing your baker
 
 ### Governance
 - [Voting on Proposals](/tezgov/tutorials/voting-on-proposals/) - Cast your vote on protocol upgrades
+- [Voting on Etherlink Proposals](/tezgov/tutorials/voting-on-etherlink-proposals/) - Participate in Etherlink governance
 - [Injecting Proposals](/tezgov/tutorials/injecting-proposals/) - Submit new protocol proposals
 
 ### Baker Management
 - [Managing Baker Settings](/tezgov/tutorials/managing-baker-settings/) - Configure staking parameters, keys, and reactivation
+- [Troubleshooting](/tezgov/tutorials/troubleshooting/) - Resolve common TezGov voting and baker-management issues

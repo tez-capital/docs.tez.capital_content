@@ -117,8 +117,8 @@ you can open file in GitHub and copy text to a text editor*.
 
 ### Preparation: Step 3 - Payout Wallet (optional)
 
-**Lastly**, you will need to download the create a new wallet and
-retrieve the private key. We will be using the Temple Wallet extension
+**Lastly**, you will need to create a new wallet and retrieve the
+private key. We will be using the Temple Wallet extension
 to create a new wallet and to get the private key. If you already have a
 payout wallet, or know how, skip this section.
 
@@ -198,7 +198,7 @@ This section will review how to setup the configuration file
     the baker in order to compile rewards and payouts - **Do not edit
     unless you are an experienced user**
 6. Over delegation projection prohibits you from over paying beyond
-    your delegation limit - **Do not edit unless you are an experience
+    your delegation limit - **Do not edit unless you are an experienced
     user**
 
 This is as basic configuration file for running the TezPay
@@ -277,13 +277,13 @@ This section will review how to setup the configuration file
 > ```
 > TezPay will automatically try the next RPC if one fails.
 11. Over delegation projection prohibits you from over paying beyond
-    your delegation limit **Do not edit unless you are an experience
+    your delegation limit **Do not edit unless you are an experienced
     user**
 12. This section allows for automatic notifications/messages to be sent
     to specific platforms in order to broadcast messages (ie *'Bakery
     has paid 100XTZ in rewards for latest cycle'* **We will cover this
-    in a separate section**
-    *see appendix X* and platforms supported are ***Twitter, Discord, and E-mail***
+    in a separate section**). See [Notifications](/tezpay/tutorials/notifications/)
+    for supported Twitter, Discord, Telegram, and email examples.
 
 ---
 
@@ -368,7 +368,7 @@ payouts: {
 }
 ```
 
-- `ideal` — Pay based on what delegators *should* have earned (rarely used but availablea)
+- `ideal` — Pay based on what delegators *should* have earned
 - `actual` — Pay based on what the baker *actually* earned (accounts for missed blocks/attestations)
 
 **Who Pays Transaction Fees (`payouts`):**
@@ -483,7 +483,7 @@ These three files will be used to run the application and payouts.
 
 1. [Generate a test payout](/tezpay/tutorials/paying-delegators/) — Verify everything works before going live
 2. [Integrate with TezBake](/tezpay/tutorials/tezbake-integration/) — Automate payout scheduling as a managed service
-3. [Set up notifications](/tezpay/tutorials/notifications/) — Get payout confirmations via Discord, Twitter, or email
+3. [Set up notifications](/tezpay/tutorials/notifications/) — Get payout confirmations via Discord, Telegram, Twitter, or email
 
 ---
 
@@ -494,7 +494,7 @@ These three files will be used to run the application and payouts.
 * [Paying Delegators](/tezpay/tutorials/paying-delegators/) - Run your first payout
 * [TezBake Integration](/tezpay/tutorials/tezbake-integration/) - Automate payouts with TezBake
 * [TezPeak Setup](/tezpeak/tutorials/setup/) - Manage payouts with a graphical web dashboard
-* [Notifications](/tezpay/tutorials/notifications/) - Set up Discord/Twitter/email alerts
+* [Notifications](/tezpay/tutorials/notifications/) - Set up Discord/Telegram/Twitter/email alerts
 
 **Configuration:**
 

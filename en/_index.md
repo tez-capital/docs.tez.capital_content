@@ -47,7 +47,7 @@ Welcome to the **Tez Capital Documentation**. This site provides comprehensive g
 
 ### Chat/Support
 
-* [Discord](https://dsc.gg/tzc) (primary)
+* [Discord](https://discord.gg/cVGMA4MaNM) (primary)
 * [Telegram](https://t.me/tezcapital)
 
 ### YouTube

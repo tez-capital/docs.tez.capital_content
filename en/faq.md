@@ -135,7 +135,7 @@ If your node was **offline during the revelation window**, TezBake cannot reveal
 ### How do I migrate from Ledger to TezSign?
 
 Migration involves:
-1. Setting up TezSign on a Pi Zero 2W or Radxa Zero 3
+1. Setting up TezSign on a Pi Zero 2W or Radxa Zero 3W
 2. Updating your baker's consensus key to point to TezSign
 3. Optionally rotating to a tz4 key (recommended)
 4. Decommissioning the Ledger from baking
@@ -161,7 +161,7 @@ Common reasons for unexpected amounts:
 | Delegator received less than expected | Baker fee applied, or delegator was below minimum payout threshold |
 | Delegator received nothing | Balance was below minimum delegation threshold, or was blacklisted |
 | Baker received more / delegator less | `edge_of_baking_over_staking` or fee setting is higher than intended |
-| Payout for wrong cycle | TezPay pays after a configurable delay — check `payment_offset` in config |
+| Payout for wrong cycle | TezPay pays after configurable block delays — check `payouts.minimum_delay_blocks` and `payouts.maximum_delay_blocks` in `config.hjson` |
 
 > **💡 TIP:** Run `tezpay generate-payouts --cycle <N>` to preview what would be paid for a specific cycle without sending anything.
 
@@ -173,12 +173,12 @@ If the issue persists, share your TezPay config (with sensitive data removed) in
 
 ### How do I set up monitoring alerts?
 
-Use [TezWatch](/tezwatch/) to receive Telegram or Discord notifications when:
+Use [TezWatch](/tezwatch/) to receive Discord notifications when:
 - Your baker misses a block or attestation
 - A service goes down
 - Your baker is scheduled to bake soon
 
-TezWatch is a standalone bot — set it up via the Discord or Telegram bot interface, not through TezBake. Head to the [Tez Capital Discord](https://discord.gg/cVGMA4MaNM) `#tezwatch` channel and use the `/subscribe` slash command to get started.
+TezWatch is a standalone Discord bot, not part of TezBake itself. Head to the [Tez Capital Discord](https://discord.gg/cVGMA4MaNM) `#tezwatch` channel and use the `/subscribe` slash command to get started.
 
 **→ More:** [TezWatch Setup](/tezwatch/tutorials/setup/)
 

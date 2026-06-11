@@ -1,6 +1,6 @@
 ---
 title: "Ledger vs TezSign"
-weight: 3
+weight: 7
 type: docs
 summary: Understanding the difference between Ledger and TezSign for Tezos baking
 ---

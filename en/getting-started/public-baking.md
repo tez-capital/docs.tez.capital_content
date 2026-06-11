@@ -1,6 +1,6 @@
 ---
 title: "Tezos Public Baking"
-weight: 2
+weight: 3
 type: docs
 summary: Complete guide to running a public baker on Tezos
 ---

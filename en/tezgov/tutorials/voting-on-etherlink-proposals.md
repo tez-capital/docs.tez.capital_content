@@ -50,11 +50,11 @@ TezGov allows you to participate in Etherlink governance using your Ledger hardw
 
 > **⚠️ Voting while baking:** If you're voting from your baking machine while your baker is running, stop the baker first:
 > ```bash
-> sudo tezbake stop
+> tezbake stop
 > ```
 > Vote via TezGov, then restart:
 > ```bash
-> sudo tezbake start
+> tezbake start
 > ```
 > Failure to stop the baker may result in a "Transaction Not Trusted" error — the Ledger Wallet app cannot share the device with a running baker process.
 
@@ -133,9 +133,9 @@ This means timing is predictable: you can always check the current Tezos governa
 This happens when your Ledger is already in use by the baking app while trying to vote. Stop your baker before voting:
 
 ```bash
-sudo tezbake stop
+tezbake stop
 # vote via TezGov
-sudo tezbake start
+tezbake start
 ```
 
 ### No Etherlink proposals visible in TezGov
@@ -153,7 +153,7 @@ Votes are submitted as on-chain transactions to the Etherlink governance contrac
 2. Is the governance period still in the correct phase?
 3. Is your Ledger transaction confirmed on-screen?
 
-For support, contact the Tez Capital team on [Discord](https://discord.gg/tezcapital) or [Telegram](https://t.me/tezcapital).
+For support, contact the Tez Capital team on [Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital).
 
 ---
 
@@ -163,4 +163,9 @@ For support, contact the Tez Capital team on [Discord](https://discord.gg/tezcap
 - [Etherlink Governance Portal](https://governance.etherlink.com)
 - [TezGov Voting on Mainnet](/tezgov/tutorials/voting-on-proposals/)
 - [Managing Baker Settings](/tezgov/tutorials/managing-baker-settings/)
-- [Tez Capital Discord](https://discord.gg/tezcapital)
+- [Tez Capital Discord](https://discord.gg/cVGMA4MaNM)
+
+---
+
+Any questions/comments/concerns? Please contact the Tez Capital team on
+[Discord](https://discord.gg/cVGMA4MaNM) or [Telegram](https://t.me/tezcapital)

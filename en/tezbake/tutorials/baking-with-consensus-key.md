@@ -1,6 +1,6 @@
 ---
 title: "Baking with Consensus Key"
-weight: 11
+weight: 12
 type: docs
 summary: Guide to setting up a separate consensus key and companion key for secure Tezos baking with TezSign or Ledger
 ---
@@ -297,7 +297,6 @@ tezbake start --signer
 ## Related Guides
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide
-* [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide with TezSign
 * [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - SD-card data backup and migration
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Check baker health
 

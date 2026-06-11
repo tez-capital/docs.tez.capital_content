@@ -56,7 +56,7 @@ Baking requires a computer running 24/7 with a reliable internet connection. The
 **Minimum specifications:**
 - 3 CPU cores (arm64 or amd64)
 - 8 GB RAM + 8 GB swap (or 16 GB RAM)
-- 100 GB SSD storage
+- 256 GB SSD storage
 - Low-latency broadband internet
 
 See the full [hardware and best practices guide](/getting-started/best-practices/) for recommended setups including backup hardware and UPS.
@@ -98,7 +98,7 @@ Baking is **mostly automated** — once your baker is set up and running, it ope
 - **As needed:** Protocol upgrades (usually every 3 months) require updating TezBake
 - **Ongoing:** Monitoring hardware, internet stability, and UPS battery
 
-> **💡 TIP:** Tools like [TezPeak](/tezpeak/tutorials/setup/) provide a web dashboard so you can check your baker status at a glance without SSH. [TezWatch](/tezwatch/tutorials/setup/) sends Discord/Telegram alerts when something goes wrong.
+> **💡 TIP:** Tools like [TezPeak](/tezpeak/tutorials/setup/) provide a web dashboard so you can check your baker status at a glance without SSH. [TezWatch](/tezwatch/tutorials/setup/) sends Discord alerts when something goes wrong.
 
 ---
 

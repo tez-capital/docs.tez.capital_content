@@ -17,7 +17,7 @@ summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, fro
 - **Ubuntu 22.04+, Debian 12+, or macOS** — server or desktop with SSH access (Linux recommended for production)
 - **Minimum 6000 XTZ** for staking as security deposit (or 1000 XTZ with external stakers/delegators — see staking table below)
 - **TezSign device** for consensus and companion signing, plus a Ledger or other manager wallet for funds, staking, governance, and registering key changes
-- **Hardware meeting minimum specs:** 3 CPU cores, 8GB RAM + 8GB swap, 100GB SSD, reliable broadband
+- **Hardware meeting minimum specs:** 3 CPU cores, 8GB RAM + 8GB swap, 256GB SSD, reliable broadband
 
 ## Table of Contents
 
@@ -61,7 +61,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 1. Spare computer or existing computer with Linux installed. The recommended requirements are provided by [Nomadic Labs](https://research-development.nomadic-labs.com/paris-announcement.html#10s-block-times-bring-lower-latency-and-faster-finality)
     * 3 CPU cores (arm64 or amd64/x86-64 architectures) – 2 are needed by the Octez node and 1 is needed by the Octez baker;
     * 8GB RAM + 8GB swap (or 16GB RAM);
-    * 100GB SSD storage (or similar I/O performance);
+    * 256GB SSD storage (or similar I/O performance);
     * a low-latency, reliable broadband internet connection.
 2. Ledger Nano S Plus or Nano X hardware wallet with Tezos Wallet app installed. This remains your manager wallet for funds, staking, voting, and changing baking parameters.
    > **ℹ️ INFO:** You must use Ledger Live to install the Tezos Wallet app on your device.
@@ -85,7 +85,7 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 
 ### Download and install tezbake
 
-To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/sbin` directory. This script works with both x86_64 and arm64 architectures.
+To begin, run the script below, which will download the latest version of TezBake and copy it to your `/usr/local/bin` directory. This script works with both x86_64 and arm64 architectures.
 
 ```bash
 wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/install.sh
@@ -520,10 +520,10 @@ Your baker needs to register as a DAL attester to participate in the Data Availa
 ```bash
 tezbake update-dal-profiles --auto
 # If for some reason the auto method is not working, use the command below to bypass it.
-tezbake update-dal-profiles <your-baker-tz4-key> --force
+tezbake update-dal-profiles <your-baker-address> --force
 ```
 
-> **ℹ️ INFO:** The tz4 key referenced here is your baker's public key address (starts with tz4), not your consensus key or companion key.
+> **ℹ️ INFO:** Use your baker address here. In the recommended TezSign setup, this is usually your manager address (`tz1`, `tz2`, or `tz3`), not your TezSign consensus key or companion key. Soft-key test setups may use a `tz4` baker address.
 
 Verify both DAL profile and companion-key wiring:
 

@@ -1,6 +1,6 @@
 ---
 title: "Slashing Explained"
-weight: 4
+weight: 5
 type: docs
 summary: Understanding Tezos slashing penalties, how they're calculated, and how to avoid them
 ---
