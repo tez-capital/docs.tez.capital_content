@@ -121,6 +121,8 @@ The `baker-next` process will show one of two things.
 1. Protocol is waiting to start. This means everyone is waiting for the new proposal to be activated on mainnet. Nothing needs to be done until the new protocol is activated
 2. The baker process is running like normally. This means the new proposal has already activated and the TezBake needs to be updated to reflect it. There is no penalty for not updating unless you do not update in time for the next proposal. In other words, updating is only necessary when a proposal switch is about to happen. We still recommend that all Tezos bakers update their TezBake to the latest production version as soon as possible to get the latest Octez improvements.
 
+The `baker-next` and `accuser-next` services are for the next protocol, not the next TezBake release branch. If Tez Capital support asks you to test the next or RC release branch, use `tezbake upgrade --branch next`. See [Updating](/tezbake/tutorials/updating/).
+
 ### Monitor full TezBake signer logs in real time
 
 Using the command below shows everything your Ledger is signing or trying to sign. If there is a hardware wallet issue, this log will confirm it.

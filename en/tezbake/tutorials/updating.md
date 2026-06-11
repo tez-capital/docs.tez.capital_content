@@ -7,9 +7,10 @@ summary: How to update TezBake, Octez binaries, and protocol versions safely
 
 > **Quick Reference**
 > ```bash
-> tezbake upgrade    # Upgrade all components (Octez binaries + ami/eli)
-> tezbake stop       # Stop services after upgrade if needed
-> tezbake start      # Start services again
+> tezbake upgrade                # Upgrade all components (Octez binaries + ami/eli)
+> tezbake upgrade --branch next  # Switch to the next/RC branch when support asks
+> tezbake stop                   # Stop services after upgrade if needed
+> tezbake start                  # Start services again
 > ```
 > For a full stack upgrade including the tezbake binary itself, see [Method C](#c-update-the-entire-tezbake-stack) below.
 
@@ -32,6 +33,28 @@ We will sometimes specify which upgrade method to use by referencing its letter.
 * (B) This upgrade method is used when you want to update the Octez binaries only. This is useful when old protocol binaries need to be removed from your baker.
 * (C) This upgrade method is used when you want to update the entire TezBake stack. If you have the time, this is the recommended method as it makes sure you get the latest version of all components.
 * (D) This upgrade method is used when you want to update the tezbake binary only. Sometimes we release new versions of tezbake that have fixes and new features to make your baker setup and operation easier. This upgrade method doesn't take your baker down as the tezbake binary is not used during the baking process.
+
+### Switch between release branches
+
+If Tez Capital support asks you to move between the main and next release branches, use:
+
+```bash
+tezbake upgrade --branch <main|next>
+```
+
+For example, to test the next or RC branch:
+
+```bash
+tezbake upgrade --branch next
+```
+
+To return to the main branch:
+
+```bash
+tezbake upgrade --branch main
+```
+
+You do not need to manually edit `/bake-buddy/node/app.json` or change the binary source type for this branch switch. When the `next` branch would otherwise point at an older binary source, TezBake automatically uses the newer `main` source instead.
 
 ## (A) Update ami & eli and Octez binaries
 

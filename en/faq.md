@@ -91,6 +91,7 @@ However, you should:
    ```bash
    tezbake upgrade
    ```
+   If Tez Capital support asks you to test the next or RC release branch, use `tezbake upgrade --branch next`. See [Updating](/tezbake/tutorials/updating/).
 3. **Re-check your configuration** after major upgrades — some parameter names or defaults may change
 
 > **⚠️ WARNING:** Some major protocol upgrades (like the introduction of DAL) add new **mandatory** components. Always read the upgrade announcement carefully. See [What's New](/changelog/).

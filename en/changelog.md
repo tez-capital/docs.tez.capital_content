@@ -13,6 +13,20 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Documentation: Added TezBake Release Branch Switching
+
+**What changed:** Updated [Updating](/tezbake/tutorials/updating/) with the supported release-branch switch command:
+
+```bash
+tezbake upgrade --branch <main|next>
+```
+
+Also documented the common `next`/RC example, returning to `main`, and clarified that bakers do not need to manually edit `/bake-buddy/node/app.json` or change the binary source type for this branch switch. If `next` would point at an older binary source, TezBake automatically uses the newer `main` source.
+
+Added short pointers from [FAQ](/faq/) and [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) for protocol-upgrade and `baker-next` troubleshooting contexts.
+
+---
+
 ### Documentation: Clarified TezSign DAL Companion Alias Setup
 
 **What changed:** Updated [Baking with TezSign](/tezbake/tutorials/baking-with-tezsign/), [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/), the DAL setup notes, and [Key Aliases](/tezbake/tutorials/key-aliases/) to make the BLS/tz4 alias decision explicit:
