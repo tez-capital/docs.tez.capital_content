@@ -36,7 +36,7 @@ Please follow the steps below to create your configuration and wallet or remote 
 ## Prerequisites
 
 - **[TezBake installed and running](/tezbake/tutorials/baking-on-mainnet/)** — your baker must already be set up and active
-- **[TezPay configured](/tezpay/tutorials/setup/)** — a `config.hjson` and payout wallet key file must be ready before installing the TezBake pay module
+- **[TezPay configured](/tezpay/tutorials/setup/)** — a `config.hjson` and payout wallet key file or remote signer file must be ready before installing the TezBake pay module
 - **TezBake version 0.18.0+** — required for the integrated pay module; verify with `tezbake version`
 
 ## Table of Contents
@@ -94,6 +94,11 @@ Minimal starter example:
 ```hjson
 {
   baker: "tz1-your-baker-wallet-address"
+
+  # Choose which payout wallet engine TezPay loads.
+  # Use local-private-key with payout_wallet_private.key, or remote-signer with remote_signer.hjson.
+  wallet_mode: local-private-key
+
   payouts: {
     fee: 0.05
     baker_pays_transaction_fee: true
@@ -108,6 +113,16 @@ Minimal starter example:
 ```
 
 ### Step 2: Setting Up the Wallet or Remote Signer File
+
+Choose the wallet mode in `/bake-buddy/pay/config.hjson` before creating the matching wallet file:
+
+```hjson
+# Local private key wallet
+wallet_mode: local-private-key
+
+# Remote signer wallet
+wallet_mode: remote-signer
+```
 
 You have two options:
 
@@ -132,7 +147,15 @@ edsk...yourprivatekeyhere...
 
 Create file named exactly `remote_signer.hjson` inside `/bake-buddy/pay`.
 
+Creating `remote_signer.hjson` is not enough by itself. `/bake-buddy/pay/config.hjson` must also set:
+
+```hjson
+wallet_mode: remote-signer
+```
+
 See [Remote Signer Sample](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/remote_signer.sample.hjson).
+
+If TezPay logs mention `payout_wallet_private.key`, TezPay is still using `local-private-key` mode, even if `remote_signer.hjson` exists. This same wallet-mode behavior also applies when running TezPay without TezBake integration.
 
 ---
 

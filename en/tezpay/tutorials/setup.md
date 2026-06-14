@@ -19,6 +19,7 @@ Follow along on Youtube!
    - [Step 1b: Configuration File (advanced)](#setup-step-1b-configuration-file-advanced)
    - [Advanced Configuration Examples](#advanced-configuration-examples)
    - [Other Configuration Options](#other-configuration-options)
+   - [Wallet Mode](#setup-wallet-mode)
    - [Step 2: Private-Key File](#setup-step-2-private-key-file)
 
 ---
@@ -445,6 +446,30 @@ overdelegation: {
 ```
 
 > **📚 Full Reference:** See the [complete sample configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) for all available options including notifications, extensions, and network settings.
+
+---
+
+### Setup: Wallet Mode
+
+Choose which payout wallet engine TezPay loads in your `config.hjson`:
+
+```hjson
+# Local private key wallet
+wallet_mode: local-private-key
+
+# Remote signer wallet
+wallet_mode: remote-signer
+```
+
+Use `local-private-key` with `payout_wallet_private.key`. Use `remote-signer` with `remote_signer.hjson`.
+
+Creating `remote_signer.hjson` is not enough by itself. `config.hjson` must also set:
+
+```hjson
+wallet_mode: remote-signer
+```
+
+If TezPay logs mention `payout_wallet_private.key`, TezPay is still using `local-private-key` mode, even if `remote_signer.hjson` exists.
 
 ---
 

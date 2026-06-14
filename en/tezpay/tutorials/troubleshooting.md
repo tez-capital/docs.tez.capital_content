@@ -12,6 +12,7 @@ summary: Common TezPay issues and solutions
 | "failed to apply batch" | [Batch Error](#failed-to-apply-batch) |
 | RPC timeout / context deadline exceeded | [RPC Timeout Errors](#rpc-timeout-errors) |
 | "stream closed" / extension loading error | [Extension Loading Error](#extension-loading-error-stream-closed) |
+| Logs mention `payout_wallet_private.key` with a remote signer | [Remote Signer Still Using Local Private Key Mode](#remote-signer-still-using-local-private-key-mode) |
 | Payment missing after crash | [Payment Not Recorded After Crash](#payment-not-recorded-after-crash) |
 | Protocol upgrade stopped payouts | [After Protocol Upgrades](#after-protocol-upgrades) |
 | Missed cycles need catching up | [Catching Up Missed Payments](#catching-up-missed-payments) |
@@ -66,6 +67,22 @@ summary: Common TezPay issues and solutions
     }
 }
 ```
+
+---
+
+### Remote Signer Still Using Local Private Key Mode
+
+**Symptom:** TezPay logs mention `payout_wallet_private.key`, even though `remote_signer.hjson` exists.
+
+**Cause:** TezPay is still using `local-private-key` mode. The remote signer file is only loaded when `config.hjson` sets the wallet mode to `remote-signer`.
+
+**Solution:** In the `config.hjson` used by TezPay, set:
+
+```hjson
+wallet_mode: remote-signer
+```
+
+For TezBake integration, that file is `/bake-buddy/pay/config.hjson`.
 
 ---
 
