@@ -13,6 +13,21 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Documentation: Added Remote DAL Recovery Guidance
+
+**What changed:** Added [Baking with DAL](/tezbake/tutorials/baking-with-dal/) as a focused DAL operations page and updated [TezBake Troubleshooting](/tezbake/tutorials/troubleshooting/) with the remote DAL recovery flow after an L1 node rebootstrap.
+
+The new guidance starts with:
+
+```bash
+tezbake info --dal
+tezbake version --all
+```
+
+It also documents when to pull the remote DAL systemd journal, when to reset only `/bake-buddy/dal/data`, and when to stop resetting the store and verify the DAL node's actual L1 RPC endpoint.
+
+---
+
 ### Documentation: Added TezBake Release Branch Switching
 
 **What changed:** Updated [Updating](/tezbake/tutorials/updating/) with the supported release-branch switch command:

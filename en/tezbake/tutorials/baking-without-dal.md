@@ -3,8 +3,6 @@ title: "Baking Without DAL"
 weight: 10
 type: docs
 summary: Exception-path guide for bakers who intentionally run TezBake without a local DAL node
-aliases:
-  - /tezbake/tutorials/baking-with-dal/
 ---
 
 ## Default Setup Includes DAL

@@ -17,6 +17,7 @@ summary: Common TezBake issues and solutions for installation errors and runtime
 | "illegal instruction" / low-level errors | [Update eli](#update-eli-lua-interpreter) |
 | TezSign USB timeout / not responding | [TezSign USB Issues](#tezsign-usb-issues) |
 | DAL not attesting / no peers | [DAL Troubleshooting](#dal-troubleshooting) |
+| Remote DAL dead after node rebootstrap | [Remote DAL Recovery After Node Rebootstrap](#remote-dal-recovery-after-node-rebootstrap) |
 | tz4 key "has not been provided to the baker" | [Missing tz4 Consensus or Companion Alias](#missing-tz4-consensus-or-companion-alias) |
 | Missing attestations | [Missing Attestations](/tezbake/tutorials/missing-attestations/) |
 
@@ -166,6 +167,59 @@ tezbake info --dal
 
 **Note:** "Status down" is normal immediately after start/restart. Give it time to sync.
 
+### Remote DAL Recovery After Node Rebootstrap
+
+Use this when your L1 node was rebootstrapped and a remote DAL node stays dead, auto-restarting, or never returns to operational status.
+
+Start with the wrapper checks:
+
+```bash
+tezbake info --dal
+tezbake version --all
+```
+
+If remote DAL is still dead or repeatedly auto-restarting, stop repeating `tezbake upgrade --dal` and inspect the remote unit journal:
+
+```bash
+ssh <remote-user>@<remote-dal-host>
+sudo journalctl -u bb-default-dal-xtz-dal.service -n 160 --no-pager -l
+```
+
+This recovery path is for errors like:
+
+```text
+Did not find service: GET http://127.0.0.1:8732/.../context/dal/skip_list_cells_of_level
+```
+
+If `tezbake version --all` shows the node and DAL versions both match the current package/protocol line, reset only the DAL store:
+
+```bash
+sudo systemctl stop bb-default-dal-xtz-dal.service
+sudo systemctl show bb-default-dal-xtz-dal.service -p ExecStart
+sudo mv /bake-buddy/dal/data /bake-buddy/dal/data.bak.$(date +%Y%m%d%H%M%S)
+exit
+tezbake upgrade --dal
+tezbake update-dal-profiles --auto
+tezbake info --dal
+```
+
+The `ExecStart` output tells you which endpoint the DAL node is actually using. Keep it with your incident notes.
+
+> **⚠️ WARNING:** Do not keep resetting the DAL store if `/bake-buddy/dal/data` is recreated and the same error returns. At that point, verify what RPC is actually listening at the DAL node's `--endpoint`, usually `127.0.0.1:8732`, before making more destructive changes:
+>
+> ```bash
+> curl http://127.0.0.1:8732/version
+> curl http://127.0.0.1:8732/chains/main/blocks/head/header
+> ```
+
+After DAL is operational again, check your baker externally at:
+
+```text
+https://tezos.systems/YOUR_TEZOS_DOMAIN_OR_ADDRESS
+```
+
+For the focused DAL page, see [Baking with DAL](/tezbake/tutorials/baking-with-dal/).
+
 ### Missing tz4 Consensus or Companion Alias
 
 **Symptoms:** The baker log says a tz4 consensus key "has not been provided to the baker" and warns that the baker can only issue attestations without DAL content.
@@ -273,7 +327,7 @@ sudo ufw allow 11732/tcp comment "DAL P2P"
 
 Ensure **Tezos Baking app v2.5.0+** for DAL attestation support.
 
-For the standard setup path, see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/). If you intentionally disabled local DAL, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
+For the standard setup path, see [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/). For DAL status and recovery steps, see [Baking with DAL](/tezbake/tutorials/baking-with-dal/). If you intentionally disabled local DAL, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 
 ---
 
@@ -283,6 +337,7 @@ For the standard setup path, see [Baking on Mainnet](/tezbake/tutorials/baking-o
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Main setup guide
 * [Monitoring Logs and Status](/tezbake/tutorials/monitoring-logs-and-status/) - Monitor your baker
+* [Baking with DAL](/tezbake/tutorials/baking-with-dal/) - DAL status and recovery
 * [Missing Attestations](/tezbake/tutorials/missing-attestations/) - Debug attestation issues
 
 **Getting Help:**
