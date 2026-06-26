@@ -8,9 +8,9 @@ summary: Using TezBake to bake on the Tezos testnets
 ## Tezos Testnets
 
 * Bakingnet is the recommended testnet for most bakers. It is a long-running baker testnet that switches to new Tezos protocol proposals about one week before they go live on Mainnet, giving bakers time to test upgrades before production activation.
-* Tallinnnet is a protocol testnet with 20 minute cycles. Use it when you want rapid testing for setup, key activation, registration, or inactivity behavior.
+* [Ushuaianet](https://teztnets.com/ushuaianet-about) is a protocol testnet with 20 minute cycles. Use it when you want rapid testing for setup, key activation, registration, or inactivity behavior.
 * Shadownet is a long-running testnet for application and staging tests. Do not set up a baker on Shadownet unless you have been explicitly invited or coordinated with the Shadownet operators. Bakingnet is the preferred baker testnet.
-* Ghostnet is the original Tezos testnet and is now deprecated. Prefer Bakingnet or Tallinnnet for new baker testing.
+* Ghostnet is the original Tezos testnet and is now deprecated. Prefer Bakingnet or Ushuaianet for new baker testing.
 
 ## Prerequisites
 
@@ -61,8 +61,8 @@ wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/inst
 ```bash
 # Bakingnet setup (recommended for most bakers):
 tezbake setup --with-dal --node-configuration=https://configs.tez.capital/bakingnet.json
-# Tallinnnet setup (20 minute cycles for rapid testing):
-tezbake setup --with-dal --node-configuration=https://configs.tez.capital/tallinnnet.json
+# Ushuaianet setup (20 minute cycles for rapid testing):
+tezbake setup --with-dal --node-configuration=https://configs.tez.capital/ushuaianet.json
 # you may be prompted for sudo password
 ```
 
@@ -74,8 +74,8 @@ At this stage, it's necessary to bootstrap your node, meaning to download a copy
 tezbake bootstrap-node <url> <block_hash>
 # Bakingnet example:
 tezbake bootstrap-node https://snapshots.tzinit.org/bakingnet/rolling <BLOCK_HASH>
-# Tallinnnet example:
-tezbake bootstrap-node https://snapshots.tzinit.org/tallinnnet/rolling <BLOCK_HASH>
+# Ushuaianet example:
+tezbake bootstrap-node https://snapshots.tzinit.org/ushuaianet/rolling <BLOCK_HASH>
 ```
 
 > **ℹ️ INFO:** Get the current block hash from the snapshot provider's website.
@@ -83,7 +83,7 @@ tezbake bootstrap-node https://snapshots.tzinit.org/tallinnnet/rolling <BLOCK_HA
 Get the block hash and block level from the snapshot provider's website:
 
 * <https://snapshots.tzinit.org/bakingnet/rolling.html>
-* <https://snapshots.tzinit.org/tallinnnet/rolling.html>
+* <https://snapshots.tzinit.org/ushuaianet/rolling.html>
 
 > **ℹ️ INFO:** The `<block_hash>` argument is optional but encouraged for security verification. If you don't want to bother with this protection, you can skip it for a faster bootstrap.
 
@@ -190,7 +190,7 @@ tezbake register-key
 > You must register your baker if:
 >
 > * You're setting up a new baker (first time)
-> * Your baker has been inactive beyond the inactivity period (2 cycles - about 40 minutes on 20 minute cycle testnets like Tallinnnet, or longer on standard-cycle testnets)
+> * Your baker has been inactive beyond the inactivity period (2 cycles - about 40 minutes on 20 minute cycle testnets like Ushuaianet, or longer on standard-cycle testnets)
 > * Your baking rights have stopped appearing in the schedule
 >
 > Check your baking rights schedule to confirm if re-registration is needed.
