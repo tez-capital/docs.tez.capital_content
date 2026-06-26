@@ -55,6 +55,7 @@ summary: Common TezPay issues and solutions
 {
     baker: "tz1YOUR_BAKER_ADDRESS"
     payouts: {
+        wallet_mode: local-private-key
         fee: 0.05
         minimum_payout_amount: 1
     }
@@ -74,12 +75,14 @@ summary: Common TezPay issues and solutions
 
 **Symptom:** TezPay logs mention `payout_wallet_private.key`, even though `remote_signer.hjson` exists.
 
-**Cause:** TezPay is still using `local-private-key` mode. The remote signer file is only loaded when `config.hjson` sets the wallet mode to `remote-signer`.
+**Cause:** TezPay is still using `local-private-key` mode. The remote signer file is only loaded when `config.hjson` sets `payouts.wallet_mode` to `remote-signer`.
 
 **Solution:** In the `config.hjson` used by TezPay, set:
 
 ```hjson
-wallet_mode: remote-signer
+payouts: {
+    wallet_mode: remote-signer
+}
 ```
 
 For TezBake integration, that file is `/bake-buddy/pay/config.hjson`.

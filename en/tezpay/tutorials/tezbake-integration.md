@@ -87,7 +87,7 @@ New users should follow these steps for proper setup:
 
 Inside `/bake-buddy/pay`, create a new file called exactly `config.hjson`.
 
-Start with the [Starter Configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.starter.hjson) and enhance it from the [Sample Configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) if needed.
+Start with the [Starter Configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.starter.hjson) or a ready testnet config from [TezPay Testnet Starter Configs](/tezpay/configuration/testnet-starter-configs/). Enhance it from the [Sample Configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) if needed.
 
 Minimal starter example:
 
@@ -97,9 +97,8 @@ Minimal starter example:
 
   # Choose which payout wallet engine TezPay loads.
   # Use local-private-key with payout_wallet_private.key, or remote-signer with remote_signer.hjson.
-  wallet_mode: local-private-key
-
   payouts: {
+    wallet_mode: local-private-key
     fee: 0.05
     baker_pays_transaction_fee: true
     minimum_payout_amount: 1
@@ -118,10 +117,14 @@ Choose the wallet mode in `/bake-buddy/pay/config.hjson` before creating the mat
 
 ```hjson
 # Local private key wallet
-wallet_mode: local-private-key
+payouts: {
+  wallet_mode: local-private-key
+}
 
 # Remote signer wallet
-wallet_mode: remote-signer
+payouts: {
+  wallet_mode: remote-signer
+}
 ```
 
 You have two options:
@@ -147,10 +150,12 @@ edsk...yourprivatekeyhere...
 
 Create file named exactly `remote_signer.hjson` inside `/bake-buddy/pay`.
 
-Creating `remote_signer.hjson` is not enough by itself. `/bake-buddy/pay/config.hjson` must also set:
+Creating `remote_signer.hjson` is not enough by itself. `/bake-buddy/pay/config.hjson` must also set `payouts.wallet_mode`:
 
 ```hjson
-wallet_mode: remote-signer
+payouts: {
+  wallet_mode: remote-signer
+}
 ```
 
 See [Remote Signer Sample](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/remote_signer.sample.hjson).
@@ -320,6 +325,7 @@ Examples of configuration files:
 - **Default:** [config.default.hjson](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.default.hjson)  
 - **Starter:** [config.starter.hjson](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.starter.hjson)  
 - **Advanced Sample:** [config.sample.hjson](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson)
+- **Testnet Starters:** [Bakingnet and Ushuaianet](/tezpay/configuration/testnet-starter-configs/)
 
 Detailed configuration guide: [TezPay Configuration Documentation](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/)
 

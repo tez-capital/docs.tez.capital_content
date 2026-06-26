@@ -18,6 +18,7 @@ Follow along on Youtube!
    - [Step 1a: Configuration File (simple)](#setup-step-1a-configuration-file-simple)
    - [Step 1b: Configuration File (advanced)](#setup-step-1b-configuration-file-advanced)
    - [Advanced Configuration Examples](#advanced-configuration-examples)
+   - [Testnet Starter Configs](#testnet-starter-configs)
    - [Other Configuration Options](#other-configuration-options)
    - [Wallet Mode](#setup-wallet-mode)
    - [Step 2: Private-Key File](#setup-step-2-private-key-file)
@@ -225,7 +226,7 @@ This section will review how to setup the configuration file
 
 > **💡 TIP: Start Simple**
 >
-> The example below is a more advanced configuration file showcasing several customization features. For most bakers, a simpler configuration is recommended. See [TezPay Starter Configuration](https://docs.tez.capital/tezpay/configuration/examples/starter/) which works for 90% of bakers.
+> The example below is a more advanced configuration file showcasing several customization features. For most bakers, a simpler configuration is recommended. See [TezPay Starter Configuration](https://docs.tez.capital/tezpay/configuration/examples/starter/) for mainnet, or [TezPay Testnet Starter Configs](/tezpay/configuration/testnet-starter-configs/) for Bakingnet and Ushuaianet.
 
 1. Paste your **Baker** wallet in between the quotes
 2. Set your Baker fee (ie 5% = 0.05)
@@ -277,6 +278,11 @@ This section will review how to setup the configuration file
 > }
 > ```
 > TezPay will automatically try the next RPC if one fails.
+
+#### Testnet Starter Configs
+
+For testnet payouts, start from the ready configs in [TezPay Testnet Starter Configs](/tezpay/configuration/testnet-starter-configs/). They include network-specific RPC, TzKT, and explorer settings for Bakingnet and Ushuaianet.
+
 11. Over delegation projection prohibits you from over paying beyond
     your delegation limit **Do not edit unless you are an experienced
     user**
@@ -455,18 +461,24 @@ Choose which payout wallet engine TezPay loads in your `config.hjson`:
 
 ```hjson
 # Local private key wallet
-wallet_mode: local-private-key
+payouts: {
+  wallet_mode: local-private-key
+}
 
 # Remote signer wallet
-wallet_mode: remote-signer
+payouts: {
+  wallet_mode: remote-signer
+}
 ```
 
 Use `local-private-key` with `payout_wallet_private.key`. Use `remote-signer` with `remote_signer.hjson`.
 
-Creating `remote_signer.hjson` is not enough by itself. `config.hjson` must also set:
+Creating `remote_signer.hjson` is not enough by itself. `config.hjson` must also set `payouts.wallet_mode`:
 
 ```hjson
-wallet_mode: remote-signer
+payouts: {
+  wallet_mode: remote-signer
+}
 ```
 
 If TezPay logs mention `payout_wallet_private.key`, TezPay is still using `local-private-key` mode, even if `remote_signer.hjson` exists.
