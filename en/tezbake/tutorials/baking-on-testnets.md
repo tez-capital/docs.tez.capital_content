@@ -120,7 +120,7 @@ tezbake info
 
 Now that your node is in full sync, you can proceed with the most important part: (1) your baker parameters import into your baker node and (2) submit your baker registration on the blockchain.
 
-You will have to first fund your baker address with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
+After you generate the baker address below, fund it with enough tez (6000 minimum) to cover the bond requirement. You can do this by sending tez from your main account or exchange to the baker address.
 
 #### Import Soft key to TezBake
 
@@ -155,55 +155,29 @@ tezbake setup-soft-wallet --generate bls --key-alias companion
 >
 > Store these in a secure, offline location. Never share them.
 
-**Step 3 — Get the public key (BLpk) and Proof of Possession (POP) for each key:**
+**Step 3 — Get the baker address and companion key details:**
 
-The POP is a cryptographic proof that you own the private key. It is required when registering tz4 keys on-chain.
+Use the `baker` address for funding and baker registration. Then get the companion key's public key and Proof of Possession (POP). The POP is a cryptographic proof that you own the private key, and it is required when setting a tz4 companion key on-chain.
 
 ```bash
 tezbake signer client show address baker
-tezbake signer client get proof of possession for baker
 
 tezbake signer client show address companion
 tezbake signer client get proof of possession for companion
 ```
 
-Note the `BLpk...` public key and POP output for both keys — you will need them in the next step.
-
-**Step 4 — Register the consensus and companion keys:**
-
-##### Option A: TezGov (recommended)
-
-1. Go to [gov.tez.capital](https://gov.tez.capital) and connect with your baker's manager key
-2. Navigate to **Baker Management → Keys**
-3. Set your **Consensus Key**: paste the `BLpk...` public key and POP for `baker`
-4. Set your **Companion Key**: paste the `BLpk...` public key and POP for `companion`
-5. Confirm both operations
-
-##### Option B: CLI
-
-```bash
-tezbake signer client set consensus key for baker to baker
-tezbake signer client set companion key for baker to companion
-```
-
-> **⏱️ Activation:** Both keys take effect after **3 cycles**. On 20 minute cycle testnets like Tallinnnet this is ~1 hour; on longer-cycle testnets it can take days. Monitor activation at:
-> `https://tzkt.io/<your_baker_address>/secondary-keys`
-
-**Step 5 — Add the companion key alias to the baker configuration:**
-
-```bash
-tezbake node modify --set configuration.additional_key_aliases '["companion"]'
-tezbake upgrade
-```
+Note the baker address and the companion `BLpk...` public key plus POP output. You will need the companion values after the baker is registered.
 
 ### Register as baker on the Tezos blockchain Testnet
+
+**Step 4 — Register as baker on-chain before setting the companion key:**
 
 For this step your node level must be synced with the latest block on the blockchain explorer. The soft-key testnet setup above does not require a Ledger. If you are testing with a dedicated testnet Ledger, open the Ledger Tezos Wallet app only for registration and voting; use the Tezos Baking app for baking operations.
 
 To secure your XTZ security deposit on a testnet, use the faucet for your chosen network to get free test XTZ:
 
 * Bakingnet: <https://faucet.bakingnet.teztnets.com>
-* Tallinnnet: <https://faucet.tallinnnet.teztnets.com>
+* [Ushuaianet](https://teztnets.com/ushuaianet-about): <https://faucet.ushuaianet.teztnets.com>
 
 Current Tezos testnet faucets are listed at <https://teztnets.com>
 
@@ -220,6 +194,33 @@ tezbake register-key
 > * Your baking rights have stopped appearing in the schedule
 >
 > Check your baking rights schedule to confirm if re-registration is needed.
+
+**Step 5 — Set the companion key:**
+
+Do not set the consensus key to `baker` in this soft-key setup. The `baker` key is already the manager key and initial consensus key after baker registration. Set only the separate `companion` key, and do this after `tezbake register-key` succeeds.
+
+##### Option A: TezGov (recommended)
+
+1. Go to [gov.tez.capital](https://gov.tez.capital) and connect with your baker's manager key
+2. Navigate to **Baker Management → Keys**
+3. Set your **Companion Key**: paste the `BLpk...` public key and POP for `companion`
+4. Confirm the operation
+
+##### Option B: CLI
+
+```bash
+tezbake signer client set companion key for baker to companion
+```
+
+> **⏱️ Activation:** The companion key takes effect after **3 cycles**. On 20 minute cycle testnets like [Ushuaianet](https://teztnets.com/ushuaianet-about) this is ~1 hour; on longer-cycle testnets it can take days. Monitor activation at:
+> `https://tzkt.io/<your_baker_address>/secondary-keys`
+
+**Step 6 — Add the companion key alias to the baker configuration:**
+
+```bash
+tezbake node modify --set configuration.additional_key_aliases '["companion"]'
+tezbake upgrade
+```
 
 ### Stake your baking XTZ security deposit
 
