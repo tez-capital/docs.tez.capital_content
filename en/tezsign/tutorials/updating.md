@@ -44,7 +44,7 @@ wget https://github.com/tez-capital/tezsign/releases/download/<release-tag>/tezs
 sudo ./tezsign_updater
 ```
 
-    > **Note:** You can run `./tezsign_updater -h` to see all available options.
+> **Note:** You can run `./tezsign_updater -h` to see all available options.
 
 6. **Select SD Card:**
     Choose the SD card you wish to flash from the available list. The tool will indicate **OK** for devices that match the TezSign layout.
