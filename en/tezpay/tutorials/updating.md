@@ -7,7 +7,21 @@ summary: How to update TezPay
 
 ## Keeping TezPay Up-to-Date
 
-For access to future releases via Linux CLI, run the following command from within the folder where tezpay is located:
+Choose the update path that matches how TezPay is installed.
+
+### TezBake Integrated TezPay
+
+If TezPay was installed through TezBake with `tezbake setup --pay`, update the integrated pay module through TezBake:
+
+```bash
+sudo tezbake upgrade --pay
+```
+
+If you run TezBake as a privileged user already, the same upgrade path is `tezbake upgrade --pay`.
+
+### Standalone Linux CLI
+
+For a standalone TezPay install, run the following command from within the folder where tezpay is located:
 
 ```bash
 cd tezpay
