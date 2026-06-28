@@ -14,10 +14,8 @@ Choose the update path that matches how TezPay is installed.
 If TezPay was installed through TezBake with `tezbake setup --pay`, update the integrated pay module through TezBake:
 
 ```bash
-sudo tezbake upgrade --pay
+tezbake upgrade --pay
 ```
-
-If you run TezBake as a privileged user already, the same upgrade path is `tezbake upgrade --pay`.
 
 ### Standalone Linux CLI
 

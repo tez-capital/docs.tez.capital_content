@@ -10,7 +10,7 @@ summary: Integrating TezPay with TezBake
 | Task                           | Command                               |
 | ------------------------------ | ------------------------------------- |
 | Install TezPay Module          | `tezbake setup --pay`                 |
-| Upgrade TezPay Only            | `sudo tezbake upgrade --pay`          |
+| Upgrade TezPay Only            | `tezbake upgrade --pay`               |
 | Verify Installation            | `tezbake apps`                        |
 | Generate Payouts               | `tezbake pay generate-payouts`        |
 | Pay Delegators                 | `tezbake pay pay`                     |
@@ -229,7 +229,7 @@ Example `/bake-buddy/pay/app.json`:
 After changing the `CONTINUAL` block in `/bake-buddy/pay/app.json`, apply the updated pay module configuration:
 
 ```bash
-sudo tezbake upgrade --pay
+tezbake upgrade --pay
 ```
 
 ---
@@ -263,7 +263,7 @@ TezPay automatically pauses continual payouts when a Tezos protocol upgrade occu
 1. **Update TezPay to the latest version:**
 
    ```bash
-   sudo tezbake upgrade --pay
+   tezbake upgrade --pay
    ```
 
 2. **Run a dry-run to verify payouts:**
