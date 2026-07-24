@@ -46,7 +46,7 @@ Please follow the steps below to create your configuration and wallet or remote 
 3. [Setup Guide for New Users](#setup-guide-for-new-users)
 4. [Managing Payouts](#managing-payouts)
 5. [Automatic (Continual) Payouts](#automatic-continual-payouts)
-6. [Starting & Stopping TezPay](#starting--stopping-tezpay-continual-service)
+6. [Starting & Stopping TezPay](#starting-stopping-tezpay-continual-service)
 7. [Removing the Pay Module](#removing-the-pay-module)
 
 ---
