@@ -64,7 +64,7 @@ Bakers control whether and how much external stake they accept via two parameter
 - Setting to 5 means you accept up to 5x your own frozen stake from stakers
 - Example: If you have 10,000 XTZ frozen stake with limit=5, you can accept up to 50,000 XTZ from stakers
 
-> **💡 Understanding Capacity Limits**
+> **💡 TIP: Understanding Capacity Limits**
 >
 > Bakers have two independent capacity limits:
 > * **Staking limit**: Up to 9x your own frozen stake (controlled by `limit_of_staking_over_baking`)

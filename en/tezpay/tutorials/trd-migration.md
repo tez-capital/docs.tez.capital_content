@@ -24,7 +24,7 @@ If you're switching from TRD (Tezos Reward Distributor) to TezPay, here's what y
 - The folder holds the binary, configuration (`config.hjson`), and reports.
 - TezPay has an import tool that can convert a standard `trd.yaml` into a working `config.hjson`.
 
-> **Note:**  
+> **ℹ️ INFO:**
 > This is just a quick start guide. For more comprehensive and detailed information about TezPay, you may want to check other guides and the command reference.
 
 ---
@@ -35,7 +35,7 @@ If you're switching from TRD (Tezos Reward Distributor) to TezPay, here's what y
 
 Choose a directory to store your TezPay instance.
 
-> **Tip:**  
+> **💡 TIP:**
 > Use one folder per baker address, e.g., `/tezos/payouts/my-baker`.
 
 This directory will contain:
@@ -58,7 +58,7 @@ chmod +x ./tezpay
 
 For Windows, the binary will be named `tezpay.exe`. To make it executable, no additional steps are required on Windows.
 
-> **Note:**  
+> **ℹ️ INFO:**
 > Replacing the binary with the latest version is how you upgrade TezPay.
 
 ---
@@ -78,7 +78,7 @@ You have **two options**:
 
 This creates `config.hjson` based on your TRD settings.
 
-> **Note:**  
+> **ℹ️ INFO:**
 > Most standard TRD configs work out of the box. Edge cases might need adjustments.
 
 #### Option B: Start Fresh
@@ -99,7 +99,7 @@ Run a dry run of the payouts:
 ./tezpay generate-payouts
 ```
 
-> **This does not execute payouts.**  
+> **ℹ️ INFO: Dry Run Only**
 > It only shows what TezPay would distribute.
 
 ---
@@ -128,7 +128,7 @@ To run payouts continuously:
 ./tezpay continual
 ```
 
-> **Folder Location Tip:**
+> **💡 TIP: Folder Location**
 > If you run TezPay as a service, place your payout folder **outside of `/home`** for reliable service access.
 > Example: `/tezos/payouts/my-baker`
 

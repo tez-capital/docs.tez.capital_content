@@ -36,11 +36,11 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 
 TezSign block signing applies to testnets too. If you are testing TezSign, follow the TezSign setup steps in [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/#recommended-set-up-tezsign-consensus-and-companion-keys) after you run the testnet-specific `tezbake setup`, bootstrap, and sync steps below.
 
-> **⚠️ Testnet Safety:** Do not reuse a mainnet TezSign device, restored card, Ledger, or key material on a testnet. Use a separate testnet device/card or a soft-key testnet setup.
+> **⚠️ WARNING: Testnet Safety:** Do not reuse a mainnet TezSign device, restored card, Ledger, or key material on a testnet. Use a separate testnet device/card or a soft-key testnet setup.
 
 ---
 
-> **DAL Included by Default**
+> **ℹ️ INFO: DAL Included by Default**
 > DAL is part of the standard testnet baker setup. The commands below include `--with-dal`.
 >
 > If you intentionally need to test without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
@@ -106,7 +106,7 @@ After starting the node, run the following command over and over every few minut
 tezbake info
 ```
 
-> **Understanding "Level"**
+> **ℹ️ INFO: Understanding "Level"**
 >
 > The level is the current block height (block number) on the blockchain. To verify your node is synchronized:
 >
@@ -124,11 +124,11 @@ After you generate the baker address below, fund it with enough tez (6000 minimu
 
 #### Import Soft key to TezBake
 
-> **ℹ️ Key Roles: Manager / Consensus / Companion**
+> **ℹ️ INFO: Key Roles: Manager / Consensus / Companion**
 >
 > Tezos baking uses three distinct key roles. For a full explanation, see [Baking on Mainnet — Understanding Baker Key Roles](/tezbake/tutorials/baking-on-mainnet/#understanding-baker-key-roles).
 >
-> **In this soft key testnet setup:** the `baker` key is your manager address AND your initial consensus key — both roles live at the same tz4 address.
+> **ℹ️ INFO:** In this soft key testnet setup, the `baker` key is your manager address AND your initial consensus key. Both roles live at the same tz4 address.
 >
 > **⚠️ WARNING: Companion Key is Mandatory**
 >
@@ -146,7 +146,7 @@ tezbake setup-soft-wallet --generate bls --key-alias baker
 tezbake setup-soft-wallet --generate bls --key-alias companion
 ```
 
-> **💾 Backup both keys.** You can retrieve each secret key with:
+> **⚠️ WARNING: Back Up Both Keys:** You can retrieve each secret key with:
 >
 > ```bash
 > tezbake signer client show address baker --show-secret
@@ -185,7 +185,7 @@ Current Tezos testnet faucets are listed at <https://teztnets.com>
 tezbake register-key
 ```
 
-> **ℹ️ When Registration is Required:**
+> **ℹ️ INFO: When Registration Is Required**
 >
 > You must register your baker if:
 >
@@ -212,7 +212,7 @@ Do not set the consensus key to `baker` in this soft-key setup. The `baker` key 
 tezbake signer client set companion key for baker to companion
 ```
 
-> **⏱️ Activation:** The companion key takes effect after **3 cycles**. On 20 minute cycle testnets like [Ushuaianet](https://teztnets.com/ushuaianet-about) this is ~1 hour; on longer-cycle testnets it can take days. Monitor activation at:
+> **ℹ️ INFO: Activation:** The companion key takes effect after **3 cycles**. On 20 minute cycle testnets like [Ushuaianet](https://teztnets.com/ushuaianet-about) this is ~1 hour; on longer-cycle testnets it can take days. Monitor activation at:
 > `https://tzkt.io/<your_baker_address>/secondary-keys`
 
 **Step 6 — Add the companion key alias to the baker configuration:**
@@ -232,11 +232,11 @@ You can stake your security deposit by running the following command. If you are
 tezbake signer client stake 6000 for baker
 ```
 
-> **ℹ️ Staking Options:**
+> **ℹ️ INFO: Staking Options**
 >
 > Change 6000 to the amount you want to stake. The minimum security deposit is 6000 XTZ.
 >
-> **Alternative Configurations:**
+> **💡 TIP: Alternative Configurations**
 > You may start baking with as little as 1000 XTZ if you configure additional sources:
 >
 > * Set baking over staking multiplier to 5X + secure 5000 XTZ from stakers, OR

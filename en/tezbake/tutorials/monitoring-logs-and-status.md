@@ -8,7 +8,7 @@ summary: Monitor your Tezos baker status, view logs, and diagnose issues with Te
 Follow along on Youtube!
 {{< youtube tqqLNBo1OeE >}}
 
-> **Quick Reference**
+> **ℹ️ INFO: Quick Reference**
 > ```bash
 > tezbake info                    # Overall status snapshot
 > tezbake node log -f             # All node logs (live)

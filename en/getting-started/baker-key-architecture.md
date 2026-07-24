@@ -74,7 +74,7 @@ When you want to activate a new consensus or companion key:
 4. Confirm on your Ledger
 5. **Wait 3 cycles (~3 days)** for the new key to become active
 
-> **ℹ️ Proof of Possession (PoP):** A cryptographic proof that you own the private key corresponding to the public key you are registering. Required for all tz4 key registrations. Generated automatically by TezBake/TezSign during setup, or via `tezbake signer client get proof of possession for <alias>` for soft keys.
+> **ℹ️ INFO: Proof of Possession (PoP):** A cryptographic proof that you own the private key corresponding to the public key you are registering. Required for all tz4 key registrations. Generated automatically by TezBake/TezSign during setup, or via `tezbake signer client get proof of possession for <alias>` for soft keys.
 
 The manager key signs the on-chain operation that registers the new consensus/companion keys. The consensus and companion keys themselves only need to be available on the signing device — they do not need to be accessible by the client at registration time (only the PoP is needed).
 

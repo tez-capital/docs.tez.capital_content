@@ -18,7 +18,7 @@ For this tutorial, you'll need to have already followed one of the following:
 
 TezPeak supports using TezBake and TezPay simultaneously or by themselves. To run them at the same time, combine both configurations in the same file as shown here: [https://github.com/tez-capital/tezpeak](https://github.com/tez-capital/tezpeak)
 
-> **Note:** tezbake version 0.18.0-beta minimum is required to use TezPeak.
+> **ℹ️ INFO:** TezBake version 0.18.0-beta minimum is required to use TezPeak.
 
 ---
 
@@ -38,7 +38,7 @@ cd /bake-buddy/peak/ && touch config.hjson
 
 Open the `config.hjson` file with your favorite text editor.
 
-> If you've used JSON before but not HJSON, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/)
+> **ℹ️ INFO:** If you've used JSON before but not HJSON, you can read more about it here: [https://hjson.github.io/](https://hjson.github.io/).
 
 ---
 
@@ -117,7 +117,7 @@ Open the `config.hjson` file with your favorite text editor.
 }
 ```
 
-> **⚠️ SECURITY WARNING: Private Mode**
+> **⚠️ WARNING: Private Mode**
 >
 > In **private** mode, anyone with access to your TezPeak instance can **control your baker** (start, stop, and manage services). Only use private mode when:
 > - TezPeak is bound to `127.0.0.1` (localhost only), or

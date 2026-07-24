@@ -77,9 +77,7 @@ amd64). For this example we will be using *arm64*
 | ![Download options based on operating system for TezPay application.](/tezpay/tutorial/tezpayImage2.png) |
 |-|
 
-Note: If you do not know the system architecture you can find out by
-opening a Terminal and executing the command `uname -m`, and this will
-return the system architecture`arm64` or `amd64`.
+> **ℹ️ INFO:** If you do not know the system architecture, open a terminal and run `uname -m`. It returns `arm64` or `amd64`.
 
 The example below displays *arm64*
 
@@ -179,7 +177,7 @@ we will review:
 This section will review how to setup the configuration file
 (simple-version) to be used by the TezPay application.
 
-*Note: must have file name **config.hjson**, case-sensitive*
+> **ℹ️ INFO:** The configuration file must be named exactly `config.hjson`. The file name is case-sensitive.
 
 | ![Simple Configuration file for TezPay.](/tezpay/tutorial/tezpayImage13.png) |
 |-|
@@ -216,7 +214,7 @@ custom file as well - but should be done by experienced users.
 This section will review how to setup the configuration file
 (advanced-version) to be used by the TezPay application.
 
-*Note: must have file name **config.hjson**, case-sensitive*
+> **ℹ️ INFO:** The configuration file must be named exactly `config.hjson`. The file name is case-sensitive.
 
 | ![Advanced Configuration file for TezPay.](/tezpay/tutorial/tezpayImage14.png) |
 |-|
@@ -451,7 +449,7 @@ overdelegation: {
 }
 ```
 
-> **📚 Full Reference:** See the [complete sample configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) for all available options including notifications, extensions, and network settings.
+> **ℹ️ INFO: Full Reference:** See the [complete sample configuration](https://github.com/tez-capital/tezpay/blob/main/docs/configuration/config.sample.hjson) for all available options including notifications, extensions, and network settings.
 
 ---
 

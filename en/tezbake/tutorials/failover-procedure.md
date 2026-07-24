@@ -54,7 +54,7 @@ tezbake info
 
 ### Step 3: Disconnect Primary Signer
 
-**Critical step** - physically ensure the primary cannot sign:
+> **🚨 CRITICAL:** Physically ensure the primary cannot sign before activating the backup.
 
 - **TezSign**: Unplug the USB cable from the primary computer
 - **Ledger**: Unplug from primary and close the Baking app
@@ -101,7 +101,7 @@ Replace `consensus` and `companion` if your TezSign device uses different key al
 tezbake setup-ledger --platform --import-key --authorize --hwm <current_level+10>
 ```
 
-> **ℹ️ HWM Safety Margin**: Setting HWM slightly above current level ensures your backup won't sign any block the primary might have signed. For TezSign, set the level for every signing alias, commonly `consensus` and `companion`.
+> **ℹ️ INFO: HWM Safety Margin:** Setting HWM slightly above current level ensures your backup won't sign any block the primary might have signed. For TezSign, set the level for every signing alias, commonly `consensus` and `companion`.
 
 ### Step 6: Start Backup Baker
 

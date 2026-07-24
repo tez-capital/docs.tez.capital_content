@@ -5,7 +5,7 @@ type: docs
 summary: Run TezBake in a Docker container for isolated and portable Tezos baking
 ---
 
-> **⚠️ Legacy / advanced path:** This page is for operators who already know they need a Dockerized TezBake deployment. New bakers should use the standard [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) flow with TezSign consensus and companion keys.
+> **⚠️ WARNING: Legacy / Advanced Path:** This page is for operators who already know they need a Dockerized TezBake deployment. New bakers should use the standard [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) flow with TezSign consensus and companion keys.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ summary: Run TezBake in a Docker container for isolated and portable Tezos bakin
 
 For this tutorial, you'll need to have already have installed Docker as shown here: <https://docs.docker.com/engine/install>
 
-> **DAL Included by Default**
+> **ℹ️ INFO: DAL Included by Default**
 > DAL is part of the standard baker setup. If your Docker deployment intentionally runs without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 
 ## Table of Contents
@@ -89,19 +89,19 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 # If you're importing for the second time after already trying again but failing, you can use `--force` to force the import.
 ```
 
-> **ℹ️ Verification & Setup Notes:**
+> **ℹ️ INFO: Verification and Setup Notes**
 >
 > * Once imported, you can see your baker address by running `tezbake info`
 > * The ledger will ask you twice to confirm this operation - ensure the baker address matches the one you want to use
 > * To get the default ledger address, go to <https://gov.tez.capital> and login with ledger, accepting the default derivation path
 >
-> **ℹ️ Ledger Key Types:**
+> **ℹ️ INFO: Ledger Key Types**
 > Ledger baking supports tz1/tz2/tz3 key types. It does not provide tz4/BLS baking keys; use TezSign for tz4 consensus and companion keys.
 >
-> **💡 TIP: Security:**
+> **💡 TIP: Security**
 > Putting the baker on a non-default derivation path provides an additional layer of security at the cost of extra complexity. Make sure your setup is clearly documented for your own records.
 >
-> **⚠️ High Watermark (HWM) Important Notes:**
+> **⚠️ WARNING: High Watermark (HWM) Notes**
 >
 > * If your device was used to bake before, it has a "high watermark" (HWM)
 > * If you try to use this device on a testnet, it will not work because testnet block heights usually start with 1 while mainnet is in the millions
@@ -109,7 +109,7 @@ tezbake setup-ledger --platform --import-key --authorize --hwm 1
 > * The watermark is a record of the last block number your ledger helped to bake or attest
 > * If setting up a brand new device not used for baking before, no need to alter the default command
 >
-> **🚨 CRITICAL: Prevent Double Baking:**
+> **🚨 CRITICAL: Prevent Double Baking**
 >
 > * Always ensure you're not accidentally going to double bake by using your production ledger/setup to bake on a testnet
 > * Double baking/attesting means having 2 different bakers with the same key on the same network
@@ -161,7 +161,7 @@ For this step your node level must be synced with the latest block on the blockc
 tezbake register-key
 ```
 
-> **ℹ️ When Registration is Required:**
+> **ℹ️ INFO: When Registration Is Required**
 >
 > Registration is NOT necessary if:
 >

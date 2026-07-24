@@ -142,7 +142,7 @@ Insert your **unencrypted** private key:
 edsk...yourprivatekeyhere...
 ```
 
-> **🚨 CRITICAL:**
+> **🚨 CRITICAL: Payout Wallet Safety**
 >
 > **Use a dedicated wallet with minimal funds for payouts only. NEVER use your main baker wallet.**
 
@@ -224,7 +224,7 @@ Example `/bake-buddy/pay/app.json`:
 - `interval_trigger_offset` - shifts the interval start to align payments with your preferred cycle. For example, if it's currently cycle 10 and you want to start paying during cycle 11 for the previous 7 cycles, then continue every 7 cycles, use offset `3`. This works because 7 is the end of the default interval, and adding 3 makes 10 the end of the interval. Instead of cycles 1-7 being paid, cycles 3-10 are paid.
 - `include_previous_cycles` - number of past cycles before the current interval to check for missed payments. If any are detected, they will be included in the current batch.
 
-> **Note:** The `--interval` CLI flag does not work with TezBake integration. You must configure the interval in `app.json`.
+> **ℹ️ INFO:** The `--interval` CLI flag does not work with TezBake integration. You must configure the interval in `app.json`.
 
 After changing the `CONTINUAL` block in `/bake-buddy/pay/app.json`, apply the updated pay module configuration:
 
@@ -280,7 +280,7 @@ TezPay automatically pauses continual payouts when a Tezos protocol upgrade occu
    sudo tezbake start --pay
    ```
 
-> **Note:** The service may already be running but not processing. The start command ensures it resumes processing.
+> **ℹ️ INFO:** The service may already be running but not processing. The start command ensures it resumes processing.
 
 ---
 

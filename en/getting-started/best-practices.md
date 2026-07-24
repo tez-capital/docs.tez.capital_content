@@ -67,25 +67,25 @@ If your baking computer and your ISP are in different rooms or on different elec
 
 ### Using Wi-Fi
 
-> **⚠️ WARNING**
+> **⚠️ WARNING: Avoid Wi-Fi**
 >
 > Wi-Fi is not as reliable as a wired Ethernet connection and can cause intermittent connectivity issues. Always use a wired connection for your baking computer.
 
 ### Using DHCP
 
-> **⚠️ WARNING**
+> **⚠️ WARNING: Avoid DHCP**
 >
 > DHCP automatically assigns IP addresses to your computer. This can cause issues if DHCP fails to renew the lease automatically. Use a static IP address for your baking computer instead.
 
 ### Using your daily computer or laptop
 
-> **⚠️ WARNING**
+> **⚠️ WARNING: Avoid Daily-Use Machines**
 >
 > Using your daily-use computer for baking increases the risk of accidentally disrupting either your baker's internet connection or your Ledger's USB connection. Use a dedicated machine for baking.
 
 ### Not using TezWatch monitoring alerts
 
-> **⚠️ WARNING**
+> **⚠️ WARNING: Use Monitoring Alerts**
 >
 > TezWatch monitors your baker's status and alerts you immediately if issues arise. You should configure TezWatch Discord alerts so you receive instant notifications when your baker goes offline.
 

@@ -5,7 +5,9 @@ type: docs
 summary: How to run TezBox Docker container for local Tezos development
 ---
 
-> **⚠️ Protocol examples age quickly:** The commands below demonstrate the TezBox workflow, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
+> **⚠️ WARNING: Protocol Examples Age Quickly**
+>
+> The commands below demonstrate the TezBox workflow, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
 
 {{< youtube v-X90E4JFTY >}}
 
@@ -31,7 +33,7 @@ To run the TezBox container with the Paris protocol
 sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
-> You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
+> **💡 TIP:** You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
 
 You can also run the process in the background by adding the `-d` flag
 
@@ -51,7 +53,7 @@ To view all available protocols available in the TezBox container, you can run t
 sudo docker run -it --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 list-protocols
 ```
 
-> **⚠️ NOTE:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
+> **⚠️ WARNING:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
 
 ## Setup TezBox to test Release Candidate (RC) protocols
 
@@ -63,7 +65,7 @@ To run the TezBox container with the Qena42 protocol
 sudo docker run -it -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v21.0-rc4 qenabox
 ```
 
-> You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
+> **💡 TIP:** You can customize the port the container listens on by changing the `:8732` furthest to the right to a different port number, for example `0.0.0.0:8732:12732` will present the container on port 12732.
 
 You can also run the process in the background by adding the `-d` flag
 

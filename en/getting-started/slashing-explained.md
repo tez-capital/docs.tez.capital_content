@@ -69,7 +69,7 @@ When a baker is slashed, the penalty is distributed **proportionally to stake co
 - If a baker has 60% of total stake and stakers have 40%, the baker pays 60% of the penalty and stakers collectively pay 40%
 - Each staker's share is proportional to their individual contribution to the baker's staking balance
 
-> **ℹ️ Important:** The `edge_of_baking_over_staking` parameter affects **reward distribution only**, not slashing. Slashing is always proportional to stake regardless of edge setting.
+> **ℹ️ INFO:** The `edge_of_baking_over_staking` parameter affects **reward distribution only**, not slashing. Slashing is always proportional to stake regardless of edge setting.
 
 ### Overstaked Funds
 
@@ -90,7 +90,7 @@ Slashing doesn't happen automatically. Another network participant must **denoun
 - **Denunciation period**: 1 cycle - denouncements must be submitted within this window
 - **Slashing delay**: 1 cycle - slashing is applied at the end of the cycle after denunciation
 
-> **ℹ️ Note:** The denunciation reward was reduced from 1/2 to 1/11 to prevent adversarial delegates from profiting by intentionally misbehaving and self-denouncing at the expense of their stakers.
+> **ℹ️ INFO:** The denunciation reward was reduced from 1/2 to 1/11 to prevent adversarial delegates from profiting by intentionally misbehaving and self-denouncing at the expense of their stakers.
 
 ## The Forbidden Period
 

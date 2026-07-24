@@ -17,7 +17,7 @@ Use this guide when you want to:
 
 These are offline SD-card procedures. You remove the microSD card from the TezSign device, use a computer to clone the whole card or copy the `tezsign` folder from the `data` partition, then restore the backup to another card.
 
-> **Important:** macOS does not mount the TezSign `data` partition correctly. Use a Linux computer, a Linux live USB, or a trusted Linux VM with direct access to the card reader.
+> **⚠️ WARNING:** macOS does not mount the TezSign `data` partition correctly. Use a Linux computer, a Linux live USB, or a trusted Linux VM with direct access to the card reader.
 
 ## Choose a Backup Method
 
@@ -30,7 +30,9 @@ There are two useful TezSign backup methods:
 
 Cloning is the quickest way to create ready spare cards on the same TezSign image generation. It is not an upgrade path.
 
-> **New-generation image warning:** A full-card clone preserves the old image. It will not move you to the new TezSign image generation, and it will not work around an older image that cannot use the built-in update process. For that, flash the latest full image first, then restore the `data/tezsign` folder onto the new card.
+> **⚠️ WARNING: New-Generation Images**
+>
+> A full-card clone preserves the old image. It will not move you to the new TezSign image generation, and it will not work around an older image that cannot use the built-in update process. For that, flash the latest full image first, then restore the `data/tezsign` folder onto the new card.
 
 ## Clone the Whole SD Card
 
@@ -49,7 +51,7 @@ Tools people commonly use:
 - [Balena Etcher](https://etcher.balena.io/) - use **Clone drive** if your version offers it, or use **Flash from file** after creating an image.
 - [GNOME Disks](https://wiki.gnome.org/Apps/Disks) - a simple Linux GUI app that can create and restore disk images.
 
-Never boot the cloned card at the same time as the original for the same baker. A clone contains the same signing keys and signer state.
+> **🚨 CRITICAL:** Never boot the cloned card at the same time as the original for the same baker. A clone contains the same signing keys and signer state.
 
 ## Clone by Making an Image First
 
@@ -89,9 +91,9 @@ Copy the entire `tezsign` folder as one unit. Do not copy only individual files 
 - Have a backup destination ready, such as another drive or an encrypted folder.
 - Keep your TezSign master/key decryption password safe. The backup is not useful without it.
 
-> **Critical:** Never run two TezSign devices, cards, or restored copies with the same keys at the same time. That can cause double signing and slashing.
+> **🚨 CRITICAL:** Never run two TezSign devices, cards, or restored copies with the same keys at the same time. That can cause double signing and slashing.
 
-> **Baker host note:** If you use the baker machine itself as a temporary staging computer, delete the temporary backup folder or archive from the baker after you have restored it to your backup flashed card(s). Do not leave loose signer backups sitting on the baker host.
+> **ℹ️ INFO: Baker Host Staging:** If you use the baker machine itself as a temporary staging computer, delete the temporary backup folder or archive from the baker after you have restored it to your backup flashed card(s). Do not leave loose signer backups sitting on the baker host.
 
 ## Find the `data` Partition
 
@@ -234,7 +236,7 @@ tezbake tezsign advanced set-level companion <level>
 
 Run the command for each TezSign key alias that signs for the baker. The common aliases are `consensus` and `companion`; if you used different TezSign device aliases, replace them. These are the TezSign device key aliases, not necessarily the local Octez aliases loaded by the baker.
 
-Do not lower a high-watermark level casually. Only change it when you are intentionally preparing a restored, migrated, or backup TezSign card to resume baking safely.
+> **⚠️ WARNING:** Do not lower a high-watermark level casually. Only change it when you are intentionally preparing a restored, migrated, or backup TezSign card to resume baking safely.
 
 ## Safety Notes
 

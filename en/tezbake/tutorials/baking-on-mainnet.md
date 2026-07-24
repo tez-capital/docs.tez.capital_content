@@ -7,7 +7,7 @@ summary: Complete guide to setting up a Tezos baker on mainnet with TezBake, fro
 
 {{< youtube t85LjgpRtvc >}}
 
-> **ℹ️ System Requirements**
+> **ℹ️ INFO: System Requirements**
 > - **OS:** Ubuntu 22.04+, Debian 12+, or macOS (other Linux distributions may work but are untested)
 > - **Hardware:** See [Hardware Requirements](/getting-started/hardware-requirements/)
 > - Windows is **not supported**
@@ -72,13 +72,13 @@ Installing TezBake and using it to setup your Tezos baker is very simple. You wi
 
 ---
 
-> **DAL Included by Default**
+> **ℹ️ INFO: DAL Included by Default**
 >
 > DAL is part of the standard TezBake baker setup. The command below installs and configures it with the node, baker, and signer.
 >
 > If you intentionally need to run without a local DAL node, see [Baking Without DAL](/tezbake/tutorials/baking-without-dal/). If you want DAL on another host or IP address, use [Baking with Prism](/tezbake/tutorials/baking-with-prism/).
 >
-> **What is the DAL?**
+> **ℹ️ INFO: What Is the DAL?**
 > The DAL acts like an overflow area for data, where large amounts of information can be kept available to the network without overloading the core blockchain. This means Tezos can safely handle far more transactions and complex operations, because the rollups can rely on the DAL to make their data available for everyone to verify.
 
 ## Installation (All-in-one)
@@ -133,7 +133,7 @@ After starting the node, run the following command over and over every few minut
 tezbake info
 ```
 
-> **Understanding "Level"**
+> **ℹ️ INFO: Understanding "Level"**
 >
 > The level is the current block height (block number) on the blockchain. To verify your node is synchronized:
 >
@@ -155,14 +155,14 @@ You will have to first fund your baker address with enough tez (6000 minimum) to
 
 Before choosing your signing setup, it's essential to understand the three key roles in Tezos baking — **manager**, **consensus**, and **companion** — and how they relate to each other. These apply to **all baker setups**, not just TezBake.
 
-> **📖 See [Baker Key Architecture](/getting-started/baker-key-architecture/) for the full explanation**, including the recommended Ledger + TezSign architecture, key lifecycle, registration process, and common misunderstandings.
+> **ℹ️ INFO:** See [Baker Key Architecture](/getting-started/baker-key-architecture/) for the full explanation, including the recommended Ledger + TezSign architecture, key lifecycle, registration process, and common misunderstandings.
 
 **Quick summary:**
 - **Manager key** — Your permanent baker address. Controls funds, governance, and has sole authority to set/rotate consensus and companion keys.
 - **Consensus key** — Signs blocks and attestations. Defaults to the manager key; can be rotated to a separate key (e.g. TezSign tz4).
 - **Companion key** — **Mandatory when consensus key is tz4.** Signs DAL payloads. Always a separate tz4 key.
 
-> **⚠️ If your consensus key is tz4, a companion key is mandatory.** Without it, your baker forfeits ~10% of baking rewards.
+> **⚠️ WARNING:** If your consensus key is tz4, a companion key is mandatory. Without it, your baker forfeits ~10% of baking rewards.
 
 ---
 
@@ -185,7 +185,7 @@ curl -fsSL https://raw.githubusercontent.com/tez-capital/tezsign/refs/heads/main
 sudo usermod -aG plugdev $USER
 ```
 
-> **Ubuntu username note:** Ubuntu does not allow capital letters in usernames.
+> **ℹ️ INFO:** Ubuntu does not allow capital letters in usernames.
 
 Log out and log back in so the group membership takes effect.
 
@@ -353,7 +353,7 @@ The Ledger will ask you **twice** to confirm the operation. Check that the baker
 
 > **💡 TIP:** If you're importing for the second time after a failed attempt, add `--force` to override the previous import.
 
-> **⚠️ Ledger Baking App Behavior**
+> **⚠️ WARNING: Ledger Baking App Behavior**
 > - The Ledger **must** stay on the Tezos Baking app at all times while baking
 > - The screensaver activating is normal — baking continues
 > - Do **NOT** open Ledger Live while baking — it will disconnect the signer
@@ -385,7 +385,7 @@ Look for your baker address in the output. If it appears and the signer status s
 >
 > **What is Double Baking?** Running two bakers with the same key on the same network simultaneously. This means your key signs conflicting blocks or attestations, which is treated as a malicious attack. The protocol detects this and **slashes (confiscates) your staked tez** as punishment. See [Slashing Explained](/getting-started/slashing-explained/) for penalty details.
 >
-> **Critical Rules:**
+> **🚨 CRITICAL: Double Baking Rules**
 > * **Never run two bakers with the same key** — even briefly, even on different machines
 > * **Never use your TezSign backup device to bake** — backup devices are only for emergency failover
 > * **Always use separate devices for testnet** — never reuse a mainnet Ledger or TezSign on a testnet
@@ -398,7 +398,7 @@ Look for your baker address in the output. If it appears and the signer status s
 >
 > When using a tz4 (BLS) key as your manager/consensus key, you **must** also register a separate tz4 companion key. See the [key roles overview above](#understanding-baker-key-roles) for details.
 
-> **ℹ️ In this soft key setup:** the `baker` key is your manager address AND your initial consensus key — both roles live at the same tz4 address. There is no separate hardware device; both keys are unencrypted files on disk.
+> **ℹ️ INFO:** In this soft key setup, the `baker` key is your manager address AND your initial consensus key. Both roles live at the same tz4 address. There is no separate hardware device; both keys are unencrypted files on disk.
 
 **Step 1 — Generate the baker key (this becomes your manager address AND initial consensus key):**
 
@@ -412,7 +412,7 @@ tezbake setup-soft-wallet --generate bls --key-alias baker
 tezbake setup-soft-wallet --generate bls --key-alias companion
 ```
 
-> **💾 Backup both keys.** You can retrieve each secret key with:
+> **⚠️ WARNING: Back Up Both Keys:** You can retrieve each secret key with:
 >
 > ```bash
 > tezbake signer client show address baker --show-secret
@@ -450,7 +450,7 @@ Use the `Become a Baker` button on the <https://gov.tez.capital> portal with you
 tezbake register-key
 ```
 
-> **ℹ️ When Registration is Required:**
+> **ℹ️ INFO: When Registration Is Required**
 >
 > You must register your baker if:
 >
@@ -477,7 +477,7 @@ Do not set the consensus key to `baker` in this soft-key setup. The `baker` key 
 tezbake signer client set companion key for baker to companion
 ```
 
-> **⏱️ Activation:** The companion key takes effect after **3 cycles (~3 days)**. Monitor activation at:
+> **ℹ️ INFO: Activation:** The companion key takes effect after **3 cycles (~3 days)**. Monitor activation at:
 > `https://tzkt.io/<your_baker_address>/secondary-keys`
 
 **Step 6 — Add the companion key alias to the baker configuration:**

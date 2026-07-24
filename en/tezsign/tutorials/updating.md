@@ -8,11 +8,13 @@ summary: How to update TezSign firmware and application
 ## Keeping TezSign Up-to-Date
 
 > **⚠️ WARNING: Experimental Updater**
+>
 > The `tezsign_updater` is currently experimental. Before updating or reflashing, **back up the `data/tezsign` folder** with [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 >
 > macOS does not mount the TezSign `data` partition correctly. Use Linux to make this backup.
+
+> **ℹ️ INFO: Image Compatibility**
 >
-> **IMPORTANT: Image Compatibility Note**
 > This update process **only works if you are using an image from 21.11.2025 or newer**.
 >
 > **If you are using an older image:**
@@ -44,7 +46,7 @@ wget https://github.com/tez-capital/tezsign/releases/download/<release-tag>/tezs
 sudo ./tezsign_updater
 ```
 
-> **Note:** You can run `./tezsign_updater -h` to see all available options.
+> **ℹ️ INFO:** You can run `./tezsign_updater -h` to see all available options.
 
 6. **Select SD Card:**
     Choose the SD card you wish to flash from the available list. The tool will indicate **OK** for devices that match the TezSign layout.

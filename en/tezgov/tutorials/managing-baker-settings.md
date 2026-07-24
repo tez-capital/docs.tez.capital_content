@@ -26,7 +26,7 @@ TezGov provides a web interface for managing all aspects of your baker beyond vo
 * **Remote Signer**: For advanced users with a signer on their LAN.
 * **Beacon Wallet**: Use Temple, Kukai, or other Beacon-enabled wallets. Note: You'll sign a blob message rather than seeing specific details.
 
-> **💡 TIP**: Use the Tezos **Wallet** app on your Ledger, not the Baking app. The Baking app cannot sign these operations.
+> **💡 TIP:** Use the Tezos **Wallet** app on your Ledger, not the Baking app. The Baking app cannot sign these operations.
 
 ---
 
@@ -76,7 +76,7 @@ Delegate parameters control how your baker accepts stakers and what fee you char
 2. Register your baker as "staking only" on TzKT's baker registry
 3. Delegators will see this status and can choose to stake instead if they want rewards
 
-> **💡 TIP**: Delegators who want rewards from a staking-only baker should **stake** their funds instead of delegating. Staked funds automatically receive protocol rewards.
+> **💡 TIP:** Delegators who want rewards from a staking-only baker should **stake** their funds instead of delegating. Staked funds automatically receive protocol rewards.
 
 ### How to Set Parameters
 
@@ -137,7 +137,7 @@ Unstaking is a multi-step process due to the protocol's security requirements:
 6. Wait 3 cycles (~3 days)
 7. Return to finalize the unstake
 
-> **⚠️ NOTE**: If you have issues unstaking decimal amounts, try using whole numbers instead.
+> **💡 TIP:** If you have issues unstaking decimal amounts, try using whole numbers instead.
 
 ---
 

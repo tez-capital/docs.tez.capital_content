@@ -61,4 +61,4 @@ summary: Tezos governance portal for voting on proposals and managing baker sett
 - **Remote Signer** - Connect to a signer on your local network
 - **Beacon Wallet** - Use Temple, Kukai, or other Beacon-enabled wallets
 
-> **💡 TIP**: Use the Tezos **Wallet** app on your Ledger, not the Baking app.
+> **💡 TIP:** Use the Tezos **Wallet** app on your Ledger, not the Baking app.

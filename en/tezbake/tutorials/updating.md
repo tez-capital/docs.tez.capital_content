@@ -5,7 +5,7 @@ type: docs
 summary: How to update TezBake, Octez binaries, and protocol versions safely
 ---
 
-> **Quick Reference**
+> **ℹ️ INFO: Quick Reference**
 > ```bash
 > tezbake upgrade                # Upgrade all components (Octez binaries + ami/eli)
 > tezbake upgrade --branch next  # Switch to the next/RC branch when support asks
@@ -64,7 +64,7 @@ You do not need to manually edit `/bake-buddy/node/app.json` or change the binar
 tezbake upgrade -s
 ```
 
-> The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
+> **ℹ️ INFO:** The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
 ## (B) Update Octez binaries only
 
@@ -95,7 +95,7 @@ Then update the rest of the TezBake software stack:
 tezbake upgrade -s
 ```
 
-> The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
+> **ℹ️ INFO:** The `-s` flag is used when there is a need to manually upgrade the Octez storage. This is a rare case and is only needed when the Octez storage format changes. This flag is not needed for regular updates. Using the flag when there is no update to storage needed doesn't have an impact on your baker.
 
 ## (D) Update tezbake only
 

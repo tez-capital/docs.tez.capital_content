@@ -46,9 +46,11 @@ All three tracks use the same vote interface in TezGov — you'll select which g
 
 TezGov allows you to participate in Etherlink governance using your Ledger hardware wallet, with the same login flow as Tezos mainnet voting.
 
-> **💡 Use a secondary Ledger device** (with the same seed) to vote while your primary device is baking. Or briefly stop your baker, vote, then restart.
+> **💡 TIP:** Use a secondary Ledger device with the same seed to vote while your primary device is baking. Or briefly stop your baker, vote, then restart.
 
-> **⚠️ Voting while baking:** If you're voting from your baking machine while your baker is running, stop the baker first:
+> **⚠️ WARNING: Voting While Baking**
+>
+> If you're voting from your baking machine while your baker is running, stop the baker first:
 > ```bash
 > tezbake stop
 > ```
@@ -74,7 +76,7 @@ Once logged in, look for a **governance selector** or tab in the TezGov interfac
 
 Select the relevant Etherlink governance track (Kernel / Fast Kernel / Sequencer) based on which proposal you want to vote on.
 
-> **💡** Check [governance.etherlink.com](https://governance.etherlink.com) for a list of active proposals and their current period.
+> **💡 TIP:** Check [governance.etherlink.com](https://governance.etherlink.com) for a list of active proposals and their current period.
 
 ### 3. Review the Proposal
 
@@ -93,7 +95,7 @@ Click your vote and confirm on your Ledger screen. Your voting power is proporti
 
 After confirmation, the page refreshes within ~30 seconds to reflect your vote.
 
-> **⚠️ PASS votes count toward quorum** (participation requirement) but don't affect the supermajority tally. If you want to support a proposal but don't feel strongly, PASS is better than abstaining.
+> **ℹ️ INFO:** PASS votes count toward quorum (participation requirement) but don't affect the supermajority tally. If you want to support a proposal but don't feel strongly, PASS is better than abstaining.
 
 ### 5. Cooldown and Activation
 

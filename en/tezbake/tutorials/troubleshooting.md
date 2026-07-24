@@ -165,7 +165,7 @@ When reading official [Octez DAL documentation](https://octez.tezos.com/docs/she
 tezbake info --dal
 ```
 
-**Note:** "Status down" is normal immediately after start/restart. Give it time to sync.
+> **ℹ️ INFO:** "Status down" is normal immediately after start/restart. Give it time to sync.
 
 ### Remote DAL Recovery After Node Rebootstrap
 

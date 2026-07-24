@@ -115,7 +115,7 @@ If your install uses different lifecycle commands, confirm the current command w
 
 ## Migration from `additional_key_aliases.list`
 
-> **⚠️ DEPRECATED:** The file-based method (`/bake-buddy/node/additional_key_aliases.list`) is deprecated. Migrate to the CLI-based configuration described above.
+> **⚠️ WARNING: Deprecated:** The file-based method (`/bake-buddy/node/additional_key_aliases.list`) is deprecated. Migrate to the CLI-based configuration described above.
 
 If you currently have an `additional_key_aliases.list` file:
 

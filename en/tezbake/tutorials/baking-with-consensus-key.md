@@ -21,10 +21,10 @@ summary: Guide to setting up a separate consensus key and companion key for secu
 >
 > When activating a Consensus Key, you must also have a Companion Key activated. Both keys are used together for baking simultaneously.
 >
-> **ℹ️ INFO - Video Outdated:**
+> **ℹ️ INFO: Video Outdated**
 > The steps below have been updated, but the video does not include the "Companion Key" step which is now mandatory. Follow the written instructions to set both your consensus key and companion key.
 >
-> **ℹ️ INFO - tz1-3 Users:**
+> **ℹ️ INFO: tz1-3 Users**
 > If you are baking with a tz1-3 key, you do NOT need a companion key. All instructions below assume tz4 consensus + companion. If using an old tz1-3 key, simply omit the companion key steps.
 
 Follow along on Youtube!
@@ -96,9 +96,9 @@ The recommended baker setup separates key responsibilities across two hardware d
 - If TezSign is compromised, an attacker can cause double-signing penalties but cannot drain your wallet. Rotate the consensus key from TezGov immediately using your Ledger.
 - The Ledger is what you connect with in [TezGov](https://gov.tez.capital) to register your TezSign keys on-chain. After that, it only comes out for governance votes, staking changes, or key rotations.
 
-> **⚠️ The companion key is mandatory when your consensus key is tz4.** Both must be registered together. Without the companion key, your baker will attest without DAL payloads and forfeit ~10% of baking rewards.
+> **⚠️ WARNING:** The companion key is mandatory when your consensus key is tz4. Both must be registered together. Without the companion key, your baker will attest without DAL payloads and forfeit ~10% of baking rewards.
 
-> **ℹ️ The manager always controls consensus.** The manager key has sole authority to set or change the consensus and companion keys. The consensus key can sign blocks on the manager's behalf, but it cannot change its own registration.
+> **ℹ️ INFO:** The manager always controls consensus. The manager key has sole authority to set or change the consensus and companion keys. The consensus key can sign blocks on the manager's behalf, but it cannot change its own registration.
 
 ### Setup Steps
 
@@ -151,7 +151,7 @@ Run the following command to import the consensus key:
 tezbake setup-ledger --platform --import-key="P-256/0h/0h" --authorize --ledger-id "apple-banana-coconut-date" --hwm 1 --key-alias=consensus
 ```
 
-> **ℹ️ Configuration Notes:**
+> **ℹ️ INFO: Configuration Notes**
 >
 > * Replace the `--ledger-id` value with the 4-word ID of the Ledger you want to use for the consensus key
 > * We use the P-256 (tz3) curve for the consensus key because it's the fastest on Ledger hardware and the most portable option for both on-premise and cloud hardware security modules (HSMs)
@@ -174,7 +174,7 @@ You can verify it was set:
 tezbake node show configuration.additional_key_aliases
 ```
 
-> **📖 See [Key Aliases](/tezbake/tutorials/key-aliases/) for the full reference** on managing key aliases, including the difference between `additional_key_aliases` and `key_aliases`.
+> **ℹ️ INFO:** See [Key Aliases](/tezbake/tutorials/key-aliases/) for the full reference on managing key aliases, including the difference between `additional_key_aliases` and `key_aliases`.
 
 Re-run the TezBake upgrade and merge your configuration when asked:
 
@@ -194,7 +194,7 @@ cat /bake-buddy/node/data/.tezos-client/public_keys
 
 The public key is the one in the `key` field.
 
-> **ℹ️ Example:** A public key for a tz3 address looks like: `p2pk66fWs9UZ6T4nVTfHfV9PtuJje4xYBh2RVo4517a8VTj6Cny7ZXY`
+> **ℹ️ INFO:** A public key for a tz3 address looks like: `p2pk66fWs9UZ6T4nVTfHfV9PtuJje4xYBh2RVo4517a8VTj6Cny7ZXY`
 
 To register the consensus key, run the following command:
 

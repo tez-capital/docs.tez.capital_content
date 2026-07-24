@@ -36,7 +36,7 @@ Ledger hardware wallets (Nano S Plus, Nano X) can still be used for baking, but 
 - General-purpose device not optimized for 24/7 baking
 - Cannot be used simultaneously for baking and governance on the same machine
 
-**Note:** You must stop your baker before using your Ledger for governance voting on the same machine. See [TezGov Troubleshooting](/tezgov/tutorials/troubleshooting/) for details.
+> **⚠️ WARNING:** You must stop your baker before using your Ledger for governance voting on the same machine. See [TezGov Troubleshooting](/tezgov/tutorials/troubleshooting/) for details.
 
 ## TezBake Support
 

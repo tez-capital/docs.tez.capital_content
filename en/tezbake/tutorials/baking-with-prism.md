@@ -18,7 +18,7 @@ summary: Secure, low-latency tunneling between TezBake components using Prism.
 | Activate Configuration        | `tezbake upgrade`                                                         |
 | Start All                     | `tezbake start`                                                           |
 
-> **⚠️ WARNING - Command Execution:**
+> **⚠️ WARNING: Command Execution**
 >
 > * All `tezbake` commands should be executed on the controller machine (usually the machine hosting the signer)
 > * Configuration edits (`app.json`) should be performed on their respective machines (Node, DAL, or Signer)
@@ -260,7 +260,7 @@ Make sure UDP port `20080` (or your configured Prism port) is open on the public
 
 To ensure encrypted and authenticated communication between components, generate a Prism CA and keys on a secure machine — usually the controller/signer host.
 
-> **ℹ️ INFO: Key Generation:**
+> **ℹ️ INFO: Key Generation**
 >
 > * Only applications with a `PRISM` configuration in their `app.json` file can generate keys
 > * You must generate ALL `.prism` keys from the same `<app>` to ensure compatibility and proper authentication across components
@@ -296,7 +296,7 @@ tezbake <app> prism generate-key \
   --output=/bake-buddy/<app>/prism/keys/signer
 ```
 
-> **You can validate the keys with:**
+> **ℹ️ INFO:** You can validate the keys with:
 
 ```bash
 tezbake <app> prism key-info --path=<key>.prism
@@ -324,7 +324,7 @@ Manually copy the generated `.prism` keys to the correct app directories:
 | `node.prism`      | `/bake-buddy/node/prism/keys/node.prism`         |
 | `dal.prism`       | `/bake-buddy/dal/prism/keys/dal.prism`          |
 
-> **🚨 CRITICAL:**
+> **🚨 CRITICAL: Protect the CA File**
 >
 > * Do NOT copy or expose the CA file
 > * If the CA is compromised, regenerate ALL keys with a new CA immediately

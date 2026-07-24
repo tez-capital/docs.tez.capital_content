@@ -14,7 +14,7 @@ You can monitor some of the following aspects:
 - Transfers in/out in amounts greater than X but less than Y
 - Notify when balance falls below X
 
-> If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and chat with it in private.
+> **💡 TIP: Privacy Option:** If you want to remain anonymous, you can create a new Discord account and join our Discord server using that account. Then you can DM the TezWatch bot from that account and chat with it in private.
 
 To get all "sources" and "events" use the `/events` command
 
@@ -30,7 +30,7 @@ Here are the descriptions of all the key variables you will need to configure to
 | `conditions` for transfers | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:in>1`, `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>in>1` | Be notified for all incoming transactions, incoming transactions over 1 tez, or incoming transactions greater than 1 tez and less than 50 tez |
 | `conditions` for balance-updated | `tz1UGkfyrT9yBt6U5PV7Qeui3pt3a8jffoWv:50>balance` | Be notified when the wallet balance falls below 50 tez |
 
-> Please note that some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
+> **ℹ️ INFO: Premium Features:** Some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 
 ### Transfers Examples
 

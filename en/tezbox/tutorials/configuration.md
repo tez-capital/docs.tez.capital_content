@@ -5,7 +5,9 @@ type: docs
 summary: Configure TezBox sandbox settings, accounts, and protocol options
 ---
 
-> **⚠️ Protocol examples age quickly:** The commands below demonstrate TezBox configuration patterns, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
+> **⚠️ WARNING: Protocol Examples Age Quickly**
+>
+> The commands below demonstrate TezBox configuration patterns, but the shown protocol tags may not be current. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) and replace the image tag and protocol alias before starting new work.
 
 ## TezBox Configuration Options
 
@@ -14,7 +16,7 @@ summary: Configure TezBox sandbox settings, accounts, and protocol options
 TezBox is commonly used in CI pipelines. If you can estimate the expected duration of a specific test and want to prevent CI from getting stuck, you can use the `--timeout=<duration>` option to limit how long the instance runs.
 Supported units: `s` (seconds), `m` (minutes), `h` (hours). In case of a timeout, the container exits with an exit code of `2`.
 
-> The timeout specifies how long the sandbox runs, excluding the bootstrap duration.
+> **ℹ️ INFO:** The timeout specifies how long the sandbox runs, excluding the bootstrap duration.
 
 ### Logs
 
@@ -34,13 +36,13 @@ For example:
 docker run -it -v /home/tezos/logs:/ascend/logs --entrypoint tezbox ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
-> **⚠️ NOTE:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
+> **⚠️ WARNING:** The examples above use `parisbox` / `tezos-v20.3`. Replace with the current protocol version. Check [TezBox releases](https://github.com/tez-capital/tezbox/pkgs/container/tezbox) for the latest tag.
 
 ### Overrides and configuration through mounted volumes
 
 You can override any configuration file by mounting your own file to the `/tezbox/overrides` directory. The file will be merged with the default configuration. If you want to replace the whole configuration or file without merging, you can mount it to the `/tezbox/configuration` directory. The configuration is merged with the overrides and the result is stored in the `/tezbox/context` directory during the initialization of the container.
 
-> Array values are always replaced, not concatenated.
+> **ℹ️ INFO:** Array values are always replaced, not concatenated.
 
 For example if you want to adjust block times, you can create `sandbox-override-parameters.hjson` file with the following content:
 
@@ -64,7 +66,7 @@ Optionally you can mount entire overrides/configuration directory to `/tezbox/ov
 sudo docker run -it -v <path-to-your-configuration-overrides>:/tezbox/overrides ... ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
-> Do not edit or mount configuration files in the `/tezbox/context` directory. They are generated automatically and should not be modified manually.
+> **⚠️ WARNING:** Do not edit or mount configuration files in the `/tezbox/context` directory. They are generated automatically and should not be modified manually.
 
 ### Accounts
 
@@ -115,7 +117,7 @@ Chain and protocol is automatically initialized only once during the first run. 
 sudo docker run -it -v $(pwd)/sandbox-data:/tezbox/context/data -p 0.0.0.0:8732:8732 ghcr.io/tez-capital/tezbox:tezos-v20.3 parisbox
 ```
 
-> To reset the state you can remove the `/tezbox/context/data/tezbox-initialized` file. After its removal all chain and client data will be removed and the chain will be reinitialized on the next run.
+> **⚠️ WARNING:** To reset the state you can remove the `/tezbox/context/data/tezbox-initialized` file. After its removal all chain and client data will be removed and the chain will be reinitialized on the next run.
 
 ### Flextesa Compatibility
 

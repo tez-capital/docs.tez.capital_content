@@ -8,7 +8,7 @@ summary: How to bootstrap your Tezos node quickly using blockchain snapshots
 Follow along on Youtube!
 {{< youtube 2BQZ1SY3PD4 >}}
 
-> **Quick Reference**
+> **ℹ️ INFO: Quick Reference**
 > ```bash
 > tezbake stop
 > tezbake bootstrap-node https://snapshots.tzinit.org/mainnet/rolling --no-check  # Fast, trusts source
@@ -30,7 +30,7 @@ To bootstrap your TezBake node means to download someone else's snapshot of the 
 >
 > Re-bootstrapping your node mid-cycle can cause you to forfeit attestation rights for an entire cycle — meaning lost income.
 >
-> **To minimize risk:**
+> **⚠️ WARNING: To Minimize Risk**
 > 1. Use a snapshot that is **at least 5-6 days old**
 > 2. Do **NOT** delete your `.tezos-client` directory
 > 3. If possible, wait until a cycle boundary

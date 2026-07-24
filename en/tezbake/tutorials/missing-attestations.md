@@ -52,7 +52,7 @@ Before assuming something is broken, check the following:
 - **Is your clock synced?**  
   Run `timedatectl status` to check your system clock's synchronization status.
 
-> **Note:** The command may vary depending on your Linux distribution. Here are some examples:
+> **ℹ️ INFO:** The command may vary depending on your Linux distribution. Here are some examples:
 >
 > - For systems using `timedatectl`:  
   `timedatectl status`
