@@ -25,6 +25,10 @@ summary: How to update TezSign firmware and application
 >
 > Do not use a full-card clone as the migration method for this case. Cloning preserves the old TezSign image generation; it does not move the card onto the new image.
 
+> **⚠️ WARNING: Signer Compatibility**
+>
+> `xtz.signer` **25.2.1 and newer requires TezSign `release-202610041210` or newer**. Update TezSign before upgrading the signer to 25.2.1 or later, or the signer may have trouble detecting the device.
+
 ### Update Procedure
 
 1. **Stop the device:** Disconnect the TezSign device from the baker machine. If you use external power, power it off.

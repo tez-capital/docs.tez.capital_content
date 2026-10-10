@@ -16,6 +16,7 @@ summary: Common TezBake issues and solutions for installation errors and runtime
 | Full disk / no space left | [Full Disk](#full-disk) |
 | "illegal instruction" / low-level errors | [Update eli](#update-eli-lua-interpreter) |
 | TezSign USB timeout / not responding | [TezSign USB Issues](#tezsign-usb-issues) |
+| TezSign not detected after signer upgrade | [TezSign Not Detected After Signer Upgrade](#tezsign-not-detected-after-signer-upgrade) |
 | DAL not attesting / no peers | [DAL Troubleshooting](#dal-troubleshooting) |
 | Remote DAL dead after node rebootstrap | [Remote DAL Recovery After Node Rebootstrap](#remote-dal-recovery-after-node-rebootstrap) |
 | tz4 key "has not been provided to the baker" | [Missing tz4 Consensus or Companion Alias](#missing-tz4-consensus-or-companion-alias) |
@@ -143,6 +144,12 @@ tezbake tezsign advanced usb-port-reset
 ```
 
 This often recovers the device without requiring a full system restart.
+
+### TezSign Not Detected After Signer Upgrade
+
+If the TezSign device is not detected and the signer shows as disconnected after upgrading to `xtz.signer` 25.2.1 or newer, your TezSign image is too old. `xtz.signer` 25.2.1 and newer requires TezSign `release-202610041210` or newer.
+
+Update the TezSign device to at least that release — see [Updating](/tezsign/tutorials/updating/).
 
 ---
 
