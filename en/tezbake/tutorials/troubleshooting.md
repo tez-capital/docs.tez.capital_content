@@ -16,7 +16,7 @@ summary: Common TezBake issues and solutions for installation errors and runtime
 | Full disk / no space left | [Full Disk](#full-disk) |
 | "illegal instruction" / low-level errors | [Update eli](#update-eli-lua-interpreter) |
 | TezSign USB timeout / not responding | [TezSign USB Issues](#tezsign-usb-issues) |
-| TezSign not detected after signer upgrade | [TezSign Not Detected After Signer Upgrade](#tezsign-not-detected-after-signer-upgrade) |
+| TezSign `vendor probe failed` / not detected after signer upgrade | [TezSign Not Detected After Signer Upgrade](#tezsign-not-detected-after-signer-upgrade) |
 | DAL not attesting / no peers | [DAL Troubleshooting](#dal-troubleshooting) |
 | Remote DAL dead after node rebootstrap | [Remote DAL Recovery After Node Rebootstrap](#remote-dal-recovery-after-node-rebootstrap) |
 | tz4 key "has not been provided to the baker" | [Missing tz4 Consensus or Companion Alias](#missing-tz4-consensus-or-companion-alias) |
@@ -137,19 +137,21 @@ This is needed because tezbake moved to `/usr/local/bin/tezbake`.
 
 ### TezSign USB Issues
 
-If your TezSign device becomes unresponsive or you see timeout errors, try resetting the USB port before rebooting the machine:
+Start with [Troubleshooting TezSign](/tezsign/tutorials/troubleshooting/) to collect versions and recent logs. In particular, `vendor probe failed` or `bad reply (iface) n=0` after an upgrade can indicate a host/gadget compatibility problem; resetting USB will not update the gadget image.
+
+If the versions are compatible and the device is unresponsive, a USB port reset may help during maintenance:
 
 ```bash
 tezbake tezsign advanced usb-port-reset
 ```
 
-This often recovers the device without requiring a full system restart.
+This interrupts signing. For cable, power, hub, and controller checks, see [USB and Power Reliability](/tezsign/tutorials/usb-power-reliability/).
 
 ### TezSign Not Detected After Signer Upgrade
 
-If the TezSign device is not detected and the signer shows as disconnected after upgrading to `xtz.signer` 25.2.1 or newer, your TezSign image is too old. `xtz.signer` 25.2.1 and newer requires TezSign `release-202610041210` or newer.
+`xtz.signer` 25.2.1 and newer requires TezSign `release-202610041210` or newer. If detection fails after a signer upgrade, check the gadget image version before assuming a USB or hardware fault. A disconnected status alone does not prove that the image is too old.
 
-Update the TezSign device to at least that release — see [Updating](/tezsign/tutorials/updating/).
+Follow [Host and Gadget Compatibility](/tezsign/tutorials/troubleshooting/#host-and-gadget-compatibility) to identify both components. If the gadget image is older, update it using [Updating](/tezsign/tutorials/updating/); if it is already compatible, continue with the version and USB diagnostics.
 
 ---
 

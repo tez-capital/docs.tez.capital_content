@@ -17,6 +17,7 @@ Use that guide when you are setting up a new baker or moving an existing baker t
 
 These pages cover the deeper TezSign tasks that are important for reliability, recovery, and long-term operations. They are not all required to get your first baker running, but you should work through them after setup.
 
+- [Troubleshooting TezSign](/tezsign/tutorials/troubleshooting/) - Version checks, post-upgrade detection failures, backups, and locked keys
 - [Hardware and Flashing](/tezsign/tutorials/hardware-and-flashing/) - Hardware choices, SD cards, and image flashing
 - [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - SD-card data backup, restore, and migration
 - [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) - Set TezSign HWM levels during failover or migration

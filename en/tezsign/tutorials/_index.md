@@ -36,6 +36,7 @@ This is the focused backup path for moving TezSign keys and signer state to a ne
 
 ## Knowledge Base
 
+- [Troubleshooting TezSign](/tezsign/tutorials/troubleshooting/) - Version checks, post-upgrade detection failures, backups, and locked keys
 - [Hardware and Flashing](/tezsign/tutorials/hardware-and-flashing/) - Hardware, SD cards, and image flashing
 - [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) - Backups, restores, and SD-card migration
 - [USB and Power Reliability](/tezsign/tutorials/usb-power-reliability/) - USB, OTG, power, and BIOS troubleshooting

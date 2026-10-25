@@ -9,6 +9,12 @@ summary: Fix TezSign USB, OTG, power, and host-controller issues
 
 Use this KB if TezSign does not appear over USB, disconnects unexpectedly, fails to boot from host power, or shows USB timeout errors.
 
+## Check Versions and Logs First
+
+If the problem began after a TezBake/signer upgrade, or the log says `vendor probe failed` or `bad reply (iface) n=0`, start with [Troubleshooting TezSign](/tezsign/tutorials/troubleshooting/). It separates host/gadget compatibility from physical USB faults and provides read-only version and log checks.
+
+Collect those checks before resets or hardware changes. The same symptom on a second Pi or card does not by itself identify the cause, and an older spare may have an incompatible image.
+
 ## Power Checklist
 
 In some cases, powering the TezSign device only through the OTG USB port may not provide consistent power.
@@ -54,7 +60,7 @@ Try these fixes in order:
 
 ## Reset the USB Port
 
-If the device stops responding:
+After collecting logs and checking host/gadget compatibility, a USB reset may help an unresponsive device. This interrupts signing; perform it during maintenance:
 
 ```bash
 tezbake tezsign advanced usb-port-reset

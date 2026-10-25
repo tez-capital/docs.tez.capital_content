@@ -75,6 +75,8 @@ On Linux, a current TezSign card has three partitions:
 
 The `data` partition contains the `tezsign` folder used for backup, restore, and migration. macOS does not mount the `data` partition correctly, so use Linux for TezSign data backup and restore work.
 
+Legacy cards may instead have four partitions, such as `RPICFG`, `armbi_root`, `app`, and `data`. These need a fresh image plus a `data/tezsign` restore to migrate to the current layout. Check [Updating TezSign](/tezsign/tutorials/updating/#check-image-compatibility) using the actual card layout rather than its image date.
+
 See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) before updating, reflashing, or migrating a TezSign card.
 
 For same-image spare cards, you can also clone a working SD card. A dual-slot reader or two USB SD-card readers makes this easiest. Cloning is a backup method, not a way to move onto a newer TezSign image generation.

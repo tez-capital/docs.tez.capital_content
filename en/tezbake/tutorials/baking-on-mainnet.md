@@ -312,14 +312,7 @@ tezbake info --dal
 
 If the baker log says a tz4 consensus key "has not been provided to the baker," recheck the `--key-alias` imports and `configuration.additional_key_aliases`.
 
-For TezSign backup, failover, or migration, you can set the high-watermark level for each TezSign signing alias before the backup signs again:
-
-```bash
-tezbake tezsign advanced set-level consensus <level>
-tezbake tezsign advanced set-level companion <level>
-```
-
-Use the current chain level, or current level plus a small safety margin during failover. Replace `consensus` or `companion` if your TezSign device uses different key aliases.
+For TezSign restore or migration, keep the original signer offline and use only one active baker with these keys. Manually setting HWM is optional; follow [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) if you choose that extra precaution. It explains how to stop signing, unlock the device, choose a fresh level, and verify before restart.
 
 The options below are retained for compatibility and testing. New mainnet bakers should use the TezSign path above.
 

@@ -59,7 +59,7 @@ tezbake info
 - **TezSign**: Unplug the USB cable from the primary computer
 - **Ledger**: Unplug from primary and close the Baking app
 
-If you cannot access the primary machine physically, wait at least 2-3 blocks (~12-18 seconds at 6-second block times) after the last known signing before proceeding.
+If you cannot access the primary physically, use a verified remote shutdown or other isolation that prevents it from signing. An unreachable host may still be baking. Waiting a fixed number of blocks does not establish that it has stopped.
 
 ### Step 4: Note Current Block Level
 
@@ -70,30 +70,30 @@ Check the current block level on a block explorer:
 tezbake info
 ```
 
-Record this level - you'll use it for the High Watermark (HWM).
+Record the network and a fresh level if you plan to set HWM. For TezSign, this is an optional extra precaution; missing `level2.bin` alone does not make a restored key unusable.
 
 ### Step 5: Setup Backup Signer
 
-Connect your backup signer to the backup computer:
+Keep the backup computer's baking and signer services stopped while preparing the signer:
+
+```bash
+tezbake stop
+tezbake info
+```
+
+Confirm they are stopped, then connect only the backup signer.
 
 **For TezSign:**
 
 If the backup SD card is newly flashed, restore the `tezsign` folder from the `data` partition backup before using it. See [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/).
 
 ```bash
-# Initialize if not already done
-tezbake setup-tezsign --init --platform
-
-# Set HWM for each TezSign signing alias
-tezbake tezsign advanced set-level consensus <current_level+10>
-tezbake tezsign advanced set-level companion <current_level+10>
-
-# The device should already have keys from initial setup
-# Verify it's detected
-tezbake info
+tezbake tezsign status
+tezbake tezsign unlock
+tezbake tezsign status --full
 ```
 
-Replace `consensus` and `companion` if your TezSign device uses different key aliases. These are TezSign device aliases, not necessarily the local Octez aliases loaded by the baker.
+Verify the expected public addresses and unlocked keys. Do not initialize a new master store or generate new keys to restore an existing signer. If you choose to set HWM manually, complete [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) before Step 6; unlock is required first, and the target must exceed the existing counters. Use the device aliases, which may differ from local Octez aliases.
 
 **For Ledger:**
 ```bash
@@ -101,7 +101,7 @@ Replace `consensus` and `companion` if your TezSign device uses different key al
 tezbake setup-ledger --platform --import-key --authorize --hwm <current_level+10>
 ```
 
-> **ℹ️ INFO: HWM Safety Margin:** Setting HWM slightly above current level ensures your backup won't sign any block the primary might have signed. For TezSign, set the level for every signing alias, commonly `consensus` and `companion`.
+> **ℹ️ INFO: HWM Safety Margin:** Advancing HWM adds a guard against older signing requests and may delay signing until the chain advances. It does not prevent an active primary from signing new levels too. The primary must remain unable to sign.
 
 ### Step 6: Start Backup Baker
 
@@ -146,44 +146,32 @@ Fix the primary issue but **do not start baking** on it. Keep it as your new bac
 
 ### Update HWM on Repaired Primary
 
-When the repaired machine becomes your backup:
-
-```bash
-# Set TezSign HWM to current level when you eventually need to use it
-tezbake tezsign advanced set-level consensus <current_level>
-tezbake tezsign advanced set-level companion <current_level>
-
-# For Ledger, import or re-authorize with the current-level HWM
-# tezbake setup-ledger --platform --import-key --authorize --hwm <current_level>
-
-# Don't pre-authorize - wait until needed
-```
+Keep the repaired signer offline. At the next actual switch, stop and isolate the then-active signer first. Use a fresh chain level and inspect the restored device's current counters if you choose the optional [TezSign HWM procedure](/tezsign/tutorials/high-watermark-recovery/). For Ledger, use the current-level HWM when authorizing it at failover time.
 
 ## Emergency: Cannot Access Primary
 
 If your primary is completely unreachable (fire, theft, hardware death):
 
-1. **Wait 2-3 minutes** - Ensure any queued signatures complete
-2. Check block explorer - Note the last block your baker signed
-3. Set backup HWM to that level + 10
-4. Proceed with failover steps 5-7
+1. Establish that the primary cannot sign, through power-off, disconnection, or another verified isolation method. Network unreachability and silence on an explorer are insufficient by themselves.
+2. If that cannot be established, contact the team to plan recovery rather than enabling a second copy of the same keys.
+3. Once isolated, check a fresh chain level and continue with steps 4-7. Setting HWM or waiting a few minutes cannot make two active copies safe.
 
 ## Common Mistakes to Avoid
 
 | Mistake | Consequence |
 |---------|-------------|
 | Starting backup before stopping primary | Double baking → Slashing |
-| Not updating HWM | Potentially signing at same level → Slashing |
+| Treating HWM as protection against a still-active primary | Both copies can sign new levels |
 | Pre-authorizing backup signer | Risk of accidental double baking |
 | Rushing the process | Errors lead to slashing |
 
 ## Failover Checklist
 
-- [ ] Primary confirmed down or stopped
+- [ ] Primary verified unable to sign
 - [ ] Primary signer physically disconnected
 - [ ] Current block level noted
 - [ ] Backup signer connected
-- [ ] HWM set appropriately
+- [ ] If manually setting TezSign HWM, unlock and level verification completed
 - [ ] Backup baker started
 - [ ] Attestations/blocks appearing in logs
 - [ ] Block explorer confirms activity

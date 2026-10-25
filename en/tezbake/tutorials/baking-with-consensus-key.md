@@ -110,12 +110,7 @@ After the keys are generated, back up the whole `tezsign` folder from the Linux-
 
 [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/)
 
-If you later restore or migrate that TezSign data to another card, set the high-watermark level for both TezSign signing aliases before the backup signs again:
-
-```bash
-tezbake tezsign advanced set-level consensus <level>
-tezbake tezsign advanced set-level companion <level>
-```
+If you later restore or migrate that TezSign data, keep the original signer offline and use only one active baker with these keys. Missing `level2.bin` alone does not prevent restoring the keys. Manually setting HWM is optional; follow [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) if you choose that extra precaution.
 
 **Step 2 — Register the keys on-chain using TezGov (recommended):**
 

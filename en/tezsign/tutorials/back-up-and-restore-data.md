@@ -70,7 +70,7 @@ Keep full-card images secure. They contain the TezSign `data` partition and ther
 
 Use this when you are moving keys and signer state to a freshly flashed TezSign card, especially when migrating to a newer TezSign image generation or hardware architecture.
 
-A current TezSign image has three partitions. On Linux, you should see partitions labeled `app`, `boot`, and `data`. The one you need is `data`.
+A current TezSign image has three partitions: `boot`, `app`, and `data`. Legacy cards may have four, such as `RPICFG`, `armbi_root`, `app`, and `data`. In both cases, copy from the partition labeled `data`; its partition number can differ. See [Check Image Compatibility](/tezsign/tutorials/updating/#check-image-compatibility) before choosing an update method.
 
 Inside the `data` partition is a folder named `tezsign`:
 
@@ -80,6 +80,33 @@ data/
 ```
 
 Copy the entire `tezsign` folder as one unit. Do not copy only individual files inside it.
+
+### Key Files and Signing State
+
+A typical backup contains:
+
+```text
+tezsign/
+  keystore/
+    master.json
+    seed.bin
+    keys/
+      consensus/
+        meta.json
+        encrypted.bin
+        level2.bin       # signing state, when present
+      companion/
+        meta.json
+        encrypted.bin
+        level2.bin       # signing state, when present
+  gadget.log             # may be present; not a key backup
+```
+
+Your device may use different key aliases. `master.json` and `seed.bin` alone are not a complete backup of the enrolled keys: preserve each alias's `meta.json` and `encrypted.bin` too. If those key files are missing and the original card is intact, copy the entire `tezsign` folder from it instead of assembling individual files or generating replacement keys.
+
+**A missing `level2.bin` is a different case.** It holds per-key high-watermark (HWM) state, not the signing key. A backup taken before the keys were first unlocked or used may legitimately lack it. TezSign recreates missing state on unlock and advances it as the key signs. Its absence alone does not make the key backup unusable or require manual HWM recovery.
+
+Copy `level2.bin` when it exists as part of the whole folder. Recreating it does not recover the previous signing history, and a copied file is only current as of the backup. For a normal migration, keep the original signer offline and use only one active baker with these keys. If you want to set an explicit starting level during recovery, follow [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/). This is an optional extra precaution, not a prerequisite for every restore.
 
 ## Before You Begin
 
@@ -99,7 +126,7 @@ Copy the entire `tezsign` folder as one unit. Do not copy only individual files 
 
 Insert the TezSign microSD card into the Linux computer.
 
-In a graphical file manager, the card may appear as several volumes. Look for the volume named `data`. Ignore the `app` and `boot` partitions for this procedure.
+In a graphical file manager, the card may appear as several volumes. Look for the volume named `data` on the intended SD card. Ignore the other partitions for this procedure.
 
 From the command line, you can identify the partition labels with:
 
@@ -118,6 +145,8 @@ This is the easiest method if the Linux machine has a desktop environment.
 3. Copy the whole `tezsign` folder to your backup location, or directly onto the `data` partition of another freshly flashed TezSign SD card.
 4. Safely eject or unmount the SD card before removing it.
 
+If the file manager reports permission errors or skips files, use the command-line method below. Do not treat a partially copied folder as a complete backup.
+
 If you are using the baker host as the backup computer, treat any copied folder on that host as temporary. Once you have restored it to backup TezSign-flashed SD card(s), delete the temporary copy from the baker.
 
 ## Back Up the `tezsign` Folder without a GUI
@@ -130,11 +159,11 @@ Insert the TezSign SD card and identify the `data` partition:
 lsblk -o NAME,LABEL,FSTYPE,SIZE,MOUNTPOINTS
 ```
 
-Create a mount point and mount the `data` partition. Replace `/dev/sdX3` with the actual partition device shown by `lsblk`:
+Create a mount point and mount the `data` partition read-only for backup. Replace `/dev/sdX3` with the actual partition device labeled `data` in `lsblk`; on a legacy four-partition card it may be `/dev/sdX4`. If the desktop already mounted it, skip the mount commands and replace `/mnt/tezsign-data` in the commands below with its existing mount point.
 
 ```bash
 sudo mkdir -p /mnt/tezsign-data
-sudo mount /dev/sdX3 /mnt/tezsign-data
+sudo mount -o ro /dev/sdX3 /mnt/tezsign-data
 ```
 
 Create a temporary backup directory and copy the folder:
@@ -145,6 +174,22 @@ sudo rsync -aHAX --info=progress2 /mnt/tezsign-data/tezsign/ "$HOME/tezsign-back
 sync
 ```
 
+Verify the copied backup with a checksum comparison before flashing or reusing the source card:
+
+```bash
+sudo rsync -aHAXnci --delete /mnt/tezsign-data/tezsign/ "$HOME/tezsign-backups/tezsign/"
+```
+
+This is a dry run (`-n`); it does not change either copy. A successful comparison produces no output and exits without errors. Investigate any differences before proceeding.
+
+To check which files were copied without displaying their contents:
+
+```bash
+sudo find "$HOME/tezsign-backups/tezsign/keystore" -maxdepth 3 -type f -printf '%P\n'
+```
+
+Check that all expected key aliases have `meta.json` and `encrypted.bin`. Do not reject an otherwise complete backup solely because `level2.bin` is absent; see [Key Files and Signing State](#key-files-and-signing-state).
+
 For a portable archive, especially if you are storing the backup on a non-Linux filesystem, use this instead of the `rsync` copy:
 
 ```bash
@@ -152,6 +197,14 @@ mkdir -p "$HOME/tezsign-backups"
 sudo tar -C /mnt/tezsign-data -czf "$HOME/tezsign-backups/tezsign-$(date +%Y%m%d).tar.gz" tezsign
 sync
 ```
+
+Compare the archive against the source folder before unmounting it. Use the actual archive filename you created:
+
+```bash
+sudo tar -C /mnt/tezsign-data --compare --gzip --file "$HOME/tezsign-backups/tezsign-YYYYMMDD.tar.gz"
+```
+
+Proceed only if the comparison exits successfully without reporting differences.
 
 Unmount the card before removing it:
 
@@ -164,6 +217,8 @@ If you are using the baker host as the temporary backup location, delete this fo
 ## Restore to a Newly Flashed Card
 
 Flash the new TezSign image to a fresh SD card first. Then insert that card into the Linux computer and open or mount its `data` partition.
+
+An unused `data` partition may contain only `lost+found`; that is expected. Restore the folder at its root to produce `data/tezsign/keystore`, not `data/tezsign/tezsign/keystore`. You do not need to initialize a new master store or create new keys to restore existing ones.
 
 If you are using a GUI, open the new card's `data` partition and copy the backed-up `tezsign` folder into it.
 
@@ -181,6 +236,14 @@ sudo rsync -aHAX --delete "$HOME/tezsign-backups/tezsign/" /mnt/tezsign-data/tez
 sync
 ```
 
+Verify the restored copy while the card is still mounted:
+
+```bash
+sudo rsync -aHAXnci --delete "$HOME/tezsign-backups/tezsign/" /mnt/tezsign-data/tezsign/
+```
+
+The comparison must exit successfully without differences. These filesystem checks can be completed without booting the spare or connecting it to a baker.
+
 If you backed up a `.tar.gz` archive:
 
 ```bash
@@ -190,6 +253,14 @@ sync
 ```
 
 Replace `tezsign-YYYYMMDD.tar.gz` with your actual backup file name.
+
+For an archive restore, compare it with the mounted destination before proceeding:
+
+```bash
+sudo tar -C /mnt/tezsign-data --compare --gzip --file "$HOME/tezsign-backups/tezsign-YYYYMMDD.tar.gz"
+```
+
+Proceed only if the comparison exits successfully without differences.
 
 When the restore is complete, safely eject or unmount the SD card before removing it:
 
@@ -201,42 +272,41 @@ Repeat this restore for each backup card you want ready.
 
 ## Verify After Restore
 
-1. Insert the restored SD card into the TezSign device.
-2. Make sure the original TezSign device or original SD card is not also connected.
-3. Connect the restored device to the baker machine.
-4. Check that TezBake sees the device:
+1. Stop the baker and signer services on the test/restore host with `tezbake stop` and confirm they are stopped with `tezbake info`. Keep other bakers using these keys stopped too.
+2. Disconnect the original signer and keep its card offline. Do not have an automatic-unlock service running during this controlled check.
+3. Insert the restored card into the TezSign device and connect it to the test/restore host.
+4. Check the image and key identities:
 
 ```bash
+tezbake tezsign version
 tezbake tezsign status
 ```
 
-Unlock the restored keys:
+Confirm the expected aliases and public addresses, then unlock the restored keys with the existing password:
 
 ```bash
 tezbake tezsign unlock
+tezbake tezsign status --full
 ```
 
-Then verify the baker and DAL status:
+Both signing keys should show `UNLOCKED`. HWM counters are meaningful after unlock; zeros in a locked-key status report do not establish that the stored state was lost. A restored backup without HWM state can show zeros after unlock until it signs or you choose to set a level.
+
+If you want to set a level manually, do it now using [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/), while baking remains stopped.
+
+For a spare-card test only, disconnect and store the spare offline after verification. For an actual switch, start the baker with only the restored signer connected:
 
 ```bash
+tezbake start
+tezbake info --signer
 tezbake info
 tezbake info --dal
 ```
 
+Check for successful signing in the signer/baker logs and resumed attestations. Detection and unlock alone do not prove that baking has resumed. Once either card signs again, the other card's saved HWM may be older; never run both copies together.
+
 ## Optional: Set High-Watermark Levels
 
-For extra safety during failover, recovery, or migration, you can set the TezSign high-watermark level before the restored card signs again.
-
-Use the current chain level, or the current level plus a small safety margin such as `+10` during failover:
-
-```bash
-tezbake tezsign advanced set-level consensus <level>
-tezbake tezsign advanced set-level companion <level>
-```
-
-Run the command for each TezSign key alias that signs for the baker. The common aliases are `consensus` and `companion`; if you used different TezSign device aliases, replace them. These are the TezSign device key aliases, not necessarily the local Octez aliases loaded by the baker.
-
-> **⚠️ WARNING:** Do not lower a high-watermark level casually. Only change it when you are intentionally preparing a restored, migrated, or backup TezSign card to resume baking safely.
+Manual HWM setting is optional for an ordinary restore. Use the ordered [High-Watermark Recovery](/tezsign/tutorials/high-watermark-recovery/) procedure when you choose this extra precaution. It covers stopping signing, unlocking, obtaining a fresh chain level, selecting a level above the existing counters, and verifying the result before restart.
 
 ## Safety Notes
 
