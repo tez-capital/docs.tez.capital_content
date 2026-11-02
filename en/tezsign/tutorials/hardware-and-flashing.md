@@ -2,7 +2,7 @@
 title: "Hardware and Flashing"
 weight: 3
 type: docs
-summary: TezSign hardware choices, SD card recommendations, and image flashing notes
+summary: TezSign hardware choices, SD card recommendations, and image flashing on macOS, Windows, Ubuntu, and Debian
 ---
 
 ## Recommended Hardware
@@ -63,9 +63,85 @@ Example parts:
 
 Download the latest image for your device from [TezSign Releases](https://github.com/tez-capital/tezsign/releases).
 
-Extract the image after downloading it. The extracted image is usually around 1.5 GB to 2 GB.
+Choose the `.img.xz` asset for your board, such as `radxa-zero3.img.xz` for the Radxa Zero 3W or `rpi0-2w.img.xz` for the Raspberry Pi Zero 2W. Extract it to an `.img` file on your computer before flashing. On Ubuntu or Debian, you can use your archive manager or the terminal commands below.
 
-Use [Balena Etcher](https://etcher.balena.io/) or another image flashing tool to flash the image to the microSD card.
+> **Warning:** Flashing erases the entire selected card, including any TezSign keys and signer state. Before reusing a working TezSign card, follow [Back Up and Restore TezSign Data](/tezsign/tutorials/back-up-and-restore-data/) and verify your backup. Check the target card's size and device name carefully so you do not overwrite your computer's system disk or another drive.
+
+You do not need to format or partition the card first. Flashing writes the image and its partition layout to the whole card; copying the `.img` file onto a mounted card does not flash it.
+
+### macOS or Windows: Balena Etcher
+
+1. Install and open [Balena Etcher](https://etcher.balena.io/).
+2. Insert the microSD card and choose **Flash from file**, then select the extracted `.img` file.
+3. Choose **Select target** and select the microSD card.
+4. Click **Flash!** and wait for both writing and validation to finish successfully before removing the card.
+
+If the operating system offers to format or initialize the flashed card, cancel that prompt.
+
+### Ubuntu or Debian Desktop: GNOME Disks
+
+Use **Disks** (GNOME Disks) if your computer has a graphical desktop. If it is not installed, open a terminal and run:
+
+```bash
+sudo apt update
+sudo apt install gnome-disk-utility
+```
+
+1. Insert the microSD card and open **Disks** from the application menu, or run `gnome-disks`.
+2. Select the microSD card in the left sidebar. Confirm its capacity and device name match the intended card.
+3. Open the drive menu in the window header and choose **Restore Disk Image…**.
+4. Select the extracted `.img` file, click **Start Restoring…**, and confirm the target. Enter your administrator password if asked.
+5. Wait for the operation to finish without errors, then use the eject or power-off button for the card before removing it.
+
+Use the drive-level **Restore Disk Image…** action, not a partition formatting action. See [Ubuntu's GNOME Disks instructions](https://ubuntu.com/desktop/docs/en/latest/how-to/create-a-bootable-usb-stick/#using-disks) for an illustrated walkthrough of the same process.
+
+### Ubuntu or Debian Terminal: No Desktop Required
+
+This method also works on a machine without a graphical desktop, including over SSH with the card reader attached to that machine.
+
+1. Extract the downloaded image if you have not already done so. Replace the example path with your downloaded `.img.xz` file. `--keep` preserves the compressed download.
+
+   ```bash
+   sudo apt update
+   sudo apt install xz-utils
+   xz --decompress --keep "/path/to/tezsign.img.xz"
+   ```
+
+   Continue only when extraction succeeds. The next steps use the resulting `.img` file, not the compressed `.img.xz` file.
+
+2. Run this command before inserting the card, then again after inserting it. Identify the newly appearing card by its size and model:
+
+   ```bash
+   lsblk -p -o NAME,SIZE,MODEL,TYPE,MOUNTPOINTS
+   ```
+
+   The target must be the **whole card**, such as `/dev/sdb` or `/dev/mmcblk0`, not a partition such as `/dev/sdb1` or `/dev/mmcblk0p1`. These are examples only; use the device name shown on your machine. Never select the disk containing your system's `/`, `/boot`, or swap.
+
+3. Unmount each mounted partition on the target card. For example, if a card partition appears as `/dev/sdX1` with a mount point:
+
+   ```bash
+   sudo umount /dev/sdX1
+   ```
+
+   Replace that placeholder with the actual partition name, such as `/dev/mmcblk0p1` for a built-in reader. Repeat for every mounted partition on the card, then run `lsblk` again to confirm that none has a mount point. If a partition is busy, close any file manager or terminal using it and retry; do not flash while it is mounted.
+
+4. Replace both placeholders below: `if=` must point to your extracted image, and `of=` must point to the **whole target card**. Check them before running the command:
+
+   ```bash
+   sudo dd if="/path/to/tezsign.img" of=/dev/sdX bs=4M status=progress conv=fsync,nocreat
+   ```
+
+   `status=progress` displays write progress. `conv=fsync` flushes the write before `dd` finishes, and `nocreat` prevents a mistyped, nonexistent target path from being created as a regular file. `dd` does not ask for confirmation or validate the image after writing.
+
+5. Wait until `dd` returns to the prompt without errors, then run:
+
+   ```bash
+   sync
+   ```
+
+   Wait for `sync` to finish. If the desktop has mounted any card partitions again, unmount them before removing the card. If writing reported an error, do not use the card as a completed flash.
+
+### After Flashing
 
 On Linux, a current TezSign card has three partitions:
 
