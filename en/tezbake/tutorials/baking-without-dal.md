@@ -122,6 +122,8 @@ tezbake node modify --set configuration.additional_key_aliases '["consensus","co
 tezbake upgrade
 ```
 
+After restoring DAL on mainnet, [check the attested and eligible slot counts on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) as new assignments arrive.
+
 ## Run DAL Elsewhere
 
 If your goal is to avoid exposing the same IP address for your L1 node and DAL node, or you want the DAL node on a different host, do not use the no-DAL path.

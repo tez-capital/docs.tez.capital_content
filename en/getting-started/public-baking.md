@@ -156,6 +156,8 @@ Most wallets and services on Tezos pull their baker information from TzKT. If yo
 
 ---
 
+You can share your [Tezos.Systems Baker Signal link](/getting-started/baker-signal/) with delegators so they can check your recent baking, attestation and DAL performance.
+
 ## Related Guides
 
 * [TezPay Setup](/tezpay/tutorials/setup/) - Installation and configuration

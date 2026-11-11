@@ -171,6 +171,8 @@ tezbake register-key
 
 ---
 
+Once your mainnet container is baking, [open Baker Signal on Tezos.Systems](/getting-started/baker-signal/) to check upcoming rights, recent attestations and DAL participation.
+
 ## Related Guides
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard installation guide

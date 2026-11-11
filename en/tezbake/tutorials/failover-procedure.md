@@ -123,7 +123,7 @@ Monitor your baker for the next few blocks:
 tezbake node log baker -f
 ```
 
-You should see attestation and baking activity. Check block explorers to confirm your baker is producing blocks and attestations.
+You should see attestation and baking activity. Once the backup is running, [check Baker Signal on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) for attestations at levels after the switch and for DAL participation as slots become eligible.
 
 ## After Failover
 

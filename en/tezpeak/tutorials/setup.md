@@ -143,6 +143,8 @@ If you're connecting from the same computer, use `http://127.0.0.1:8733` or `htt
 
 ---
 
+Alongside the local TezPeak dashboard, [use Baker Signal on Tezos.Systems](/getting-started/baker-signal/) to plan mainnet maintenance and verify consensus and DAL participation on-chain.
+
 ## What's Next
 
 ✅ **TezPeak is running!** Here are additional things you can do:

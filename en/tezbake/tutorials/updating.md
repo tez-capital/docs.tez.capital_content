@@ -5,6 +5,8 @@ type: docs
 summary: How to update TezBake, Octez binaries, and protocol versions safely
 ---
 
+Before an upgrade that interrupts baking, [check your maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance). Choose an outage long enough for the update and node catch-up.
+
 > **ℹ️ INFO: Quick Reference**
 > ```bash
 > tezbake upgrade                # Upgrade all components (Octez binaries + ami/eli)
@@ -111,6 +113,8 @@ wget -q https://bake.tez.capital/install -O /tmp/install.sh && sudo sh /tmp/inst
 ## What should I do after updating?
 
 After all updates and changes to your Tezos node, always ensure your baking process continues successfully by monitoring its performance on <https://tzkt.io>.
+
+In [Baker Signal](/getting-started/baker-signal/#check-attestation-and-dal), look for attestations at levels after the restart and check DAL as new slots become eligible.
 
 Check your TezBake stack versions to ensure they are up to date:
 

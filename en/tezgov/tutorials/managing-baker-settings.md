@@ -201,6 +201,8 @@ If your baker becomes inactive (e.g., due to missing too many attestations or be
 - Ensure your baking infrastructure is running properly before reactivating
 - Check `tezbake info` to verify your node is synced and baker is operational
 
+Once rights resume, [check your baker’s consensus and DAL participation on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal).
+
 ---
 
 ## Troubleshooting

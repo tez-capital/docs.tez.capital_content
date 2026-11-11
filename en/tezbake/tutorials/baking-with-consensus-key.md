@@ -289,6 +289,8 @@ tezbake start --signer
 
 ---
 
+After the new key activates on mainnet, [check attestation and DAL performance on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) using the registered baker address.
+
 ## Related Guides
 
 * [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/) - Standard setup guide

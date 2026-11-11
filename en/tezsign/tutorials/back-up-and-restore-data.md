@@ -110,6 +110,8 @@ Copy `level2.bin` when it exists as part of the whole folder. Recreating it does
 
 ## Before You Begin
 
+If this is your active mainnet signer, [check for a maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance) before removing its card. Include time to copy the data and bring signing back online.
+
 - Stop baking with this TezSign device before removing its SD card.
 - Disconnect the TezSign device from the baker machine.
 - Take the microSD card out of the Raspberry Pi or Radxa board.

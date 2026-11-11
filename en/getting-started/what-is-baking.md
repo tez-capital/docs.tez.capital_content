@@ -93,7 +93,7 @@ Bakers occasionally produce blocks with a nonce (a random number commitment). If
 
 Baking is **mostly automated** — once your baker is set up and running, it operates on its own. However, you should plan for:
 
-- **Daily:** A quick check that your baker is healthy (1–2 minutes)
+- **Daily:** Check recent attestations and DAL participation in [Baker Signal on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) (1–2 minutes)
 - **Weekly:** Review logs for any missed attestations or alerts
 - **As needed:** Protocol upgrades (usually every 3 months) require updating TezBake
 - **Ongoing:** Monitoring hardware, internet stability, and UPS battery

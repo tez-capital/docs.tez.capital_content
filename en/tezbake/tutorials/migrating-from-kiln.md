@@ -15,6 +15,8 @@ This guide walks you through the migration step by step.
 
 ---
 
+For a planned mainnet migration, [check the maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance) before scheduling the switch from Kiln.
+
 ## Prerequisites
 
 - **Linux or macOS machine** — Ubuntu 22.04+, Debian 12+, or macOS (dedicated hardware recommended for production)
@@ -211,7 +213,7 @@ tezbake node log baker -f
 - [ ] `tezbake info --dal` shows DAL node **running**
 - [ ] Baker is producing attestations (check logs or [TzKT](https://tzkt.io))
 - [ ] No missed slots in the first few cycles after migration
-- [ ] Your baker appears active on [tezos.systems](https://tezos.systems)
+- [ ] [Baker Signal on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) shows fresh attestations after the switch. Check DAL participation as new slots become eligible.
 
 ---
 

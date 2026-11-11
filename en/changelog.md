@@ -13,6 +13,12 @@ A reverse-chronological log of significant changes to Tez Capital tools, the Tez
 
 ## 2026
 
+### Baker Signal on Tezos.Systems
+
+The new [Baker Signal guide](/getting-started/baker-signal/) shows how to find a mainnet maintenance gap and check consensus and DAL participation, with examples by baker domain and address.
+
+---
+
 ### Documentation: Added Remote DAL Recovery Guidance
 
 **What changed:** Added [Baking with DAL](/tezbake/tutorials/baking-with-dal/) as a focused DAL operations page and updated [TezBake Troubleshooting](/tezbake/tutorials/troubleshooting/) with the remote DAL recovery flow after an L1 node rebootstrap.

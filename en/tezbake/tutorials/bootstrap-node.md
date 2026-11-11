@@ -15,6 +15,8 @@ Follow along on Youtube!
 > tezbake start
 > ```
 
+If you are re-bootstrapping an active mainnet baker, [check its upcoming round-0 rights on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance). Allow time for both the snapshot import and catch-up.
+
 ## Prerequisites
 
 - **[TezBake installed and configured](/tezbake/tutorials/baking-on-mainnet/)** — TezBake must already be set up on your machine

@@ -21,6 +21,8 @@ Follow along on Youtube!
 
 TezBake gives you the option to monitor all Tezos node and baking services. TezBake utilizes the journalctl utility included in most Linux distribution to store and manage its logging.  You can extract all logs for a node easily to diagnose any issues. This tutorial will walk you through the process of monitoring your TezBake node.
 
+For a view from the network, [open your baker’s signal on Tezos.Systems](/getting-started/baker-signal/). It shows upcoming maintenance gaps, recent consensus attestations and DAL slot participation. Use the latest attestation level to find the same event in your local logs.
+
 ---
 
 ## Monitor overall TezBake status

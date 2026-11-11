@@ -11,6 +11,8 @@ summary: Set up and use TezPeak to monitor your baker and manage payments throug
 
 TezPeak is a web-based graphical user interface for TezBake and TezPay. It provides a visual dashboard for day-to-day baker monitoring without needing the command line.
 
+For upcoming mainnet baking rights and an external view of your baker’s attestation and DAL performance, see [Baker Signal on Tezos.Systems](/getting-started/baker-signal/).
+
 TezPeak supports using TezBake and TezPay simultaneously or by themselves.
 
 ---

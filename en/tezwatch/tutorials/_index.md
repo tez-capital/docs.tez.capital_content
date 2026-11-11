@@ -11,6 +11,8 @@ summary: Set up baker monitoring and alerts with the TezWatch Discord bot
 
 TezWatch is intended to provide Tezos bakers, stakers and delegators the peace of mind that their baking operations are running smoothly. TezWatch is a bot-based monitoring tool that will notify you of any issues with your baking operations.
 
+For an on-demand view of the same mainnet baker, [check its schedule, attestations and DAL participation on Tezos.Systems](/getting-started/baker-signal/).
+
 TezWatch currently delivers baker alerts through Discord. Support for additional platforms will be documented when those integrations are available.
 
 ---

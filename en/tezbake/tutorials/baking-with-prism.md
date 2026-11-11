@@ -361,6 +361,8 @@ tezbake start
 
 TezBake will initialize all services and Prism tunnels. You should now have a secure, low-latency connection across your baking infrastructure.
 
+On mainnet, [check the baker’s consensus and DAL participation on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) once the Prism tunnels are up.
+
 ---
 
 ## Troubleshooting

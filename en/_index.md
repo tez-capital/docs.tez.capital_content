@@ -9,6 +9,8 @@ Welcome to the **Tez Capital Documentation**. This site provides comprehensive g
 
 **New to baking?** Start with [Getting Started with Baking](/getting-started/) to learn the fundamentals.
 
+**Already baking?** [Use the Baker Signal guide](/getting-started/baker-signal/) to find a maintenance gap and check your baker’s attestation and DAL performance.
+
 ---
 
 <style>

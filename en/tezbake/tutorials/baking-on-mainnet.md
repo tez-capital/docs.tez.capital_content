@@ -588,7 +588,7 @@ As with everything in life, complexity adds more failure points. Only separate t
 
 ✅ **Your baker is running!** Here's what to set up next:
 
-1. [Monitor your baker](/tezbake/tutorials/monitoring-logs-and-status/) — Track sync status and performance
+1. [Check local sync and service status](/tezbake/tutorials/monitoring-logs-and-status/). Use [Baker Signal on Tezos.Systems](/getting-started/baker-signal/) for upcoming maintenance gaps and on-chain attestation and DAL performance.
 2. [Set up TezWatch alerts](/tezwatch/tutorials/setup/) — Get notified about missed attestations
 3. [Configure TezPay](/tezpay/tutorials/setup/) — Automate delegator payouts
 4. [Install TezPeak dashboard](/tezpeak/tutorials/setup/) — Visual monitoring interface

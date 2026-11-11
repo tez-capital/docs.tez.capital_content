@@ -23,6 +23,7 @@ New to Tezos baking? Follow this sequence:
 2. **[Public Baking](public-baking/)** - Delegation, staking, automation, and configuration
 3. **[Best Practices](best-practices/)** - Essential safety and reliability guidelines
 4. **[Slashing Explained](slashing-explained/)** - Understand what can and cannot put stake at risk
+5. **[Baker Signal on Tezos.Systems](/getting-started/baker-signal/)** - Find a maintenance gap and check consensus and DAL participation
 
 **Ready to start baking?** → **[Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/)**
 

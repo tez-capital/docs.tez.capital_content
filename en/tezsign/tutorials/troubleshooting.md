@@ -105,7 +105,7 @@ An older spare is not automatically a useful recovery card: check its image comp
 
 ### Verify Recovery
 
-With only the intended signer connected, confirm the gadget version, expected public addresses, and unlocked key state. Check `tezbake info --signer`, then inspect recent signer logs to ensure the restart loop and probe errors have stopped. Finally, verify successful signing and resumed attestations in the baker logs and on-chain activity. USB enumeration or a successful unlock alone is not proof of resumed baking.
+With only the intended signer connected, confirm the gadget version, expected public addresses, and unlocked key state. Check `tezbake info --signer`, then inspect recent signer logs to ensure the restart loop and probe errors have stopped. Finally, verify successful signing and resumed attestations in the baker logs and [on Tezos.Systems after the restart](/getting-started/baker-signal/#check-attestation-and-dal). USB enumeration or a successful unlock alone is not proof of resumed baking.
 
 If the failure remains, send the team the version evidence, exact error, and bounded logs collected above. Avoid changing key identities, HWM, and backend configuration together while diagnosing a USB connection failure.
 

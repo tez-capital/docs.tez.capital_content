@@ -11,6 +11,8 @@ This is the description of the ideal TezBake hardware setup and best practice fo
 
 Start with the current [Hardware Requirements](/getting-started/hardware-requirements/) when choosing a baking machine.
 
+Before a planned reboot, [check your baker’s maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance). Include time for the node to catch up. Afterward, check Baker Signal for new consensus attestations and DAL slots.
+
 ## Recommended Hardware Setup
 
 * Two computers with equal or equivalent hardware specs *(one optional)*

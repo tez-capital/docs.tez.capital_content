@@ -79,6 +79,8 @@ tezbake info --dal
 
 Setting a target ahead of the chain can temporarily reject signing requests until the chain advances past that target. Check the signer/baker logs and verify resumed attestations; do not lower HWM to remove this expected delay.
 
+Once the chain passes that level, [check Baker Signal on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) for new attestations from the recovered mainnet baker.
+
 ## Failover Example
 
 If a fresh chain check reports level `8000000` and all recorded counters are lower, `8000010` illustrates a target with a ten-level margin. This is an example only. Recalculate for the current chain and the actual device counters before running the commands above.

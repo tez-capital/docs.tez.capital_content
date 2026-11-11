@@ -44,6 +44,8 @@ Possible causes include:
 
 Before assuming something is broken, check the following:
 
+- **Are the misses continuing?** [Check Baker Signal on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal) for recent consensus attestation results and the latest level. The DAL card tracks a separate set of duties.
+
 - **Was it a broader issue?**  
   Look up the block in [TzKT](https://tzkt.io/) and see how many attestations were included.  
   If the block was missing a significant portion of attestations (e.g., 1/3), this is more likely a network or block producer issue than a problem with your setup.

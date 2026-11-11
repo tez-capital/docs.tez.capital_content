@@ -15,6 +15,8 @@ summary: How to update TezSign firmware and application
 
 If you are recovering from a failure after a signer upgrade, first check [Host and Gadget Compatibility](/tezsign/tutorials/troubleshooting/#host-and-gadget-compatibility). The host executable and SD-card image are separate components; `tezbake tezsign version` reports the gadget image. Update an incompatible older gadget before installing a newer host.
 
+Before taking an active mainnet signer offline, [check your baker’s maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance). Include time to reconnect and unlock the signer.
+
 ### Check Image Compatibility
 
 **Check the SD card's partition layout before choosing an update method. The image date alone does not establish updater compatibility.**

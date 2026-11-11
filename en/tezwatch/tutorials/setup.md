@@ -51,6 +51,8 @@ Here are the descriptions of all the key variables you will need to configure to
 >
 > Some TezWatch features are considered premium and will in the future require a subscription. The freemium features indicated as TIER 0 will always be available for free to the Tezos ecosystem.
 
+When a missed-block or missed-attestation alert arrives, [open the baker’s signal on Tezos.Systems](/getting-started/baker-signal/) to review recent consensus results, DAL participation and the next scheduled baking rights.
+
 ### Example
 
 Here's an example command to subscribe to notifications for a missed attestation or missed block for a specific baker:

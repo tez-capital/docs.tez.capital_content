@@ -13,4 +13,6 @@ TezBake CLI is a command line tool for Linux which integrates its function with 
 
 There are 2 ways to bake on Tezos depending on your intention. You can learn how to bake on a testnet with fake tokens or you can bake on mainnet with real tez. Either way TezBake has your back.
 
+Once your mainnet baker is running, use [Baker Signal on Tezos.Systems](/getting-started/baker-signal/) to plan maintenance and check attestation and DAL performance.
+
 ## Tutorials

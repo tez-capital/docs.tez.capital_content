@@ -70,11 +70,7 @@ The `ExecStart` output tells you which endpoint the DAL node is actually using. 
 > curl http://127.0.0.1:8732/chains/main/blocks/head/header
 > ```
 
-After DAL is operational again, check your baker externally at:
-
-```text
-https://tezos.systems/YOUR_TEZOS_DOMAIN_OR_ADDRESS
-```
+After recovery, [check your baker’s DAL participation on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal). As new slots become eligible, confirm the attested count is increasing.
 
 ## Companion Key Check
 

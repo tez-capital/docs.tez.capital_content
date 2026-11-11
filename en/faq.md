@@ -66,7 +66,15 @@ tezbake info
 
 Look for `dal-node` in the output — it should show as running. You can also check on [TzKT](https://tzkt.io) by looking at your recent attestations; DAL attestations are indicated separately from regular attestations.
 
+To see how many eligible DAL slots your baker has attested this cycle, [read the DAL card on Tezos.Systems](/getting-started/baker-signal/#check-attestation-and-dal).
+
 > **ℹ️ INFO:** If DAL was not part of your original TezBake installation, re-run the setup to add it. See [Baking on Mainnet](/tezbake/tutorials/baking-on-mainnet/).
+
+---
+
+### When can I take my baker offline for maintenance?
+
+[Check your baker’s maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance). Select an outage long enough for the work and node catch-up, then recheck the live schedule before stopping. The gap is between round-0 baking rights. Consensus attestations and DAL duties continue during that time.
 
 ---
 
@@ -107,9 +115,11 @@ tezbake info
 This shows whether all services (node, baker, accuser, DAL node, TezSign/Ledger) are running.
 
 To verify your baker is actively participating:
-1. Find your baker address (tz1… or KT1…)
+1. Find your registered baker’s public address
 2. Look it up on [TzKT](https://tzkt.io) or [Baking Bad](https://baking-bad.org)
 3. Check the **Baking** tab for recent blocks baked and attestations submitted
+
+For a single view of recent baking activity, consensus attestations and DAL, [open your baker’s signal on Tezos.Systems](/getting-started/baker-signal/).
 
 You should also set up [TezWatch](/tezwatch/) monitoring so you receive instant alerts if your baker goes offline.
 

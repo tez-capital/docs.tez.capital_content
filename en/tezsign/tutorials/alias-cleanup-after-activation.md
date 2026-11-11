@@ -56,6 +56,8 @@ Expected final state:
 - No local Octez alias named `consensus` remains.
 - The on-chain consensus key is unchanged; only local alias wiring changed.
 
+On mainnet, [check for fresh consensus and DAL attestations in Baker Signal](/getting-started/baker-signal/#check-attestation-and-dal) after applying the alias changes.
+
 The TezSign device/internal key may still be named `consensus`. This cleanup only removes stale local Octez aliases from the node and signer daemon wallets.
 
 ---

@@ -60,7 +60,7 @@ Try these fixes in order:
 
 ## Reset the USB Port
 
-After collecting logs and checking host/gadget compatibility, a USB reset may help an unresponsive device. This interrupts signing; perform it during maintenance:
+After collecting logs and checking host/gadget compatibility, a USB reset may help an unresponsive device. This interrupts signing. On mainnet, [check your baker’s maintenance gap on Tezos.Systems](/getting-started/baker-signal/#plan-maintenance) before a planned reset.
 
 ```bash
 tezbake tezsign advanced usb-port-reset
